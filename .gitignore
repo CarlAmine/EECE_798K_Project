@@ -36,3 +36,9 @@ Thumbs.db
 # Logs
 *.log
 *.mat
+data/
+*.csv
+*.mat
+data/
+*.csv
+*.mat
