@@ -1,0 +1,74 @@
+{
+  "experiment_id": "p5838",
+  "rsfit_summary": {
+    "file_present": false,
+    "file_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\utah_forge\\p5838_RSFit3000.mat",
+    "inspection_status": "missing_local_file",
+    "Dc": null,
+    "a": null,
+    "b": null,
+    "b1": null,
+    "b2": null,
+    "mu0": null,
+    "theta0": null,
+    "notes": "The local workspace does not contain p5838_RSFit3000.mat, so Dc/a/b/mu0/theta0 could not be inspected here."
+  },
+  "datatable_summary": {
+    "raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\utah_forge\\p5838_datatable.mat",
+    "time_column": "time",
+    "tau_column": "tau",
+    "velocity_column": "v_int",
+    "friction_column": "mu",
+    "n_samples": 1856909,
+    "time_start": 10869.0,
+    "time_end": 12729.868,
+    "tau_mean": 13.188022532871488,
+    "tau_std": 1.2243113160567085,
+    "V_mean": 3.499368191770766,
+    "V_std": 16.18856733541061,
+    "preserved_columns": [
+      "displacement",
+      "mu"
+    ]
+  },
+  "theta_reconstruction_attempted": false,
+  "theta_reconstruction_credible": false,
+  "theta_reconstruction_reason": "Dc is not available locally because p5838_RSFit3000.mat is missing from data/utah_forge/.",
+  "reconstructed_theta_csv": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\utah_forge\\reconstructed_theta.csv",
+  "theta_plots_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\utah_forge\\theta_reconstruction_plots",
+  "augmented_model_ran": false,
+  "augmented_model_improved_over_baseline": false,
+  "augmented_model_reason": "The 3D augmented model was not fit because a credible theta(t) reconstruction requires Dc from the RSFit file.",
+  "best_augmented_equations": [],
+  "baseline_reference": {
+    "experiment_id": "p5838",
+    "event_name": "medium",
+    "selected_cycle_label": "medium",
+    "smoothing": "strong",
+    "derivative_method": "savgol",
+    "scaling": "none",
+    "library_degree": 2,
+    "threshold": 0.01,
+    "active_terms_tau": 3,
+    "active_terms_V": 5,
+    "residual_tau": 0.6490204711015312,
+    "residual_V": 0.731540431480163,
+    "rollout_rmse": 7.456044488090703,
+    "rollout_relative_error": 0.47911122514398097,
+    "collapse_tau": false,
+    "collapse_V": false,
+    "interpretable": true,
+    "equations": [
+      "dtau/dt = 6.164e+02*1 - 8.993e+01*tau + 3.280e+00*tau^2",
+      "dV/dt = 1.825e+04*1 - 2.674e+03*tau - 1.431e+00*V + 9.797e+01*tau^2 + 3.894e-02*V^2"
+    ],
+    "library_terms_original": [
+      "1",
+      "tau",
+      "V",
+      "tau^2",
+      "tau*V",
+      "V^2"
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "dataset": {
+    "name": "utah_forge",
+    "label": "Utah FORGE Laboratory Shear Experiments",
+    "source_url": "https://catalog.data.gov/dataset/utah-forge-laboratory-shear-experiments-linking-fault-roughness-friction-permeability-and-",
+    "raw_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\utah_forge",
+    "results_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\utah_forge",
+    "notebooks_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\notebooks\\utah_forge",
+    "preferred_raw_names": [
+      "0_README.txt"
+    ],
+    "raw_globs": [
+      "*_datatable.mat",
+      "*.mat",
+      "*.txt"
+    ],
+    "column_aliases": {
+      "time": [
+        "time",
+        "Time",
+        "t",
+        "seconds"
+      ],
+      "tau": [
+        "tau",
+        "shear stress",
+        "shear_stress"
+      ],
+      "displacement": [
+        "d_int",
+        "displacement",
+        "slip",
+        "u",
+        "shear_displacement",
+        "d_ext"
+      ],
+      "velocity": [
+        "v_int",
+        "velocity",
+        "slip_velocity",
+        "V",
+        "load_point_velocity",
+        "v_ext"
+      ],
+      "friction_coefficient": [
+        "mu",
+        "friction coefficient",
+        "friction_coefficient"
+      ]
+    },
+    "velocity_mode": "measured_or_derived_from_displacement",
+    "smoothing": {
+      "window": 31,
+      "polyorder": 3
+    },
+    "segmentation": {
+      "strategy": "stress_drop_or_displacement_event",
+      "min_cycle_length": 25
+    },
+    "notes": "Mechanical/acoustic time-series are distributed as MATLAB .mat datatables plus a README that defines the variables and units."
+  },
+  "source_url": "https://catalog.data.gov/dataset/utah-forge-laboratory-shear-experiments-linking-fault-roughness-friction-permeability-and-",
+  "raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\utah_forge\\p5838_datatable.mat",
+  "file_format": ".mat",
+  "schema": {
+    "n_samples": 1856909,
+    "n_vars": 5,
+    "columns": [
+      "time",
+      "tau",
+      "v_int",
+      "d_int",
+      "mu"
+    ],
+    "dtypes": {
+      "time": "float64",
+      "tau": "float64",
+      "v_int": "float64",
+      "d_int": "float64",
+      "mu": "float64"
+    },
+    "missing_values": {
+      "time": 0,
+      "tau": 0,
+      "v_int": 0,
+      "d_int": 0,
+      "mu": 0
+    }
+  },
+  "column_mapping": {
+    "time": "time",
+    "tau": "tau",
+    "displacement": "d_int",
+    "velocity": "v_int",
+    "friction_coefficient": "mu"
+  },
+  "available_variables": [
+    "QpA_int",
+    "QpB_int",
+    "QpA_ext",
+    "QpB_ext",
+    "effNS",
+    "d_int",
+    "mu",
+    "compaction_ext",
+    "compaction_int",
+    "sigmaN",
+    "Pc_disp",
+    "Pc",
+    "PpA_disp_ext",
+    "PpA_disp_int",
+    "PpA",
+    "PpB_disp_ext",
+    "PpB_disp_int",
+    "PpB",
+    "Pp_average",
+    "d_ext",
+    "tau",
+    "sync",
+    "time",
+    "v_int",
+    "v_ext",
+    "timeshift",
+    "Amp",
+    "RmsAmp",
+    "maxAmp",
+    "maxFreq",
+    "avg_Amp",
+    "avg_RmsAmp",
+    "avg_timeshift",
+    "v_acoustics",
+    "v_PpA_int",
+    "v_PpB_int",
+    "dP",
+    "Q",
+    "k",
+    "dhdt",
+    "k_corr"
+  ],
+  "raw_table_shape": [
+    1856909.0,
+    41
+  ],
+  "matlab_export": {
+    "source_file": "C:/Users/carla/Desktop/EECE 798K/Project/data/utah_forge/p5838_datatable.mat",
+    "table_name": "p5838",
+    "variable_names": [
+      "QpA_int",
+      "QpB_int",
+      "QpA_ext",
+      "QpB_ext",
+      "effNS",
+      "d_int",
+      "mu",
+      "compaction_ext",
+      "compaction_int",
+      "sigmaN",
+      "Pc_disp",
+      "Pc",
+      "PpA_disp_ext",
+      "PpA_disp_int",
+      "PpA",
+      "PpB_disp_ext",
+      "PpB_disp_int",
+      "PpB",
+      "Pp_average",
+      "d_ext",
+      "tau",
+      "sync",
+      "time",
+      "v_int",
+      "v_ext",
+      "timeshift",
+      "Amp",
+      "RmsAmp",
+      "maxAmp",
+      "maxFreq",
+      "avg_Amp",
+      "avg_RmsAmp",
+      "avg_timeshift",
+      "v_acoustics",
+      "v_PpA_int",
+      "v_PpB_int",
+      "dP",
+      "Q",
+      "k",
+      "dhdt",
+      "k_corr"
+    ],
+    "extracted_columns": [
+      "time",
+      "tau",
+      "v_int",
+      "d_int",
+      "mu"
+    ],
+    "table_shape": [
+      1856909.0,
+      41
+    ],
+    "csv_path": "C:/Users/carla/Desktop/EECE 798K/Project/results/utah_forge/_cache/p5838_datatable_selected_columns.csv"
+  },
+  "velocity_mode": "measured_or_derived_from_displacement",
+  "readme_preview": "This dataset was collected on the biaxial device in the Rock Mechanics laboratory of the Penn State University by AM Eijsink. For details on the experimental procedure and roughness measurement procedure, please see the corresponding manuscript, currently submitted to EPSL. DOI to come.\n\nThe dataset consist of 5 experiments, 2 on gneiss: p5838 and p5848 and 3 on granitoid: p5897, p5905 and p5912. Roughness measurements were collected before the experiments and after the experiments, with the exception of after p5912. Roughness was measured with the Keyence optical profilometer in the Materials Characterization Lab at the Pennsylvania State University.\n\nThere are 3 types of data:\n(1) raw mechanical and analyzed P-wave data matched in time. For raw acoustic data, contact the author (eijsink@psu.edu). There are 5 datasets for 5 experiments, submitted as .mat files with p####_datatable.mat where p#### denotes the experiment number as above. Units and meaning of variables explained below. \n",
+  "analysis_ready": true,
+  "notes": "Mechanical/acoustic time-series are distributed as MATLAB .mat datatables plus a README that defines the variables and units.",
+  "state_definition": {
+    "state_1": "tau (measured shear stress if available)",
+    "state_2": "V (measured velocity or derived from displacement)"
+  }
+}

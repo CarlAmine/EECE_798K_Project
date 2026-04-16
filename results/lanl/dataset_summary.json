@@ -1,0 +1,75 @@
+{
+  "dataset": {
+    "name": "lanl",
+    "label": "LANL Earthquake Prediction",
+    "source_url": "https://www.kaggle.com/competitions/LANL-Earthquake-Prediction",
+    "raw_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\lanl",
+    "results_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl",
+    "notebooks_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\notebooks\\lanl",
+    "preferred_raw_names": [
+      "train.csv",
+      "lanl_train.csvtdunczn5.part"
+    ],
+    "raw_globs": [
+      "*.csv",
+      "*.part"
+    ],
+    "column_aliases": {
+      "time": [
+        "time"
+      ],
+      "acoustic_data": [
+        "acoustic_data"
+      ],
+      "time_to_failure": [
+        "time_to_failure"
+      ],
+      "state_1": [
+        "tau_proxy"
+      ],
+      "state_2": [
+        "V_proxy"
+      ]
+    },
+    "velocity_mode": "proxy_from_smoothed_acoustic_data",
+    "smoothing": {
+      "window": 101,
+      "polyorder": 3
+    },
+    "segmentation": {
+      "strategy": "time_to_failure_reset",
+      "min_cycle_length": 50000
+    },
+    "notes": "Proxy-state dataset. tau_proxy is derived from acoustic_data and V_proxy is derived from the smoothed proxy."
+  },
+  "raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\lanl\\train.csv",
+  "inspection_subset_rows": 200000,
+  "schema": {
+    "n_samples": 200000,
+    "n_vars": 3,
+    "columns": [
+      "time",
+      "acoustic_data",
+      "time_to_failure"
+    ],
+    "dtypes": {
+      "time": "float64",
+      "acoustic_data": "int64",
+      "time_to_failure": "float64"
+    },
+    "missing_values": {
+      "time": 0,
+      "acoustic_data": 0,
+      "time_to_failure": 0
+    }
+  },
+  "reset_indices_preview": [
+    5656574,
+    50085878
+  ],
+  "analysis_ready": true,
+  "state_definition": {
+    "state_1": "tau_proxy (smoothed acoustic_data)",
+    "state_2": "V_proxy (derivative of tau_proxy)"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "dataset": {
+    "name": "pangaea",
+    "label": "PANGAEA 915062",
+    "source_url": "https://doi.org/10.1594/PANGAEA.915062",
+    "raw_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\pangaea",
+    "results_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\pangaea",
+    "notebooks_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\notebooks\\pangaea",
+    "preferred_raw_names": [
+      "PANGAEA.915062.txt",
+      "pangaea_915062.txt",
+      "pangaea_915062.tsv",
+      "pangaea_915062.tab"
+    ],
+    "raw_globs": [
+      "*.txt",
+      "*.tab",
+      "*.tsv",
+      "*.csv"
+    ],
+    "column_aliases": {
+      "time": [
+        "time",
+        "t"
+      ],
+      "tau": [
+        "tau",
+        "shear stress",
+        "shear_stress",
+        "stress",
+        "friction",
+        "mu",
+        "\u03bc",
+        "\u00b5"
+      ],
+      "displacement": [
+        "u",
+        "displacement",
+        "slip",
+        "shear displacement"
+      ],
+      "velocity": [
+        "v",
+        "velocity",
+        "sliding velocity",
+        "slip velocity"
+      ]
+    },
+    "velocity_mode": "measured_or_derived_from_displacement",
+    "smoothing": {
+      "window": 31,
+      "polyorder": 3
+    },
+    "segmentation": {
+      "strategy": "stress_drop_or_peak_based",
+      "min_cycle_length": 25
+    },
+    "notes": "The DOI dataset appears to publish rate-and-state fit outputs rather than raw time-series. Time-series friction analysis requires an additional raw file with time and mechanical variables."
+  },
+  "source_url": "https://doi.org/10.1594/PANGAEA.915062",
+  "raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\pangaea\\301-U1301_velocity_step_test_RSF.tab",
+  "file_format": ".tab",
+  "schema": {
+    "n_samples": 78,
+    "n_vars": 22,
+    "columns": [
+      "Event",
+      "Sample label",
+      "Depth sed [m]",
+      "Exp",
+      "Cond",
+      "Comment",
+      "V init [\u00b5m/s]",
+      "V final [\u00b5m/s]",
+      "Lin term [1/\u00b5m]",
+      "Stiff [1/\u00b5m]",
+      "\u00b50",
+      "a",
+      "b1",
+      "dc1 [\u00b5m]",
+      "b2",
+      "dc2 [\u00b5m]",
+      "a-b",
+      "a std dev [\u00b1]",
+      "b1 std dev [\u00b1]",
+      "dc1 std dev [\u00b1]",
+      "b2 std dev [\u00b1]",
+      "dc2 std dev [\u00b1]"
+    ],
+    "dtypes": {
+      "Event": "str",
+      "Sample label": "str",
+      "Depth sed [m]": "float64",
+      "Exp": "str",
+      "Cond": "str",
+      "Comment": "str",
+      "V init [\u00b5m/s]": "float64",
+      "V final [\u00b5m/s]": "float64",
+      "Lin term [1/\u00b5m]": "float64",
+      "Stiff [1/\u00b5m]": "float64",
+      "\u00b50": "float64",
+      "a": "float64",
+      "b1": "float64",
+      "dc1 [\u00b5m]": "float64",
+      "b2": "float64",
+      "dc2 [\u00b5m]": "float64",
+      "a-b": "float64",
+      "a std dev [\u00b1]": "float64",
+      "b1 std dev [\u00b1]": "float64",
+      "dc1 std dev [\u00b1]": "float64",
+      "b2 std dev [\u00b1]": "float64",
+      "dc2 std dev [\u00b1]": "float64"
+    },
+    "missing_values": {
+      "Event": 0,
+      "Sample label": 0,
+      "Depth sed [m]": 0,
+      "Exp": 0,
+      "Cond": 0,
+      "Comment": 68,
+      "V init [\u00b5m/s]": 2,
+      "V final [\u00b5m/s]": 2,
+      "Lin term [1/\u00b5m]": 10,
+      "Stiff [1/\u00b5m]": 10,
+      "\u00b50": 10,
+      "a": 10,
+      "b1": 10,
+      "dc1 [\u00b5m]": 10,
+      "b2": 40,
+      "dc2 [\u00b5m]": 40,
+      "a-b": 10,
+      "a std dev [\u00b1]": 10,
+      "b1 std dev [\u00b1]": 10,
+      "dc1 std dev [\u00b1]": 10,
+      "b2 std dev [\u00b1]": 40,
+      "dc2 std dev [\u00b1]": 40
+    }
+  },
+  "column_mapping": {
+    "time": null,
+    "tau": null,
+    "displacement": null,
+    "velocity": null
+  },
+  "velocity_mode": "measured_or_derived_from_displacement",
+  "metadata_preview": [
+    "/* DATA DESCRIPTION:",
+    "Citation:\tStanislowski, Katja; Roesner, Alexander; Ikari, Matt J (2022): Rate- and state friction (RSF) parameters obtained from inverse modelling of velocity step test data of marine sediments from IODP Site 301-U1301, Juan de Fuca plate [dataset]. PANGAEA, https://doi.org/10.1594/PANGAEA.940618, ",
+    "\tIn: Stanislowski, K et al. (2022): Friction velocity dependence, cohesion, and XRD data of marine sediments from IODP Site U1301, Juan de Fuca plate [dataset bundled publication]. PANGAEA, https://doi.org/10.1594/PANGAEA.940630",
+    "Keyword(s):\tCascadia Basin; earthquake; fault; Juan de Fuca plate; laboratory friction experiments; subduction zone input",
+    "Related to:\tStanislowski, Katja; Roesner, Alexander; Ikari, Matt J (2022): Implications for megathrust slip behavior and pore pressure at the shallow northern Cascadia subduction zone from laboratory friction experiments. Earth and Planetary Science Letters, 578, 117297, https://doi.org/10.1016/j.epsl.2021.117297",
+    "Project(s):\tIntegrated Ocean Drilling Program / International Ocean Discovery Program (IODP) (URI: https://www.iodp.org/)",
+    "Funding:\tEuropean Research Council (ERC), grant/award no. 714430: Plate-rate experimental deformation: Aseismic, transient or seismic fault slip (URI: https://doi.org/10.3030/714430)",
+    "Coverage:\tMEDIAN LATITUDE: 47.754630 * MEDIAN LONGITUDE: -127.763165 * SOUTH-BOUND LATITUDE: 47.754600 * WEST-BOUND LONGITUDE: -127.763330 * NORTH-BOUND LATITUDE: 47.754660 * EAST-BOUND LONGITUDE: -127.763000",
+    "\tMINIMUM DEPTH, sediment/rock: 64.3 m * MAXIMUM DEPTH, sediment/rock: 259.5 m",
+    "Event(s):\t301-U1301C * LATITUDE: 47.754660 * LONGITUDE: -127.763330 * ELEVATION: -2656.0 m * Recovery: 143.36 m * LOCATION: Juan de Fuca Ridge, North Pacific Ocean * CAMPAIGN: Exp301 (Juan de Fuca Hydrogeology) (URI: https://doi.org/10.2204/iodp.proc.301.2005) * BASIS: Joides Resolution (URI: https://www-odp.tamu.edu:443/resolutn.html) * METHOD/DEVICE: Drilling/drill rig (DRILL) * COMMENT: 19 cores; 166.8 m cored; 85.9 % recovered; 98.5 m drilled; 265.3 m penetrated",
+    "\t301-U1301D * LATITUDE: 47.754600 * LONGITUDE: -127.763000 * Recovery: 42.12 m * LOCATION: Juan de Fuca Ridge, North Pacific Ocean * CAMPAIGN: Exp301 (Juan de Fuca Hydrogeology) (URI: https://doi.org/10.2204/iodp.proc.301.2005) * BASIS: Joides Resolution (URI: https://www-odp.tamu.edu:443/resolutn.html) * METHOD/DEVICE: Drilling/drill rig (DRILL) * COMMENT: 6 cores; 57 m cored; 73.9 % recovered; 120 m drilled; 177 m penetrated",
+    "Parameter(s):\tEvent label (Event) * PI: Stanislowski, Katja (https://orcid.org/0000-0003-1999-9486, k.stanislowski@uni-bremen.de)",
+    "\tSample code/label (Sample label) * PI: Stanislowski, Katja (https://orcid.org/0000-0003-1999-9486, k.stanislowski@uni-bremen.de)",
+    "\tDEPTH, sediment/rock [m] (Depth sed) * GEOCODE * PI: Stanislowski, Katja (https://orcid.org/0000-0003-1999-9486, k.stanislowski@uni-bremen.de) * COMMENT: mbsf",
+    "\tExperiment (Exp) * PI: Stanislowski, Katja (https://orcid.org/0000-0003-1999-9486, k.stanislowski@uni-bremen.de)"
+  ],
+  "analysis_ready": false,
+  "notes": "The DOI dataset appears to publish rate-and-state fit outputs rather than raw time-series. Time-series friction analysis requires an additional raw file with time and mechanical variables.",
+  "state_definition": {
+    "state_1": "tau (measured shear stress if available)",
+    "state_2": "V (measured velocity or derived from displacement)"
+  }
+}

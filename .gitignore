@@ -25,6 +25,7 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+.matlab/
 
 # Data & model files (add exceptions as needed)
 *.csv
@@ -32,6 +33,11 @@ Thumbs.db
 *.pkl
 *.pt
 *.pth
+data/**/*.mat
+data/**/*.tab
+data/**/*.part
+results/**/_cache/
+results/**/_matlab_prefs/
 
 # Logs
 *.log

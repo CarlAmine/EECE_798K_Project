@@ -1,0 +1,17 @@
+{
+  "dataset": "utah_forge",
+  "state_columns": [
+    "tau",
+    "V"
+  ],
+  "state_labels": [
+    "tau",
+    "V"
+  ],
+  "velocity_mode": "measured",
+  "cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\utah_forge\\selected_cycle_001.csv",
+  "selected_segment": [
+    20746,
+    51309
+  ]
+}

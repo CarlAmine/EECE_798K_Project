@@ -1,0 +1,23 @@
+{
+  "reset_indices": [
+    5656574,
+    50085878
+  ],
+  "resolved_subset_rows": 5666574,
+  "segments": [
+    [
+      0,
+      5656574
+    ]
+  ],
+  "segment_summary": {
+    "count": 1,
+    "lengths": [
+      5656574
+    ],
+    "mean_length": 5656574.0,
+    "min_length": 5656574,
+    "max_length": 5656574
+  },
+  "selected_cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\lanl_selected_cycle.csv"
+}

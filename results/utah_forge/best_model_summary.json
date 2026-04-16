@@ -1,0 +1,31 @@
+{
+  "experiment_id": "p5838",
+  "event_name": "medium",
+  "selected_cycle_label": "medium",
+  "smoothing": "strong",
+  "derivative_method": "savgol",
+  "scaling": "none",
+  "library_degree": 2,
+  "threshold": 0.01,
+  "active_terms_tau": 3,
+  "active_terms_V": 5,
+  "residual_tau": 0.6490204711015312,
+  "residual_V": 0.731540431480163,
+  "rollout_rmse": 7.456044488090703,
+  "rollout_relative_error": 0.47911122514398097,
+  "collapse_tau": false,
+  "collapse_V": false,
+  "interpretable": true,
+  "equations": [
+    "dtau/dt = 6.164e+02*1 - 8.993e+01*tau + 3.280e+00*tau^2",
+    "dV/dt = 1.825e+04*1 - 2.674e+03*tau - 1.431e+00*V + 9.797e+01*tau^2 + 3.894e-02*V^2"
+  ],
+  "library_terms_original": [
+    "1",
+    "tau",
+    "V",
+    "tau^2",
+    "tau*V",
+    "V^2"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "dataset": "lanl",
+  "state_columns": [
+    "tau_proxy",
+    "V_proxy"
+  ],
+  "state_labels": [
+    "tau_proxy",
+    "V_proxy"
+  ],
+  "scaling": {
+    "means": {
+      "tau_proxy": 4.5788542077649215,
+      "V_proxy": 1.2145123075213276e-05
+    },
+    "stds": {
+      "tau_proxy": 2.2344452023232413,
+      "V_proxy": 0.07878114371164875
+    }
+  },
+  "poly_degree": 3,
+  "threshold": 1e-06,
+  "max_iter": 15,
+  "library_terms": [
+    "1",
+    "tau_proxy",
+    "V_proxy",
+    "tau_proxy^2",
+    "tau_proxy*V_proxy",
+    "V_proxy^2",
+    "tau_proxy^3",
+    "tau_proxy^2*V_proxy",
+    "tau_proxy*V_proxy^2",
+    "V_proxy^3"
+  ],
+  "equations": [
+    "dtau_proxy/dt = 5.435e-06*1 + 3.526e-02*V_proxy",
+    "dV_proxy/dt = - 6.086e-04*1 - 3.308e-02*tau_proxy + 1.918e-03*V_proxy + 4.380e-05*tau_proxy^2 + 2.192e-04*tau_proxy*V_proxy + 1.256e-03*V_proxy^2 - 7.995e-06*tau_proxy^3 - 6.851e-06*tau_proxy^2*V_proxy - 2.868e-05*tau_proxy*V_proxy^2"
+  ],
+  "relative_error": [
+    7.833553557110997e-16,
+    0.46116114850698997
+  ],
+  "rmse_like": [
+    7.914760748714314e-16,
+    0.46116114850698997
+  ],
+  "rollout_metrics": {
+    "rmse": 0.41431459742094473,
+    "mae": 0.346153064773516,
+    "relative_error": 1.523578007143924
+  },
+  "rollout_plot": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\baseline_rollout.png"
+}

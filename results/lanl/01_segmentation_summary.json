@@ -1,0 +1,26 @@
+{
+  "data_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\train.csv",
+  "initial_subset_rows": 1000000,
+  "resolved_subset_rows": 5666574,
+  "reset_indices": [
+    5656574,
+    50085878
+  ],
+  "detected_resets_in_subset": [
+    5656574
+  ],
+  "segment_count_in_subset": 1,
+  "min_cycle_length": 50000,
+  "true_cycle_range": [
+    5656574,
+    50085878
+  ],
+  "true_cycle_length": 44429304,
+  "legacy_cycle_export_rows": 19996,
+  "legacy_cycle_export_step": 2222,
+  "dense_cycle_export_rows": 99842,
+  "dense_cycle_export_step": 445,
+  "window_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\01_reset_window_processed.csv",
+  "legacy_cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\lanl_cycle_001_legacy.csv",
+  "dense_cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\lanl_cycle_001_downsampled.csv"
+}

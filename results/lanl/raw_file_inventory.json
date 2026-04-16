@@ -1,0 +1,29 @@
+{
+  "dataset": "lanl",
+  "raw_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\lanl",
+  "filenames_found": [
+    "README.md",
+    "lanl_train.csvtdunczn5.part",
+    "lanl_train_cleaned.csv",
+    "lanl_train_processed.csv",
+    "train.csv"
+  ],
+  "file_types_found": [
+    ".csv",
+    ".md",
+    ".part"
+  ],
+  "loader": "load_lanl_train",
+  "loader_status": "ok",
+  "loader_raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\lanl\\train.csv",
+  "parsed_columns": [
+    "time",
+    "acoustic_data",
+    "time_to_failure"
+  ],
+  "available_variables": [
+    "time",
+    "acoustic_data",
+    "time_to_failure"
+  ]
+}

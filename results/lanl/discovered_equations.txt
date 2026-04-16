@@ -1,0 +1,2 @@
+dtau_proxy/dt = 5.435e-06*1 + 3.526e-02*V_proxy
+dV_proxy/dt = - 6.086e-04*1 - 3.308e-02*tau_proxy + 1.918e-03*V_proxy + 4.380e-05*tau_proxy^2 + 2.192e-04*tau_proxy*V_proxy + 1.256e-03*V_proxy^2 - 7.995e-06*tau_proxy^3 - 6.851e-06*tau_proxy^2*V_proxy - 2.868e-05*tau_proxy*V_proxy^2

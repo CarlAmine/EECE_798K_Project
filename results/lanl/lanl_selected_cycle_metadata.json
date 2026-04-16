@@ -1,0 +1,18 @@
+{
+  "dataset": "lanl",
+  "state_columns": [
+    "tau_proxy",
+    "V_proxy"
+  ],
+  "state_labels": [
+    "tau_proxy",
+    "V_proxy"
+  ],
+  "velocity_mode": "derived_proxy",
+  "cycle_step": 445,
+  "cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\lanl_selected_cycle.csv",
+  "selected_cycle_range": [
+    5656574,
+    50085878
+  ]
+}

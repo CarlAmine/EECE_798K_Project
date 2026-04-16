@@ -1,0 +1,174 @@
+{
+  "legacy_cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\lanl_cycle_001_legacy.csv",
+  "improved_cycle_path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\lanl\\lanl_cycle_001_downsampled.csv",
+  "original_model": {
+    "label": "original",
+    "cycle_rows": 19996,
+    "time_step_preview": 2222.0,
+    "standardize": false,
+    "state_means": [
+      4.533906781356271,
+      -2.126051278072661e-08
+    ],
+    "state_stds": [
+      11.207083487873767,
+      2.034856061769494e-05
+    ],
+    "poly_degree": 2,
+    "sparsity_threshold": 0.02,
+    "max_iter": 8,
+    "derivative_window": 51,
+    "derivative_polyorder": 3,
+    "library_terms": [
+      "1",
+      "tau_proxy",
+      "V_proxy",
+      "tau_proxy^2",
+      "tau_proxy*V_proxy",
+      "V_proxy^2"
+    ],
+    "coefficients": [
+      [
+        -1.829803769029377e-07,
+        3.925748425703376e-12
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.8703510921372906,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        -0.04577656778956576,
+        0.0
+      ],
+      [
+        569.6384980705358,
+        0.0
+      ]
+    ],
+    "equations": [
+      "dtau_proxy/dt = - 1.830e-07*1 + 1.870e+00*V_proxy - 4.578e-02*tau_proxy*V_proxy + 5.696e+02*V_proxy^2",
+      "dV_proxy/dt = 3.926e-12*1"
+    ],
+    "rmse": [
+      9.887736040159066e-05,
+      5.080362319861093e-10
+    ],
+    "relative_error": [
+      0.9362502531111455,
+      0.9999701443616583
+    ],
+    "sparse_terms_per_var": [
+      4,
+      1
+    ],
+    "rollout_relative_error": 530.5922432041152,
+    "rollout_rmse": 2347.5933729081967
+  },
+  "improved_model": {
+    "label": "improved",
+    "cycle_rows": 99842,
+    "time_step_preview": 445.0,
+    "standardize": true,
+    "state_means": [
+      4.578904669377617,
+      2.7292411404763203e-08
+    ],
+    "state_stds": [
+      12.508916668688004,
+      0.0001770353914192883
+    ],
+    "poly_degree": 3,
+    "sparsity_threshold": 1e-06,
+    "max_iter": 15,
+    "derivative_window": 101,
+    "derivative_polyorder": 3,
+    "library_terms": [
+      "1",
+      "tau_proxy",
+      "V_proxy",
+      "tau_proxy^2",
+      "tau_proxy*V_proxy",
+      "V_proxy^2",
+      "tau_proxy^3",
+      "tau_proxy^2*V_proxy",
+      "tau_proxy*V_proxy*V_proxy",
+      "V_proxy^3"
+    ],
+    "coefficients": [
+      [
+        2.632284826369649e-09,
+        5.082943867563169e-08
+      ],
+      [
+        0.0,
+        -2.6383208256420384e-05
+      ],
+      [
+        1.8860246641107642e-05,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.927208634383297e-06
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "equations": [
+      "dtau_proxy/dt = 2.632e-09*1 + 1.886e-05*V_proxy",
+      "dV_proxy/dt = 5.083e-08*1 - 2.638e-05*tau_proxy - 1.927e-06*tau_proxy*V_proxy"
+    ],
+    "rmse": [
+      1.4110474885823421e-05,
+      0.00010251278753879812
+    ],
+    "relative_error": [
+      0.5990564702774359,
+      0.9788583145362968
+    ],
+    "sparse_terms_per_var": [
+      2,
+      3
+    ],
+    "rollout_relative_error": 1.1335991718512588,
+    "rollout_rmse": 0.3421669908704053
+  },
+  "comparison": {
+    "relative_error_delta": [
+      -0.3371937828337096,
+      -0.021111829825361528
+    ],
+    "rollout_relative_error_delta": -529.4586440322639,
+    "rollout_rmse_delta": -2347.2512059173264
+  }
+}

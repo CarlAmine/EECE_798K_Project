@@ -1,0 +1,69 @@
+{
+  "dataset": "pangaea",
+  "raw_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\pangaea",
+  "filenames_found": [
+    "301-U1301_velocity_step_test_RSF.tab",
+    "README.md"
+  ],
+  "file_types_found": [
+    ".md",
+    ".tab"
+  ],
+  "loader": "load_pangaea_dataset",
+  "loader_status": "ok",
+  "loader_raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\pangaea\\301-U1301_velocity_step_test_RSF.tab",
+  "parsed_columns": [
+    "Event",
+    "Sample label",
+    "Depth sed [m]",
+    "Exp",
+    "Cond",
+    "Comment",
+    "V init [\u00b5m/s]",
+    "V final [\u00b5m/s]",
+    "Lin term [1/\u00b5m]",
+    "Stiff [1/\u00b5m]",
+    "\u00b50",
+    "a",
+    "b1",
+    "dc1 [\u00b5m]",
+    "b2",
+    "dc2 [\u00b5m]",
+    "a-b",
+    "a std dev [\u00b1]",
+    "b1 std dev [\u00b1]",
+    "dc1 std dev [\u00b1]",
+    "b2 std dev [\u00b1]",
+    "dc2 std dev [\u00b1]"
+  ],
+  "available_variables": [
+    "Event",
+    "Sample label",
+    "Depth sed [m]",
+    "Exp",
+    "Cond",
+    "Comment",
+    "V init [\u00b5m/s]",
+    "V final [\u00b5m/s]",
+    "Lin term [1/\u00b5m]",
+    "Stiff [1/\u00b5m]",
+    "\u00b50",
+    "a",
+    "b1",
+    "dc1 [\u00b5m]",
+    "b2",
+    "dc2 [\u00b5m]",
+    "a-b",
+    "a std dev [\u00b1]",
+    "b1 std dev [\u00b1]",
+    "dc1 std dev [\u00b1]",
+    "b2 std dev [\u00b1]",
+    "dc2 std dev [\u00b1]"
+  ],
+  "column_mapping": {
+    "time": null,
+    "tau": null,
+    "displacement": null,
+    "velocity": null
+  }
+}
