@@ -1,0 +1,8 @@
+Best physics-informed delay-embedded model for Utah FORGE p5838
+smoothing=strong
+derivative_method=savgol
+delta=1
+threshold=0.01
+
+dtau/dt = - 4.017e-01*1 + 2.917e-01*tau_z + 9.417e-04*V
+dV/dt = 6.598e+04*tau_z + 1.211e-01*V - 3.123e+01*logV_z - 6.596e+04*tau_lag_z

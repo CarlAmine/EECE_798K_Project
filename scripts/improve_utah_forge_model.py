@@ -3,9 +3,7 @@ from __future__ import annotations
 import json
 import math
 import sys
-import warnings
 from dataclasses import dataclass
-from itertools import product
 from pathlib import Path
 
 import matplotlib
@@ -14,6 +12,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy.linalg import lstsq
 from scipy.signal import find_peaks
 
 
@@ -21,106 +20,68 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from src.config import UTAH_FORGE_CONFIG
-from src.derivatives import derivative_savgol, estimate_derivatives_df
+from src.derivatives import derivative_savgol, derivative_spline
 from src.io.utah_forge import load_utah_forge_dataset
-from src.preprocess.common import scale_columns, smooth_series
+from src.preprocess.common import smooth_series
 from src.preprocess.utah_forge import build_utah_forge_state
-from src.sindy import SINDyModel, build_polynomial_library, compute_rollout_metrics, rollout_polynomial
 from src.utils.paths import ensure_directory
 
 
-EXPECTED_EXPERIMENT_IDS = ("p5838", "p5848", "p5897", "p5905", "p5912")
-STATE_COLUMNS = ["tau", "V"]
-DIAGNOSTIC_MAX_POINTS = 4_000
-MODEL_MAX_POINTS = 2_500
-PROMINENCE_FACTOR = 0.15
+RAW_FILE = REPO_ROOT / "data" / "utah_forge" / "p5838_datatable.mat"
+RESULTS_DIR = REPO_ROOT / "results" / "utah_forge"
+DERIVATIVE_DIR = RESULTS_DIR / "p5838_derivative_diagnostics"
+ROLLOUT_DIR = RESULTS_DIR / "p5838_delay_rollouts"
+EVENT_DIR = RESULTS_DIR / "p5838_selected_cycles"
+
+SIGNAL_WINDOWS = {"light": 31, "moderate": 61, "strong": 101}
+DERIVATIVE_METHODS = ("savgol", "spline")
+DELTAS = (1, 2, 3, 4, 5)
+THRESHOLDS = (0.01, 0.02, 0.05, 0.1)
+MODEL_MAX_POINTS = 3_000
+MIN_EVENT_POINTS = 1_200
+MAX_SELECTED_EVENTS = 3
+TAU_PEAK_WINDOW = 301
+V_EVENT_WINDOW = 101
 PEAK_DISTANCE = 2_000
-SMOOTHING_LEVELS = {"raw": None, "light": 31, "strong": 151}
-DERIVATIVE_METHODS = ("central", "savgol", "spline")
-SCALING_METHODS = ("none", "zscore", "robust")
-LIBRARY_DEGREES = (1, 2, 3)
-THRESHOLD_GRID = {
-    "none": (1e-6, 1e-4, 1e-2),
-    "zscore": (1e-4, 1e-3, 1e-2),
-    "robust": (1e-4, 1e-3, 1e-2),
-}
+RIDGE_ALPHA = 1e-6
 
 
 @dataclass(frozen=True)
-class EventSelection:
-    label: str
-    experiment_id: str
+class EventCandidate:
     event_id: str
-    csv_path: Path
+    start_idx: int
+    end_idx: int
+    peak_idx: int
+    trough_idx: int
+    tau_drop: float
+    duration_s: float
+    positive_fraction: float
+    velocity_range: float
+    velocity_noise_ratio: float
     score: float
 
 
-def event_cycle_path(label: str) -> Path:
-    return UTAH_FORGE_CONFIG.results_dir / f"selected_cycle_{label}.csv"
-
-
-def ensure_results_layout() -> dict[str, Path]:
-    results_dir = ensure_directory(UTAH_FORGE_CONFIG.results_dir)
-    derivative_dir = ensure_directory(results_dir / "derivative_diagnostics")
-    rollout_dir = ensure_directory(results_dir / "top_model_rollouts")
-    return {
-        "results_dir": results_dir,
-        "derivative_dir": derivative_dir,
-        "rollout_dir": rollout_dir,
-    }
-
-
-def make_experiment_row(experiment_id: str, status: str, raw_file: str | None = None) -> dict:
-    return {
-        "experiment_id": experiment_id,
-        "status": status,
-        "raw_file": raw_file,
-        "event_id": None,
-        "event_index": np.nan,
-        "event_start_idx": np.nan,
-        "event_end_idx": np.nan,
-        "peak_idx": np.nan,
-        "trough_idx": np.nan,
-        "time_start": np.nan,
-        "time_end": np.nan,
-        "peak_time": np.nan,
-        "trough_time": np.nan,
-        "duration_s": np.nan,
-        "n_samples": np.nan,
-        "tau_drop": np.nan,
-        "tau_drop_over_dataset_std": np.nan,
-        "tau_peak": np.nan,
-        "tau_trough": np.nan,
-        "tau_recovery": np.nan,
-        "tau_gradient_peak": np.nan,
-        "V_std": np.nan,
-        "V_range": np.nan,
-        "velocity_consistency_corr": np.nan,
-        "velocity_noise_ratio": np.nan,
-        "gap_fraction": np.nan,
-        "missing_fraction": np.nan,
-        "dt_median": np.nan,
-        "dataset_n_samples": np.nan,
-        "dataset_duration_s": np.nan,
-        "dataset_tau_mean": np.nan,
-        "dataset_tau_std": np.nan,
-        "dataset_V_mean": np.nan,
-        "dataset_V_std": np.nan,
-        "event_quality_score": np.nan,
-    }
+def ensure_layout() -> None:
+    ensure_directory(RESULTS_DIR)
+    ensure_directory(DERIVATIVE_DIR)
+    ensure_directory(ROLLOUT_DIR)
+    ensure_directory(EVENT_DIR)
 
 
 def enforce_monotonic_time(df: pd.DataFrame) -> pd.DataFrame:
     if len(df) <= 1:
-        return df.copy()
+        return df.reset_index(drop=True).copy()
     time = df["time"].to_numpy(dtype=float)
     keep = np.ones(len(df), dtype=bool)
     keep[1:] = np.diff(time) > 0
     return df.loc[keep].reset_index(drop=True).copy()
 
 
-def downsample_event(df: pd.DataFrame, max_points: int) -> pd.DataFrame:
+def remove_invalid_rows(df: pd.DataFrame) -> pd.DataFrame:
+    return df.replace([np.inf, -np.inf], np.nan).dropna().reset_index(drop=True).copy()
+
+
+def downsample_frame(df: pd.DataFrame, max_points: int = MODEL_MAX_POINTS) -> pd.DataFrame:
     if len(df) <= max_points:
         return df.reset_index(drop=True).copy()
     indices = np.linspace(0, len(df) - 1, max_points, dtype=int)
@@ -128,622 +89,851 @@ def downsample_event(df: pd.DataFrame, max_points: int) -> pd.DataFrame:
     return df.iloc[indices].reset_index(drop=True).copy()
 
 
-def smooth_event(df: pd.DataFrame, smoothing_name: str) -> pd.DataFrame:
-    result = df.copy()
-    window = SMOOTHING_LEVELS[smoothing_name]
-    if window is None:
-        return result
-    for column in STATE_COLUMNS:
-        result[column] = smooth_series(result[column].to_numpy(dtype=float), window=window, polyorder=3)
-    return result
+def contiguous_runs(mask: np.ndarray) -> list[tuple[int, int]]:
+    indices = np.flatnonzero(mask)
+    if len(indices) == 0:
+        return []
+    split = np.where(np.diff(indices) > 1)[0]
+    starts = np.concatenate(([indices[0]], indices[split + 1]))
+    ends = np.concatenate((indices[split] + 1, [indices[-1] + 1]))
+    return [(int(start), int(end)) for start, end in zip(starts, ends)]
 
 
-def compute_velocity_from_displacement(df: pd.DataFrame, window: int = 151) -> np.ndarray:
-    displacement = df["displacement"].to_numpy(dtype=float)
-    time = df["time"].to_numpy(dtype=float)
-    return derivative_savgol(displacement, t=time, window=window, polyorder=3) * 1_000.0
+def _safe_quantile(values: np.ndarray, q: float, fallback: float) -> float:
+    if len(values) == 0:
+        return fallback
+    return float(np.quantile(values, q))
 
 
-def correlation(a: np.ndarray, b: np.ndarray) -> float:
-    if len(a) < 3 or len(b) < 3:
-        return float("nan")
-    if not np.isfinite(a).all() or not np.isfinite(b).all():
-        return float("nan")
-    if np.std(a) == 0 or np.std(b) == 0:
-        return float("nan")
-    return float(np.corrcoef(a, b)[0, 1])
+def load_p5838_state() -> tuple[pd.DataFrame, dict]:
+    raw_df, summary = load_utah_forge_dataset(RAW_FILE)
+    state_df, metadata = build_utah_forge_state(raw_df, summary["column_mapping"])
+    state_df = enforce_monotonic_time(remove_invalid_rows(state_df))
+    run_summary = {
+        "raw_file": str(RAW_FILE),
+        "n_rows": int(len(state_df)),
+        "columns": list(state_df.columns),
+        "time_start": float(state_df["time"].iloc[0]),
+        "time_end": float(state_df["time"].iloc[-1]),
+        "tau_mean": float(state_df["tau"].mean()),
+        "tau_std": float(state_df["tau"].std()),
+        "V_min": float(state_df["V"].min()),
+        "V_max": float(state_df["V"].max()),
+        "V_nonpositive_count": int((state_df["V"] <= 0).sum()),
+        "column_mapping": summary["column_mapping"],
+        "preserved_columns": metadata["preserved_columns"],
+    }
+    return state_df, run_summary
 
 
-def rank_0_1(values: pd.Series) -> pd.Series:
-    if values.notna().sum() <= 1:
-        return pd.Series(np.zeros(len(values), dtype=float), index=values.index)
-    return values.rank(method="average", pct=True).fillna(0.0)
-
-
-def compute_event_quality_scores(events_df: pd.DataFrame) -> pd.DataFrame:
-    result = events_df.copy()
-    available_mask = result["status"] == "available_event"
-    available = result.loc[available_mask].copy()
-    if available.empty:
-        result["event_quality_score"] = np.nan
-        return result
-
-    available["tau_drop_score"] = rank_0_1(available["tau_drop"])
-    available["velocity_score"] = rank_0_1(available["V_std"])
-    available["duration_score"] = rank_0_1(np.log10(available["duration_s"].clip(lower=1e-6)))
-    available["consistency_score"] = ((available["velocity_consistency_corr"].clip(-1.0, 1.0) + 1.0) / 2.0).fillna(0.0)
-    available["sharpness_score"] = rank_0_1(available["tau_gradient_peak"])
-    available["noise_penalty"] = rank_0_1(available["velocity_noise_ratio"])
-    available["gap_penalty"] = rank_0_1(available["gap_fraction"])
-    available["event_quality_score"] = (
-        0.35 * available["tau_drop_score"]
-        + 0.18 * available["consistency_score"]
-        + 0.16 * available["velocity_score"]
-        + 0.15 * available["duration_score"]
-        + 0.12 * available["sharpness_score"]
-        - 0.03 * available["noise_penalty"]
-        - 0.01 * available["gap_penalty"]
-    )
-    result.loc[available.index, "event_quality_score"] = available["event_quality_score"]
-    return result
-
-
-def detect_candidate_events(experiment_id: str, state_df: pd.DataFrame) -> list[dict]:
+def detect_clean_cycles(state_df: pd.DataFrame) -> list[EventCandidate]:
     tau = state_df["tau"].to_numpy(dtype=float)
+    velocity = state_df["V"].to_numpy(dtype=float)
     time = state_df["time"].to_numpy(dtype=float)
-    dataset_tau_std = float(np.std(tau))
-    tau_smoothed = smooth_series(tau, window=301, polyorder=3)
-    prominence = PROMINENCE_FACTOR * dataset_tau_std
-    peaks, _ = find_peaks(tau_smoothed, prominence=prominence, distance=PEAK_DISTANCE)
-    troughs, _ = find_peaks(-tau_smoothed, prominence=prominence, distance=PEAK_DISTANCE)
-    velocity_from_displacement = compute_velocity_from_displacement(state_df)
 
-    candidates: list[dict] = []
+    tau_smoothed = smooth_series(tau, window=TAU_PEAK_WINDOW, polyorder=3)
+    velocity_smoothed = smooth_series(velocity, window=V_EVENT_WINDOW, polyorder=3)
+
+    tau_std = float(np.std(tau_smoothed))
+    peaks, _ = find_peaks(tau_smoothed, prominence=max(0.12 * tau_std, 0.1), distance=PEAK_DISTANCE)
+    troughs, _ = find_peaks(-tau_smoothed, prominence=max(0.12 * tau_std, 0.1), distance=PEAK_DISTANCE)
+
+    candidates: list[EventCandidate] = []
+    used_ranges: list[tuple[int, int]] = []
     for event_index, peak_idx in enumerate(peaks):
         future_troughs = troughs[troughs > peak_idx]
         if len(future_troughs) == 0:
             continue
         trough_idx = int(future_troughs[0])
-        tau_drop = float(tau_smoothed[peak_idx] - tau_smoothed[trough_idx])
-        if tau_drop <= 0.2 * dataset_tau_std:
-            continue
-
         previous_troughs = troughs[troughs < peak_idx]
         next_peaks = peaks[peaks > trough_idx]
         previous_trough_idx = int(previous_troughs[-1]) if len(previous_troughs) else 0
         next_peak_idx = int(next_peaks[0]) if len(next_peaks) else len(state_df) - 1
 
-        drop_len = max(peak_idx - previous_trough_idx, trough_idx - peak_idx, 1_500)
-        pre_len = int(min(max(drop_len, 1_500), peak_idx - previous_trough_idx if previous_trough_idx < peak_idx else drop_len))
-        post_len = int(min(max(drop_len, 1_500), next_peak_idx - trough_idx if trough_idx < next_peak_idx else drop_len))
-        start_idx = max(0, peak_idx - pre_len)
-        end_idx = min(len(state_df), trough_idx + post_len)
-        if end_idx - start_idx < 2_500:
+        tau_drop = float(tau_smoothed[peak_idx] - tau_smoothed[trough_idx])
+        if tau_drop < max(0.2 * tau_std, 0.25):
             continue
 
-        event_df = state_df.iloc[start_idx:end_idx].reset_index(drop=True)
-        dt = np.diff(event_df["time"].to_numpy(dtype=float))
-        dt_median = float(np.median(dt)) if len(dt) else float("nan")
-        gap_fraction = float(np.mean(dt > 5.0 * dt_median)) if len(dt) and dt_median > 0 else 0.0
+        search_start = max(previous_trough_idx, peak_idx - 20_000)
+        search_end = min(next_peak_idx, trough_idx + 20_000)
+        local_velocity = velocity_smoothed[search_start:search_end]
+        positive_velocity = local_velocity[local_velocity > 0]
+        if len(positive_velocity) < 100:
+            continue
 
-        event_V = event_df["V"].to_numpy(dtype=float)
-        event_V_smoothed = smooth_series(event_V, window=151, polyorder=3)
-        event_V_from_d = velocity_from_displacement[start_idx:end_idx]
-        event_V_from_d_smoothed = smooth_series(event_V_from_d, window=151, polyorder=3)
-
-        tau_gradient_peak = float(
-            np.nanmax(np.abs(np.gradient(tau_smoothed[start_idx:end_idx], event_df["time"].to_numpy(dtype=float))))
+        high_threshold = max(
+            _safe_quantile(positive_velocity, 0.70, 0.0),
+            float(np.median(positive_velocity) + 0.25 * np.std(positive_velocity)),
+            0.25,
         )
-        tau_recovery = float(tau_smoothed[end_idx - 1] - tau_smoothed[trough_idx])
-        velocity_noise_ratio = float(np.std(event_V - event_V_smoothed) / (np.std(event_V_smoothed) + 1e-12))
+        low_threshold = max(0.35 * high_threshold, _safe_quantile(positive_velocity, 0.30, 0.1), 0.05)
+        burst_runs = contiguous_runs(local_velocity > high_threshold)
+        if not burst_runs:
+            continue
 
-        candidate = make_experiment_row(experiment_id, status="available_event", raw_file=None)
-        candidate.update(
-            {
-                "event_id": f"{experiment_id}_event_{event_index:03d}",
-                "event_index": int(event_index),
-                "event_start_idx": int(start_idx),
-                "event_end_idx": int(end_idx),
-                "peak_idx": int(peak_idx),
-                "trough_idx": int(trough_idx),
-                "time_start": float(time[start_idx]),
-                "time_end": float(time[end_idx - 1]),
-                "peak_time": float(time[peak_idx]),
-                "trough_time": float(time[trough_idx]),
-                "duration_s": float(time[end_idx - 1] - time[start_idx]),
-                "n_samples": int(end_idx - start_idx),
-                "tau_drop": tau_drop,
-                "tau_drop_over_dataset_std": float(tau_drop / (dataset_tau_std + 1e-12)),
-                "tau_peak": float(tau_smoothed[peak_idx]),
-                "tau_trough": float(tau_smoothed[trough_idx]),
-                "tau_recovery": tau_recovery,
-                "tau_gradient_peak": tau_gradient_peak,
-                "V_std": float(np.std(event_V_smoothed)),
-                "V_range": float(np.max(event_V_smoothed) - np.min(event_V_smoothed)),
-                "velocity_consistency_corr": correlation(event_V_smoothed, event_V_from_d_smoothed),
-                "velocity_noise_ratio": velocity_noise_ratio,
-                "gap_fraction": gap_fraction,
-                "missing_fraction": 0.0,
-                "dt_median": dt_median,
-            }
+        reference_slice_start = max(search_start, peak_idx - 2_000)
+        reference_slice_end = min(search_end, trough_idx + 2_000)
+        if reference_slice_end - reference_slice_start < 10:
+            continue
+        reference_idx = int(reference_slice_start + np.argmax(velocity_smoothed[reference_slice_start:reference_slice_end]))
+        scored_runs: list[tuple[float, tuple[int, int]]] = []
+        for run_start, run_end in burst_runs:
+            global_start = search_start + run_start
+            global_end = search_start + run_end
+            midpoint = 0.5 * (global_start + global_end)
+            area = float(np.trapezoid(np.clip(velocity_smoothed[global_start:global_end], 0.0, None)))
+            distance_penalty = abs(midpoint - reference_idx)
+            scored_runs.append((area - 0.05 * distance_penalty, (global_start, global_end)))
+        run_start, run_end = max(scored_runs, key=lambda item: item[0])[1]
+
+        start_idx = run_start
+        while start_idx > search_start and velocity_smoothed[start_idx - 1] > low_threshold:
+            start_idx -= 1
+        end_idx = run_end
+        while end_idx < search_end and velocity_smoothed[end_idx] > low_threshold:
+            end_idx += 1
+
+        start_idx = max(previous_trough_idx, start_idx - 250)
+        end_idx = min(next_peak_idx, end_idx + 250)
+        if end_idx - start_idx < MIN_EVENT_POINTS:
+            continue
+
+        segment_velocity = velocity_smoothed[start_idx:end_idx]
+        segment_raw_velocity = velocity[start_idx:end_idx]
+        positive_fraction = float(np.mean(segment_velocity > 0))
+        if positive_fraction < 0.93:
+            continue
+
+        duration_s = float(time[end_idx - 1] - time[start_idx])
+        velocity_range = float(np.max(segment_velocity) - np.min(segment_velocity))
+        velocity_noise_ratio = float(np.std(segment_raw_velocity - segment_velocity) / (np.std(segment_velocity) + 1e-12))
+        score = float(
+            0.45 * (tau_drop / (tau_std + 1e-12))
+            + 0.30 * positive_fraction
+            + 0.15 * np.clip(np.log10(max(duration_s, 1e-3)) / 2.0, 0.0, 1.5)
+            + 0.10 * np.clip(velocity_range / (np.std(velocity_smoothed) + 1e-12), 0.0, 6.0)
+            - 0.10 * velocity_noise_ratio
         )
-        candidates.append(candidate)
 
+        overlap = False
+        for used_start, used_end in used_ranges:
+            if not (end_idx <= used_start or start_idx >= used_end):
+                overlap = True
+                break
+        if overlap:
+            continue
+
+        used_ranges.append((start_idx, end_idx))
+        candidates.append(
+            EventCandidate(
+                event_id=f"p5838_event_{event_index:03d}",
+                start_idx=int(start_idx),
+                end_idx=int(end_idx),
+                peak_idx=int(peak_idx),
+                trough_idx=int(trough_idx),
+                tau_drop=tau_drop,
+                duration_s=duration_s,
+                positive_fraction=positive_fraction,
+                velocity_range=velocity_range,
+                velocity_noise_ratio=velocity_noise_ratio,
+                score=score,
+            )
+        )
+
+    candidates.sort(key=lambda item: item.score, reverse=True)
     return candidates
 
 
-def select_best_events(events_df: pd.DataFrame) -> dict[str, pd.Series]:
-    available = events_df.loc[events_df["status"] == "available_event"].copy()
-    if available.empty:
-        return {}
-    available = available.sort_values(["event_quality_score", "tau_drop"], ascending=[False, False]).reset_index(drop=True)
-    q1 = float(available["duration_s"].quantile(1.0 / 3.0))
-    q2 = float(available["duration_s"].quantile(2.0 / 3.0))
-    duration_targets = {"short": q1, "medium": float(available["duration_s"].median()), "long": q2}
-    selected: dict[str, pd.Series] = {}
-    used_event_ids: set[str] = set()
-    duration_masks = {
-        "short": available["duration_s"] <= q1,
-        "medium": (available["duration_s"] > q1) & (available["duration_s"] <= q2),
-        "long": available["duration_s"] > q2,
-    }
-    for label, target in duration_targets.items():
-        candidates = available.loc[duration_masks[label] & ~available["event_id"].isin(used_event_ids)].copy()
-        if candidates.empty:
-            candidates = available.loc[~available["event_id"].isin(used_event_ids)].copy()
-        if candidates.empty:
-            break
-        candidates["duration_distance"] = np.abs(candidates["duration_s"] - target)
-        candidates["selection_score"] = candidates["event_quality_score"] - 0.15 * rank_0_1(candidates["duration_distance"])
-        winner = candidates.sort_values(["selection_score", "event_quality_score"], ascending=[False, False]).iloc[0]
-        selected[label] = winner
-        used_event_ids.add(str(winner["event_id"]))
-    return selected
+def save_event_inventory(state_df: pd.DataFrame, candidates: list[EventCandidate]) -> tuple[pd.DataFrame, list[pd.DataFrame]]:
+    rows: list[dict] = []
+    cycle_frames: list[pd.DataFrame] = []
+    short_candidates = [candidate for candidate in candidates if candidate.duration_s <= 5.0]
+    chosen_candidates = short_candidates[:MAX_SELECTED_EVENTS] if len(short_candidates) >= MAX_SELECTED_EVENTS else candidates[:MAX_SELECTED_EVENTS]
+    for candidate in chosen_candidates:
+        cycle = state_df.iloc[candidate.start_idx : candidate.end_idx].reset_index(drop=True).copy()
+        cycle.insert(0, "event_id", candidate.event_id)
+        cycle.to_csv(EVENT_DIR / f"{candidate.event_id}.csv", index=False)
+        cycle_frames.append(cycle)
+        rows.append(
+            {
+                "event_id": candidate.event_id,
+                "start_idx": candidate.start_idx,
+                "end_idx": candidate.end_idx,
+                "peak_idx": candidate.peak_idx,
+                "trough_idx": candidate.trough_idx,
+                "n_samples": int(candidate.end_idx - candidate.start_idx),
+                "duration_s": candidate.duration_s,
+                "tau_drop": candidate.tau_drop,
+                "positive_fraction": candidate.positive_fraction,
+                "velocity_range": candidate.velocity_range,
+                "velocity_noise_ratio": candidate.velocity_noise_ratio,
+                "score": candidate.score,
+            }
+        )
+    event_df = pd.DataFrame(rows).sort_values("score", ascending=False).reset_index(drop=True)
+    event_df.to_csv(RESULTS_DIR / "p5838_physics_informed_event_summary.csv", index=False)
+    return event_df, cycle_frames
 
 
-def save_selected_cycles(selected_rows: dict[str, pd.Series], state_frames: dict[str, pd.DataFrame]) -> list[EventSelection]:
-    saved: list[EventSelection] = []
-    for label, row in selected_rows.items():
-        experiment_id = str(row["experiment_id"])
-        cycle_df = state_frames[experiment_id].iloc[int(row["event_start_idx"]) : int(row["event_end_idx"])].reset_index(drop=True).copy()
-        cycle_df.insert(0, "event_id", str(row["event_id"]))
-        cycle_df.insert(0, "experiment_id", experiment_id)
-        csv_path = event_cycle_path(label)
-        cycle_df.to_csv(csv_path, index=False)
-        saved.append(EventSelection(label, experiment_id, str(row["event_id"]), csv_path, float(row["event_quality_score"])))
-    return saved
+def prepare_cycle(cycle_df: pd.DataFrame, smoothing_name: str, delta: int) -> tuple[pd.DataFrame, dict]:
+    window = SIGNAL_WINDOWS[smoothing_name]
+    working = cycle_df[["time", "tau", "V"]].copy()
+    working = downsample_frame(working, max_points=MODEL_MAX_POINTS)
+    working = enforce_monotonic_time(working)
 
+    tau_smooth = smooth_series(working["tau"].to_numpy(dtype=float), window=window, polyorder=3)
+    v_smooth = smooth_series(working["V"].to_numpy(dtype=float), window=window, polyorder=3)
+    positive_values = v_smooth[v_smooth > 0]
+    velocity_floor = max(_safe_quantile(positive_values, 0.01, 1e-3) * 0.25, 1e-3)
+    v_positive = np.clip(v_smooth, velocity_floor, None)
+    log_v = np.log(v_positive)
 
-def derivative_window_for_level(level: str) -> int:
-    if level == "strong":
-        return 151
-    if level == "light":
-        return 31
-    return 31
+    tau_mean = float(np.mean(tau_smooth))
+    tau_std = float(np.std(tau_smooth))
+    if tau_std == 0 or not np.isfinite(tau_std):
+        tau_std = 1.0
+    log_v_mean = float(np.mean(log_v))
+    log_v_std = float(np.std(log_v))
+    if log_v_std == 0 or not np.isfinite(log_v_std):
+        log_v_std = 1.0
 
-
-def estimate_state_derivatives(df: pd.DataFrame, method: str, smoothing_name: str) -> tuple[dict[str, np.ndarray], dict]:
-    derivative_window = derivative_window_for_level(smoothing_name)
-    derivatives, _ = estimate_derivatives_df(
-        df[["time", *STATE_COLUMNS]].copy(),
-        time_col="time",
-        var_cols=STATE_COLUMNS,
-        method=method,
-        window=derivative_window,
-        polyorder=3,
-        add_to_df=False,
+    prepared = pd.DataFrame(
+        {
+            "time": working["time"].to_numpy(dtype=float),
+            "tau": tau_smooth,
+            "V": v_positive,
+            "logV": log_v,
+            "tau_z": (tau_smooth - tau_mean) / tau_std,
+            "logV_z": (log_v - log_v_mean) / log_v_std,
+        }
     )
-    summary = {
-        "method": method,
+    prepared["tau_lag"] = prepared["tau"].shift(delta)
+    prepared["V_lag"] = prepared["V"].shift(delta)
+    prepared["tau_lag_z"] = prepared["tau_z"].shift(delta)
+    prepared["logV_lag_z"] = prepared["logV_z"].shift(delta)
+    prepared = remove_invalid_rows(prepared)
+    metadata = {
         "smoothing": smoothing_name,
-        "derivative_window": derivative_window,
-        "dtau_std": float(np.std(derivatives["tau"])),
-        "dV_std": float(np.std(derivatives["V"])),
-        "dV_roughness": float(np.std(np.diff(derivatives["V"])) / (np.std(derivatives["V"]) + 1e-12)),
+        "signal_window": window,
+        "delta": int(delta),
+        "velocity_floor": float(velocity_floor),
+        "tau_mean": tau_mean,
+        "tau_std": tau_std,
+        "logV_mean": log_v_mean,
+        "logV_std": log_v_std,
     }
-    return derivatives, summary
+    return prepared.reset_index(drop=True), metadata
 
 
-def plot_derivative_diagnostics(event_name: str, event_df: pd.DataFrame, out_dir: Path) -> list[dict]:
-    diagnostics_rows: list[dict] = []
-    plot_df = downsample_event(event_df, DIAGNOSTIC_MAX_POINTS)
-    for method in DERIVATIVE_METHODS:
-        fig, axes = plt.subplots(len(SMOOTHING_LEVELS), 4, figsize=(18, 11), sharex="col")
-        if len(SMOOTHING_LEVELS) == 1:
+def estimate_derivatives(prepared_df: pd.DataFrame, method: str, smoothing_name: str) -> tuple[np.ndarray, np.ndarray]:
+    time = prepared_df["time"].to_numpy(dtype=float)
+    tau = prepared_df["tau"].to_numpy(dtype=float)
+    velocity = prepared_df["V"].to_numpy(dtype=float)
+    if method == "savgol":
+        window = max(SIGNAL_WINDOWS[smoothing_name], 31)
+        tau_dot = derivative_savgol(tau, t=time, window=window, polyorder=3)
+        velocity_dot = derivative_savgol(velocity, t=time, window=window, polyorder=3)
+    elif method == "spline":
+        tau_dot = derivative_spline(tau, t=time)
+        velocity_dot = derivative_spline(velocity, t=time)
+    else:
+        raise ValueError(f"Unsupported derivative method: {method}")
+    return tau_dot, velocity_dot
+
+
+def save_derivative_diagnostics(selected_cycles: list[pd.DataFrame]) -> pd.DataFrame:
+    rows: list[dict] = []
+    for cycle_df in selected_cycles:
+        event_id = str(cycle_df["event_id"].iloc[0])
+        fig, axes = plt.subplots(len(SIGNAL_WINDOWS), 4, figsize=(18, 10), sharex="col")
+        if len(SIGNAL_WINDOWS) == 1:
             axes = np.array([axes])
-        for row_index, (smoothing_name, _) in enumerate(SMOOTHING_LEVELS.items()):
-            smoothed = smooth_event(plot_df, smoothing_name)
-            derivatives, summary = estimate_state_derivatives(smoothed, method=method, smoothing_name=smoothing_name)
-            diagnostics_rows.append({"event_name": event_name, "derivative_method": method, "smoothing": smoothing_name, **summary})
+        for row_index, smoothing_name in enumerate(SIGNAL_WINDOWS):
+            prepared, metadata = prepare_cycle(cycle_df, smoothing_name=smoothing_name, delta=1)
+            time = prepared["time"].to_numpy(dtype=float) - float(prepared["time"].iloc[0])
+            for method_index, method in enumerate(DERIVATIVE_METHODS):
+                tau_dot, velocity_dot = estimate_derivatives(prepared, method=method, smoothing_name=smoothing_name)
+                rows.append(
+                    {
+                        "event_id": event_id,
+                        "smoothing": smoothing_name,
+                        "method": method,
+                        "signal_window": metadata["signal_window"],
+                        "tau_std": float(np.std(prepared["tau"])),
+                        "V_std": float(np.std(prepared["V"])),
+                        "dtau_std": float(np.std(tau_dot)),
+                        "dV_std": float(np.std(velocity_dot)),
+                        "dV_roughness": float(np.std(np.diff(velocity_dot)) / (np.std(velocity_dot) + 1e-12)),
+                    }
+                )
 
-            time = smoothed["time"].to_numpy(dtype=float) - float(smoothed["time"].iloc[0])
-            axes[row_index, 0].plot(time, smoothed["tau"], linewidth=0.8)
-            axes[row_index, 1].plot(time, smoothed["V"], linewidth=0.8)
-            axes[row_index, 2].plot(time, derivatives["tau"], linewidth=0.8)
-            axes[row_index, 3].plot(time, derivatives["V"], linewidth=0.8)
+                line_width = 0.9 if method_index == 0 else 0.7
+                alpha = 0.95 if method_index == 0 else 0.75
+                label = method
+                axes[row_index, 0].plot(time, prepared["tau"], linewidth=line_width, alpha=alpha, label=label)
+                axes[row_index, 1].plot(time, prepared["V"], linewidth=line_width, alpha=alpha, label=label)
+                axes[row_index, 2].plot(time, tau_dot, linewidth=line_width, alpha=alpha, label=label)
+                axes[row_index, 3].plot(time, velocity_dot, linewidth=line_width, alpha=alpha, label=label)
+
             axes[row_index, 0].set_ylabel(smoothing_name)
             for col in range(4):
                 axes[row_index, col].grid(True, alpha=0.3)
-            axes[row_index, 2].set_title(f"dTau/dt\nstd={summary['dtau_std']:.2e}")
-            axes[row_index, 3].set_title(f"dV/dt\nrough={summary['dV_roughness']:.2f}")
-
+            axes[row_index, 0].legend(loc="upper right", fontsize=8)
         axes[0, 0].set_title("tau")
-        axes[0, 1].set_title("V")
+        axes[0, 1].set_title("V (positive clipped)")
+        axes[0, 2].set_title("dtau/dt")
+        axes[0, 3].set_title("dV/dt")
         for col in range(4):
-            axes[-1, col].set_xlabel("time since event start [s]")
-        fig.suptitle(f"{event_name} derivative diagnostics - {method}", y=0.995)
+            axes[-1, col].set_xlabel("time since cycle start [s]")
+        fig.suptitle(f"{event_id} derivative comparison", y=0.995)
         fig.tight_layout()
-        fig.savefig(out_dir / f"{event_name}__{method}.png", dpi=200, bbox_inches="tight")
+        fig.savefig(DERIVATIVE_DIR / f"{event_id}_derivative_comparison.png", dpi=200, bbox_inches="tight")
         plt.close(fig)
-    return diagnostics_rows
+    diagnostics_df = pd.DataFrame(rows)
+    diagnostics_df.to_csv(RESULTS_DIR / "p5838_derivative_method_comparison.csv", index=False)
+    return diagnostics_df
 
 
-def library_descriptions_for_degree(degree: int) -> list[str]:
-    _, descriptions = build_polynomial_library(np.zeros((1, 2), dtype=float), degree=degree, var_names=STATE_COLUMNS)
-    return descriptions
-
-
-def affine_library_transform(scale_meta: dict, degree: int) -> tuple[np.ndarray, list[str]]:
-    centers = np.array([scale_meta["centers"][column] for column in STATE_COLUMNS], dtype=float)
-    scales = np.array([scale_meta["scales"][column] for column in STATE_COLUMNS], dtype=float)
-    grid = np.array(list(product([-2.0, -1.0, 0.0, 1.0, 2.0], repeat=2)), dtype=float)
-    original_samples = centers + grid * scales
-    scaled_samples = (original_samples - centers) / scales
-    original_library, descriptions = build_polynomial_library(original_samples, degree=degree, var_names=STATE_COLUMNS)
-    scaled_library, _ = build_polynomial_library(scaled_samples, degree=degree, var_names=STATE_COLUMNS)
-    transform, _, _, _ = np.linalg.lstsq(original_library, scaled_library, rcond=None)
-    return transform, descriptions
-
-
-def coefficients_to_original_units(coefficients: np.ndarray, scale_meta: dict, degree: int) -> tuple[np.ndarray, list[str]]:
-    if scale_meta["method"] == "none":
-        return coefficients.copy(), library_descriptions_for_degree(degree)
-    transform, descriptions = affine_library_transform(scale_meta, degree)
-    output_scales = np.array([scale_meta["scales"][column] for column in STATE_COLUMNS], dtype=float)
-    original_coefficients = np.zeros_like(coefficients)
-    for variable_index in range(coefficients.shape[1]):
-        original_coefficients[:, variable_index] = transform @ (output_scales[variable_index] * coefficients[:, variable_index])
-    return original_coefficients, descriptions
-
-
-def equations_from_coefficients(coefficients: np.ndarray, descriptions: list[str]) -> list[str]:
-    model = SINDyModel()
-    model.coefficients = coefficients
-    model.library_descriptions = descriptions
-    return model.equations(STATE_COLUMNS)
-
-
-def predicted_derivative_std(true_values: np.ndarray, predicted_values: np.ndarray) -> float:
-    return float(np.std(predicted_values) / (float(np.std(true_values)) + 1e-12))
-
-
-def fit_sindy_candidate(
-    event_name: str,
-    event_df: pd.DataFrame,
-    smoothing_name: str,
-    derivative_method: str,
-    scaling_name: str,
-    degree: int,
-    threshold: float,
-) -> dict:
-    modeling_df = downsample_event(event_df, MODEL_MAX_POINTS)
-    modeling_df = enforce_monotonic_time(modeling_df)
-    smoothed_df = smooth_event(modeling_df, smoothing_name)
-
-    scaled_df = smoothed_df[["time", *STATE_COLUMNS]].copy()
-    scaled_df, scale_meta = scale_columns(scaled_df, STATE_COLUMNS, method=scaling_name)
-    derivatives, derivative_summary = estimate_state_derivatives(scaled_df, method=derivative_method, smoothing_name=smoothing_name)
-
-    X = scaled_df[STATE_COLUMNS].to_numpy(dtype=float)
-    Xdot = np.column_stack([derivatives[column] for column in STATE_COLUMNS])
-    library, scaled_descriptions = build_polynomial_library(X, degree=degree, var_names=STATE_COLUMNS)
-    condition_number = float(np.linalg.cond(library))
-
-    model = SINDyModel(threshold=threshold, max_iter=15)
-    diagnostics = model.fit(library, Xdot, scaled_descriptions)
-    Xdot_pred = model.predict(library)
-    sparse_terms = (np.abs(model.coefficients) > 0).sum(axis=0)
-    collapse_tau = bool(sparse_terms[0] <= 1 or predicted_derivative_std(Xdot[:, 0], Xdot_pred[:, 0]) < 0.05)
-    collapse_V = bool(sparse_terms[1] <= 1 or predicted_derivative_std(Xdot[:, 1], Xdot_pred[:, 1]) < 0.05)
-
-    original_coefficients, original_descriptions = coefficients_to_original_units(model.coefficients, scale_meta, degree)
-    equations = equations_from_coefficients(original_coefficients, original_descriptions)
-
-    rollout_time = smoothed_df["time"].to_numpy(dtype=float)
-    rollout_time = rollout_time - rollout_time[0]
-    rollout_truth = smoothed_df[STATE_COLUMNS].to_numpy(dtype=float)
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        try:
-            rollout_prediction = rollout_polynomial(
-                original_coefficients,
-                original_descriptions,
-                rollout_truth[0],
-                rollout_time,
-                {"state_1": STATE_COLUMNS[0], "state_2": STATE_COLUMNS[1]},
-            )
-        except Exception:
-            rollout_prediction = np.full_like(rollout_truth, np.nan)
-
-    if np.isfinite(rollout_prediction).all():
-        rollout_metrics = compute_rollout_metrics(rollout_truth, rollout_prediction)
-    else:
-        rollout_metrics = {"rmse": float("inf"), "mae": float("inf"), "relative_error": float("inf")}
-
-    total_sparse_terms = int(diagnostics["total_sparse_terms"])
-    interpretable = bool(not collapse_tau and not collapse_V and total_sparse_terms <= 8 and rollout_metrics["relative_error"] < 1.5)
-    model_score = float(
-        np.mean(diagnostics["residuals"])
-        + rollout_metrics["relative_error"]
-        + 0.05 * total_sparse_terms
-        + 0.2 * int(collapse_tau)
-        + 0.2 * int(collapse_V)
-        + 0.01 * math.log10(max(condition_number, 1.0))
-    )
-
-    return {
-        "event_name": event_name,
-        "smoothing": smoothing_name,
-        "derivative_method": derivative_method,
-        "scaling": scaling_name,
-        "library_degree": int(degree),
-        "threshold": float(threshold),
-        "library_condition": condition_number,
-        "active_terms_tau": int(sparse_terms[0]),
-        "active_terms_V": int(sparse_terms[1]),
-        "total_active_terms": total_sparse_terms,
-        "residual_tau": float(diagnostics["residuals"][0]),
-        "residual_V": float(diagnostics["residuals"][1]),
-        "rollout_rmse": float(rollout_metrics["rmse"]),
-        "rollout_mae": float(rollout_metrics["mae"]),
-        "rollout_relative_error": float(rollout_metrics["relative_error"]),
-        "collapse_tau": collapse_tau,
-        "collapse_V": collapse_V,
-        "interpretable": interpretable,
-        "model_score": model_score,
-        "equation_tau": equations[0],
-        "equation_V": equations[1],
-        "coefficients_original": original_coefficients.tolist(),
-        "library_terms_original": original_descriptions,
-        "time_start": float(smoothed_df["time"].iloc[0]),
-        "time_end": float(smoothed_df["time"].iloc[-1]),
-        "n_model_points": int(len(smoothed_df)),
-        **derivative_summary,
-        "rollout_prediction": rollout_prediction.tolist() if np.isfinite(rollout_prediction).all() else None,
-    }
-
-
-def select_top_models(sweep_df: pd.DataFrame, limit: int = 3) -> pd.DataFrame:
-    finite = sweep_df.replace([np.inf, -np.inf], np.nan).dropna(subset=["model_score", "rollout_relative_error"])
-    if finite.empty:
-        return finite
-    preferred = finite.loc[finite["interpretable"]].copy()
-    if preferred.empty:
-        preferred = finite.copy()
-    preferred = preferred.sort_values(["model_score", "rollout_relative_error", "total_active_terms"], ascending=[True, True, True])
-    preferred = preferred.drop_duplicates(
-        subset=[
-            "selected_cycle_label",
-            "smoothing",
-            "derivative_method",
-            "scaling",
-            "library_degree",
-            "equation_tau",
-            "equation_V",
+def build_libraries(prepared_df: pd.DataFrame) -> tuple[np.ndarray, list[str], np.ndarray, list[str]]:
+    tau_library = np.column_stack(
+        [
+            np.ones(len(prepared_df)),
+            prepared_df["tau_z"].to_numpy(dtype=float),
+            prepared_df["V"].to_numpy(dtype=float),
         ]
     )
-    return preferred.head(limit)
+    tau_terms = ["1", "tau_z", "V"]
 
-
-def make_rollout_plot(event_name: str, event_df: pd.DataFrame, row: pd.Series, out_path: Path) -> None:
-    truth_df = downsample_event(event_df, MODEL_MAX_POINTS)
-    truth_df = enforce_monotonic_time(truth_df)
-    truth_df = smooth_event(truth_df, str(row["smoothing"]))
-    prediction = np.asarray(row["rollout_prediction"], dtype=float)
-    if prediction.shape != (len(truth_df), len(STATE_COLUMNS)):
-        return
-
-    time = truth_df["time"].to_numpy(dtype=float) - float(truth_df["time"].iloc[0])
-    fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True)
-    for axis, column, values in zip(axes, STATE_COLUMNS, prediction.T):
-        axis.plot(time, truth_df[column].to_numpy(dtype=float), label=f"true {column}", linewidth=1.0)
-        axis.plot(time, values, label=f"pred {column}", linewidth=1.0, linestyle="--")
-        axis.set_ylabel(column)
-        axis.grid(True, alpha=0.3)
-        axis.legend(loc="best")
-    axes[0].set_title(
-        f"{event_name} rollout | degree={row['library_degree']} | {row['derivative_method']} | {row['scaling']} | thr={row['threshold']:.1e}"
+    v_library = np.column_stack(
+        [
+            prepared_df["tau_z"].to_numpy(dtype=float),
+            prepared_df["V"].to_numpy(dtype=float),
+            prepared_df["logV_z"].to_numpy(dtype=float),
+            prepared_df["tau_lag_z"].to_numpy(dtype=float),
+        ]
     )
-    axes[-1].set_xlabel("time since event start [s]")
-    fig.tight_layout()
-    fig.savefig(out_path, dpi=200, bbox_inches="tight")
-    plt.close(fig)
+    v_terms = ["tau_z", "V", "logV_z", "tau_lag_z"]
+    return tau_library, tau_terms, v_library, v_terms
 
 
-def write_best_artifacts(best_row: pd.Series, out_dir: Path) -> None:
-    (out_dir / "discovered_equations_best.txt").write_text(
-        f"{best_row['equation_tau']}\n{best_row['equation_V']}\n",
-        encoding="utf-8",
-    )
-    summary = {
-        "experiment_id": best_row["experiment_id"],
-        "event_name": best_row["event_name"],
-        "selected_cycle_label": best_row["selected_cycle_label"],
-        "smoothing": best_row["smoothing"],
-        "derivative_method": best_row["derivative_method"],
-        "scaling": best_row["scaling"],
-        "library_degree": int(best_row["library_degree"]),
-        "threshold": float(best_row["threshold"]),
-        "active_terms_tau": int(best_row["active_terms_tau"]),
-        "active_terms_V": int(best_row["active_terms_V"]),
-        "residual_tau": float(best_row["residual_tau"]),
-        "residual_V": float(best_row["residual_V"]),
-        "rollout_rmse": float(best_row["rollout_rmse"]),
-        "rollout_relative_error": float(best_row["rollout_relative_error"]),
-        "collapse_tau": bool(best_row["collapse_tau"]),
-        "collapse_V": bool(best_row["collapse_V"]),
-        "interpretable": bool(best_row["interpretable"]),
-        "equations": [best_row["equation_tau"], best_row["equation_V"]],
-        "library_terms_original": best_row["library_terms_original"],
-    }
-    (out_dir / "best_model_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+def fit_sparse_equation(
+    library: np.ndarray,
+    target: np.ndarray,
+    terms: list[str],
+    threshold: float,
+    mandatory_terms: set[str] | None = None,
+) -> tuple[np.ndarray, float]:
+    mandatory_terms = mandatory_terms or set()
+    mandatory_mask = np.array([term in mandatory_terms for term in terms], dtype=bool)
+    column_scales = np.linalg.norm(library, axis=0)
+    column_scales[column_scales == 0] = 1.0
+    scaled_library = library / column_scales
+    active = np.ones(len(terms), dtype=bool)
+
+    for _ in range(20):
+        active_library = scaled_library[:, active]
+        if active_library.size == 0:
+            break
+        lhs = np.vstack([active_library, math.sqrt(RIDGE_ALPHA) * np.eye(active_library.shape[1])])
+        rhs = np.concatenate([target, np.zeros(active_library.shape[1])])
+        coeff_active, _, _, _ = lstsq(lhs, rhs)
+        coeff_scaled = np.zeros(len(terms))
+        coeff_scaled[active] = coeff_active
+        small = np.abs(coeff_scaled) < threshold
+        small[mandatory_mask] = False
+        updated_active = ~small
+        if np.array_equal(updated_active, active):
+            active = updated_active
+            break
+        active = updated_active
+
+    active_library = scaled_library[:, active]
+    lhs = np.vstack([active_library, math.sqrt(RIDGE_ALPHA) * np.eye(active_library.shape[1])])
+    rhs = np.concatenate([target, np.zeros(active_library.shape[1])])
+    coeff_active, _, _, _ = lstsq(lhs, rhs)
+    coeff_scaled = np.zeros(len(terms))
+    coeff_scaled[active] = coeff_active
+    coefficients = coeff_scaled / column_scales
+    prediction = library @ coefficients
+    residual = float(np.linalg.norm(target - prediction) / (np.linalg.norm(target) + 1e-12))
+    return coefficients, residual
 
 
-def report_strength(best_row: pd.Series) -> str:
-    if bool(best_row["interpretable"]) and float(best_row["rollout_relative_error"]) < 0.75:
-        return "now scientifically interpretable at baseline level"
-    if bool(best_row["interpretable"]):
-        return "improved but still somewhat weak"
-    return "still weak"
+def active_terms(coefficients: np.ndarray, terms: list[str], tolerance: float = 1e-12) -> list[str]:
+    return [term for term, coefficient in zip(terms, coefficients) if abs(coefficient) > tolerance]
 
 
-def next_bottleneck(best_row: pd.Series) -> str:
-    if float(best_row["rollout_relative_error"]) > 1.0:
-        return "hidden variable theta"
-    if bool(best_row["collapse_tau"]) or bool(best_row["collapse_V"]):
-        return "event selection"
-    if int(best_row["library_degree"]) >= 3 and not bool(best_row["interpretable"]):
-        return "noise / apparatus effects"
-    return "missing nonlinear terms"
-
-
-def write_report(
-    out_dir: Path,
-    available_experiments: list[str],
-    missing_experiments: list[str],
-    selections: dict[str, pd.Series],
-    best_row: pd.Series,
-) -> None:
-    selection_lines = []
-    for label in ("short", "medium", "long"):
-        row = selections.get(label)
-        if row is None:
+def equation_string(name: str, coefficients: np.ndarray, terms: list[str]) -> str:
+    pieces: list[str] = []
+    for term, coefficient in zip(terms, coefficients):
+        if abs(coefficient) <= 1e-12:
             continue
-        selection_lines.append(
-            f"- `{label}`: `{row['event_id']}` from `{row['experiment_id']}` (duration {row['duration_s']:.2f} s, score {row['event_quality_score']:.3f})"
+        sign = "+" if coefficient >= 0 else "-"
+        piece = f"{sign} {abs(coefficient):.3e}*{term}"
+        pieces.append(piece if pieces else piece.lstrip("+ ").strip())
+    if not pieces:
+        return f"d{name}/dt = 0"
+    return f"d{name}/dt = " + " ".join(pieces)
+
+
+def rollout_cycle(
+    prepared_df: pd.DataFrame,
+    delta: int,
+    tau_coefficients: np.ndarray,
+    tau_terms: list[str],
+    v_coefficients: np.ndarray,
+    v_terms: list[str],
+    tau_mean: float,
+    tau_std: float,
+    log_v_mean: float,
+    log_v_std: float,
+) -> tuple[np.ndarray, np.ndarray, dict]:
+    time = prepared_df["time"].to_numpy(dtype=float)
+    tau_true = prepared_df["tau"].to_numpy(dtype=float)
+    v_true = prepared_df["V"].to_numpy(dtype=float)
+    velocity_floor = float(np.min(v_true))
+    tau_std = tau_std or 1.0
+    log_v_std = log_v_std or 1.0
+
+    tau_pred = tau_true.copy()
+    v_pred = v_true.copy()
+    max_tau_allowed = 5.0 * max(float(np.max(np.abs(tau_true))), 1.0)
+    max_v_allowed = 5.0 * max(float(np.max(np.abs(v_true))), 1.0)
+    stable = True
+    for index in range(delta, len(prepared_df) - 1):
+        dt = float(time[index + 1] - time[index])
+        current_tau = tau_pred[index]
+        current_v = max(float(v_pred[index]), velocity_floor)
+        current_tau_z = (current_tau - tau_mean) / tau_std
+        current_log_v_z = (math.log(current_v) - log_v_mean) / log_v_std
+        lag_tau = tau_pred[index - delta]
+        lag_v = max(float(v_pred[index - delta]), velocity_floor)
+        lag_tau_z = (lag_tau - tau_mean) / tau_std
+
+        tau_features = {
+            "1": 1.0,
+            "tau_z": current_tau_z,
+            "V": current_v,
+            "tau_lag_z": lag_tau_z,
+            "V_lag": lag_v,
+        }
+        v_features = {
+            "tau_z": current_tau_z,
+            "V": current_v,
+            "logV_z": current_log_v_z,
+            "tau_z*logV_z": current_tau_z * current_log_v_z,
+            "tau_z*V": current_tau_z * current_v,
+            "tau_lag_z": lag_tau_z,
+            "V_lag": lag_v,
+        }
+        tau_dot = float(sum(coefficient * tau_features[term] for coefficient, term in zip(tau_coefficients, tau_terms)))
+        v_dot = float(sum(coefficient * v_features[term] for coefficient, term in zip(v_coefficients, v_terms)))
+
+        tau_pred[index + 1] = current_tau + dt * tau_dot
+        v_pred[index + 1] = max(current_v + dt * v_dot, velocity_floor)
+        if (
+            not np.isfinite(tau_pred[index + 1])
+            or not np.isfinite(v_pred[index + 1])
+            or abs(tau_pred[index + 1]) > max_tau_allowed
+            or abs(v_pred[index + 1]) > max_v_allowed
+        ):
+            stable = False
+            tau_pred[index + 1 :] = np.nan
+            v_pred[index + 1 :] = np.nan
+            break
+
+    if np.isfinite(tau_pred).all() and np.isfinite(v_pred).all() and stable:
+        tau_rmse = float(np.sqrt(np.mean((tau_pred - tau_true) ** 2)))
+        v_rmse = float(np.sqrt(np.mean((v_pred - v_true) ** 2)))
+        tau_rel = float(np.linalg.norm(tau_pred - tau_true) / (np.linalg.norm(tau_true) + 1e-12))
+        v_rel = float(np.linalg.norm(v_pred - v_true) / (np.linalg.norm(v_true) + 1e-12))
+    else:
+        tau_rmse = float("inf")
+        v_rmse = float("inf")
+        tau_rel = float("inf")
+        v_rel = float("inf")
+        stable = False
+    metrics = {
+        "tau_rmse": tau_rmse,
+        "V_rmse": v_rmse,
+        "tau_relative_error": tau_rel,
+        "V_relative_error": v_rel,
+        "combined_relative_error": 0.5 * (tau_rel + v_rel),
+        "stable": stable,
+    }
+    return tau_pred, v_pred, metrics
+
+
+def fit_configuration(selected_cycles: list[pd.DataFrame], smoothing_name: str, derivative_method: str, delta: int, threshold: float) -> dict:
+    prepared_cycles: list[pd.DataFrame] = []
+    cycle_metadata: list[dict] = []
+    for cycle_df in selected_cycles:
+        prepared_df, metadata = prepare_cycle(cycle_df, smoothing_name=smoothing_name, delta=delta)
+        prepared_cycles.append(prepared_df)
+        cycle_metadata.append(
+            {
+                "event_id": str(cycle_df["event_id"].iloc[0]),
+                "n_points": int(len(prepared_df)),
+                **metadata,
+            }
         )
 
-    report = "\n".join(
+    global_tau = np.concatenate([prepared_df["tau"].to_numpy(dtype=float) for prepared_df in prepared_cycles])
+    global_log_v = np.concatenate([prepared_df["logV"].to_numpy(dtype=float) for prepared_df in prepared_cycles])
+    global_tau_mean = float(np.mean(global_tau))
+    global_tau_std = float(np.std(global_tau))
+    if global_tau_std == 0 or not np.isfinite(global_tau_std):
+        global_tau_std = 1.0
+    global_log_v_mean = float(np.mean(global_log_v))
+    global_log_v_std = float(np.std(global_log_v))
+    if global_log_v_std == 0 or not np.isfinite(global_log_v_std):
+        global_log_v_std = 1.0
+
+    tau_target_parts: list[np.ndarray] = []
+    v_target_parts: list[np.ndarray] = []
+    tau_library_parts: list[np.ndarray] = []
+    v_library_parts: list[np.ndarray] = []
+    scaled_cycles: list[pd.DataFrame] = []
+    tau_terms: list[str] | None = None
+    v_terms: list[str] | None = None
+    for prepared_df in prepared_cycles:
+        scaled_df = prepared_df.copy()
+        scaled_df["tau_z"] = (scaled_df["tau"] - global_tau_mean) / global_tau_std
+        scaled_df["logV_z"] = (scaled_df["logV"] - global_log_v_mean) / global_log_v_std
+        scaled_df["tau_lag_z"] = (scaled_df["tau_lag"] - global_tau_mean) / global_tau_std
+        scaled_cycles.append(scaled_df)
+
+        tau_dot, v_dot = estimate_derivatives(scaled_df, method=derivative_method, smoothing_name=smoothing_name)
+        tau_library, cycle_tau_terms, v_library, cycle_v_terms = build_libraries(scaled_df)
+        tau_terms = cycle_tau_terms
+        v_terms = cycle_v_terms
+        tau_target_parts.append(tau_dot)
+        v_target_parts.append(v_dot)
+        tau_library_parts.append(tau_library)
+        v_library_parts.append(v_library)
+
+    tau_target = np.concatenate(tau_target_parts)
+    v_target = np.concatenate(v_target_parts)
+    tau_library = np.vstack(tau_library_parts)
+    v_library = np.vstack(v_library_parts)
+
+    tau_coefficients, tau_residual = fit_sparse_equation(
+        tau_library,
+        tau_target,
+        tau_terms,
+        threshold=threshold,
+        mandatory_terms={"V"},
+    )
+    v_coefficients, v_residual = fit_sparse_equation(
+        v_library,
+        v_target,
+        v_terms,
+        threshold=threshold,
+        mandatory_terms={"tau_z"},
+    )
+
+    tau_active = active_terms(tau_coefficients, tau_terms)
+    v_active = active_terms(v_coefficients, v_terms)
+    has_tau_v_coupling = "V" in tau_active
+    has_v_tau_coupling = "tau_z" in v_active
+    has_hidden_state_proxy = any(term in v_active for term in ("logV_z", "tau_lag_z", "V_lag"))
+
+    rollout_rows: list[dict] = []
+    stable_all = True
+    for prepared_df, metadata in zip(scaled_cycles, cycle_metadata):
+        tau_pred, v_pred, rollout_metrics = rollout_cycle(
+            prepared_df,
+            delta=delta,
+            tau_coefficients=tau_coefficients,
+            tau_terms=tau_terms,
+            v_coefficients=v_coefficients,
+            v_terms=v_terms,
+            tau_mean=global_tau_mean,
+            tau_std=global_tau_std,
+            log_v_mean=global_log_v_mean,
+            log_v_std=global_log_v_std,
+        )
+        stable_all = stable_all and rollout_metrics["stable"]
+        rollout_rows.append({"event_id": metadata["event_id"], **rollout_metrics, "tau_prediction": tau_pred, "V_prediction": v_pred})
+
+    rollout_error = float(np.mean([row["combined_relative_error"] for row in rollout_rows]))
+    tau_error = float(np.mean([row["tau_relative_error"] for row in rollout_rows]))
+    v_error = float(np.mean([row["V_relative_error"] for row in rollout_rows]))
+    if not np.isfinite(rollout_error):
+        rollout_error = float("inf")
+    if not np.isfinite(tau_error):
+        tau_error = float("inf")
+    if not np.isfinite(v_error):
+        v_error = float("inf")
+    total_terms = len(tau_active) + len(v_active)
+    physical_valid = bool(has_tau_v_coupling and has_v_tau_coupling and has_hidden_state_proxy and stable_all)
+    if np.isfinite(rollout_error):
+        physical_score = (
+            3.0 * float(has_tau_v_coupling)
+            + 3.0 * float(has_v_tau_coupling)
+            + 2.0 * float(has_hidden_state_proxy)
+            + 2.0 * float(stable_all)
+            - 2.0 * rollout_error
+            - 0.15 * total_terms
+        )
+    else:
+        physical_score = -1e6
+
+    return {
+        "smoothing": smoothing_name,
+        "derivative_method": derivative_method,
+        "delta": int(delta),
+        "threshold": float(threshold),
+        "tau_terms_active": tau_active,
+        "V_terms_active": v_active,
+        "tau_equation": equation_string("tau", tau_coefficients, tau_terms),
+        "V_equation": equation_string("V", v_coefficients, v_terms),
+        "tau_coefficients": tau_coefficients.tolist(),
+        "V_coefficients": v_coefficients.tolist(),
+        "tau_terms": tau_terms,
+        "V_terms": v_terms,
+        "tau_residual": float(tau_residual),
+        "V_residual": float(v_residual),
+        "tau_rollout_error": tau_error,
+        "V_rollout_error": v_error,
+        "rollout_error": rollout_error,
+        "stable_all_cycles": stable_all,
+        "has_tau_v_coupling": has_tau_v_coupling,
+        "has_v_tau_coupling": has_v_tau_coupling,
+        "has_hidden_state_proxy": has_hidden_state_proxy,
+        "physical_valid": physical_valid,
+        "physical_score": float(physical_score),
+        "total_terms": int(total_terms),
+        "global_tau_mean": global_tau_mean,
+        "global_tau_std": global_tau_std,
+        "global_logV_mean": global_log_v_mean,
+        "global_logV_std": global_log_v_std,
+        "prepared_cycles": cycle_metadata,
+        "rollouts": rollout_rows,
+    }
+
+
+def save_rollout_plots(best_result: dict, selected_cycles: list[pd.DataFrame]) -> None:
+    for cycle_df in selected_cycles:
+        event_id = str(cycle_df["event_id"].iloc[0])
+        prepared_df, _ = prepare_cycle(cycle_df, smoothing_name=best_result["smoothing"], delta=int(best_result["delta"]))
+        matching_rollout = next(row for row in best_result["rollouts"] if row["event_id"] == event_id)
+        tau_pred = np.asarray(matching_rollout["tau_prediction"], dtype=float)
+        v_pred = np.asarray(matching_rollout["V_prediction"], dtype=float)
+        time = prepared_df["time"].to_numpy(dtype=float) - float(prepared_df["time"].iloc[0])
+
+        fig, axes = plt.subplots(2, 1, figsize=(10, 6), sharex=True)
+        axes[0].plot(time, prepared_df["tau"], label="true", linewidth=1.0)
+        axes[0].plot(time, tau_pred, label="rollout", linewidth=0.9, alpha=0.85)
+        axes[0].set_ylabel("tau")
+        axes[0].grid(True, alpha=0.3)
+        axes[0].legend(loc="upper right")
+
+        axes[1].plot(time, prepared_df["V"], label="true", linewidth=1.0)
+        axes[1].plot(time, v_pred, label="rollout", linewidth=0.9, alpha=0.85)
+        axes[1].set_ylabel("V")
+        axes[1].set_xlabel("time since cycle start [s]")
+        axes[1].grid(True, alpha=0.3)
+        axes[1].legend(loc="upper right")
+
+        fig.suptitle(
+            f"{event_id} rollout | {best_result['derivative_method']} | {best_result['smoothing']} | delta={best_result['delta']}"
+        )
+        fig.tight_layout()
+        fig.savefig(ROLLOUT_DIR / f"{event_id}_rollout.png", dpi=200, bbox_inches="tight")
+        plt.close(fig)
+
+
+def save_best_model_artifacts(best_result: dict, event_df: pd.DataFrame, diagnostics_df: pd.DataFrame, load_summary: dict) -> None:
+    coefficient_rows: list[dict] = []
+    for equation_name, terms_key, coefficients_key in (
+        ("tau", "tau_terms", "tau_coefficients"),
+        ("V", "V_terms", "V_coefficients"),
+    ):
+        for term, coefficient in zip(best_result[terms_key], best_result[coefficients_key]):
+            coefficient_rows.append(
+                {
+                    "equation": equation_name,
+                    "term": term,
+                    "coefficient": float(coefficient),
+                    "active": bool(abs(coefficient) > 1e-12),
+                }
+            )
+    coefficient_df = pd.DataFrame(coefficient_rows)
+    coefficient_df.to_csv(RESULTS_DIR / "p5838_physics_informed_coefficients_best.csv", index=False)
+
+    equations_text = "\n".join(
         [
-            "# Utah FORGE model improvement report",
+            "Best physics-informed delay-embedded model for Utah FORGE p5838",
+            f"smoothing={best_result['smoothing']}",
+            f"derivative_method={best_result['derivative_method']}",
+            f"delta={best_result['delta']}",
+            f"threshold={best_result['threshold']}",
             "",
-            "## Data coverage",
-            f"- Available local experiments: {', '.join(available_experiments) if available_experiments else 'none'}",
-            f"- Missing expected experiments: {', '.join(missing_experiments) if missing_experiments else 'none'}",
-            "",
-            "## Selected modeling events",
-            *selection_lines,
-            "",
-            "## Best current model",
-            f"- Best experiment: `{best_row['experiment_id']}`",
-            f"- Best cycle/event: `{best_row['event_name']}` (`{best_row['selected_cycle_label']}`)",
-            f"- Preprocessing choice: `{best_row['smoothing']}` smoothing",
-            f"- Derivative method: `{best_row['derivative_method']}`",
-            f"- Scaling choice: `{best_row['scaling']}`",
-            f"- Library degree: `{int(best_row['library_degree'])}`",
-            f"- Sparsity threshold: `{float(best_row['threshold']):.1e}`",
-            "- Final discovered equations:",
-            f"  - `{best_row['equation_tau']}`",
-            f"  - `{best_row['equation_V']}`",
-            f"- Interpretation quality: {report_strength(best_row)}",
-            f"- Next bottleneck: {next_bottleneck(best_row)}",
-            "",
-            "## Notes",
-            "- The current local Utah FORGE folder contains only `p5838_datatable.mat`, so the cross-experiment comparison is limited to the locally available raw file set.",
-            "- The best equations are written in physical `tau` and `V` coordinates after converting the fitted scaled model back into original units.",
+            best_result["tau_equation"],
+            best_result["V_equation"],
         ]
     )
-    (out_dir / "model_improvement_report.md").write_text(report + "\n", encoding="utf-8")
+    (RESULTS_DIR / "p5838_physics_informed_equations.txt").write_text(equations_text, encoding="utf-8")
+
+    summary_payload = {
+        "dataset": "utah_forge",
+        "experiment_id": "p5838",
+        "raw_summary": load_summary,
+        "selected_cycles": event_df.to_dict(orient="records"),
+        "best_model": {
+            key: value
+            for key, value in best_result.items()
+            if key not in {"rollouts", "tau_coefficients", "V_coefficients"}
+        },
+        "success": bool(best_result["physical_valid"]),
+        "success_criteria": {
+            "tau_dot_includes_V": bool(best_result["has_tau_v_coupling"]),
+            "V_dot_includes_tau": bool(best_result["has_v_tau_coupling"]),
+            "V_dot_includes_log_or_delay": bool(best_result["has_hidden_state_proxy"]),
+            "stable_rollout_multiple_cycles": bool(best_result["stable_all_cycles"]),
+        },
+        "derivative_diagnostics_rows": int(len(diagnostics_df)),
+        "artifacts": {
+            "equations": str(RESULTS_DIR / "p5838_physics_informed_equations.txt"),
+            "coefficients": str(RESULTS_DIR / "p5838_physics_informed_coefficients_best.csv"),
+            "diagnostics": str(RESULTS_DIR / "p5838_derivative_method_comparison.csv"),
+            "rollouts_dir": str(ROLLOUT_DIR),
+        },
+    }
+    (RESULTS_DIR / "p5838_physics_informed_summary.json").write_text(json.dumps(summary_payload, indent=2), encoding="utf-8")
+
+    report_lines = [
+        "# Utah FORGE p5838 physics-informed SINDy report",
+        "",
+        "## Best configuration",
+        f"- Smoothing: `{best_result['smoothing']}`",
+        f"- Derivative method: `{best_result['derivative_method']}`",
+        f"- Delay delta: `{best_result['delta']}` samples",
+        f"- Sparsity threshold: `{best_result['threshold']}`",
+        "",
+        "## Recovered equations",
+        f"- `{best_result['tau_equation']}`",
+        f"- `{best_result['V_equation']}`",
+        "",
+        "## Success criteria",
+        f"- `tau_dot` includes `V`: `{best_result['has_tau_v_coupling']}`",
+        f"- `V_dot` includes `tau`: `{best_result['has_v_tau_coupling']}`",
+        f"- `V_dot` includes `log(V)` or delayed terms: `{best_result['has_hidden_state_proxy']}`",
+        f"- Stable rollout across selected cycles: `{best_result['stable_all_cycles']}`",
+        f"- Pipeline successful under requested criteria: `{best_result['physical_valid']}`",
+        "",
+        "## Errors",
+        f"- `tau` residual: `{best_result['tau_residual']:.4f}`",
+        f"- `V` residual: `{best_result['V_residual']:.4f}`",
+        f"- Mean rollout relative error: `{best_result['rollout_error']:.4f}`",
+        "",
+        "## Notes",
+        "- `tau_z` and `logV_z` denote zero-mean, unit-variance transformed variables used for conditioning.",
+        "- Delay terms are sample delays over the downsampled cycle grid and serve as hidden-state surrogates for missing rate-and-state memory.",
+        "- Rollouts are evaluated on multiple selected clean cycles using the same fitted model.",
+    ]
+    (RESULTS_DIR / "p5838_physics_informed_report.md").write_text("\n".join(report_lines), encoding="utf-8")
 
 
 def main() -> None:
-    layout = ensure_results_layout()
-    for old_plot in layout["rollout_dir"].glob("*.png"):
-        old_plot.unlink()
-    event_rows: list[dict] = []
-    state_frames: dict[str, pd.DataFrame] = {}
-    available_experiments: list[str] = []
-    missing_experiments: list[str] = []
+    ensure_layout()
+    state_df, load_summary = load_p5838_state()
+    candidates = detect_clean_cycles(state_df)
+    if not candidates:
+        raise RuntimeError("No clean p5838 stick-slip cycles were detected with positive-slip windows.")
 
-    for experiment_id in EXPECTED_EXPERIMENT_IDS:
-        file_path = UTAH_FORGE_CONFIG.raw_dir / f"{experiment_id}_datatable.mat"
-        if not file_path.exists():
-            event_rows.append(make_experiment_row(experiment_id, status="missing_local_file"))
-            missing_experiments.append(experiment_id)
-            continue
+    event_df, selected_cycles = save_event_inventory(state_df, candidates)
+    if len(selected_cycles) < 2:
+        raise RuntimeError("At least two clean p5838 cycles are required for multi-cycle stability assessment.")
 
-        raw_df, load_summary = load_utah_forge_dataset(file_path)
-        state_df, _ = build_utah_forge_state(raw_df, load_summary["column_mapping"])
-        state_df = enforce_monotonic_time(state_df)
-        state_frames[experiment_id] = state_df
-        available_experiments.append(experiment_id)
+    diagnostics_df = save_derivative_diagnostics(selected_cycles)
 
-        dataset_row = make_experiment_row(experiment_id, status="available_experiment", raw_file=str(file_path))
-        dataset_row.update(
+    model_rows: list[dict] = []
+    best_result: dict | None = None
+    for smoothing_name in SIGNAL_WINDOWS:
+        for derivative_method in DERIVATIVE_METHODS:
+            for delta in DELTAS:
+                for threshold in THRESHOLDS:
+                    result = fit_configuration(
+                        selected_cycles=selected_cycles,
+                        smoothing_name=smoothing_name,
+                        derivative_method=derivative_method,
+                        delta=delta,
+                        threshold=threshold,
+                    )
+                    model_rows.append(
+                        {
+                            "smoothing": result["smoothing"],
+                            "derivative_method": result["derivative_method"],
+                            "delta": result["delta"],
+                            "threshold": result["threshold"],
+                            "tau_terms_active": "|".join(result["tau_terms_active"]),
+                            "V_terms_active": "|".join(result["V_terms_active"]),
+                            "tau_residual": result["tau_residual"],
+                            "V_residual": result["V_residual"],
+                            "tau_rollout_error": result["tau_rollout_error"],
+                            "V_rollout_error": result["V_rollout_error"],
+                            "rollout_error": result["rollout_error"],
+                            "stable_all_cycles": result["stable_all_cycles"],
+                            "has_tau_v_coupling": result["has_tau_v_coupling"],
+                            "has_v_tau_coupling": result["has_v_tau_coupling"],
+                            "has_hidden_state_proxy": result["has_hidden_state_proxy"],
+                            "physical_valid": result["physical_valid"],
+                            "physical_score": result["physical_score"],
+                            "total_terms": result["total_terms"],
+                            "tau_equation": result["tau_equation"],
+                            "V_equation": result["V_equation"],
+                        }
+                    )
+                    if best_result is None:
+                        best_result = result
+                        continue
+                    current_key = (
+                        int(result["physical_valid"]),
+                        int(result["stable_all_cycles"]),
+                        result["physical_score"],
+                        -result["rollout_error"],
+                        -result["total_terms"],
+                    )
+                    best_key = (
+                        int(best_result["physical_valid"]),
+                        int(best_result["stable_all_cycles"]),
+                        best_result["physical_score"],
+                        -best_result["rollout_error"],
+                        -best_result["total_terms"],
+                    )
+                    if current_key > best_key:
+                        best_result = result
+
+    sweep_df = pd.DataFrame(model_rows).sort_values(
+        ["physical_valid", "stable_all_cycles", "physical_score", "rollout_error", "total_terms"],
+        ascending=[False, False, False, True, True],
+    )
+    sweep_df.to_csv(RESULTS_DIR / "p5838_physics_informed_model_results.csv", index=False)
+
+    if best_result is None:
+        raise RuntimeError("No model results were produced for p5838.")
+
+    save_rollout_plots(best_result, selected_cycles)
+    save_best_model_artifacts(best_result, event_df, diagnostics_df, load_summary)
+
+    print(
+        json.dumps(
             {
-                "dataset_n_samples": int(len(state_df)),
-                "dataset_duration_s": float(state_df["time"].iloc[-1] - state_df["time"].iloc[0]),
-                "dataset_tau_mean": float(state_df["tau"].mean()),
-                "dataset_tau_std": float(state_df["tau"].std()),
-                "dataset_V_mean": float(state_df["V"].mean()),
-                "dataset_V_std": float(state_df["V"].std()),
-            }
+                "selected_event_ids": list(event_df["event_id"]),
+                "best_physical_valid": bool(best_result["physical_valid"]),
+                "best_smoothing": best_result["smoothing"],
+                "best_derivative_method": best_result["derivative_method"],
+                "best_delta": int(best_result["delta"]),
+                "best_threshold": float(best_result["threshold"]),
+                "best_tau_equation": best_result["tau_equation"],
+                "best_V_equation": best_result["V_equation"],
+                "best_rollout_error": float(best_result["rollout_error"]),
+            },
+            indent=2,
         )
-        event_rows.append(dataset_row)
-        for candidate in detect_candidate_events(experiment_id, state_df):
-            candidate["raw_file"] = str(file_path)
-            candidate["dataset_n_samples"] = int(len(state_df))
-            candidate["dataset_duration_s"] = float(state_df["time"].iloc[-1] - state_df["time"].iloc[0])
-            candidate["dataset_tau_mean"] = float(state_df["tau"].mean())
-            candidate["dataset_tau_std"] = float(state_df["tau"].std())
-            candidate["dataset_V_mean"] = float(state_df["V"].mean())
-            candidate["dataset_V_std"] = float(state_df["V"].std())
-            event_rows.append(candidate)
-
-    event_quality_df = pd.DataFrame(event_rows)
-    event_quality_df = compute_event_quality_scores(event_quality_df)
-    event_quality_df.sort_values(["status", "experiment_id", "event_quality_score", "tau_drop"], ascending=[True, True, False, False], inplace=True, na_position="last")
-    event_quality_df.to_csv(layout["results_dir"] / "event_quality_summary.csv", index=False)
-
-    selections = select_best_events(event_quality_df)
-    saved_cycles = save_selected_cycles(selections, state_frames)
-    selected_events_by_name = {selection.label: pd.read_csv(selection.csv_path) for selection in saved_cycles}
-
-    derivative_rows: list[dict] = []
-    for label, event_df in selected_events_by_name.items():
-        derivative_rows.extend(plot_derivative_diagnostics(label, event_df, layout["derivative_dir"]))
-    pd.DataFrame(derivative_rows).to_csv(layout["results_dir"] / "derivative_diagnostics_summary.csv", index=False)
-
-    sweep_rows: list[dict] = []
-    for label, event_df in selected_events_by_name.items():
-        for smoothing_name, derivative_method, scaling_name, degree in product(
-            SMOOTHING_LEVELS.keys(), DERIVATIVE_METHODS, SCALING_METHODS, LIBRARY_DEGREES
-        ):
-            for threshold in THRESHOLD_GRID[scaling_name]:
-                row = fit_sindy_candidate(label, event_df, smoothing_name, derivative_method, scaling_name, degree, threshold)
-                selected_row = selections[label]
-                row["experiment_id"] = selected_row["experiment_id"]
-                row["event_id"] = selected_row["event_id"]
-                row["selected_cycle_label"] = label
-                sweep_rows.append(row)
-
-    sweep_df = pd.DataFrame(sweep_rows)
-    sweep_df.sort_values(["model_score", "rollout_relative_error"], inplace=True)
-    sweep_df.to_csv(layout["results_dir"] / "sindy_sweep_results.csv", index=False)
-
-    top_models = select_top_models(sweep_df, limit=3)
-    for rank, (_, row) in enumerate(top_models.iterrows(), start=1):
-        out_path = layout["rollout_dir"] / (
-            f"rank_{rank:02d}__{row['selected_cycle_label']}__{row['smoothing']}__{row['derivative_method']}__{row['scaling']}__deg{int(row['library_degree'])}.png"
-        )
-        make_rollout_plot(str(row["selected_cycle_label"]), selected_events_by_name[str(row["selected_cycle_label"])], row, out_path)
-
-    if top_models.empty:
-        raise RuntimeError("No Utah FORGE models completed successfully.")
-
-    best_row = top_models.iloc[0]
-    write_best_artifacts(best_row, layout["results_dir"])
-    write_report(layout["results_dir"], available_experiments, missing_experiments, selections, best_row)
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,2 @@
+dtau/dt = - 2.590e-02*1 + 3.470e-04*V + 8.961e-03*V_drive_minus_V
+dV/dt = 1.082e+03*tau - 2.120e-01*V + 8.588e+01*logV - 2.598e+00*tau*logV - 5.354e+02*tau_avg - 5.539e+02*tau_ema - 2.586e-01*S

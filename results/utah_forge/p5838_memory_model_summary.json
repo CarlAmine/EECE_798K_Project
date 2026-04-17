@@ -1,0 +1,208 @@
+{
+  "train_steps": [
+    "p5838_step3",
+    "p5838_step8",
+    "p5838_step9",
+    "p5838_step4",
+    "p5838_step5",
+    "p5838_step10"
+  ],
+  "holdout_steps": [
+    "p5838_step2",
+    "p5838_step7"
+  ],
+  "best_model": {
+    "smoothing": "moderate",
+    "derivative_method": "spline",
+    "threshold": 0.002,
+    "memory_window": 20,
+    "ema_span": 20,
+    "include_optional_avgs": false,
+    "tau_terms_active": "1|V|V_drive_minus_V",
+    "V_terms_active": "tau|V|logV|tau*logV|tau_avg|tau_ema|S",
+    "tau_residual": 0.9436789627974355,
+    "V_residual": 0.92648394284709,
+    "train_rollout_error": 0.7263693298782653,
+    "holdout_rollout_error": 0.439187637238193,
+    "mean_holdout_divergence_s": 13.865999999999985,
+    "stable_train": true,
+    "stable_holdout": true,
+    "has_logv": true,
+    "has_memory_feature": true,
+    "tau_primary_ratio": 0.00985529780513998,
+    "has_cancellation": false,
+    "cancellation_ratio": 0.5106817135875888,
+    "long_divergence_improved": true,
+    "physical_valid": false,
+    "score": 13.183269676766605,
+    "total_terms": 10,
+    "tau_equation": "dtau/dt = - 2.590e-02*1 + 3.470e-04*V + 8.961e-03*V_drive_minus_V",
+    "V_equation": "dV/dt = 1.082e+03*tau - 2.120e-01*V + 8.588e+01*logV - 2.598e+00*tau*logV - 5.354e+02*tau_avg - 5.539e+02*tau_ema - 2.586e-01*S"
+  },
+  "tau_terms": [
+    "1",
+    "V",
+    "V_drive_minus_V"
+  ],
+  "V_terms": [
+    "tau",
+    "V",
+    "logV",
+    "tau*logV",
+    "tau_avg",
+    "tau_ema",
+    "S"
+  ],
+  "tau_coefficients": [
+    -0.02590098819068561,
+    0.0003469970672768384,
+    0.00896120619701404
+  ],
+  "V_coefficients": [
+    1081.6436785572287,
+    -0.21200155565587436,
+    85.88150369737893,
+    -2.598067835083864,
+    -535.4426412848858,
+    -553.9449878323964,
+    -0.2585661621191066
+  ],
+  "long_rollout_rows": [
+    {
+      "step_name": "p5838_step2",
+      "stable": true,
+      "tau_relative_error": 0.06826729441063706,
+      "V_relative_error": 0.8404911003472364,
+      "rollout_error": 0.45437919737893673,
+      "divergence_time_s": 17.95800000000054
+    },
+    {
+      "step_name": "p5838_step7",
+      "stable": true,
+      "tau_relative_error": 0.07788939458500652,
+      "V_relative_error": 0.7701027596098918,
+      "rollout_error": 0.4239960770974492,
+      "divergence_time_s": 9.773999999999432
+    }
+  ],
+  "theta_alignment_rows": [
+    {
+      "step_name": "p5838_step10",
+      "corr_tau_avg_theta": -0.1197361065958868,
+      "corr_tau_ema_theta": -0.1181784469990444,
+      "corr_slip_theta": -0.6462351589020727,
+      "step_r2": 0.5114251521335026
+    },
+    {
+      "step_name": "p5838_step2",
+      "corr_tau_avg_theta": -0.05077023125922834,
+      "corr_tau_ema_theta": -0.05182150963620065,
+      "corr_slip_theta": -0.23352721050205613,
+      "step_r2": 0.6581873145617272
+    },
+    {
+      "step_name": "p5838_step3",
+      "corr_tau_avg_theta": 0.49813694344313275,
+      "corr_tau_ema_theta": 0.5022866110789289,
+      "corr_slip_theta": -0.619780062421722,
+      "step_r2": 0.5767680686316264
+    },
+    {
+      "step_name": "p5838_step4",
+      "corr_tau_avg_theta": -0.8069856825089278,
+      "corr_tau_ema_theta": -0.8081728760441406,
+      "corr_slip_theta": -0.6628657314755582,
+      "step_r2": 0.8569882524223918
+    },
+    {
+      "step_name": "p5838_step5",
+      "corr_tau_avg_theta": -0.09537129234301796,
+      "corr_tau_ema_theta": -0.09606064573226945,
+      "corr_slip_theta": -0.2986673345229247,
+      "step_r2": 0.6495380469511733
+    },
+    {
+      "step_name": "p5838_step7",
+      "corr_tau_avg_theta": 0.05395753880972733,
+      "corr_tau_ema_theta": 0.05394844172689511,
+      "corr_slip_theta": -0.11614831002363343,
+      "step_r2": 0.5762774536369852
+    },
+    {
+      "step_name": "p5838_step8",
+      "corr_tau_avg_theta": 0.009194633605544948,
+      "corr_tau_ema_theta": 0.009238797525998245,
+      "corr_slip_theta": -0.024257095094856358,
+      "step_r2": 0.8363897459465602
+    },
+    {
+      "step_name": "p5838_step9",
+      "corr_tau_avg_theta": 0.16212104293228102,
+      "corr_tau_ema_theta": 0.1641086774466475,
+      "corr_slip_theta": -0.7688155164556684,
+      "step_r2": 0.8887529334050391
+    }
+  ],
+  "coefficient_stability_rows": [
+    {
+      "equation": "V",
+      "term": "S",
+      "coefficient_mean": 0.042157860816514424,
+      "coefficient_std": 0.7361439806764623
+    },
+    {
+      "equation": "V",
+      "term": "V",
+      "coefficient_mean": -20.84479751216292,
+      "coefficient_std": 14.567814705994222
+    },
+    {
+      "equation": "V",
+      "term": "logV",
+      "coefficient_mean": -1738.8893339231938,
+      "coefficient_std": 1224.285427327955
+    },
+    {
+      "equation": "V",
+      "term": "tau",
+      "coefficient_mean": 121.81728200317758,
+      "coefficient_std": 613.2880880575167
+    },
+    {
+      "equation": "V",
+      "term": "tau*logV",
+      "coefficient_mean": 308.95965647343525,
+      "coefficient_std": 215.20869435759124
+    },
+    {
+      "equation": "V",
+      "term": "tau_avg",
+      "coefficient_mean": -402.9658312905082,
+      "coefficient_std": 242.9856530001496
+    },
+    {
+      "equation": "V",
+      "term": "tau_ema",
+      "coefficient_mean": -395.89636947158743,
+      "coefficient_std": 268.76979453517083
+    },
+    {
+      "equation": "tau",
+      "term": "1",
+      "coefficient_mean": -0.027186642909834694,
+      "coefficient_std": 0.07756521600873842
+    },
+    {
+      "equation": "tau",
+      "term": "V",
+      "coefficient_mean": -0.00010172705836479765,
+      "coefficient_std": 0.0007279002800290825
+    },
+    {
+      "equation": "tau",
+      "term": "V_drive_minus_V",
+      "coefficient_mean": 0.025205634834563968,
+      "coefficient_std": 0.016166191564665245
+    }
+  ]
+}
