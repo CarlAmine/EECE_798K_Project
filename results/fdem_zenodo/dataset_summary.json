@@ -1,0 +1,134 @@
+{
+  "dataset": {
+    "name": "fdem_zenodo",
+    "label": "FDEM Zenodo Granular Fault Simulation",
+    "source_url": "https://zenodo.org/records/7370626",
+    "raw_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo",
+    "results_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\fdem_zenodo",
+    "notebooks_dir": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\notebooks\\fdem_zenodo",
+    "preferred_raw_names": [
+      "p28_data.bin",
+      "submission_function_define.py",
+      "submission_lgbm_model.py",
+      "submisstion_setting.py"
+    ],
+    "raw_globs": [
+      "*.bin",
+      "*.py",
+      "*.csv",
+      "*.parquet",
+      "*.json",
+      "*.md"
+    ],
+    "column_aliases": {
+      "time": [
+        "time",
+        "t"
+      ],
+      "friction_coefficient": [
+        "mu",
+        "friction",
+        "friction_coefficient",
+        "nss"
+      ],
+      "kinetic_energy": [
+        "Ek",
+        "kinetic_energy"
+      ],
+      "cycle_index": [
+        "nss",
+        "cycle_index"
+      ],
+      "layer_thickness": [
+        "h",
+        "layer_thickness"
+      ]
+    },
+    "velocity_mode": "macroscopic_mu_plus_computed_kinetic_energy",
+    "smoothing": {
+      "window": 31,
+      "polyorder": 3
+    },
+    "segmentation": {
+      "strategy": "nss_reset_segmentation",
+      "min_cycle_length": 25
+    },
+    "notes": "This is a simulated granular fault dataset used in the published LightGBM comparison study. The helper scripts use the final binary column as the ground-truth friction-like signal (`nss` / `Friction_coef`). Kinetic energy is computed from the sensor velocity fields because no direct Ek column is exposed in the helper scripts."
+  },
+  "source_url": "https://zenodo.org/records/7370626",
+  "raw_file": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo\\p28_data.bin",
+  "file_format": ".bin",
+  "schema": {
+    "n_samples": 25000,
+    "n_vars": 4,
+    "columns": [
+      "time",
+      "mu",
+      "Ek",
+      "nss"
+    ],
+    "dtypes": {
+      "time": "float64",
+      "mu": "float64",
+      "Ek": "float64",
+      "nss": "float64"
+    },
+    "missing_values": {
+      "time": 0,
+      "mu": 0,
+      "Ek": 0,
+      "nss": 0
+    }
+  },
+  "column_mapping": {
+    "time": "time",
+    "friction_coefficient": "mu",
+    "kinetic_energy": "Ek",
+    "cycle_index": "nss",
+    "layer_thickness": null
+  },
+  "binary_shape": [
+    25000,
+    8814
+  ],
+  "dense_sensor_feature_count": 8812,
+  "helper_summary": {
+    "helper_files": [
+      "submission_function_define.py",
+      "submission_lgbm_model.py",
+      "submisstion_setting.py"
+    ],
+    "binary_shape_hint": {
+      "n_rows": 25000,
+      "n_cols": 8814
+    },
+    "uses_time_and_nss_tail_columns": true,
+    "uses_nss_as_ground_truth": true,
+    "source_notes": "The published helper code reshapes p28_data.bin to a 25000 x 8814 float64 matrix, uses the penultimate column as time, and uses the final column (`nss`) as the LightGBM ground-truth friction signal.",
+    "sensor_order_note": "The helper scripts do not explicitly label the within-sensor block order. This loader therefore uses the repository's published local block assumption [ux, uy, vx, vy] when computing Ek from the velocity channels."
+  },
+  "velocity_mode": "macroscopic_mu_plus_computed_kinetic_energy",
+  "analysis_ready": true,
+  "notes": "This is a simulated granular fault dataset used in the published LightGBM comparison study. The helper scripts use the final binary column as the ground-truth friction-like signal (`nss` / `Friction_coef`). Kinetic energy is computed from the sensor velocity fields because no direct Ek column is exposed in the helper scripts.",
+  "proxy_notes": {
+    "mu": "Taken from the final binary column because the helper scripts use `nss` as the published LightGBM ground-truth / friction target.",
+    "Ek": "Computed as 0.5 * sum(vx^2 + vy^2) over all 2203 sensors using the repository's established [ux, uy, vx, vy] block order.",
+    "nss": "Retained as the original published alias of the final binary column and used as the stick-slip segmentation signal.",
+    "h": "Not extracted because the helper scripts do not expose plate/gouge sensor groups needed for a defensible thickness estimate."
+  },
+  "dataset_role": "simulated granular fault - LightGBM comparison dataset",
+  "scientific_label": "simulated granular fault - LightGBM comparison dataset",
+  "segmentation_method": "nss-reset segmentation",
+  "state_definition": {
+    "state_1": "mu (macroscopic friction-like target used in the published LightGBM workflow)",
+    "state_2": "Ek (computed kinetic energy from sensor velocity fields)"
+  },
+  "variable_mapping_table": {
+    "time": "time",
+    "mu": "mu",
+    "Ek": "Ek",
+    "cycle_index": "nss"
+  },
+  "physical_interpretation_note": "This is simulated FDEM data rather than a physical laboratory measurement. mu is taken from the published helper-script target column and Ek is computed from the velocity fields, so SINDy coefficient interpretation is approximate rather than directly comparable to laboratory stress measurements.",
+  "n_rows_loaded": 25000
+}

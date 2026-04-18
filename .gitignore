@@ -29,6 +29,7 @@ Thumbs.db
 
 # Data & model files (add exceptions as needed)
 *.csv
+*.bin
 *.h5
 *.pkl
 *.pt

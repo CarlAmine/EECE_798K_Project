@@ -1,0 +1,42 @@
+{
+  "dataset": "fdem_zenodo",
+  "source_url": "https://zenodo.org/records/7370626",
+  "files": {
+    "binary_files": [
+      {
+        "name": "p28_data.bin",
+        "path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo\\p28_data.bin",
+        "suffix": ".bin",
+        "size_bytes": 1762800000
+      }
+    ],
+    "helper_files": [
+      {
+        "name": "submission_function_define.py",
+        "path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo\\submission_function_define.py",
+        "suffix": ".py",
+        "size_bytes": 9460
+      },
+      {
+        "name": "submission_lgbm_model.py",
+        "path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo\\submission_lgbm_model.py",
+        "suffix": ".py",
+        "size_bytes": 15112
+      },
+      {
+        "name": "submisstion_setting.py",
+        "path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo\\submisstion_setting.py",
+        "suffix": ".py",
+        "size_bytes": 2677
+      }
+    ],
+    "other_files": [
+      {
+        "name": "README.md",
+        "path": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\data\\fdem_zenodo\\README.md",
+        "suffix": ".md",
+        "size_bytes": 671
+      }
+    ]
+  }
+}

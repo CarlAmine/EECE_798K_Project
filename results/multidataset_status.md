@@ -53,3 +53,24 @@
   - `results/pangaea/raw_file_inventory.json`
   - `results/pangaea/suitability_report.md`
 - What remains to improve: obtain local raw time-series mechanical data if `pangaea` is meant to become a secondary real dataset.
+
+## `fdem_zenodo` - simulated granular fault comparison dataset
+- Scientific label: simulated granular fault - LightGBM comparison dataset
+- Raw files found: README.md, p28_data.bin, submission_function_define.py, submission_lgbm_model.py, submisstion_setting.py
+- Loader status: ok via `load_fdem_zenodo_dataset`
+- Variable mapping used: `time -> time`, `tau_proxy -> tau`, `V -> spatial mean vy`, `ux_mean -> mean x displacement`, `nss -> cycle index`
+- Variables are physical or proxy: mixed; `V` is a spatially averaged simulated velocity, while `tau_proxy` and `mu_proxy` are derived proxies rather than directly measured macroscopic stress/friction
+- Segmentation method used: `nss` reset segmentation
+- Valid cycle extracted: yes, stacked fit on `results/fdem_zenodo/selected_cycle_001.csv`, `selected_cycle_002.csv`, and `selected_cycle_003.csv`
+- SINDy baseline ran: yes
+- Recovered equations: normalized-domain coefficients are now well-conditioned, but the proxy-state rollout remains weak
+- Main outputs:
+  - `results/fdem_zenodo/dataset_summary.json`
+  - `results/fdem_zenodo/raw_file_inventory.json`
+  - `results/fdem_zenodo/variable_diagnostics.json`
+  - `results/fdem_zenodo/cycle_diagnostics.csv`
+  - `results/fdem_zenodo/selected_cycle_001.csv`
+  - `results/fdem_zenodo/discovered_equations.txt`
+  - `results/fdem_zenodo/baseline_summary.json`
+  - `results/fdem_zenodo/sindy_vs_lgbm_comparison.md`
+- What remains to improve: the raw-state mismatch is fixed, but the discovered model still diverges after about 1 s on the selected long cycles, so this should still be treated as a proxy-state simulated benchmark rather than a strong physics-recovery result.

@@ -51,6 +51,32 @@ LANL_CONFIG = DatasetConfig(
     notes="Proxy-state dataset. tau_proxy is derived from acoustic_data and V_proxy is derived from the smoothed proxy.",
 )
 
+FDEM_ZENODO_CONFIG = DatasetConfig(
+    name="fdem_zenodo",
+    label="FDEM Zenodo Granular Fault Simulation",
+    source_url="https://zenodo.org/records/7370626",
+    raw_dir=dataset_data_dir("fdem_zenodo"),
+    results_dir=dataset_results_dir("fdem_zenodo"),
+    notebooks_dir=dataset_notebooks_dir("fdem_zenodo"),
+    preferred_raw_names=("p28_data.bin", "submission_function_define.py", "submission_lgbm_model.py", "submisstion_setting.py"),
+    raw_globs=("*.bin", "*.py", "*.csv", "*.parquet", "*.json", "*.md"),
+    column_aliases={
+        "time": ("time", "t"),
+        "friction_coefficient": ("mu", "friction", "friction_coefficient", "nss"),
+        "kinetic_energy": ("Ek", "kinetic_energy"),
+        "cycle_index": ("nss", "cycle_index"),
+        "layer_thickness": ("h", "layer_thickness"),
+    },
+    velocity_mode="macroscopic_mu_plus_computed_kinetic_energy",
+    smoothing={"window": 31, "polyorder": 3},
+    segmentation={"strategy": "nss_reset_segmentation", "min_cycle_length": 25},
+    notes=(
+        "This is a simulated granular fault dataset used in the published LightGBM comparison study. "
+        "The helper scripts use the final binary column as the ground-truth friction-like signal (`nss` / `Friction_coef`). "
+        "Kinetic energy is computed from the sensor velocity fields because no direct Ek column is exposed in the helper scripts."
+    ),
+)
+
 PANGAEA_CONFIG = DatasetConfig(
     name="pangaea",
     label="PANGAEA 915062",
@@ -94,8 +120,8 @@ UTAH_FORGE_CONFIG = DatasetConfig(
     notes="Mechanical/acoustic time-series are distributed as MATLAB .mat datatables plus a README that defines the variables and units.",
 )
 
-
 DATASET_CONFIGS = {
+    "fdem_zenodo": FDEM_ZENODO_CONFIG,
     "lanl": LANL_CONFIG,
     "pangaea": PANGAEA_CONFIG,
     "utah_forge": UTAH_FORGE_CONFIG,

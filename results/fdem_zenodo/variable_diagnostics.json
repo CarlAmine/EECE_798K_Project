@@ -1,0 +1,45 @@
+{
+  "raw": {
+    "mu": {
+      "mean": 0.4175807849856149,
+      "std": 0.02933183810660043,
+      "min": 0.3322507969616976,
+      "max": 0.4811174119161118,
+      "physical_units": "published normalized shear stress / friction-like target from the final binary column"
+    },
+    "Ek": {
+      "mean": 14587.168467134094,
+      "std": 11641.332629063982,
+      "min": 230.87092918415172,
+      "max": 38604.9254047631,
+      "physical_units": "computed kinetic energy = 0.5 * sum(vx^2 + vy^2)"
+    },
+    "std_ratio_mu_over_Ek": 2.519628898273208e-06,
+    "dt_median_seconds": 1.0000000099971658,
+    "n_cycles_found": 4,
+    "nss_drop_threshold": -0.02,
+    "five_longest_cycle_lengths": [
+      8507,
+      7616,
+      7386,
+      1491
+    ]
+  },
+  "normalized": {
+    "mu_z": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ek_z": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "std_ratio_mu_over_Ek": 1.0,
+    "normalization_constants": {
+      "mu_mean": 0.42637186193889004,
+      "mu_std": 0.02343249915376368,
+      "Ek_mean": 19281.566448598733,
+      "Ek_std": 10796.875639174621
+    }
+  }
+}

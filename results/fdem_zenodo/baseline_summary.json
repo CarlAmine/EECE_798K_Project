@@ -1,0 +1,135 @@
+{
+  "dataset": "fdem_zenodo",
+  "state_variables": [
+    "mu",
+    "Ek"
+  ],
+  "state_columns": [
+    "mu",
+    "Ek"
+  ],
+  "state_labels": [
+    "mu_z",
+    "Ek_z"
+  ],
+  "scaling": {
+    "means": {
+      "mu": 0.42637186193889004,
+      "Ek": 19281.566448598733
+    },
+    "stds": {
+      "mu": 0.02343249915376368,
+      "Ek": 10796.875639174621
+    }
+  },
+  "poly_degree": 2,
+  "threshold": 0.0001,
+  "max_iter": 12,
+  "library_terms": [
+    "1",
+    "mu_z",
+    "Ek_z",
+    "mu_z^2",
+    "Ek_z^2",
+    "mu_z*Ek_z",
+    "logEk_z",
+    "mu_z*logEk_z"
+  ],
+  "equations": [
+    "dmu_z/dt = - 9.345e-04*1 - 3.111e-04*mu_z - 4.269e-04*Ek_z + 7.945e-04*mu_z^2 + 7.750e-04*Ek_z^2 + 1.178e-04*logEk_z + 6.282e-04*mu_z*logEk_z",
+    "dEk_z/dt = 1.673e-04*1"
+  ],
+  "physical_equations": [
+    "dmu/dt = 8.499e-03*1 - 3.432e-02*mu - 6.934e-09*Ek + 3.391e-02*mu^2 + 1.558e-13*Ek^2 - 2.259e-04*log(Ek+eps) + 5.352e-04*mu*log(Ek+eps)",
+    "dEk/dt = 1.806e+00*1"
+  ],
+  "relative_error": [
+    0.9997182473532531,
+    0.8830797681164885
+  ],
+  "rmse_like": [
+    0.9997182473532531,
+    0.8830797681164885
+  ],
+  "rollout_metrics": {
+    "rmse": 0.7469638244694637,
+    "mae": 0.5301080860885456,
+    "relative_error": 0.8436353245025798,
+    "divergence_time_s": 4.3333333443336715
+  },
+  "rollout_metrics_by_cycle": [
+    {
+      "cycle_id": "fdem_cycle_001",
+      "rmse": NaN,
+      "mae": NaN,
+      "relative_error": NaN,
+      "divergence_time_s": 11.000000023000212
+    },
+    {
+      "cycle_id": "fdem_cycle_004",
+      "rmse": 0.521336287518288,
+      "mae": 0.4033681796538038,
+      "relative_error": 0.5402456355531248,
+      "divergence_time_s": 1.0000000100008037
+    },
+    {
+      "cycle_id": "fdem_cycle_003",
+      "rmse": 0.9725913614206395,
+      "mae": 0.6568479925232876,
+      "relative_error": 1.147025013452035,
+      "divergence_time_s": 1.0
+    }
+  ],
+  "rollout_plot": "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\fdem_zenodo\\baseline_rollout.png",
+  "mu_mean": 0.42637186193889004,
+  "mu_std": 0.02343249915376368,
+  "Ek_mean": 19281.566448598733,
+  "Ek_std": 10796.875639174621,
+  "n_cycles_used": 3,
+  "normalization_applied": true,
+  "selected_cycle_ids": [
+    "fdem_cycle_001",
+    "fdem_cycle_004",
+    "fdem_cycle_003"
+  ],
+  "selected_cycle_paths": [
+    "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\fdem_zenodo\\selected_cycle_001.csv",
+    "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\fdem_zenodo\\selected_cycle_002.csv",
+    "C:\\Users\\carla\\Desktop\\EECE 798K\\Project\\results\\fdem_zenodo\\selected_cycle_003.csv"
+  ],
+  "segmentation": {
+    "strategy": "major_nss_drop",
+    "n_cycles_detected": 4,
+    "min_cycle_length": 500,
+    "drop_threshold": -0.02
+  },
+  "proxy_notes": {
+    "mu": "Taken from the final binary column because the helper scripts use `nss` as the published LightGBM ground-truth / friction target.",
+    "Ek": "Computed as 0.5 * sum(vx^2 + vy^2) over all 2203 sensors using the repository's established [ux, uy, vx, vy] block order.",
+    "nss": "Retained as the original published alias of the final binary column and used as the stick-slip segmentation signal.",
+    "h": "Not extracted because the helper scripts do not expose plate/gouge sensor groups needed for a defensible thickness estimate."
+  },
+  "physical_interpretation": "proxy-state model, weak physical interpretation",
+  "physical_coefficients": {
+    "dmu_dt": {
+      "1": 0.008499158537909843,
+      "mu": -0.034316740797452755,
+      "Ek": -6.933749724766031e-09,
+      "mu^2": 0.03390697247815177,
+      "Ek^2": 1.557764962407066e-13,
+      "mu*Ek": 0.0,
+      "log(Ek+eps)": -0.00022585498598133789,
+      "mu*log(Ek+eps)": 0.0005352282108169248
+    },
+    "dEk_dt": {
+      "1": 1.8060354213074596,
+      "mu": 0.0,
+      "Ek": 0.0,
+      "mu^2": 0.0,
+      "Ek^2": 0.0,
+      "mu*Ek": 0.0,
+      "log(Ek+eps)": 0.0,
+      "mu*log(Ek+eps)": 0.0
+    }
+  }
+}
