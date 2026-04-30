@@ -27,3 +27,4 @@ Run this to verify active entrypoints parse and expose `--help` where expected:
 ```bash
 python scripts/tools/check_script_entrypoints.py
 ```
+
