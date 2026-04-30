@@ -1,0 +1,15 @@
+Best Equation (1): strongest recovered equation
+dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V
+dtau/dt ~= 8.476432e-03*(V_drive - V)
+
+Best Equation (2): best final usable velocity law
+dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV
+
+Closest exact RSF-looking Equation (2): not final because non-identifiable
+dtau/dt = 2.852472e-03*(V_drive - V)
+dV/dt = (1/2.519965e-02) * [tau - sigmaN*(9.042632e-12 + 7.146679e-01*log(V/V0) + 1.671089e-01*log(theta*V0/1.518258e+01))]
+dtheta/dt = 1 - V*theta/1.518258e+01
+
+Best Equation (3) result: weak conditional consistency check
+dtheta/dt = 4.084008e-05 - 5.703972e-03*Vtheta
+Dc_hat = 1.753164e+02

@@ -1,0 +1,40 @@
+{
+  "metric_source_file": "scripts/utah_forge_proposal_equation_recovery.py",
+  "metric_source_function": "semi_observed_tau_rollout",
+  "semi_observed_definition": "The tau ODE is integrated forward while using observed V(t) and observed V_drive(t) from the holdout event as exogenous inputs. Only tau is forecast in this check; V is not predicted.",
+  "step_definition": {
+    "step2": "The holdout RSFit-aligned Utah FORGE event p5838_step2.",
+    "step7": "The holdout RSFit-aligned Utah FORGE event p5838_step7."
+  },
+  "split_info": {
+    "train_steps": "p5838_step3, p5838_step8, p5838_step9, p5838_step4, p5838_step5, p5838_step10",
+    "holdout_steps": "p5838_step2, p5838_step7"
+  },
+  "units_and_scaling": {
+    "tau": "Same physical tau units used in the prepared Utah FORGE state; no extra normalization is applied inside semi_observed_tau_rollout.",
+    "time": "seconds",
+    "mse": "mean squared error in tau units squared, computed directly as mean((tau_roll - observed_tau)^2)."
+  },
+  "rows": [
+    {
+      "step_name": "p5838_step2",
+      "tau_rollout_mse": 0.9795507278396812,
+      "n_samples": 3000,
+      "duration_s": 70.40200000000004,
+      "tau_rmse": 0.9897225509402527,
+      "mean_abs_tau_error": 0.8516861673780348,
+      "max_abs_tau_error": 1.7008212467734936
+    },
+    {
+      "step_name": "p5838_step7",
+      "tau_rollout_mse": 0.48986632548254055,
+      "n_samples": 3000,
+      "duration_s": 58.86499999999978,
+      "tau_rmse": 0.699904511688945,
+      "mean_abs_tau_error": 0.6169997412032447,
+      "max_abs_tau_error": 1.1722421946463868
+    }
+  ],
+  "tau_equation_used": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+  "tau_one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)"
+}

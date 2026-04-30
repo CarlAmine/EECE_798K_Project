@@ -1,0 +1,4 @@
+dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V
+dtau/dt ~= 8.476432e-03*(V_drive - V)
+Final velocity model (B_reduced_rsf): dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV
+Exact-RSF attempt: dV/dt = -8.983782e+01 + 6.996144e+00*tau - 5.382505e-02*sigmaN_logV

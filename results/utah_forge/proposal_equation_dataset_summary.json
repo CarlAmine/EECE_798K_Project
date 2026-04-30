@@ -1,0 +1,43 @@
+{
+  "acoustic_feature_candidate": "avg_timeshift",
+  "split_counts": {
+    "tau_train": {
+      "n_segments": 6,
+      "n_rows": 15914
+    },
+    "tau_holdout": {
+      "n_segments": 2,
+      "n_rows": 6000
+    },
+    "theta_event_train": {
+      "n_segments": 3,
+      "n_rows": 9000
+    },
+    "theta_event_holdout": {
+      "n_segments": 2,
+      "n_rows": 6000
+    },
+    "theta_sample_train": {
+      "n_segments": 3,
+      "n_rows": 9000
+    },
+    "theta_sample_holdout": {
+      "n_segments": 2,
+      "n_rows": 6000
+    },
+    "all_train": {
+      "n_segments": 6,
+      "n_rows": 15914
+    },
+    "all_holdout": {
+      "n_segments": 2,
+      "n_rows": 6000
+    }
+  },
+  "theta_quality_summary": {
+    "n_steps": 8,
+    "train_theta_event_valid_steps": 3,
+    "train_theta_sample_valid_steps": 3,
+    "train_theta_usable_samples": 9000
+  }
+}

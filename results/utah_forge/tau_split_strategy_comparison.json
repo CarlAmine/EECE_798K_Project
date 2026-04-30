@@ -1,0 +1,3940 @@
+{
+  "strategy_rows": [
+    {
+      "strategy_name": "A_current_split",
+      "strategy_label": "Current split",
+      "train_steps": "p5838_step3,p5838_step4,p5838_step5,p5838_step8,p5838_step9,p5838_step10",
+      "eval_steps": "p5838_step2,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.06986875956477558,
+      "mean_derivative_mae": 0.03399833726316017,
+      "mean_derivative_r2": -0.04628699121415775,
+      "mean_tau_rollout_rmse": 0.8448255174892358,
+      "mean_tau_rollout_mae": 0.7343530994864307,
+      "mean_tau_rollout_r2": -169.3953239862643,
+      "pair_shift_distance_from_global_center": NaN,
+      "pair_internal_variability_gap": NaN,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "B_all_step_descriptive",
+      "strategy_label": "All-step descriptive",
+      "train_steps": "p5838_step2,p5838_step3,p5838_step4,p5838_step5,p5838_step7,p5838_step8,p5838_step9,p5838_step10",
+      "eval_steps": "p5838_step2,p5838_step3,p5838_step4,p5838_step5,p5838_step7,p5838_step8,p5838_step9,p5838_step10",
+      "honest_holdout": 0,
+      "equation": "dtau/dt = -1.601131e-02 + 2.959835e-04*V + 8.789444e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.3262406359611855,
+      "mean_derivative_mae": 0.16568778391178401,
+      "mean_derivative_r2": 0.13232759256710397,
+      "mean_tau_rollout_rmse": 0.19943400709356993,
+      "mean_tau_rollout_mae": 0.16943491677956704,
+      "mean_tau_rollout_r2": -16.11490905357778,
+      "pair_shift_distance_from_global_center": NaN,
+      "pair_internal_variability_gap": NaN,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step10",
+      "train_steps": "p5838_step3,p5838_step8,p5838_step9,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step5,p5838_step10",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = 8.085443e-04 + 3.596472e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 1.3606532725488159,
+      "mean_derivative_mae": 0.8364669429480744,
+      "mean_derivative_r2": -2.881237554005008,
+      "mean_tau_rollout_rmse": 0.3469548384876699,
+      "mean_tau_rollout_mae": 0.2663094701154142,
+      "mean_tau_rollout_r2": -36.1360981327062,
+      "pair_shift_distance_from_global_center": 2.6132937866288253,
+      "pair_internal_variability_gap": 0.0792588190000525,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step3",
+      "train_steps": "p5838_step10,p5838_step8,p5838_step9,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step5,p5838_step3",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = 1.926482e-04 + 1.011930e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.321597373742293,
+      "mean_derivative_mae": 0.20467746411186535,
+      "mean_derivative_r2": 0.10237315201829067,
+      "mean_tau_rollout_rmse": 0.10885914133178515,
+      "mean_tau_rollout_mae": 0.08086501022275108,
+      "mean_tau_rollout_r2": -0.6271256074220332,
+      "pair_shift_distance_from_global_center": 1.47961231783595,
+      "pair_internal_variability_gap": 0.22508700397236742,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step8",
+      "train_steps": "p5838_step10,p5838_step3,p5838_step9,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step5,p5838_step8",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = 1.999775e-04 + 1.020269e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.3204427498199412,
+      "mean_derivative_mae": 0.2059902453802025,
+      "mean_derivative_r2": 0.07951635355957726,
+      "mean_tau_rollout_rmse": 0.10912819490341402,
+      "mean_tau_rollout_mae": 0.08128865540569508,
+      "mean_tau_rollout_r2": -0.5357663226575758,
+      "pair_shift_distance_from_global_center": 1.527518470363406,
+      "pair_internal_variability_gap": 0.39186125837761304,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step9",
+      "train_steps": "p5838_step10,p5838_step3,p5838_step8,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step5,p5838_step9",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = 1.766382e-04 + 9.143900e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.39212889784224525,
+      "mean_derivative_mae": 0.24396343513511382,
+      "mean_derivative_r2": 0.15224169884243555,
+      "mean_tau_rollout_rmse": 0.10149942643759716,
+      "mean_tau_rollout_mae": 0.07876161649287884,
+      "mean_tau_rollout_r2": -0.5921947766385866,
+      "pair_shift_distance_from_global_center": 1.1818357181224015,
+      "pair_internal_variability_gap": 0.4300841132678722,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step4",
+      "train_steps": "p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step5,p5838_step4",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.070884e-02 + 9.099878e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.4164062317024958,
+      "mean_derivative_mae": 0.2624715970637611,
+      "mean_derivative_r2": 0.1278878129569858,
+      "mean_tau_rollout_rmse": 0.13693356725221245,
+      "mean_tau_rollout_mae": 0.11306221137407522,
+      "mean_tau_rollout_r2": -3.3844640324057638,
+      "pair_shift_distance_from_global_center": 0.8632948502416943,
+      "pair_internal_variability_gap": 0.8550836908824675,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step2",
+      "train_steps": "p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step4,p5838_step7",
+      "eval_steps": "p5838_step5,p5838_step2",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = 1.935726e-04 + 1.027164e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.2894489141097466,
+      "mean_derivative_mae": 0.19328118464333807,
+      "mean_derivative_r2": 0.0693223974894282,
+      "mean_tau_rollout_rmse": 0.09239430029612951,
+      "mean_tau_rollout_mae": 0.06835510581231127,
+      "mean_tau_rollout_r2": -0.45869893955811836,
+      "pair_shift_distance_from_global_center": 0.488021239918455,
+      "pair_internal_variability_gap": 0.9285934500955957,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step7",
+      "train_steps": "p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step4,p5838_step2",
+      "eval_steps": "p5838_step5,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = 2.129574e-04 + 1.028966e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.2523476663932628,
+      "mean_derivative_mae": 0.1874526017501796,
+      "mean_derivative_r2": 0.16145775264586143,
+      "mean_tau_rollout_rmse": 0.10296284489113258,
+      "mean_tau_rollout_mae": 0.081900168183973,
+      "mean_tau_rollout_r2": -0.8019260200252039,
+      "pair_shift_distance_from_global_center": 0.4905147111741039,
+      "pair_internal_variability_gap": 1.0491837484180058,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step3",
+      "train_steps": "p5838_step5,p5838_step8,p5838_step9,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step10,p5838_step3",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.432944e-02 + 5.481623e-04*V + 9.934188e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.5916126377997332,
+      "mean_derivative_mae": 0.29114374571874924,
+      "mean_derivative_r2": 0.10690716614230944,
+      "mean_tau_rollout_rmse": 0.13882868030527637,
+      "mean_tau_rollout_mae": 0.12047130104813918,
+      "mean_tau_rollout_r2": -5.367287624408584,
+      "pair_shift_distance_from_global_center": 1.3658620295625832,
+      "pair_internal_variability_gap": 0.14582818497231492,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step8",
+      "train_steps": "p5838_step5,p5838_step3,p5838_step9,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step10,p5838_step8",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.334526e-02 + 5.438099e-04*V + 1.002650e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.589853605240436,
+      "mean_derivative_mae": 0.29147934499527633,
+      "mean_derivative_r2": 0.0886942263414302,
+      "mean_tau_rollout_rmse": 0.15030223681949303,
+      "mean_tau_rollout_mae": 0.12629838700541093,
+      "mean_tau_rollout_r2": -5.636140397593669,
+      "pair_shift_distance_from_global_center": 1.1985390646800567,
+      "pair_internal_variability_gap": 0.31260243937756055,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step9",
+      "train_steps": "p5838_step5,p5838_step3,p5838_step8,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step10,p5838_step9",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.843665e-02 + 5.850007e-04*V + 8.777321e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.6695699161042555,
+      "mean_derivative_mae": 0.3430041745293984,
+      "mean_derivative_r2": 0.12580812537281522,
+      "mean_tau_rollout_rmse": 0.16453562202663816,
+      "mean_tau_rollout_mae": 0.12838719852565839,
+      "mean_tau_rollout_r2": -7.089066587594852,
+      "pair_shift_distance_from_global_center": 1.5836247619132364,
+      "pair_internal_variability_gap": 0.3508252942678197,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step4",
+      "train_steps": "p5838_step5,p5838_step3,p5838_step8,p5838_step9,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step10,p5838_step4",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -3.054088e-02 + 5.659834e-04*V + 8.705088e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.6894113887326774,
+      "mean_derivative_mae": 0.35319324859509416,
+      "mean_derivative_r2": 0.11936989954916272,
+      "mean_tau_rollout_rmse": 0.12142528571285677,
+      "mean_tau_rollout_mae": 0.1029700051611356,
+      "mean_tau_rollout_r2": -4.888049130931284,
+      "pair_shift_distance_from_global_center": 1.9389999150645203,
+      "pair_internal_variability_gap": 0.775824871882415,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step2",
+      "train_steps": "p5838_step5,p5838_step3,p5838_step8,p5838_step9,p5838_step4,p5838_step7",
+      "eval_steps": "p5838_step10,p5838_step2",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -3.833446e-02 + 5.770781e-04*V + 1.014579e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.5611245255545803,
+      "mean_derivative_mae": 0.290047397849674,
+      "mean_derivative_r2": 0.026548319309583124,
+      "mean_tau_rollout_rmse": 0.8004544385813179,
+      "mean_tau_rollout_mae": 0.6910613821800096,
+      "mean_tau_rollout_r2": -250.34064203564273,
+      "pair_shift_distance_from_global_center": 1.3723458238906925,
+      "pair_internal_variability_gap": 0.8493346310955432,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step7",
+      "train_steps": "p5838_step5,p5838_step3,p5838_step8,p5838_step9,p5838_step4,p5838_step2",
+      "eval_steps": "p5838_step10,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -3.766028e-02 + 5.685171e-04*V + 1.016116e-02*V_drive_minus_V",
+      "mean_derivative_rmse": 0.5274719334953352,
+      "mean_derivative_mae": 0.28026678381719683,
+      "mean_derivative_r2": -0.25724311465860816,
+      "mean_tau_rollout_rmse": 0.6018175368805776,
+      "mean_tau_rollout_mae": 0.526218690852972,
+      "mean_tau_rollout_r2": -127.83904459675674,
+      "pair_shift_distance_from_global_center": 1.316199480497939,
+      "pair_internal_variability_gap": 0.9699249294179533,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step8",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step9,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step3,p5838_step8",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.619173e-02 + 2.987630e-04*V + 8.614587e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.16795692106121024,
+      "mean_derivative_mae": 0.053199046634126654,
+      "mean_derivative_r2": 0.1167663237520678,
+      "mean_tau_rollout_rmse": 0.09650042829971102,
+      "mean_tau_rollout_mae": 0.07699100078279196,
+      "mean_tau_rollout_r2": -0.21195018491416207,
+      "pair_shift_distance_from_global_center": 1.557525685701059,
+      "pair_internal_variability_gap": 0.16677425440524563,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step9",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step8,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step3,p5838_step9",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.123205e-02 + 3.040449e-04*V + 7.988015e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.24829758575353572,
+      "mean_derivative_mae": 0.09885500250208755,
+      "mean_derivative_r2": 0.15264494790907734,
+      "mean_tau_rollout_rmse": 0.09408816948400672,
+      "mean_tau_rollout_mae": 0.07155641664971908,
+      "mean_tau_rollout_r2": -0.6537138140153362,
+      "pair_shift_distance_from_global_center": 0.9573426938848536,
+      "pair_internal_variability_gap": 0.2049971092955048,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step4",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step8,p5838_step9,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step3,p5838_step4",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.838024e-02 + 3.079193e-04*V + 7.967065e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.2701549862179724,
+      "mean_derivative_mae": 0.11384369967589394,
+      "mean_derivative_r2": 0.1400325324205725,
+      "mean_tau_rollout_rmse": 0.10417037869163726,
+      "mean_tau_rollout_mae": 0.09225351789277372,
+      "mean_tau_rollout_r2": -1.4826279118707424,
+      "pair_shift_distance_from_global_center": 0.5571176277842046,
+      "pair_internal_variability_gap": 0.6299966869101001,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step2",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step8,p5838_step9,p5838_step4,p5838_step7",
+      "eval_steps": "p5838_step3,p5838_step2",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.13742531552105555,
+      "mean_derivative_mae": 0.046680027916690056,
+      "mean_derivative_r2": 0.08911464821199905,
+      "mean_tau_rollout_rmse": 0.4939713759699478,
+      "mean_tau_rollout_mae": 0.4288949291092509,
+      "mean_tau_rollout_r2": -85.73490329553492,
+      "pair_shift_distance_from_global_center": 1.0795451424396667,
+      "pair_internal_variability_gap": 0.7035064461232283,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step7",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step8,p5838_step9,p5838_step4,p5838_step2",
+      "eval_steps": "p5838_step3,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.049034e-02 + 3.189728e-04*V + 8.694899e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.10101382931428346,
+      "mean_derivative_mae": 0.03748085126879528,
+      "mean_derivative_r2": 0.08204498364841539,
+      "mean_tau_rollout_rmse": 0.32735770059171515,
+      "mean_tau_rollout_mae": 0.2915948843778656,
+      "mean_tau_rollout_r2": -32.14806658799733,
+      "pair_shift_distance_from_global_center": 1.1707229923874511,
+      "pair_internal_variability_gap": 0.8240967444456383,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step9",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step4,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step8,p5838_step9",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.015200e-02 + 2.999841e-04*V + 8.028943e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.24598102494145196,
+      "mean_derivative_mae": 0.09970377165325864,
+      "mean_derivative_r2": 0.13794506423736425,
+      "mean_tau_rollout_rmse": 0.10603283303500027,
+      "mean_tau_rollout_mae": 0.07816346421286574,
+      "mean_tau_rollout_r2": -0.8686434871298079,
+      "pair_shift_distance_from_global_center": 1.025916385643468,
+      "pair_internal_variability_gap": 0.03822285489025917,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step4",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step9,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step8,p5838_step4",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.731148e-02 + 3.039409e-04*V + 8.007989e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.2676852853551094,
+      "mean_derivative_mae": 0.11401267467886243,
+      "mean_derivative_r2": 0.12669438735474664,
+      "mean_tau_rollout_rmse": 0.1143229885427467,
+      "mean_tau_rollout_mae": 0.09694774154980092,
+      "mean_tau_rollout_r2": -1.610824194966868,
+      "pair_shift_distance_from_global_center": 0.6538577662857274,
+      "pair_internal_variability_gap": 0.4632224325048545,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step2",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step9,p5838_step4,p5838_step7",
+      "eval_steps": "p5838_step8,p5838_step2",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.077946e-02 + 3.214368e-04*V + 8.728797e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.1350624016590743,
+      "mean_derivative_mae": 0.046160989843066505,
+      "mean_derivative_r2": 0.07645014509776421,
+      "mean_tau_rollout_rmse": 0.4777026317963971,
+      "mean_tau_rollout_mae": 0.4111171913550716,
+      "mean_tau_rollout_r2": -76.11963918388719,
+      "pair_shift_distance_from_global_center": 1.1929455126554485,
+      "pair_internal_variability_gap": 0.5367321917179826,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step7",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step9,p5838_step4,p5838_step2",
+      "eval_steps": "p5838_step8,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.922223e-02 + 3.134296e-04*V + 8.734409e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.09851622025707,
+      "mean_derivative_mae": 0.03723104995967013,
+      "mean_derivative_r2": 0.08403577543725227,
+      "mean_tau_rollout_rmse": 0.31606304150977726,
+      "mean_tau_rollout_mae": 0.2776200220603937,
+      "mean_tau_rollout_r2": -27.51194037210915,
+      "pair_shift_distance_from_global_center": 1.3130519251108739,
+      "pair_internal_variability_gap": 0.6573224900403927,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step9 + p5838_step4",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step8,p5838_step2,p5838_step7",
+      "eval_steps": "p5838_step9,p5838_step4",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.195341e-02 + 3.137958e-04*V + 7.362926e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.34965819019551064,
+      "mean_derivative_mae": 0.15855319638328913,
+      "mean_derivative_r2": 0.15877711295691432,
+      "mean_tau_rollout_rmse": 0.10438686484552567,
+      "mean_tau_rollout_mae": 0.08717853615177648,
+      "mean_tau_rollout_r2": -1.8541208493587238,
+      "pair_shift_distance_from_global_center": 0.688882133026519,
+      "pair_internal_variability_gap": 0.42499957761459534,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step9 + p5838_step2",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step8,p5838_step4,p5838_step7",
+      "eval_steps": "p5838_step9,p5838_step2",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.518157e-02 + 3.214491e-04*V + 8.100246e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.2143280412014941,
+      "mean_derivative_mae": 0.08906007288054528,
+      "mean_derivative_r2": 0.12408765769699481,
+      "mean_tau_rollout_rmse": 0.34267562748816,
+      "mean_tau_rollout_mae": 0.28650668971837384,
+      "mean_tau_rollout_r2": -38.86888167915638,
+      "pair_shift_distance_from_global_center": 0.9042483526252161,
+      "pair_internal_variability_gap": 0.49850933682772347,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step9 + p5838_step7",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step8,p5838_step4,p5838_step2",
+      "eval_steps": "p5838_step9,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -1.381667e-02 + 3.148264e-04*V + 8.108528e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.17728176170334992,
+      "mean_derivative_mae": 0.08114970960833714,
+      "mean_derivative_r2": 0.17467288020125477,
+      "mean_tau_rollout_rmse": 0.21237593413226097,
+      "mean_tau_rollout_mae": 0.18143774113857414,
+      "mean_tau_rollout_r2": -10.990863283832443,
+      "pair_shift_distance_from_global_center": 1.0239573154311055,
+      "pair_internal_variability_gap": 0.6190996351501334,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step4 + p5838_step2",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step7",
+      "eval_steps": "p5838_step4,p5838_step2",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.247717e-02 + 3.271931e-04*V + 8.081211e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.23696494924927375,
+      "mean_derivative_mae": 0.10745084271310193,
+      "mean_derivative_r2": 0.09953198076761716,
+      "mean_tau_rollout_rmse": 0.49295837263870557,
+      "mean_tau_rollout_mae": 0.42568986934255004,
+      "mean_tau_rollout_r2": -89.73582568879102,
+      "pair_shift_distance_from_global_center": 1.427721650689628,
+      "pair_internal_variability_gap": 0.07350975921312813,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step4 + p5838_step7",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step2",
+      "eval_steps": "p5838_step4,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.111845e-02 + 3.205687e-04*V + 8.089471e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.2006499985564584,
+      "mean_derivative_mae": 0.09833957045263662,
+      "mean_derivative_r2": 0.078876103672399,
+      "mean_tau_rollout_rmse": 0.33542498216380995,
+      "mean_tau_rollout_mae": 0.29732866940112784,
+      "mean_tau_rollout_r2": -35.63158406066915,
+      "pair_shift_distance_from_global_center": 1.5424432743025718,
+      "pair_internal_variability_gap": 0.19410005753553816,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step2 + p5838_step7",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step4",
+      "eval_steps": "p5838_step2,p5838_step7",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.06986875956477555,
+      "mean_derivative_mae": 0.03399833726316009,
+      "mean_derivative_r2": -0.04628699121415586,
+      "mean_tau_rollout_rmse": 0.844808375947343,
+      "mean_tau_rollout_mae": 0.7343366398514429,
+      "mean_tau_rollout_r2": -169.3892542854118,
+      "pair_shift_distance_from_global_center": 1.80767731690081,
+      "pair_internal_variability_gap": 0.12059029832241003,
+      "is_current_pair": 1
+    },
+    {
+      "strategy_name": "D_regime_balanced",
+      "strategy_label": "Regime-balanced split",
+      "train_steps": "p5838_step5,p5838_step10,p5838_step8,p5838_step9,p5838_step4,p5838_step7",
+      "eval_steps": "p5838_step2,p5838_step3",
+      "honest_holdout": 1,
+      "equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+      "mean_derivative_rmse": 0.13742531552105555,
+      "mean_derivative_mae": 0.046680027916690056,
+      "mean_derivative_r2": 0.08911464821199905,
+      "mean_tau_rollout_rmse": 0.4939713759699478,
+      "mean_tau_rollout_mae": 0.4288949291092509,
+      "mean_tau_rollout_r2": -85.73490329553492,
+      "pair_shift_distance_from_global_center": NaN,
+      "pair_internal_variability_gap": NaN,
+      "is_current_pair": 0
+    }
+  ],
+  "current_split_result": {
+    "strategy_name": "A_current_split",
+    "strategy_label": "Current split",
+    "train_steps": [
+      "p5838_step3",
+      "p5838_step4",
+      "p5838_step5",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step10"
+    ],
+    "eval_steps": [
+      "p5838_step2",
+      "p5838_step7"
+    ],
+    "honest_holdout": 1,
+    "tau_model": {
+      "threshold": 0.0,
+      "coefficients_z": [
+        0.007472988856903154,
+        0.03263639333994721,
+        0.17415869058128425
+      ],
+      "coefficients_physical": {
+        "1": -0.02557013762458704,
+        "V": 0.00034550561347599794,
+        "V_drive_minus_V": 0.008812200358494159
+      },
+      "active_terms": [
+        "1",
+        "V",
+        "V_drive_minus_V"
+      ],
+      "train_mse": 0.1944741646935663,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "mse": 0.011094427135867358
+        },
+        {
+          "step_name": "p5838_step7",
+          "mse": 0.0011838714156589946
+        }
+      ],
+      "holdout_mse": 0.006139149275763176,
+      "sign_ok": 1,
+      "one_term_k_hat": 0.008476431872284128,
+      "one_term_holdout_mse": 0.005653995632667389,
+      "exact_equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)"
+    },
+    "coefficients_physical": {
+      "1": -0.02557013762458704,
+      "V": 0.00034550561347599794,
+      "V_drive_minus_V": 0.008812200358494159
+    },
+    "equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+    "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)",
+    "derivative_rows": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 0.011094427135867358,
+        "derivative_rmse": 0.10533008656536534,
+        "derivative_mae": 0.04289819312234731,
+        "derivative_r2": 0.03408721189769259
+      },
+      {
+        "step_name": "p5838_step7",
+        "derivative_mse": 0.0011838714156589946,
+        "derivative_rmse": 0.03440743256418582,
+        "derivative_mae": 0.02509848140397303,
+        "derivative_r2": -0.1266611943260081
+      }
+    ],
+    "rollout_rows": [
+      {
+        "step_name": "p5838_step2",
+        "tau_rollout_mse": 0.9795718975360754,
+        "tau_rollout_rmse": 0.9897332456455504,
+        "tau_rollout_mae": 0.8516970533385264,
+        "tau_rollout_r2": -229.68726465532063,
+        "max_abs_tau_error": 1.7008406242498708
+      },
+      {
+        "step_name": "p5838_step7",
+        "tau_rollout_mse": 0.48988491182468336,
+        "tau_rollout_rmse": 0.6999177893329211,
+        "tau_rollout_mae": 0.617009145634335,
+        "tau_rollout_r2": -109.10338331720794,
+        "max_abs_tau_error": 1.1722692765539584
+      }
+    ],
+    "mean_derivative_mse": 0.006139149275763176,
+    "mean_derivative_rmse": 0.06986875956477558,
+    "mean_derivative_mae": 0.03399833726316017,
+    "mean_derivative_r2": -0.04628699121415775,
+    "mean_tau_rollout_mse": 0.7347284046803794,
+    "mean_tau_rollout_rmse": 0.8448255174892358,
+    "mean_tau_rollout_mae": 0.7343530994864307,
+    "mean_tau_rollout_r2": -169.3953239862643
+  },
+  "all_step_descriptive_result": {
+    "strategy_name": "B_all_step_descriptive",
+    "strategy_label": "All-step descriptive",
+    "train_steps": [
+      "p5838_step2",
+      "p5838_step3",
+      "p5838_step4",
+      "p5838_step5",
+      "p5838_step7",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step10"
+    ],
+    "eval_steps": [
+      "p5838_step2",
+      "p5838_step3",
+      "p5838_step4",
+      "p5838_step5",
+      "p5838_step7",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step10"
+    ],
+    "honest_holdout": 0,
+    "tau_model": {
+      "threshold": 0.0,
+      "coefficients_z": [
+        0.005193874156111809,
+        0.026464213462494834,
+        0.1481961120309417
+      ],
+      "coefficients_physical": {
+        "1": -0.016011306625852116,
+        "V": 0.0002959835013971787,
+        "V_drive_minus_V": 0.008789444040482606
+      },
+      "active_terms": [
+        "1",
+        "V",
+        "V_drive_minus_V"
+      ],
+      "train_mse": 0.14285316164757272,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "mse": 0.010732791252386248
+        },
+        {
+          "step_name": "p5838_step3",
+          "mse": 0.02885698814898613
+        },
+        {
+          "step_name": "p5838_step4",
+          "mse": 0.13385966128748497
+        },
+        {
+          "step_name": "p5838_step5",
+          "mse": 0.1999769359827791
+        },
+        {
+          "step_name": "p5838_step7",
+          "mse": 0.0009047345014302102
+        },
+        {
+          "step_name": "p5838_step8",
+          "mse": 0.027440275927819228
+        },
+        {
+          "step_name": "p5838_step9",
+          "mse": 0.103340843830841
+        },
+        {
+          "step_name": "p5838_step10",
+          "mse": 1.0124378390238837
+        }
+      ],
+      "holdout_mse": 0.18969375874445132,
+      "sign_ok": 1,
+      "one_term_k_hat": 0.008502058156332355,
+      "one_term_holdout_mse": 0.19049287501004167,
+      "exact_equation": "dtau/dt = -1.601131e-02 + 2.959835e-04*V + 8.789444e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.502058e-03*(V_drive - V)"
+    },
+    "coefficients_physical": {
+      "1": -0.016011306625852116,
+      "V": 0.0002959835013971787,
+      "V_drive_minus_V": 0.008789444040482606
+    },
+    "equation": "dtau/dt = -1.601131e-02 + 2.959835e-04*V + 8.789444e-03*V_drive_minus_V",
+    "one_term_equation": "dtau/dt ~= 8.502058e-03*(V_drive - V)",
+    "derivative_rows": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 0.010732791252386248,
+        "derivative_rmse": 0.10359918557781353,
+        "derivative_mae": 0.03535396336907296,
+        "derivative_r2": 0.065572273741201
+      },
+      {
+        "step_name": "p5838_step3",
+        "derivative_mse": 0.02885698814898613,
+        "derivative_rmse": 0.16987344745128982,
+        "derivative_mae": 0.05280548059711731,
+        "derivative_r2": 0.13502234868513086
+      },
+      {
+        "step_name": "p5838_step4",
+        "derivative_mse": 0.13385966128748497,
+        "derivative_rmse": 0.3658683660655632,
+        "derivative_mae": 0.1736002328164086,
+        "derivative_r2": 0.17249362107591604
+      },
+      {
+        "step_name": "p5838_step5",
+        "derivative_mse": 0.1999769359827791,
+        "derivative_rmse": 0.4471878084013238,
+        "derivative_mae": 0.3295595540016162,
+        "derivative_r2": 0.15822299665871697
+      },
+      {
+        "step_name": "p5838_step7",
+        "derivative_mse": 0.0009047345014302102,
+        "derivative_rmse": 0.03007880485375392,
+        "derivative_mae": 0.01951190279126731,
+        "derivative_r2": 0.13898651454313304
+      },
+      {
+        "step_name": "p5838_step8",
+        "derivative_mse": 0.027440275927819228,
+        "derivative_rmse": 0.165651066787447,
+        "derivative_mae": 0.05351362569246516,
+        "derivative_r2": 0.1025732100466007
+      },
+      {
+        "step_name": "p5838_step9",
+        "derivative_mse": 0.103340843830841,
+        "derivative_rmse": 0.32146670718884873,
+        "derivative_mae": 0.1415307109196508,
+        "derivative_r2": 0.2024022627580807
+      },
+      {
+        "step_name": "p5838_step10",
+        "derivative_mse": 1.0124378390238837,
+        "derivative_rmse": 1.0061997013634438,
+        "derivative_mae": 0.5196268011066738,
+        "derivative_r2": 0.08334751302805254
+      }
+    ],
+    "rollout_rows": [
+      {
+        "step_name": "p5838_step2",
+        "tau_rollout_mse": 0.37909119974798416,
+        "tau_rollout_rmse": 0.6157038246981938,
+        "tau_rollout_mae": 0.5263134895724565,
+        "tau_rollout_r2": -88.2752355847832,
+        "max_abs_tau_error": 1.0548787240324842
+      },
+      {
+        "step_name": "p5838_step3",
+        "tau_rollout_mse": 0.00635769182181594,
+        "tau_rollout_rmse": 0.0797351354285922,
+        "tau_rollout_mae": 0.06315731630919745,
+        "tau_rollout_r2": 0.11194031943788385,
+        "max_abs_tau_error": 0.38967604934593325
+      },
+      {
+        "step_name": "p5838_step4",
+        "tau_rollout_mse": 0.011149434961098171,
+        "tau_rollout_rmse": 0.10559088483907203,
+        "tau_rollout_mae": 0.09358108095356928,
+        "tau_rollout_r2": -2.3167992664673944,
+        "max_abs_tau_error": 0.2566562897398903
+      },
+      {
+        "step_name": "p5838_step5",
+        "tau_rollout_mse": 0.006504421117122348,
+        "tau_rollout_rmse": 0.08064999142667251,
+        "tau_rollout_mae": 0.06740874332466701,
+        "tau_rollout_r2": 0.1279006445680021,
+        "max_abs_tau_error": 0.1419223733672279
+      },
+      {
+        "step_name": "p5838_step7",
+        "tau_rollout_mse": 0.15179537094317447,
+        "tau_rollout_rmse": 0.3896092541806142,
+        "tau_rollout_mae": 0.34699985710705417,
+        "tau_rollout_r2": -33.116551682480285,
+        "max_abs_tau_error": 0.6374348066178701
+      },
+      {
+        "step_name": "p5838_step8",
+        "tau_rollout_mse": 0.012487877210644031,
+        "tau_rollout_rmse": 0.11174917096177507,
+        "tau_rollout_mae": 0.08894034344606161,
+        "tau_rollout_r2": -0.4983929857176226,
+        "max_abs_tau_error": 0.4163661989383911
+      },
+      {
+        "step_name": "p5838_step9",
+        "tau_rollout_mse": 0.010619081796882974,
+        "tau_rollout_rmse": 0.10304892913991379,
+        "tau_rollout_mae": 0.07723416114429198,
+        "tau_rollout_r2": -0.9351319796329958,
+        "max_abs_tau_error": 0.2274870999998253
+      },
+      {
+        "step_name": "p5838_step10",
+        "tau_rollout_mse": 0.011965048925966903,
+        "tau_rollout_rmse": 0.10938486607372568,
+        "tau_rollout_mae": 0.09184434237923834,
+        "tau_rollout_r2": -4.017001893546618,
+        "max_abs_tau_error": 0.28279434308804063
+      }
+    ],
+    "mean_derivative_mse": 0.18969375874445132,
+    "mean_derivative_rmse": 0.3262406359611855,
+    "mean_derivative_mae": 0.16568778391178401,
+    "mean_derivative_r2": 0.13232759256710397,
+    "mean_tau_rollout_mse": 0.07374626581558613,
+    "mean_tau_rollout_rmse": 0.19943400709356993,
+    "mean_tau_rollout_mae": 0.16943491677956704,
+    "mean_tau_rollout_r2": -16.11490905357778
+  },
+  "leave_two_out_rows": [
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step10",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step10"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.0,
+          0.16046494567902395
+        ],
+        "coefficients_physical": {
+          "1": 0.0008085442864277897,
+          "V": 0.0,
+          "V_drive_minus_V": 0.03596472425305236
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.0357138245615766,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 1.309074023356064
+          },
+          {
+            "step_name": "p5838_step10",
+            "mse": 2.487429934530065
+          }
+        ],
+        "holdout_mse": 1.8982519789430645,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.035969884458785024,
+        "one_term_holdout_mse": 1.8987787502804658,
+        "exact_equation": "dtau/dt = 8.085443e-04 + 3.596472e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 3.596988e-02*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": 0.0008085442864277897,
+        "V": 0.0,
+        "V_drive_minus_V": 0.03596472425305236
+      },
+      "equation": "dtau/dt = 8.085443e-04 + 3.596472e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 3.596988e-02*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 1.309074023356064,
+          "derivative_rmse": 1.1441477279425345,
+          "derivative_mae": 0.7400732946716657,
+          "derivative_r2": -4.510377499870675
+        },
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 2.487429934530065,
+          "derivative_rmse": 1.5771588171550972,
+          "derivative_mae": 0.9328605912244832,
+          "derivative_r2": -1.2520976081393416
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.09717850449481248,
+          "tau_rollout_rmse": 0.3117346700237439,
+          "tau_rollout_mae": 0.23152291346127518,
+          "tau_rollout_r2": -12.029493264001,
+          "max_abs_tau_error": 0.6273563389490295
+        },
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.1460577359384524,
+          "tau_rollout_rmse": 0.3821750069515959,
+          "tau_rollout_mae": 0.30109602676955327,
+          "tau_rollout_r2": -60.24270300141141,
+          "max_abs_tau_error": 0.7994043188554016
+        }
+      ],
+      "mean_derivative_mse": 1.8982519789430645,
+      "mean_derivative_rmse": 1.3606532725488159,
+      "mean_derivative_mae": 0.8364669429480744,
+      "mean_derivative_r2": -2.881237554005008,
+      "mean_tau_rollout_mse": 0.12161812021663243,
+      "mean_tau_rollout_rmse": 0.3469548384876699,
+      "mean_tau_rollout_mae": 0.2663094701154142,
+      "mean_tau_rollout_r2": -36.1360981327062,
+      "pair_shift_distance_from_global_center": 2.6132937866288253,
+      "pair_internal_variability_gap": 0.0792588190000525,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step3",
+      "train_steps": [
+        "p5838_step10",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step3"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.0,
+          0.14714249727640594
+        ],
+        "coefficients_physical": {
+          "1": 0.0001926482218454011,
+          "V": 0.0,
+          "V_drive_minus_V": 0.010119297398854978
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1545990179443674,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 0.22600890785084812
+          },
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.02815375448221068
+          }
+        ],
+        "holdout_mse": 0.1270813311665294,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.010119925828610276,
+        "one_term_holdout_mse": 0.12710542921561319,
+        "exact_equation": "dtau/dt = 1.926482e-04 + 1.011930e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 1.011993e-02*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": 0.0001926482218454011,
+        "V": 0.0,
+        "V_drive_minus_V": 0.010119297398854978
+      },
+      "equation": "dtau/dt = 1.926482e-04 + 1.011930e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 1.011993e-02*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 0.22600890785084812,
+          "derivative_rmse": 0.475403941770415,
+          "derivative_mae": 0.3565445700691133,
+          "derivative_r2": 0.04864478373892933
+        },
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.02815375448221068,
+          "derivative_rmse": 0.16779080571417102,
+          "derivative_mae": 0.052810358154617425,
+          "derivative_r2": 0.156101520297652
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.013819967050306806,
+          "tau_rollout_rmse": 0.11755835593570882,
+          "tau_rollout_mae": 0.09201881025113919,
+          "tau_rollout_r2": -0.8529526516874986,
+          "max_abs_tau_error": 0.2559742146410411
+        },
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.010032010922130576,
+          "tau_rollout_rmse": 0.10015992672786146,
+          "tau_rollout_mae": 0.06971121019436298,
+          "tau_rollout_r2": -0.40129856315656776,
+          "max_abs_tau_error": 0.2949544569053
+        }
+      ],
+      "mean_derivative_mse": 0.1270813311665294,
+      "mean_derivative_rmse": 0.321597373742293,
+      "mean_derivative_mae": 0.20467746411186535,
+      "mean_derivative_r2": 0.10237315201829067,
+      "mean_tau_rollout_mse": 0.011925988986218692,
+      "mean_tau_rollout_rmse": 0.10885914133178515,
+      "mean_tau_rollout_mae": 0.08086501022275108,
+      "mean_tau_rollout_r2": -0.6271256074220332,
+      "pair_shift_distance_from_global_center": 1.47961231783595,
+      "pair_internal_variability_gap": 0.22508700397236742,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step8",
+      "train_steps": [
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step8"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.0,
+          0.1481595543108345
+        ],
+        "coefficients_physical": {
+          "1": 0.0001999775392211879,
+          "V": 0.0,
+          "V_drive_minus_V": 0.010202685647833356
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1547839519203627,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 0.22684701909759422
+          },
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.027093456542261512
+          }
+        ],
+        "holdout_mse": 0.12697023781992786,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.010203268144287413,
+        "one_term_holdout_mse": 0.1269942383560712,
+        "exact_equation": "dtau/dt = 1.999775e-04 + 1.020269e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 1.020327e-02*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": 0.0001999775392211879,
+        "V": 0.0,
+        "V_drive_minus_V": 0.010202685647833356
+      },
+      "equation": "dtau/dt = 1.999775e-04 + 1.020269e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 1.020327e-02*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 0.22684701909759422,
+          "derivative_rmse": 0.4762845988456841,
+          "derivative_mae": 0.35719098441309377,
+          "derivative_r2": 0.04511686303004658
+        },
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.027093456542261512,
+          "derivative_rmse": 0.1646009007941983,
+          "derivative_mae": 0.054789506347311195,
+          "derivative_r2": 0.11391584408910793
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.01387996553351794,
+          "tau_rollout_rmse": 0.11781326552437947,
+          "tau_rollout_mae": 0.09235072147549356,
+          "tau_rollout_r2": -0.8609971244535046,
+          "max_abs_tau_error": 0.255954170339308
+        },
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.01008882121561941,
+          "tau_rollout_rmse": 0.10044312428244857,
+          "tau_rollout_mae": 0.07022658933589658,
+          "tau_rollout_r2": -0.21053552086164706,
+          "max_abs_tau_error": 0.3234888414079382
+        }
+      ],
+      "mean_derivative_mse": 0.12697023781992786,
+      "mean_derivative_rmse": 0.3204427498199412,
+      "mean_derivative_mae": 0.2059902453802025,
+      "mean_derivative_r2": 0.07951635355957726,
+      "mean_tau_rollout_mse": 0.011984393374568674,
+      "mean_tau_rollout_rmse": 0.10912819490341402,
+      "mean_tau_rollout_mae": 0.08128865540569508,
+      "mean_tau_rollout_r2": -0.5357663226575758,
+      "pair_shift_distance_from_global_center": 1.527518470363406,
+      "pair_internal_variability_gap": 0.39186125837761304,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step9",
+      "train_steps": [
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step9"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.0,
+          0.1307937261363943
+        ],
+        "coefficients_physical": {
+          "1": 0.0001766381678559635,
+          "V": 0.0,
+          "V_drive_minus_V": 0.009143900061876969
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.14182590918834187,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 0.21746557091396543
+          },
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.1010767865479239
+          }
+        ],
+        "holdout_mse": 0.15927117873094465,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.009144267217362868,
+        "one_term_holdout_mse": 0.15928837592607129,
+        "exact_equation": "dtau/dt = 1.766382e-04 + 9.143900e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 9.144267e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": 0.0001766381678559635,
+        "V": 0.0,
+        "V_drive_minus_V": 0.009143900061876969
+      },
+      "equation": "dtau/dt = 1.766382e-04 + 9.143900e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 9.144267e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 0.21746557091396543,
+          "derivative_rmse": 0.46633203933888717,
+          "derivative_mae": 0.34961615970809523,
+          "derivative_r2": 0.08460685371425547
+        },
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.1010767865479239,
+          "derivative_rmse": 0.31792575634560327,
+          "derivative_mae": 0.1383107105621324,
+          "derivative_r2": 0.21987654397061562
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.01321681338685424,
+          "tau_rollout_rmse": 0.11496440051970105,
+          "tau_rollout_mae": 0.08821469052902134,
+          "tau_rollout_r2": -0.7720830536630481,
+          "max_abs_tau_error": 0.2561391065011005
+        },
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.007750064801531609,
+          "tau_rollout_rmse": 0.08803445235549325,
+          "tau_rollout_mae": 0.06930854245673634,
+          "tau_rollout_r2": -0.412306499614125,
+          "max_abs_tau_error": 0.19037063055785275
+        }
+      ],
+      "mean_derivative_mse": 0.15927117873094465,
+      "mean_derivative_rmse": 0.39212889784224525,
+      "mean_derivative_mae": 0.24396343513511382,
+      "mean_derivative_r2": 0.15224169884243555,
+      "mean_tau_rollout_mse": 0.010483439094192925,
+      "mean_tau_rollout_rmse": 0.10149942643759716,
+      "mean_tau_rollout_mae": 0.07876161649287884,
+      "mean_tau_rollout_r2": -0.5921947766385866,
+      "pair_shift_distance_from_global_center": 1.1818357181224015,
+      "pair_internal_variability_gap": 0.4300841132678722,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step4",
+      "train_steps": [
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step4"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          -0.010779146786675665,
+          0.0,
+          0.13020220233934376
+        ],
+        "coefficients_physical": {
+          "1": -0.010708844407142556,
+          "V": 0.0,
+          "V_drive_minus_V": 0.00909987785421223
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.13618181669983132,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 0.21980038404409633
+          },
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.13248415354798712
+          }
+        ],
+        "holdout_mse": 0.17614226879604172,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.009100281999312463,
+        "one_term_holdout_mse": 0.17462936008977992,
+        "exact_equation": "dtau/dt = -1.070884e-02 + 9.099878e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 9.100282e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.010708844407142556,
+        "V": 0.0,
+        "V_drive_minus_V": 0.00909987785421223
+      },
+      "equation": "dtau/dt = -1.070884e-02 + 9.099878e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 9.100282e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 0.21980038404409633,
+          "derivative_rmse": 0.4688287363676594,
+          "derivative_mae": 0.35229890718184526,
+          "derivative_r2": 0.07477876033746367
+        },
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.13248415354798712,
+          "derivative_rmse": 0.36398372703733217,
+          "derivative_mae": 0.17264428694567702,
+          "derivative_r2": 0.18099686557650796
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.015262333973752496,
+          "tau_rollout_rmse": 0.12354081905893492,
+          "tau_rollout_mae": 0.09170421295239967,
+          "tau_rollout_r2": -1.0463422311109674,
+          "max_abs_tau_error": 0.27934265842739947
+        },
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.022598001115416953,
+          "tau_rollout_rmse": 0.15032631544548997,
+          "tau_rollout_mae": 0.13442020979575078,
+          "tau_rollout_r2": -5.72258583370056,
+          "max_abs_tau_error": 0.2613702649983711
+        }
+      ],
+      "mean_derivative_mse": 0.17614226879604172,
+      "mean_derivative_rmse": 0.4164062317024958,
+      "mean_derivative_mae": 0.2624715970637611,
+      "mean_derivative_r2": 0.1278878129569858,
+      "mean_tau_rollout_mse": 0.018930167544584726,
+      "mean_tau_rollout_rmse": 0.13693356725221245,
+      "mean_tau_rollout_mae": 0.11306221137407522,
+      "mean_tau_rollout_r2": -3.3844640324057638,
+      "pair_shift_distance_from_global_center": 0.8632948502416943,
+      "pair_internal_variability_gap": 0.8550836908824675,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step2",
+      "train_steps": [
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step2"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.0,
+          0.14966905299446465
+        ],
+        "coefficients_physical": {
+          "1": 0.00019357257050383215,
+          "V": 0.0,
+          "V_drive_minus_V": 0.01027163577221811
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1577735849718912,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 0.22755590853717247
+          },
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.010377420098225471
+          }
+        ],
+        "holdout_mse": 0.11896666431769898,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.01027238998387928,
+        "one_term_holdout_mse": 0.11899338122794635,
+        "exact_equation": "dtau/dt = 1.935726e-04 + 1.027164e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 1.027239e-02*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": 0.00019357257050383215,
+        "V": 0.0,
+        "V_drive_minus_V": 0.01027163577221811
+      },
+      "equation": "dtau/dt = 1.935726e-04 + 1.027164e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 1.027239e-02*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 0.22755590853717247,
+          "derivative_rmse": 0.47702820517991645,
+          "derivative_mae": 0.3577381438028691,
+          "derivative_r2": 0.042132884776675206
+        },
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.010377420098225471,
+          "derivative_rmse": 0.10186962303957678,
+          "derivative_mae": 0.028824225483807035,
+          "derivative_r2": 0.0965119102021812
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.013931819091289733,
+          "tau_rollout_rmse": 0.118033127092735,
+          "tau_rollout_mae": 0.09262762813552357,
+          "tau_rollout_r2": -0.86794954243127,
+          "max_abs_tau_error": 0.25595787089685906
+        },
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 0.0044562932421456525,
+          "tau_rollout_rmse": 0.06675547349952402,
+          "tau_rollout_mae": 0.044082583489098964,
+          "tau_rollout_r2": -0.04944833668496673,
+          "max_abs_tau_error": 0.2920461019792313
+        }
+      ],
+      "mean_derivative_mse": 0.11896666431769898,
+      "mean_derivative_rmse": 0.2894489141097466,
+      "mean_derivative_mae": 0.19328118464333807,
+      "mean_derivative_r2": 0.0693223974894282,
+      "mean_tau_rollout_mse": 0.009194056166717693,
+      "mean_tau_rollout_rmse": 0.09239430029612951,
+      "mean_tau_rollout_mae": 0.06835510581231127,
+      "mean_tau_rollout_r2": -0.45869893955811836,
+      "pair_shift_distance_from_global_center": 0.488021239918455,
+      "pair_internal_variability_gap": 0.9285934500955957,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step5 + p5838_step7",
+      "train_steps": [
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2"
+      ],
+      "eval_steps": [
+        "p5838_step5",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.0,
+          0.15014956044653252
+        ],
+        "coefficients_physical": {
+          "1": 0.00021295737089252373,
+          "V": 0.0,
+          "V_drive_minus_V": 0.010289663165239915
+        },
+        "active_terms": [
+          "1",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1594958584711631,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step5",
+            "mse": 0.22773827432437044
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.0007549315697970682
+          }
+        ],
+        "holdout_mse": 0.11424660294708375,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.010290418257406404,
+        "one_term_holdout_mse": 0.11427477359982745,
+        "exact_equation": "dtau/dt = 2.129574e-04 + 1.028966e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 1.029042e-02*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": 0.00021295737089252373,
+        "V": 0.0,
+        "V_drive_minus_V": 0.010289663165239915
+      },
+      "equation": "dtau/dt = 2.129574e-04 + 1.028966e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 1.029042e-02*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step5",
+          "derivative_mse": 0.22773827432437044,
+          "derivative_rmse": 0.47721931470171075,
+          "derivative_mae": 0.3578757482289594,
+          "derivative_r2": 0.041365239622472516
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.0007549315697970682,
+          "derivative_rmse": 0.027476018084814768,
+          "derivative_mae": 0.01702945527139983,
+          "derivative_r2": 0.28155026566925034
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "tau_rollout_mse": 0.01394211369710878,
+          "tau_rollout_rmse": 0.11807672800814215,
+          "tau_rollout_mae": 0.09269399766134719,
+          "tau_rollout_r2": -0.8693298219269476,
+          "max_abs_tau_error": 0.25590982248454885
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 0.007717440084791328,
+          "tau_rollout_rmse": 0.08784896177412302,
+          "tau_rollout_mae": 0.07110633870659881,
+          "tau_rollout_r2": -0.7345222181234601,
+          "max_abs_tau_error": 0.17635754630554779
+        }
+      ],
+      "mean_derivative_mse": 0.11424660294708375,
+      "mean_derivative_rmse": 0.2523476663932628,
+      "mean_derivative_mae": 0.1874526017501796,
+      "mean_derivative_r2": 0.16145775264586143,
+      "mean_tau_rollout_mse": 0.010829776890950054,
+      "mean_tau_rollout_rmse": 0.10296284489113258,
+      "mean_tau_rollout_mae": 0.081900168183973,
+      "mean_tau_rollout_r2": -0.8019260200252039,
+      "pair_shift_distance_from_global_center": 0.4905147111741039,
+      "pair_internal_variability_gap": 1.0491837484180058,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step3",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step10",
+        "p5838_step3"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.01057513394474603,
+          0.043587853350481376,
+          0.1311654522617659
+        ],
+        "coefficients_physical": {
+          "1": -0.024329441801006532,
+          "V": 0.0005481623468561496,
+          "V_drive_minus_V": 0.009934188139529114
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.07281096015505528,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step10",
+            "mse": 1.0289595947595789
+          },
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.02850992383478077
+          }
+        ],
+        "holdout_mse": 0.5287347592971798,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.009416277520245828,
+        "one_term_holdout_mse": 0.5199782221460996,
+        "exact_equation": "dtau/dt = -2.432944e-02 + 5.481623e-04*V + 9.934188e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 9.416278e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.024329441801006532,
+        "V": 0.0005481623468561496,
+        "V_drive_minus_V": 0.009934188139529114
+      },
+      "equation": "dtau/dt = -2.432944e-02 + 5.481623e-04*V + 9.934188e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 9.416278e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 1.0289595947595789,
+          "derivative_rmse": 1.0143764561342987,
+          "derivative_mae": 0.5290827238641331,
+          "derivative_r2": 0.06838885788842508
+        },
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.02850992383478077,
+          "derivative_rmse": 0.1688488194651676,
+          "derivative_mae": 0.0532047675733654,
+          "derivative_r2": 0.1454254743961938
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.025810386367998418,
+          "tau_rollout_rmse": 0.16065611214018102,
+          "tau_rollout_mae": 0.13614591590813047,
+          "tau_rollout_r2": -9.82241770030653,
+          "max_abs_tau_error": 0.32840692831768337
+        },
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.013689292143625664,
+          "tau_rollout_rmse": 0.11700124847037173,
+          "tau_rollout_mae": 0.10479668618814789,
+          "tau_rollout_r2": -0.9121575485106368,
+          "max_abs_tau_error": 0.4298925424626976
+        }
+      ],
+      "mean_derivative_mse": 0.5287347592971798,
+      "mean_derivative_rmse": 0.5916126377997332,
+      "mean_derivative_mae": 0.29114374571874924,
+      "mean_derivative_r2": 0.10690716614230944,
+      "mean_tau_rollout_mse": 0.01974983925581204,
+      "mean_tau_rollout_rmse": 0.13882868030527637,
+      "mean_tau_rollout_mae": 0.12047130104813918,
+      "mean_tau_rollout_r2": -5.367287624408584,
+      "pair_shift_distance_from_global_center": 1.3658620295625832,
+      "pair_internal_variability_gap": 0.14582818497231492,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step8",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step3",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step10",
+        "p5838_step8"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.011264245357492585,
+          0.04324736924023214,
+          0.13217748661307205
+        ],
+        "coefficients_physical": {
+          "1": -0.023345262083290616,
+          "V": 0.0005438098515682614,
+          "V_drive_minus_V": 0.0100264987923967
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.07302914942922337,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step10",
+            "mse": 1.0296292448949051
+          },
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.027225240353348147
+          }
+        ],
+        "holdout_mse": 0.5284272426241267,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.009512916243547723,
+        "one_term_holdout_mse": 0.5197336300607163,
+        "exact_equation": "dtau/dt = -2.334526e-02 + 5.438099e-04*V + 1.002650e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 9.512916e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.023345262083290616,
+        "V": 0.0005438098515682614,
+        "V_drive_minus_V": 0.0100264987923967
+      },
+      "equation": "dtau/dt = -2.334526e-02 + 5.438099e-04*V + 1.002650e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 9.512916e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 1.0296292448949051,
+          "derivative_rmse": 1.0147064821390002,
+          "derivative_mae": 0.5289378268279166,
+          "derivative_r2": 0.06778256243176783
+        },
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.027225240353348147,
+          "derivative_rmse": 0.1650007283418717,
+          "derivative_mae": 0.054020863162636074,
+          "derivative_r2": 0.10960589025109257
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.026126859179304095,
+          "tau_rollout_rmse": 0.161638049911845,
+          "tau_rollout_mae": 0.1371127910743785,
+          "tau_rollout_r2": -9.955116254520618,
+          "max_abs_tau_error": 0.33048777648859584
+        },
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.019311666923511318,
+          "tau_rollout_rmse": 0.13896642372714108,
+          "tau_rollout_mae": 0.1154839829364434,
+          "tau_rollout_r2": -1.3171645406667198,
+          "max_abs_tau_error": 0.44936606136194257
+        }
+      ],
+      "mean_derivative_mse": 0.5284272426241267,
+      "mean_derivative_rmse": 0.589853605240436,
+      "mean_derivative_mae": 0.29147934499527633,
+      "mean_derivative_r2": 0.0886942263414302,
+      "mean_tau_rollout_mse": 0.022719263051407708,
+      "mean_tau_rollout_rmse": 0.15030223681949303,
+      "mean_tau_rollout_mae": 0.12629838700541093,
+      "mean_tau_rollout_r2": -5.636140397593669,
+      "pair_shift_distance_from_global_center": 1.1985390646800567,
+      "pair_internal_variability_gap": 0.31260243937756055,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step9",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step10",
+        "p5838_step9"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.01361134976234196,
+          0.04652668484185983,
+          0.1136497151875392
+        ],
+        "coefficients_physical": {
+          "1": -0.018436649910277964,
+          "V": 0.000585000727807522,
+          "V_drive_minus_V": 0.008777321481702124
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.05966878933865086,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step10",
+            "mse": 1.0272193462269814
+          },
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.10602938166205816
+          }
+        ],
+        "holdout_mse": 0.5666243639445198,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008224505840860104,
+        "one_term_holdout_mse": 0.554564916889387,
+        "exact_equation": "dtau/dt = -1.843665e-02 + 5.850007e-04*V + 8.777321e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.224506e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.018436649910277964,
+        "V": 0.000585000727807522,
+        "V_drive_minus_V": 0.008777321481702124
+      },
+      "equation": "dtau/dt = -1.843665e-02 + 5.850007e-04*V + 8.777321e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.224506e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 1.0272193462269814,
+          "derivative_rmse": 1.0135183008840942,
+          "derivative_mae": 0.5353829349400464,
+          "derivative_r2": 0.06996446389984468
+        },
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.10602938166205816,
+          "derivative_rmse": 0.32562153132441685,
+          "derivative_mae": 0.1506254141187504,
+          "derivative_r2": 0.18165178684578576
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.026619213983967684,
+          "tau_rollout_rmse": 0.1631539579169555,
+          "tau_rollout_mae": 0.13712028200081,
+          "tau_rollout_r2": -10.161562964649251,
+          "max_abs_tau_error": 0.3144573976417444
+        },
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.02752854583884175,
+          "tau_rollout_rmse": 0.1659172861363208,
+          "tau_rollout_mae": 0.11965411505050678,
+          "tau_rollout_r2": -4.016570210540452,
+          "max_abs_tau_error": 0.36680081917078944
+        }
+      ],
+      "mean_derivative_mse": 0.5666243639445198,
+      "mean_derivative_rmse": 0.6695699161042555,
+      "mean_derivative_mae": 0.3430041745293984,
+      "mean_derivative_r2": 0.12580812537281522,
+      "mean_tau_rollout_mse": 0.027073879911404718,
+      "mean_tau_rollout_rmse": 0.16453562202663816,
+      "mean_tau_rollout_mae": 0.12838719852565839,
+      "mean_tau_rollout_r2": -7.089066587594852,
+      "pair_shift_distance_from_global_center": 1.5836247619132364,
+      "pair_internal_variability_gap": 0.3508252942678197,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step4",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step10",
+        "p5838_step4"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.04501986079605331,
+          0.11275366948224477
+        ],
+        "coefficients_physical": {
+          "1": -0.03054088064859525,
+          "V": 0.000565983392832003,
+          "V_drive_minus_V": 0.008705088363081176
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.05457000438926167,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step10",
+            "mse": 1.0225157787849823
+          },
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.13515001888689973
+          }
+        ],
+        "holdout_mse": 0.578832898835941,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008172688366555929,
+        "one_term_holdout_mse": 0.5700584344467842,
+        "exact_equation": "dtau/dt = -3.054088e-02 + 5.659834e-04*V + 8.705088e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.172688e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.03054088064859525,
+        "V": 0.000565983392832003,
+        "V_drive_minus_V": 0.008705088363081176
+      },
+      "equation": "dtau/dt = -3.054088e-02 + 5.659834e-04*V + 8.705088e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.172688e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 1.0225157787849823,
+          "derivative_rmse": 1.0111952228847714,
+          "derivative_mae": 0.5309343738715999,
+          "derivative_r2": 0.07422303329261415
+        },
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.13515001888689973,
+          "derivative_rmse": 0.36762755458058327,
+          "derivative_mae": 0.17545212331858845,
+          "derivative_r2": 0.16451676580571128
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.021530026831790186,
+          "tau_rollout_rmse": 0.1467311379080466,
+          "tau_rollout_mae": 0.12268313512897179,
+          "tau_rollout_r2": -8.027642599001908,
+          "max_abs_tau_error": 0.30129314963076403
+        },
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.009238945499757196,
+          "tau_rollout_rmse": 0.09611943351766694,
+          "tau_rollout_mae": 0.0832568751932994,
+          "tau_rollout_r2": -1.7484556628606613,
+          "max_abs_tau_error": 0.26551448675829725
+        }
+      ],
+      "mean_derivative_mse": 0.578832898835941,
+      "mean_derivative_rmse": 0.6894113887326774,
+      "mean_derivative_mae": 0.35319324859509416,
+      "mean_derivative_r2": 0.11936989954916272,
+      "mean_tau_rollout_mse": 0.015384486165773691,
+      "mean_tau_rollout_rmse": 0.12142528571285677,
+      "mean_tau_rollout_mae": 0.1029700051611356,
+      "mean_tau_rollout_r2": -4.888049130931284,
+      "pair_shift_distance_from_global_center": 1.9389999150645203,
+      "pair_internal_variability_gap": 0.775824871882415,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step2",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step10",
+        "p5838_step2"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.04494061259577327,
+          0.13429034019812866
+        ],
+        "coefficients_physical": {
+          "1": -0.038334459135745166,
+          "V": 0.0005770781071416601,
+          "V_drive_minus_V": 0.010145787604154657
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.07595430578851994,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step10",
+            "mse": 1.0286981752772388
+          },
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.011664315446626475
+          }
+        ],
+        "holdout_mse": 0.5201812453619327,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.009600333795203038,
+        "one_term_holdout_mse": 0.5116563801278454,
+        "exact_equation": "dtau/dt = -3.833446e-02 + 5.770781e-04*V + 1.014579e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 9.600334e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.038334459135745166,
+        "V": 0.0005770781071416601,
+        "V_drive_minus_V": 0.010145787604154657
+      },
+      "equation": "dtau/dt = -3.833446e-02 + 5.770781e-04*V + 1.014579e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 9.600334e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 1.0286981752772388,
+          "derivative_rmse": 1.0142475907179858,
+          "derivative_mae": 0.527470371396596,
+          "derivative_r2": 0.06862554483294003
+        },
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.011664315446626475,
+          "derivative_rmse": 0.10800146039117468,
+          "derivative_mae": 0.05262442430275189,
+          "derivative_r2": -0.015528906213773785
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.023877397759187777,
+          "tau_rollout_rmse": 0.15452313017534874,
+          "tau_rollout_mae": 0.1304442502222112,
+          "tau_rollout_r2": -9.011906387681595,
+          "max_abs_tau_error": 0.32498400239738423
+        },
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 2.0920317290879726,
+          "tau_rollout_rmse": 1.4463857469872872,
+          "tau_rollout_mae": 1.251678514137808,
+          "tau_rollout_r2": -491.66937768360384,
+          "max_abs_tau_error": 2.47451818411726
+        }
+      ],
+      "mean_derivative_mse": 0.5201812453619327,
+      "mean_derivative_rmse": 0.5611245255545803,
+      "mean_derivative_mae": 0.290047397849674,
+      "mean_derivative_r2": 0.026548319309583124,
+      "mean_tau_rollout_mse": 1.0579545634235803,
+      "mean_tau_rollout_rmse": 0.8004544385813179,
+      "mean_tau_rollout_mae": 0.6910613821800096,
+      "mean_tau_rollout_r2": -250.34064203564273,
+      "pair_shift_distance_from_global_center": 1.3723458238906925,
+      "pair_internal_variability_gap": 0.8493346310955432,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step10 + p5838_step7",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2"
+      ],
+      "eval_steps": [
+        "p5838_step10",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.04434397687149653,
+          0.13472528602501746
+        ],
+        "coefficients_physical": {
+          "1": -0.037660277611691426,
+          "V": 0.0005685170601676383,
+          "V_drive_minus_V": 0.010161161949156932
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.07769446712307103,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step10",
+            "mse": 1.028511716258018
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.0016636772846290982
+          }
+        ],
+        "holdout_mse": 0.5150876967713235,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.009623983634940183,
+        "one_term_holdout_mse": 0.506922768674941,
+        "exact_equation": "dtau/dt = -3.766028e-02 + 5.685171e-04*V + 1.016116e-02*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 9.623984e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.037660277611691426,
+        "V": 0.0005685170601676383,
+        "V_drive_minus_V": 0.010161161949156932
+      },
+      "equation": "dtau/dt = -3.766028e-02 + 5.685171e-04*V + 1.016116e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 9.623984e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step10",
+          "derivative_mse": 1.028511716258018,
+          "derivative_rmse": 1.0141556666794393,
+          "derivative_mae": 0.5271326783367719,
+          "derivative_r2": 0.06879436322069599
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.0016636772846290982,
+          "derivative_rmse": 0.04078820031123092,
+          "derivative_mae": 0.03340088929762179,
+          "derivative_r2": -0.5832805925379123
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "tau_rollout_mse": 0.023612585684427242,
+          "tau_rollout_rmse": 0.15366387241127058,
+          "tau_rollout_mae": 0.12976531025730997,
+          "tau_rollout_r2": -8.900869425883275,
+          "max_abs_tau_error": 0.32481459476266394
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 1.1024395236641196,
+          "tau_rollout_rmse": 1.0499712013498845,
+          "tau_rollout_mae": 0.922672071448634,
+          "tau_rollout_r2": -246.77721976763019,
+          "max_abs_tau_error": 1.7683869601005515
+        }
+      ],
+      "mean_derivative_mse": 0.5150876967713235,
+      "mean_derivative_rmse": 0.5274719334953352,
+      "mean_derivative_mae": 0.28026678381719683,
+      "mean_derivative_r2": -0.25724311465860816,
+      "mean_tau_rollout_mse": 0.5630260546742734,
+      "mean_tau_rollout_rmse": 0.6018175368805776,
+      "mean_tau_rollout_mae": 0.526218690852972,
+      "mean_tau_rollout_r2": -127.83904459675674,
+      "pair_shift_distance_from_global_center": 1.316199480497939,
+      "pair_internal_variability_gap": 0.9699249294179533,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step8",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step3",
+        "p5838_step8"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.010668160607858692,
+          0.029545463963841265,
+          0.16957699275114343
+        ],
+        "coefficients_physical": {
+          "1": -0.016191728901148124,
+          "V": 0.0002987630016969395,
+          "V_drive_minus_V": 0.008614586685329785
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.18608751786649882,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.028939449753972994
+          },
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.0274889280605075
+          }
+        ],
+        "holdout_mse": 0.02821418890724025,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008324391562958609,
+        "one_term_holdout_mse": 0.02825780347054293,
+        "exact_equation": "dtau/dt = -1.619173e-02 + 2.987630e-04*V + 8.614587e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.324392e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.016191728901148124,
+        "V": 0.0002987630016969395,
+        "V_drive_minus_V": 0.008614586685329785
+      },
+      "equation": "dtau/dt = -1.619173e-02 + 2.987630e-04*V + 8.614587e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.324392e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.028939449753972994,
+          "derivative_rmse": 0.17011598911910952,
+          "derivative_mae": 0.05286595932550791,
+          "derivative_r2": 0.13255059227600952
+        },
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.0274889280605075,
+          "derivative_rmse": 0.16579785300331093,
+          "derivative_mae": 0.053532133942745405,
+          "derivative_r2": 0.10098205522812609
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.006476590162860702,
+          "tau_rollout_rmse": 0.08047726488183295,
+          "tau_rollout_mae": 0.06426858030156408,
+          "tau_rollout_r2": 0.09533227587005055,
+          "max_abs_tau_error": 0.3908532487960752
+        },
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.012661558693026684,
+          "tau_rollout_rmse": 0.11252359171758909,
+          "tau_rollout_mae": 0.08971342126401984,
+          "tau_rollout_r2": -0.5192326456983747,
+          "max_abs_tau_error": 0.417450857291799
+        }
+      ],
+      "mean_derivative_mse": 0.02821418890724025,
+      "mean_derivative_rmse": 0.16795692106121024,
+      "mean_derivative_mae": 0.053199046634126654,
+      "mean_derivative_r2": 0.1167663237520678,
+      "mean_tau_rollout_mse": 0.009569074427943693,
+      "mean_tau_rollout_rmse": 0.09650042829971102,
+      "mean_tau_rollout_mae": 0.07699100078279196,
+      "mean_tau_rollout_r2": -0.21195018491416207,
+      "pair_shift_distance_from_global_center": 1.557525685701059,
+      "pair_internal_variability_gap": 0.16677425440524563,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step9",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step8",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step3",
+        "p5838_step9"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.013197706143083745,
+          0.030813726632104275,
+          0.15589612090526908
+        ],
+        "coefficients_physical": {
+          "1": -0.011232046539992982,
+          "V": 0.0003040448843447649,
+          "V_drive_minus_V": 0.007988015079789506
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.17151213575110025,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.029241400167873296
+          },
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.10601145376692127
+          }
+        ],
+        "holdout_mse": 0.06762642696739728,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007692562120629977,
+        "one_term_holdout_mse": 0.06720355395721624,
+        "exact_equation": "dtau/dt = -1.123205e-02 + 3.040449e-04*V + 7.988015e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.692562e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.011232046539992982,
+        "V": 0.0003040448843447649,
+        "V_drive_minus_V": 0.007988015079789506
+      },
+      "equation": "dtau/dt = -1.123205e-02 + 3.040449e-04*V + 7.988015e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.692562e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.029241400167873296,
+          "derivative_rmse": 0.1710011700774977,
+          "derivative_mae": 0.05322255364272046,
+          "derivative_r2": 0.12349973920428281
+        },
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.10601145376692127,
+          "derivative_rmse": 0.32559400142957373,
+          "derivative_mae": 0.14448745136145463,
+          "derivative_r2": 0.18179015661387188
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.004465088266161694,
+          "tau_rollout_rmse": 0.06682131595652464,
+          "tau_rollout_mae": 0.05329216806599978,
+          "tau_rollout_r2": 0.37630433017802156,
+          "max_abs_tau_error": 0.35540694135768014
+        },
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.01472704161011898,
+          "tau_rollout_rmse": 0.12135502301148882,
+          "tau_rollout_mae": 0.08982066523343837,
+          "tau_rollout_r2": -1.683731958208694,
+          "max_abs_tau_error": 0.2670545352005895
+        }
+      ],
+      "mean_derivative_mse": 0.06762642696739728,
+      "mean_derivative_rmse": 0.24829758575353572,
+      "mean_derivative_mae": 0.09885500250208755,
+      "mean_derivative_r2": 0.15264494790907734,
+      "mean_tau_rollout_mse": 0.009596064938140338,
+      "mean_tau_rollout_rmse": 0.09408816948400672,
+      "mean_tau_rollout_mae": 0.07155641664971908,
+      "mean_tau_rollout_r2": -0.6537138140153362,
+      "pair_shift_distance_from_global_center": 0.9573426938848536,
+      "pair_internal_variability_gap": 0.2049971092955048,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step4",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step3",
+        "p5838_step4"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.006125515885543816,
+          0.03129164910660209,
+          0.15551290693114708
+        ],
+        "coefficients_physical": {
+          "1": -0.018380241576088665,
+          "V": 0.0003079193235055547,
+          "V_drive_minus_V": 0.00796706525558854
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.16576985400667546,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.029258976894081964
+          },
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.13635103963623393
+          }
+        ],
+        "holdout_mse": 0.08280500826515795,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007668147648138378,
+        "one_term_holdout_mse": 0.08276137539846255,
+        "exact_equation": "dtau/dt = -1.838024e-02 + 3.079193e-04*V + 7.967065e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.668148e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.018380241576088665,
+        "V": 0.0003079193235055547,
+        "V_drive_minus_V": 0.00796706525558854
+      },
+      "equation": "dtau/dt = -1.838024e-02 + 3.079193e-04*V + 7.967065e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.668148e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.029258976894081964,
+          "derivative_rmse": 0.17105255594138885,
+          "derivative_mae": 0.05316895851424402,
+          "derivative_r2": 0.1229728832733975
+        },
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.13635103963623393,
+          "derivative_rmse": 0.3692574164945559,
+          "derivative_mae": 0.17451844083754386,
+          "derivative_r2": 0.1570921815677475
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.009594645661808747,
+          "tau_rollout_rmse": 0.09795226215768958,
+          "tau_rollout_mae": 0.08631623885216116,
+          "tau_rollout_r2": -0.34020619437619026,
+          "max_abs_tau_error": 0.4061881470146762
+        },
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.012185619878168984,
+          "tau_rollout_rmse": 0.11038849522558492,
+          "tau_rollout_mae": 0.09819079693338627,
+          "tau_rollout_r2": -2.6250496293652947,
+          "max_abs_tau_error": 0.2633605802307759
+        }
+      ],
+      "mean_derivative_mse": 0.08280500826515795,
+      "mean_derivative_rmse": 0.2701549862179724,
+      "mean_derivative_mae": 0.11384369967589394,
+      "mean_derivative_r2": 0.1400325324205725,
+      "mean_tau_rollout_mse": 0.010890132769988865,
+      "mean_tau_rollout_rmse": 0.10417037869163726,
+      "mean_tau_rollout_mae": 0.09225351789277372,
+      "mean_tau_rollout_r2": -1.4826279118707424,
+      "pair_shift_distance_from_global_center": 0.5571176277842046,
+      "pair_internal_variability_gap": 0.6299966869101001,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step2",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step3",
+        "p5838_step2"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.008325863583294636,
+          0.03160959331484374,
+          0.17138158857569405
+        ],
+        "coefficients_physical": {
+          "1": -0.022052083123506448,
+          "V": 0.00032701744482965654,
+          "V_drive_minus_V": 0.00868927732796799
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1892241023490094,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.028969185789472534
+          },
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.010951050085870814
+          }
+        ],
+        "holdout_mse": 0.019960117937671676,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008371453563166275,
+        "one_term_holdout_mse": 0.01972357533191168,
+        "exact_equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.371454e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.022052083123506448,
+        "V": 0.00032701744482965654,
+        "V_drive_minus_V": 0.00868927732796799
+      },
+      "equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.371454e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.028969185789472534,
+          "derivative_rmse": 0.17020336597574248,
+          "derivative_mae": 0.053346470932818454,
+          "derivative_r2": 0.13165926550230012
+        },
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.010951050085870814,
+          "derivative_rmse": 0.10464726506636862,
+          "derivative_mae": 0.040013584900561665,
+          "derivative_r2": 0.04657003092169798
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.01852578899746537,
+          "tau_rollout_rmse": 0.13610947431191323,
+          "tau_rollout_mae": 0.1260111113328193,
+          "tau_rollout_r2": -1.587732579738521,
+          "max_abs_tau_error": 0.43058956078166233
+        },
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 0.7256199328744312,
+          "tau_rollout_rmse": 0.8518332776279823,
+          "tau_rollout_mae": 0.7317787468856826,
+          "tau_rollout_r2": -169.88207401133133,
+          "max_abs_tau_error": 1.4631110899532036
+        }
+      ],
+      "mean_derivative_mse": 0.019960117937671676,
+      "mean_derivative_rmse": 0.13742531552105555,
+      "mean_derivative_mae": 0.046680027916690056,
+      "mean_derivative_r2": 0.08911464821199905,
+      "mean_tau_rollout_mse": 0.37207286093594827,
+      "mean_tau_rollout_rmse": 0.4939713759699478,
+      "mean_tau_rollout_mae": 0.4288949291092509,
+      "mean_tau_rollout_r2": -85.73490329553492,
+      "pair_shift_distance_from_global_center": 1.0795451424396667,
+      "pair_internal_variability_gap": 0.7035064461232283,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step3 + p5838_step7",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2"
+      ],
+      "eval_steps": [
+        "p5838_step3",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.00907260963162326,
+          0.03088057662310381,
+          0.1716357784035048
+        ],
+        "coefficients_physical": {
+          "1": -0.02049033976100155,
+          "V": 0.0003189728291316121,
+          "V_drive_minus_V": 0.008694899095698885
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1910864833836287,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step3",
+            "mse": 0.028944044615655067
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.0010174929278655973
+          }
+        ],
+        "holdout_mse": 0.014980768771760333,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008385003856341156,
+        "one_term_holdout_mse": 0.014861411869204233,
+        "exact_equation": "dtau/dt = -2.049034e-02 + 3.189728e-04*V + 8.694899e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.385004e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.02049033976100155,
+        "V": 0.0003189728291316121,
+        "V_drive_minus_V": 0.008694899095698885
+      },
+      "equation": "dtau/dt = -2.049034e-02 + 3.189728e-04*V + 8.694899e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.385004e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step3",
+          "derivative_mse": 0.028944044615655067,
+          "derivative_rmse": 0.17012949366777963,
+          "derivative_mae": 0.05313654169935391,
+          "derivative_r2": 0.1324128629798904
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.0010174929278655973,
+          "derivative_rmse": 0.03189816496078728,
+          "derivative_mae": 0.02182516083823665,
+          "derivative_r2": 0.031677104316940374
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "tau_rollout_mse": 0.014373288940575416,
+          "tau_rollout_rmse": 0.11988865225940033,
+          "tau_rollout_mae": 0.10971413175787345,
+          "tau_rollout_r2": -1.0077000809310284,
+          "max_abs_tau_error": 0.42001532838372135
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 0.2860396513646474,
+          "tau_rollout_rmse": 0.5348267489240299,
+          "tau_rollout_mae": 0.47347563699785783,
+          "tau_rollout_r2": -63.288433095063624,
+          "max_abs_tau_error": 0.8880273734272439
+        }
+      ],
+      "mean_derivative_mse": 0.014980768771760333,
+      "mean_derivative_rmse": 0.10101382931428346,
+      "mean_derivative_mae": 0.03748085126879528,
+      "mean_derivative_r2": 0.08204498364841539,
+      "mean_tau_rollout_mse": 0.1502064701526114,
+      "mean_tau_rollout_rmse": 0.32735770059171515,
+      "mean_tau_rollout_mae": 0.2915948843778656,
+      "mean_tau_rollout_r2": -32.14806658799733,
+      "pair_shift_distance_from_global_center": 1.1707229923874511,
+      "pair_internal_variability_gap": 0.8240967444456383,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step9",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.013940382392927666,
+          0.030406084333584278,
+          0.15657420511392572
+        ],
+        "coefficients_physical": {
+          "1": -0.010152004219896935,
+          "V": 0.00029998408353314356,
+          "V_drive_minus_V": 0.008028943463849402
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.17179817464726516,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.027717391043276942
+          },
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.10593504447715646
+          }
+        ],
+        "holdout_mse": 0.0668262177602167,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007737498232658746,
+        "one_term_holdout_mse": 0.0663816878013501,
+        "exact_equation": "dtau/dt = -1.015200e-02 + 2.999841e-04*V + 8.028943e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.737498e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.010152004219896935,
+        "V": 0.00029998408353314356,
+        "V_drive_minus_V": 0.008028943463849402
+      },
+      "equation": "dtau/dt = -1.015200e-02 + 2.999841e-04*V + 8.028943e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.737498e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.027717391043276942,
+          "derivative_rmse": 0.16648540789894153,
+          "derivative_mae": 0.05469098140500707,
+          "derivative_r2": 0.09351023527306146
+        },
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.10593504447715646,
+          "derivative_rmse": 0.3254766419839624,
+          "derivative_mae": 0.14471656190151022,
+          "derivative_r2": 0.18237989320166703
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.007721120653048826,
+          "tau_rollout_rmse": 0.0878699075511567,
+          "tau_rollout_mae": 0.06446700314114978,
+          "tau_rollout_r2": 0.07355967445397604,
+          "max_abs_tau_error": 0.37445909072574857
+        },
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.015424586434070974,
+          "tau_rollout_rmse": 0.12419575851884385,
+          "tau_rollout_mae": 0.0918599252845817,
+          "tau_rollout_r2": -1.810846648713592,
+          "max_abs_tau_error": 0.2727417270339174
+        }
+      ],
+      "mean_derivative_mse": 0.0668262177602167,
+      "mean_derivative_rmse": 0.24598102494145196,
+      "mean_derivative_mae": 0.09970377165325864,
+      "mean_derivative_r2": 0.13794506423736425,
+      "mean_tau_rollout_mse": 0.0115728535435599,
+      "mean_tau_rollout_rmse": 0.10603283303500027,
+      "mean_tau_rollout_mae": 0.07816346421286574,
+      "mean_tau_rollout_r2": -0.8686434871298079,
+      "pair_shift_distance_from_global_center": 1.025916385643468,
+      "pair_internal_variability_gap": 0.03822285489025917,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step4",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step9",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step8",
+        "p5838_step4"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.006868192135387738,
+          0.03089121206855487,
+          0.15619137622965806
+        ],
+        "coefficients_physical": {
+          "1": -0.01731148466588438,
+          "V": 0.0003039409236483387,
+          "V_drive_minus_V": 0.008007989311950719
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.16606738942550556,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.02766013389902533
+          },
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.13620322436771326
+          }
+        ],
+        "holdout_mse": 0.0819316791333693,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007713031228482762,
+        "one_term_holdout_mse": 0.0819351009608903,
+        "exact_equation": "dtau/dt = -1.731148e-02 + 3.039409e-04*V + 8.007989e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.713031e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.01731148466588438,
+        "V": 0.0003039409236483387,
+        "V_drive_minus_V": 0.008007989311950719
+      },
+      "equation": "dtau/dt = -1.731148e-02 + 3.039409e-04*V + 8.007989e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.713031e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.02766013389902533,
+          "derivative_rmse": 0.16631336055478324,
+          "derivative_mae": 0.053550030262789365,
+          "derivative_r2": 0.09538281466339948
+        },
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.13620322436771326,
+          "derivative_rmse": 0.36905721015543547,
+          "derivative_mae": 0.1744753190949355,
+          "derivative_r2": 0.1580059600460938
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.014519338611063186,
+          "tau_rollout_rmse": 0.12049621824382367,
+          "tau_rollout_mae": 0.09792462321163742,
+          "tau_rollout_r2": -0.7421435817396327,
+          "max_abs_tau_error": 0.4251034971155203
+        },
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.011696370337511313,
+          "tau_rollout_rmse": 0.1081497588416697,
+          "tau_rollout_mae": 0.09597085988796442,
+          "tau_rollout_r2": -2.479504808194103,
+          "max_abs_tau_error": 0.26181336859969484
+        }
+      ],
+      "mean_derivative_mse": 0.0819316791333693,
+      "mean_derivative_rmse": 0.2676852853551094,
+      "mean_derivative_mae": 0.11401267467886243,
+      "mean_derivative_r2": 0.12669438735474664,
+      "mean_tau_rollout_mse": 0.01310785447428725,
+      "mean_tau_rollout_rmse": 0.1143229885427467,
+      "mean_tau_rollout_mae": 0.09694774154980092,
+      "mean_tau_rollout_r2": -1.610824194966868,
+      "pair_shift_distance_from_global_center": 0.6538577662857274,
+      "pair_internal_variability_gap": 0.4632224325048545,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step2",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step8",
+        "p5838_step2"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.00906853983313856,
+          0.03107565515231777,
+          0.17203121510894007
+        ],
+        "coefficients_physical": {
+          "1": -0.02077946338836764,
+          "V": 0.00032143684858087807,
+          "V_drive_minus_V": 0.008728796586252231
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1895019921494431,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.02746723482759605
+          },
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.010897769828038991
+          }
+        ],
+        "holdout_mse": 0.01918250232781752,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008416474654139283,
+        "one_term_holdout_mse": 0.019027348534476782,
+        "exact_equation": "dtau/dt = -2.077946e-02 + 3.214368e-04*V + 8.728797e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.416475e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.02077946338836764,
+        "V": 0.00032143684858087807,
+        "V_drive_minus_V": 0.008728796586252231
+      },
+      "equation": "dtau/dt = -2.077946e-02 + 3.214368e-04*V + 8.728797e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.416475e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.02746723482759605,
+          "derivative_rmse": 0.1657324193620429,
+          "derivative_mae": 0.053343901782981464,
+          "derivative_r2": 0.10169152653324876
+        },
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.010897769828038991,
+          "derivative_rmse": 0.10439238395610569,
+          "derivative_mae": 0.03897807790315155,
+          "derivative_r2": 0.051208763662279666
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.023585137844936915,
+          "tau_rollout_rmse": 0.15357453514478536,
+          "tau_rollout_mae": 0.13392510556518775,
+          "tau_rollout_r2": -1.8299289397172216,
+          "max_abs_tau_error": 0.44832358608535827
+        },
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 0.6429325170834644,
+          "tau_rollout_rmse": 0.8018307284480088,
+          "tau_rollout_mae": 0.6883092771449554,
+          "tau_rollout_r2": -150.40934942805714,
+          "max_abs_tau_error": 1.3766251952399617
+        }
+      ],
+      "mean_derivative_mse": 0.01918250232781752,
+      "mean_derivative_rmse": 0.1350624016590743,
+      "mean_derivative_mae": 0.046160989843066505,
+      "mean_derivative_r2": 0.07645014509776421,
+      "mean_tau_rollout_mse": 0.33325882746420066,
+      "mean_tau_rollout_rmse": 0.4777026317963971,
+      "mean_tau_rollout_mae": 0.4111171913550716,
+      "mean_tau_rollout_r2": -76.11963918388719,
+      "pair_shift_distance_from_global_center": 1.1929455126554485,
+      "pair_internal_variability_gap": 0.5367321917179826,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step8 + p5838_step7",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step2"
+      ],
+      "eval_steps": [
+        "p5838_step8",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.009815285881467182,
+          0.03034924497255089,
+          0.17228589023651672
+        ],
+        "coefficients_physical": {
+          "1": -0.01922223360732593,
+          "V": 0.00031342957992741614,
+          "V_drive_minus_V": 0.008734408696970883
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1913618653947343,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step8",
+            "mse": 0.02745858907771185
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.000981324958788998
+          }
+        ],
+        "holdout_mse": 0.014219957018250424,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008429970113767208,
+        "one_term_holdout_mse": 0.014167715634124141,
+        "exact_equation": "dtau/dt = -1.922223e-02 + 3.134296e-04*V + 8.734409e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.429970e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.01922223360732593,
+        "V": 0.00031342957992741614,
+        "V_drive_minus_V": 0.008734408696970883
+      },
+      "equation": "dtau/dt = -1.922223e-02 + 3.134296e-04*V + 8.734409e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.429970e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step8",
+          "derivative_mse": 0.02745858907771185,
+          "derivative_rmse": 0.16570633384910743,
+          "derivative_mae": 0.05335426361846165,
+          "derivative_r2": 0.10197428344085879
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.000981324958788998,
+          "derivative_rmse": 0.03132610666503257,
+          "derivative_mae": 0.021107836300878608,
+          "derivative_r2": 0.06609726743364575
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "tau_rollout_mse": 0.019245051463045858,
+          "tau_rollout_rmse": 0.13872653481957176,
+          "tau_rollout_mae": 0.11780997797007788,
+          "tau_rollout_r2": -1.3091714977325117,
+          "max_abs_tau_error": 0.43788923921604983
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 0.24344311416394707,
+          "tau_rollout_rmse": 0.4933995481999827,
+          "tau_rollout_mae": 0.43743006615070956,
+          "tau_rollout_r2": -53.71470924648579,
+          "max_abs_tau_error": 0.8165465473346742
+        }
+      ],
+      "mean_derivative_mse": 0.014219957018250424,
+      "mean_derivative_rmse": 0.09851622025707,
+      "mean_derivative_mae": 0.03723104995967013,
+      "mean_derivative_r2": 0.08403577543725227,
+      "mean_tau_rollout_mse": 0.13134408281349647,
+      "mean_tau_rollout_rmse": 0.31606304150977726,
+      "mean_tau_rollout_mae": 0.2776200220603937,
+      "mean_tau_rollout_r2": -27.51194037210915,
+      "pair_shift_distance_from_global_center": 1.3130519251108739,
+      "pair_internal_variability_gap": 0.6573224900403927,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step9 + p5838_step4",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step9",
+        "p5838_step4"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.01,
+        "coefficients_z": [
+          0.0,
+          0.03233490685929875,
+          0.1423566950543289
+        ],
+        "coefficients_physical": {
+          "1": -0.021953410010879103,
+          "V": 0.00031379576615345954,
+          "V_drive_minus_V": 0.007362926016481748
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.15128127339174724,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.10725251671198653
+          },
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.13825165926251493
+          }
+        ],
+        "holdout_mse": 0.12275208798725074,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007058441228089774,
+        "one_term_holdout_mse": 0.1225591435291263,
+        "exact_equation": "dtau/dt = -2.195341e-02 + 3.137958e-04*V + 7.362926e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.058441e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.021953410010879103,
+        "V": 0.00031379576615345954,
+        "V_drive_minus_V": 0.007362926016481748
+      },
+      "equation": "dtau/dt = -2.195341e-02 + 3.137958e-04*V + 7.362926e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.058441e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.10725251671198653,
+          "derivative_rmse": 0.3274943002740453,
+          "derivative_mae": 0.14194004977154728,
+          "derivative_r2": 0.17221147542582993
+        },
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.13825165926251493,
+          "derivative_rmse": 0.371822080116976,
+          "derivative_mae": 0.175166342995031,
+          "derivative_r2": 0.14534275048799872
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.007934181576220592,
+          "tau_rollout_rmse": 0.08907402301580743,
+          "tau_rollout_mae": 0.06713137533508066,
+          "tau_rollout_r2": -0.44585838908088804,
+          "max_abs_tau_error": 0.23083347382005037
+        },
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.014328019778139432,
+          "tau_rollout_rmse": 0.11969970667524392,
+          "tau_rollout_mae": 0.10722569696847228,
+          "tau_rollout_r2": -3.2623833096365598,
+          "max_abs_tau_error": 0.27108435153599153
+        }
+      ],
+      "mean_derivative_mse": 0.12275208798725074,
+      "mean_derivative_rmse": 0.34965819019551064,
+      "mean_derivative_mae": 0.15855319638328913,
+      "mean_derivative_r2": 0.15877711295691432,
+      "mean_tau_rollout_mse": 0.011131100677180011,
+      "mean_tau_rollout_rmse": 0.10438686484552567,
+      "mean_tau_rollout_mae": 0.08717853615177648,
+      "mean_tau_rollout_r2": -1.8541208493587238,
+      "pair_shift_distance_from_global_center": 0.688882133026519,
+      "pair_internal_variability_gap": 0.42499957761459534,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step9 + p5838_step2",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step9",
+        "p5838_step2"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.011598085368363618,
+          0.03197462302411758,
+          0.15827927927134514
+        ],
+        "coefficients_physical": {
+          "1": -0.015181565856533158,
+          "V": 0.0003214490515448219,
+          "V_drive_minus_V": 0.008100246048634196
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.17499877017827686,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.10556802845609242
+          },
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.010762764160635924
+          }
+        ],
+        "holdout_mse": 0.058165396308364176,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007787777904282427,
+        "one_term_holdout_mse": 0.05772721959111021,
+        "exact_equation": "dtau/dt = -1.518157e-02 + 3.214491e-04*V + 8.100246e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.787778e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.015181565856533158,
+        "V": 0.0003214490515448219,
+        "V_drive_minus_V": 0.008100246048634196
+      },
+      "equation": "dtau/dt = -1.518157e-02 + 3.214491e-04*V + 8.100246e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.787778e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.10556802845609242,
+          "derivative_rmse": 0.32491233964885424,
+          "derivative_mae": 0.14343883949951985,
+          "derivative_r2": 0.18521256939319664
+        },
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.010762764160635924,
+          "derivative_rmse": 0.10374374275413396,
+          "derivative_mae": 0.0346813062615707,
+          "derivative_r2": 0.06296274600079299
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.012508672551051642,
+          "tau_rollout_rmse": 0.11184217697743389,
+          "tau_rollout_mae": 0.08299687318007307,
+          "tau_rollout_r2": -1.2794750750863093,
+          "max_abs_tau_error": 0.2475300978354973
+        },
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 0.32891266254713236,
+          "tau_rollout_rmse": 0.5735090779988861,
+          "tau_rollout_mae": 0.49001650625667464,
+          "tau_rollout_r2": -76.45828828322645,
+          "max_abs_tau_error": 0.9818456936450524
+        }
+      ],
+      "mean_derivative_mse": 0.058165396308364176,
+      "mean_derivative_rmse": 0.2143280412014941,
+      "mean_derivative_mae": 0.08906007288054528,
+      "mean_derivative_r2": 0.12408765769699481,
+      "mean_tau_rollout_mse": 0.170710667549092,
+      "mean_tau_rollout_rmse": 0.34267562748816,
+      "mean_tau_rollout_mae": 0.28650668971837384,
+      "mean_tau_rollout_r2": -38.86888167915638,
+      "pair_shift_distance_from_global_center": 0.9042483526252161,
+      "pair_internal_variability_gap": 0.49850933682772347,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step9 + p5838_step7",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step4",
+        "p5838_step2"
+      ],
+      "eval_steps": [
+        "p5838_step9",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.012344831416692239,
+          0.031357413205802515,
+          0.1585759973652882
+        ],
+        "coefficients_physical": {
+          "1": -0.013816673796289371,
+          "V": 0.00031482635040346035,
+          "V_drive_minus_V": 0.008108527530711722
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.17685647022917028,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step9",
+            "mse": 0.10557863683399671
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.0008782248788145869
+          }
+        ],
+        "holdout_mse": 0.05322843085640565,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.0078025757170119055,
+        "one_term_holdout_mse": 0.05282991728194461,
+        "exact_equation": "dtau/dt = -1.381667e-02 + 3.148264e-04*V + 8.108528e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.802576e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.013816673796289371,
+        "V": 0.00031482635040346035,
+        "V_drive_minus_V": 0.008108527530711722
+      },
+      "equation": "dtau/dt = -1.381667e-02 + 3.148264e-04*V + 8.108528e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.802576e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step9",
+          "derivative_mse": 0.10557863683399671,
+          "derivative_rmse": 0.3249286642233903,
+          "derivative_mae": 0.14371520315816405,
+          "derivative_r2": 0.18513069258729298
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.0008782248788145869,
+          "derivative_rmse": 0.029634859183309558,
+          "derivative_mae": 0.01858421605851023,
+          "derivative_r2": 0.16421506781521655
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step9",
+          "tau_rollout_mse": 0.01320738507385115,
+          "tau_rollout_rmse": 0.11492338784534308,
+          "tau_rollout_mae": 0.08519861700482652,
+          "tau_rollout_r2": -1.4068025571889766,
+          "max_abs_tau_error": 0.25393702853578404
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 0.0959936872788575,
+          "tau_rollout_rmse": 0.3098284804191789,
+          "tau_rollout_mae": 0.27767686527232177,
+          "tau_rollout_r2": -20.57492401047591,
+          "max_abs_tau_error": 0.4992904309660151
+        }
+      ],
+      "mean_derivative_mse": 0.05322843085640565,
+      "mean_derivative_rmse": 0.17728176170334992,
+      "mean_derivative_mae": 0.08114970960833714,
+      "mean_derivative_r2": 0.17467288020125477,
+      "mean_tau_rollout_mse": 0.054600536176354325,
+      "mean_tau_rollout_rmse": 0.21237593413226097,
+      "mean_tau_rollout_mae": 0.18143774113857414,
+      "mean_tau_rollout_r2": -10.990863283832443,
+      "pair_shift_distance_from_global_center": 1.0239573154311055,
+      "pair_internal_variability_gap": 0.6190996351501334,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step4 + p5838_step2",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step7"
+      ],
+      "eval_steps": [
+        "p5838_step4",
+        "p5838_step2"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.004525895110823687,
+          0.03264875711327564,
+          0.15793331500662
+        ],
+        "coefficients_physical": {
+          "1": -0.022477170554489036,
+          "V": 0.0003271931106514553,
+          "V_drive_minus_V": 0.00808121094123492
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.16922191865483713,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.13612784943827022
+          },
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.011019712979592203
+          }
+        ],
+        "holdout_mse": 0.07357378120893121,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.0077633914335934785,
+        "one_term_holdout_mse": 0.073275469902622,
+        "exact_equation": "dtau/dt = -2.247717e-02 + 3.271931e-04*V + 8.081211e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.763391e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.022477170554489036,
+        "V": 0.0003271931106514553,
+        "V_drive_minus_V": 0.00808121094123492
+      },
+      "equation": "dtau/dt = -2.247717e-02 + 3.271931e-04*V + 8.081211e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.763391e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.13612784943827022,
+          "derivative_rmse": 0.36895507780523934,
+          "derivative_mae": 0.17443956881975167,
+          "derivative_r2": 0.15847191995010934
+        },
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.011019712979592203,
+          "derivative_rmse": 0.10497482069330819,
+          "derivative_mae": 0.04046211660645217,
+          "derivative_r2": 0.04059204158512497
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.01397032463821883,
+          "tau_rollout_rmse": 0.11819612784782262,
+          "tau_rollout_mae": 0.1059099980707186,
+          "tau_rollout_r2": -3.1559740627243063,
+          "max_abs_tau_error": 0.26787499740746945
+        },
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 0.7529390699123863,
+          "tau_rollout_rmse": 0.8677206174295885,
+          "tau_rollout_mae": 0.7454697406143814,
+          "tau_rollout_r2": -176.31567731485774,
+          "max_abs_tau_error": 1.492323226261501
+        }
+      ],
+      "mean_derivative_mse": 0.07357378120893121,
+      "mean_derivative_rmse": 0.23696494924927375,
+      "mean_derivative_mae": 0.10745084271310193,
+      "mean_derivative_r2": 0.09953198076761716,
+      "mean_tau_rollout_mse": 0.38345469727530257,
+      "mean_tau_rollout_rmse": 0.49295837263870557,
+      "mean_tau_rollout_mae": 0.42568986934255004,
+      "mean_tau_rollout_r2": -89.73582568879102,
+      "pair_shift_distance_from_global_center": 1.427721650689628,
+      "pair_internal_variability_gap": 0.07350975921312813,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step4 + p5838_step7",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step2"
+      ],
+      "eval_steps": [
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.005272641159152311,
+          0.03202934968263496,
+          0.15822931341262644
+        ],
+        "coefficients_physical": {
+          "1": -0.02111844641911805,
+          "V": 0.00032056874134736856,
+          "V_drive_minus_V": 0.008089471085723225
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.17109176490774367,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step4",
+            "mse": 0.1360621558429058
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.0010519615407984762
+          }
+        ],
+        "holdout_mse": 0.06855705869185214,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.007778225826274812,
+        "one_term_holdout_mse": 0.06837663132366739,
+        "exact_equation": "dtau/dt = -2.111845e-02 + 3.205687e-04*V + 8.089471e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 7.778226e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.02111844641911805,
+        "V": 0.00032056874134736856,
+        "V_drive_minus_V": 0.008089471085723225
+      },
+      "equation": "dtau/dt = -2.111845e-02 + 3.205687e-04*V + 8.089471e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 7.778226e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step4",
+          "derivative_mse": 0.1360621558429058,
+          "derivative_rmse": 0.3688660405118717,
+          "derivative_mae": 0.17440826703819312,
+          "derivative_r2": 0.1588780308628045
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.0010519615407984762,
+          "derivative_rmse": 0.03243395660104509,
+          "derivative_mae": 0.022270873867080123,
+          "derivative_r2": -0.0011258235180064968
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "tau_rollout_mse": 0.013368904735271511,
+          "tau_rollout_rmse": 0.1156239799318096,
+          "tau_rollout_mae": 0.10338751187790239,
+          "tau_rollout_r2": -2.9770601446742315,
+          "max_abs_tau_error": 0.26617880568933217
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 0.30827589374829656,
+          "tau_rollout_rmse": 0.5552259843958103,
+          "tau_rollout_mae": 0.49126982692435334,
+          "tau_rollout_r2": -68.28610797666407,
+          "max_abs_tau_error": 0.923967240537273
+        }
+      ],
+      "mean_derivative_mse": 0.06855705869185214,
+      "mean_derivative_rmse": 0.2006499985564584,
+      "mean_derivative_mae": 0.09833957045263662,
+      "mean_derivative_r2": 0.078876103672399,
+      "mean_tau_rollout_mse": 0.16082239924178404,
+      "mean_tau_rollout_rmse": 0.33542498216380995,
+      "mean_tau_rollout_mae": 0.29732866940112784,
+      "mean_tau_rollout_r2": -35.63158406066915,
+      "pair_shift_distance_from_global_center": 1.5424432743025718,
+      "pair_internal_variability_gap": 0.19410005753553816,
+      "is_current_pair": 0
+    },
+    {
+      "strategy_name": "C_leave_two_out",
+      "strategy_label": "Leave-two-out: p5838_step2 + p5838_step7",
+      "train_steps": [
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step3",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4"
+      ],
+      "eval_steps": [
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "honest_holdout": 1,
+      "tau_model": {
+        "threshold": 0.0,
+        "coefficients_z": [
+          0.007472988856903138,
+          0.032636393339947084,
+          0.17415869058128405
+        ],
+        "coefficients_physical": {
+          "1": -0.02557013762458693,
+          "V": 0.00034550561347599664,
+          "V_drive_minus_V": 0.008812200358494148
+        },
+        "active_terms": [
+          "1",
+          "V",
+          "V_drive_minus_V"
+        ],
+        "train_mse": 0.1944741646935663,
+        "holdout_rows": [
+          {
+            "step_name": "p5838_step2",
+            "mse": 0.011094427135867354
+          },
+          {
+            "step_name": "p5838_step7",
+            "mse": 0.001183871415658991
+          }
+        ],
+        "holdout_mse": 0.006139149275763173,
+        "sign_ok": 1,
+        "one_term_k_hat": 0.008476431872284128,
+        "one_term_holdout_mse": 0.005653995632667389,
+        "exact_equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)"
+      },
+      "coefficients_physical": {
+        "1": -0.02557013762458693,
+        "V": 0.00034550561347599664,
+        "V_drive_minus_V": 0.008812200358494148
+      },
+      "equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)",
+      "derivative_rows": [
+        {
+          "step_name": "p5838_step2",
+          "derivative_mse": 0.011094427135867354,
+          "derivative_rmse": 0.10533008656536533,
+          "derivative_mae": 0.04289819312234722,
+          "derivative_r2": 0.03408721189769304
+        },
+        {
+          "step_name": "p5838_step7",
+          "derivative_mse": 0.001183871415658991,
+          "derivative_rmse": 0.03440743256418576,
+          "derivative_mae": 0.025098481403972958,
+          "derivative_r2": -0.12666119432600476
+        }
+      ],
+      "rollout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "tau_rollout_mse": 0.9795542181827425,
+          "tau_rollout_rmse": 0.9897243142323737,
+          "tau_rollout_mae": 0.851685438776333,
+          "tau_rollout_r2": -229.6831012022127,
+          "max_abs_tau_error": 1.7008389443938725
+        },
+        {
+          "step_name": "p5838_step7",
+          "tau_rollout_mse": 0.4898494242968939,
+          "tau_rollout_rmse": 0.6998924376623125,
+          "tau_rollout_mae": 0.6169878409265529,
+          "tau_rollout_r2": -109.09540736861089,
+          "max_abs_tau_error": 1.172228613095081
+        }
+      ],
+      "mean_derivative_mse": 0.006139149275763173,
+      "mean_derivative_rmse": 0.06986875956477555,
+      "mean_derivative_mae": 0.03399833726316009,
+      "mean_derivative_r2": -0.04628699121415586,
+      "mean_tau_rollout_mse": 0.7347018212398182,
+      "mean_tau_rollout_rmse": 0.844808375947343,
+      "mean_tau_rollout_mae": 0.7343366398514429,
+      "mean_tau_rollout_r2": -169.3892542854118,
+      "pair_shift_distance_from_global_center": 1.80767731690081,
+      "pair_internal_variability_gap": 0.12059029832241003,
+      "is_current_pair": 1
+    }
+  ],
+  "regime_balanced_result": {
+    "strategy_name": "D_regime_balanced",
+    "strategy_label": "Regime-balanced split",
+    "train_steps": [
+      "p5838_step5",
+      "p5838_step10",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step4",
+      "p5838_step7"
+    ],
+    "eval_steps": [
+      "p5838_step2",
+      "p5838_step3"
+    ],
+    "honest_holdout": 1,
+    "tau_model": {
+      "threshold": 0.0,
+      "coefficients_z": [
+        0.008325863583294636,
+        0.03160959331484374,
+        0.17138158857569405
+      ],
+      "coefficients_physical": {
+        "1": -0.022052083123506448,
+        "V": 0.00032701744482965654,
+        "V_drive_minus_V": 0.00868927732796799
+      },
+      "active_terms": [
+        "1",
+        "V",
+        "V_drive_minus_V"
+      ],
+      "train_mse": 0.1892241023490094,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "mse": 0.010951050085870814
+        },
+        {
+          "step_name": "p5838_step3",
+          "mse": 0.028969185789472534
+        }
+      ],
+      "holdout_mse": 0.019960117937671676,
+      "sign_ok": 1,
+      "one_term_k_hat": 0.008371453563166275,
+      "one_term_holdout_mse": 0.01972357533191168,
+      "exact_equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.371454e-03*(V_drive - V)"
+    },
+    "coefficients_physical": {
+      "1": -0.022052083123506448,
+      "V": 0.00032701744482965654,
+      "V_drive_minus_V": 0.00868927732796799
+    },
+    "equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+    "one_term_equation": "dtau/dt ~= 8.371454e-03*(V_drive - V)",
+    "derivative_rows": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 0.010951050085870814,
+        "derivative_rmse": 0.10464726506636862,
+        "derivative_mae": 0.040013584900561665,
+        "derivative_r2": 0.04657003092169798
+      },
+      {
+        "step_name": "p5838_step3",
+        "derivative_mse": 0.028969185789472534,
+        "derivative_rmse": 0.17020336597574248,
+        "derivative_mae": 0.053346470932818454,
+        "derivative_r2": 0.13165926550230012
+      }
+    ],
+    "rollout_rows": [
+      {
+        "step_name": "p5838_step2",
+        "tau_rollout_mse": 0.7256199328744312,
+        "tau_rollout_rmse": 0.8518332776279823,
+        "tau_rollout_mae": 0.7317787468856826,
+        "tau_rollout_r2": -169.88207401133133,
+        "max_abs_tau_error": 1.4631110899532036
+      },
+      {
+        "step_name": "p5838_step3",
+        "tau_rollout_mse": 0.01852578899746537,
+        "tau_rollout_rmse": 0.13610947431191323,
+        "tau_rollout_mae": 0.1260111113328193,
+        "tau_rollout_r2": -1.587732579738521,
+        "max_abs_tau_error": 0.43058956078166233
+      }
+    ],
+    "mean_derivative_mse": 0.019960117937671676,
+    "mean_derivative_rmse": 0.13742531552105555,
+    "mean_derivative_mae": 0.046680027916690056,
+    "mean_derivative_r2": 0.08911464821199905,
+    "mean_tau_rollout_mse": 0.37207286093594827,
+    "mean_tau_rollout_rmse": 0.4939713759699478,
+    "mean_tau_rollout_mae": 0.4288949291092509,
+    "mean_tau_rollout_r2": -85.73490329553492
+  },
+  "representative_leave_two_out_pair": [
+    "p5838_step5",
+    "p5838_step2"
+  ],
+  "leave_two_out_summary": {
+    "n_pairs": 28,
+    "current_pair_rank_by_rollout_rmse": 28,
+    "current_pair_rank_by_shift_distance": 26,
+    "mean_leave_two_out_rollout_rmse": 0.2656762792522444,
+    "median_leave_two_out_rollout_rmse": 0.1445654585623847,
+    "best_representative_pair": [
+      "p5838_step5",
+      "p5838_step2"
+    ],
+    "best_representative_pair_rollout_rmse": 0.09239430029612951,
+    "current_pair_rollout_rmse": 0.844808375947343,
+    "current_pair_shift_distance": 1.80767731690081,
+    "representative_pair_shift_distance": 0.488021239918455
+  },
+  "assessment": {
+    "step2_and_step7_tau_variability_ranks": {
+      "p5838_step2": 7,
+      "p5838_step7": 8
+    },
+    "step2_and_step7_tau_variability_scores": {
+      "p5838_step2": -0.4336994395938489,
+      "p5838_step7": -0.5542897379162589
+    },
+    "holdout_steps_atypical_feature_flags": [
+      {
+        "step_name": "p5838_step2",
+        "feature_flags": [
+          "tau_range"
+        ],
+        "distance_to_train_centroid": 2.937079057771051
+      }
+    ],
+    "smoothing_flags": {
+      "p5838_step2": {
+        "tau_std_ratio_prepared_over_raw": 0.9342298552595482,
+        "tau_total_variation_ratio_prepared_over_raw": 0.06306590221443475,
+        "dtau_std_ratio_prepared_over_raw": 0.5397770022650333,
+        "substantially_flattened": 1
+      },
+      "p5838_step7": {
+        "tau_std_ratio_prepared_over_raw": 0.983952506501437,
+        "tau_total_variation_ratio_prepared_over_raw": 0.035393876984497245,
+        "dtau_std_ratio_prepared_over_raw": 0.3304254599571745,
+        "substantially_flattened": 1
+      }
+    },
+    "current_split_rollout_rmse": 0.8448255174892358,
+    "all_step_descriptive_rollout_rmse": 0.19943400709356993,
+    "balanced_split_rollout_rmse": 0.4939713759699478,
+    "current_split_derivative_rmse": 0.06986875956477558,
+    "all_step_descriptive_derivative_rmse": 0.3262406359611855,
+    "balanced_split_derivative_rmse": 0.13742531552105555,
+    "leave_two_out_summary": {
+      "n_pairs": 28,
+      "current_pair_rank_by_rollout_rmse": 28,
+      "current_pair_rank_by_shift_distance": 26,
+      "mean_leave_two_out_rollout_rmse": 0.2656762792522444,
+      "median_leave_two_out_rollout_rmse": 0.1445654585623847,
+      "best_representative_pair": [
+        "p5838_step5",
+        "p5838_step2"
+      ],
+      "best_representative_pair_rollout_rmse": 0.09239430029612951,
+      "current_pair_rollout_rmse": 0.844808375947343,
+      "current_pair_shift_distance": 1.80767731690081,
+      "representative_pair_shift_distance": 0.488021239918455
+    },
+    "balanced_split_steps": [
+      "p5838_step2",
+      "p5838_step3"
+    ]
+  }
+}

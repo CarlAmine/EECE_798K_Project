@@ -1,0 +1,26 @@
+# Knee-point sparse equations
+
+lambda = 0.150000
+n_terms_tau = 4
+n_terms_V = 8
+n_terms_union = 8
+mean_rollout = 0.000038
+
+## Surviving terms
+tau equation: 1, tau, tau_avg, tau_ema
+V equation: 1, tau, V, log(V), tau*log(V), V_drive-V, tau_avg, tau_ema
+
+## Equations
+dtau/dt = - 1.625916e-03*1 + 1.417677e+01*tau + 5.622089e+00*tau_avg - 1.980623e+01*tau_ema
+dV/dt = - 3.307000e+02*1 + 1.632473e+02*tau + 2.509978e+00*V - 3.485033e+00*log(V) + 3.332788e+00*tau*log(V) - 3.310435e+02*V_drive-V + 7.321830e+01*tau_avg - 2.361639e+02*tau_ema
+
+## Sign consistency against RSF-inspired expectations
+- log(V): coefficient=-3.485033e+00, expected=negative, status=OK
+- V_drive-V: coefficient=-3.310435e+02, expected=positive, status=VIOLATION
+- tau: coefficient=1.632473e+02, expected=positive, status=OK
+- tau*log(V): coefficient=3.332788e+00, expected=ambiguous, status=N/A
+- 1: coefficient=-3.307000e+02, expected=unspecified, status=N/A
+- V: coefficient=2.509978e+00, expected=unspecified, status=N/A
+- tau_avg: coefficient=7.321830e+01, expected=unspecified, status=N/A
+- tau_ema: coefficient=-2.361639e+02, expected=unspecified, status=N/A
+- S: coefficient=0.000000e+00, expected=unspecified, status=N/A

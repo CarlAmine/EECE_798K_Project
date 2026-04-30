@@ -1,0 +1,927 @@
+{
+  "completed_splits": {
+    "single_step__p5838_step2": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2"
+      ],
+      "fit_cost": 4785.690851991856,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 16.835876313632028,
+          "velocity_rollout_mae": 4.6042449429194106,
+          "velocity_max_abs_error": 247.14843418404564,
+          "derivative_rmse": 49.523143638117055,
+          "onset_timing_error_s": 0.6260000000002037,
+          "peak_timing_error_s": 21.9270000000015,
+          "stable_fraction": 0.006666666666666667
+        }
+      ],
+      "mean_velocity_rollout_rmse": 16.835876313632028,
+      "mean_velocity_rollout_mae": 4.6042449429194106,
+      "mean_velocity_max_abs_error": 247.14843418404564,
+      "mean_derivative_rmse": 49.523143638117055,
+      "mean_onset_timing_error_s": 0.6260000000002037,
+      "mean_peak_timing_error_s": 21.9270000000015,
+      "mean_stable_fraction": 0.006666666666666667,
+      "split_id": "single_step__p5838_step2"
+    },
+    "single_step__p5838_step3": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3"
+      ],
+      "fit_cost": 7500.449674966128,
+      "fit_success": 0,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 6.235138311195199,
+          "velocity_rollout_mae": 4.972765942279915,
+          "velocity_max_abs_error": 20.132713644478507,
+          "derivative_rmse": 8.96587240221853,
+          "onset_timing_error_s": 6.40099999999984,
+          "peak_timing_error_s": 2.0390000000006694,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 6.235138311195199,
+      "mean_velocity_rollout_mae": 4.972765942279915,
+      "mean_velocity_max_abs_error": 20.132713644478507,
+      "mean_derivative_rmse": 8.96587240221853,
+      "mean_onset_timing_error_s": 6.40099999999984,
+      "mean_peak_timing_error_s": 2.0390000000006694,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step3"
+    },
+    "single_step__p5838_step4": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4"
+      ],
+      "fit_cost": 6156.145246489678,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 27.86025681540732,
+          "velocity_rollout_mae": 21.0295988789183,
+          "velocity_max_abs_error": 66.11881894611022,
+          "derivative_rmse": 68.27148116581216,
+          "onset_timing_error_s": 0.024999999999636202,
+          "peak_timing_error_s": 4.007000000001426,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 27.86025681540732,
+      "mean_velocity_rollout_mae": 21.0295988789183,
+      "mean_velocity_max_abs_error": 66.11881894611022,
+      "mean_derivative_rmse": 68.27148116581216,
+      "mean_onset_timing_error_s": 0.024999999999636202,
+      "mean_peak_timing_error_s": 4.007000000001426,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step4"
+    },
+    "single_step__p5838_step5": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step5"
+      ],
+      "fit_cost": 6397.62762967841,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 125.31154445777024,
+          "velocity_rollout_mae": 108.21362366304726,
+          "velocity_max_abs_error": 176.9909104964922,
+          "derivative_rmse": 271.5393571246678,
+          "onset_timing_error_s": 0.12399999999979627,
+          "peak_timing_error_s": 0.9639999999999418,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 125.31154445777024,
+      "mean_velocity_rollout_mae": 108.21362366304726,
+      "mean_velocity_max_abs_error": 176.9909104964922,
+      "mean_derivative_rmse": 271.5393571246678,
+      "mean_onset_timing_error_s": 0.12399999999979627,
+      "mean_peak_timing_error_s": 0.9639999999999418,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step5"
+    },
+    "single_step__p5838_step7": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step7"
+      ],
+      "fit_cost": 6690.021819790774,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 3.185113480946698,
+          "velocity_rollout_mae": 2.409908381441813,
+          "velocity_max_abs_error": 8.645443207925393,
+          "derivative_rmse": 1.0242786107560724,
+          "onset_timing_error_s": 3.6669999999994616,
+          "peak_timing_error_s": 46.6869999999999,
+          "stable_fraction": 0.1922222222222222
+        }
+      ],
+      "mean_velocity_rollout_rmse": 3.185113480946698,
+      "mean_velocity_rollout_mae": 2.409908381441813,
+      "mean_velocity_max_abs_error": 8.645443207925393,
+      "mean_derivative_rmse": 1.0242786107560724,
+      "mean_onset_timing_error_s": 3.6669999999994616,
+      "mean_peak_timing_error_s": 46.6869999999999,
+      "mean_stable_fraction": 0.1922222222222222,
+      "split_id": "single_step__p5838_step7"
+    },
+    "single_step__p5838_step8": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step8"
+      ],
+      "fit_cost": 6976.022077860258,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 7.205951926376139,
+          "velocity_rollout_mae": 5.427309564939304,
+          "velocity_max_abs_error": 26.965491443083792,
+          "derivative_rmse": 10.070896917379274,
+          "onset_timing_error_s": 0.9760000000005675,
+          "peak_timing_error_s": 15.798000000000684,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 7.205951926376139,
+      "mean_velocity_rollout_mae": 5.427309564939304,
+      "mean_velocity_max_abs_error": 26.965491443083792,
+      "mean_derivative_rmse": 10.070896917379274,
+      "mean_onset_timing_error_s": 0.9760000000005675,
+      "mean_peak_timing_error_s": 15.798000000000684,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step8"
+    },
+    "single_step__p5838_step9": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step9"
+      ],
+      "fit_cost": 5015.25159562992,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 31.721830493469923,
+          "velocity_rollout_mae": 21.189568499972225,
+          "velocity_max_abs_error": 88.15453256465713,
+          "derivative_rmse": 67.5209399049069,
+          "onset_timing_error_s": 1.0139999999992142,
+          "peak_timing_error_s": 4.563000000000102,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 31.721830493469923,
+      "mean_velocity_rollout_mae": 21.189568499972225,
+      "mean_velocity_max_abs_error": 88.15453256465713,
+      "mean_derivative_rmse": 67.5209399049069,
+      "mean_onset_timing_error_s": 1.0139999999992142,
+      "mean_peak_timing_error_s": 4.563000000000102,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step9"
+    },
+    "single_step__p5838_step10": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step10"
+      ],
+      "fit_cost": 4609.0549432041635,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 125.34124670005143,
+          "velocity_rollout_mae": 106.3942287267105,
+          "velocity_max_abs_error": 173.4480017894805,
+          "derivative_rmse": 303.8865252746861,
+          "onset_timing_error_s": 0.0019999999985884642,
+          "peak_timing_error_s": 0.07899999999972351,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 125.34124670005143,
+      "mean_velocity_rollout_mae": 106.3942287267105,
+      "mean_velocity_max_abs_error": 173.4480017894805,
+      "mean_derivative_rmse": 303.8865252746861,
+      "mean_onset_timing_error_s": 0.0019999999985884642,
+      "mean_peak_timing_error_s": 0.07899999999972351,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step10"
+    },
+    "selected_pair__p5838_step2__p5838_step5": {
+      "family": "selected_pair",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step5"
+      ],
+      "fit_cost": 4264.2942317389225,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 18.191551914761806,
+          "velocity_rollout_mae": 4.738106432924884,
+          "velocity_max_abs_error": 265.34873602611805,
+          "derivative_rmse": 42.004892244914885,
+          "onset_timing_error_s": 0.4690000000009604,
+          "peak_timing_error_s": 22.084000000000742,
+          "stable_fraction": 0.006666666666666667
+        },
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 79.1623838915245,
+          "velocity_rollout_mae": 65.21843111235722,
+          "velocity_max_abs_error": 138.66792652650037,
+          "derivative_rmse": 258.42825308902155,
+          "onset_timing_error_s": 0.033999999999650754,
+          "peak_timing_error_s": 0.9639999999999418,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 48.67696790314315,
+      "mean_velocity_rollout_mae": 34.97826877264105,
+      "mean_velocity_max_abs_error": 202.0083312763092,
+      "mean_derivative_rmse": 150.2165726669682,
+      "mean_onset_timing_error_s": 0.2515000000003056,
+      "mean_peak_timing_error_s": 11.524000000000342,
+      "mean_stable_fraction": 0.5033333333333333,
+      "split_id": "selected_pair__p5838_step2__p5838_step5"
+    },
+    "selected_pair__p5838_step3__p5838_step10": {
+      "family": "selected_pair",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step10"
+      ],
+      "fit_cost": 4329.799294700321,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 5.976850207279154,
+          "velocity_rollout_mae": 5.285082604906948,
+          "velocity_max_abs_error": 15.682242221572476,
+          "derivative_rmse": 8.957690282709583,
+          "onset_timing_error_s": 3.6129999999993743,
+          "peak_timing_error_s": 7.434000000001106,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 126.78269991785567,
+          "velocity_rollout_mae": 107.56006326092549,
+          "velocity_max_abs_error": 175.40816748761816,
+          "derivative_rmse": 304.9908277092584,
+          "onset_timing_error_s": 0.012000000000625732,
+          "peak_timing_error_s": 0.07899999999972351,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 66.3797750625674,
+      "mean_velocity_rollout_mae": 56.42257293291622,
+      "mean_velocity_max_abs_error": 95.54520485459531,
+      "mean_derivative_rmse": 156.97425899598397,
+      "mean_onset_timing_error_s": 1.8125,
+      "mean_peak_timing_error_s": 3.7565000000004147,
+      "mean_stable_fraction": 1.0,
+      "split_id": "selected_pair__p5838_step3__p5838_step10"
+    },
+    "selected_pair__p5838_step4__p5838_step5": {
+      "family": "selected_pair",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4",
+        "p5838_step5"
+      ],
+      "fit_cost": 5031.864028024138,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 27.49527818889473,
+          "velocity_rollout_mae": 20.54439776929507,
+          "velocity_max_abs_error": 66.04786795090865,
+          "derivative_rmse": 68.27494752928003,
+          "onset_timing_error_s": 0.024999999999636202,
+          "peak_timing_error_s": 4.007000000001426,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 124.32637095119019,
+          "velocity_rollout_mae": 107.46735473287535,
+          "velocity_max_abs_error": 175.17262553334635,
+          "derivative_rmse": 270.1266760090575,
+          "onset_timing_error_s": 0.08300000000053842,
+          "peak_timing_error_s": 0.9639999999999418,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 75.91082457004245,
+      "mean_velocity_rollout_mae": 64.00587625108521,
+      "mean_velocity_max_abs_error": 120.6102467421275,
+      "mean_derivative_rmse": 169.20081176916878,
+      "mean_onset_timing_error_s": 0.05400000000008731,
+      "mean_peak_timing_error_s": 2.485500000000684,
+      "mean_stable_fraction": 1.0,
+      "split_id": "selected_pair__p5838_step4__p5838_step5"
+    },
+    "selected_pair__p5838_step2__p5838_step10": {
+      "family": "selected_pair",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step10"
+      ],
+      "fit_cost": 2717.3750901247745,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 13.470036702118417,
+          "velocity_rollout_mae": 3.9831020262517525,
+          "velocity_max_abs_error": 195.0922772403521,
+          "derivative_rmse": 39.002469359385984,
+          "onset_timing_error_s": 0.6260000000002037,
+          "peak_timing_error_s": 21.9270000000015,
+          "stable_fraction": 0.008888888888888889
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 97.79144771333782,
+          "velocity_rollout_mae": 83.60245244907985,
+          "velocity_max_abs_error": 145.46784801837322,
+          "derivative_rmse": 292.6253720344439,
+          "onset_timing_error_s": 0.06400000000030559,
+          "peak_timing_error_s": 0.07899999999972351,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 55.63074220772812,
+      "mean_velocity_rollout_mae": 43.7927772376658,
+      "mean_velocity_max_abs_error": 170.28006262936265,
+      "mean_derivative_rmse": 165.81392069691495,
+      "mean_onset_timing_error_s": 0.34500000000025466,
+      "mean_peak_timing_error_s": 11.003000000000611,
+      "mean_stable_fraction": 0.5044444444444445,
+      "split_id": "selected_pair__p5838_step2__p5838_step10"
+    },
+    "selected_pair__p5838_step5__p5838_step7": {
+      "family": "selected_pair",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step5",
+        "p5838_step7"
+      ],
+      "fit_cost": 5620.559048220647,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 125.82615240312438,
+          "velocity_rollout_mae": 108.58660557409839,
+          "velocity_max_abs_error": 177.8463614261745,
+          "derivative_rmse": 272.4224026793133,
+          "onset_timing_error_s": 0.14500000000043656,
+          "peak_timing_error_s": 0.9639999999999418,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 3.033803879514078,
+          "velocity_rollout_mae": 2.251034086395614,
+          "velocity_max_abs_error": 8.559417668381688,
+          "derivative_rmse": 1.022758517175795,
+          "onset_timing_error_s": 4.7149999999983265,
+          "peak_timing_error_s": 46.6869999999999,
+          "stable_fraction": 0.19444444444444445
+        }
+      ],
+      "mean_velocity_rollout_rmse": 64.42997814131922,
+      "mean_velocity_rollout_mae": 55.418819830247,
+      "mean_velocity_max_abs_error": 93.20288954727809,
+      "mean_derivative_rmse": 136.72258059824455,
+      "mean_onset_timing_error_s": 2.4299999999993815,
+      "mean_peak_timing_error_s": 23.82549999999992,
+      "mean_stable_fraction": 0.5972222222222222,
+      "split_id": "selected_pair__p5838_step5__p5838_step7"
+    },
+    "selected_pair__p5838_step2__p5838_step7": {
+      "family": "selected_pair",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "fit_cost": 2483.1165743802394,
+      "fit_success": 1,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 431.17267865618874,
+          "velocity_rollout_mae": 337.25618119604565,
+          "velocity_max_abs_error": 887.1420182014998,
+          "derivative_rmse": 526.7497734975556,
+          "onset_timing_error_s": 0.4690000000009604,
+          "peak_timing_error_s": 14.722000000001572,
+          "stable_fraction": 0.0044444444444444444
+        },
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 360.2511958055828,
+          "velocity_rollout_mae": 272.96797225180075,
+          "velocity_max_abs_error": 742.6932818347783,
+          "derivative_rmse": 666.9483586996853,
+          "onset_timing_error_s": 8.774000000001251,
+          "peak_timing_error_s": 3.79700000000048,
+          "stable_fraction": 0.0044444444444444444
+        }
+      ],
+      "mean_velocity_rollout_rmse": 395.7119372308858,
+      "mean_velocity_rollout_mae": 305.1120767239232,
+      "mean_velocity_max_abs_error": 814.917650018139,
+      "mean_derivative_rmse": 596.8490660986204,
+      "mean_onset_timing_error_s": 4.621500000001106,
+      "mean_peak_timing_error_s": 9.259500000001026,
+      "mean_stable_fraction": 0.0044444444444444444,
+      "split_id": "selected_pair__p5838_step2__p5838_step7"
+    }
+  },
+  "split_rows": [
+    {
+      "split_id": "single_step__p5838_step2",
+      "family": "single_step",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 16.835876313632028,
+      "velocity_rollout_mae": 4.6042449429194106,
+      "velocity_max_abs_error": 247.14843418404564,
+      "derivative_rmse": 49.523143638117055,
+      "onset_timing_error_s": 0.6260000000002037,
+      "peak_timing_error_s": 21.9270000000015,
+      "stable_fraction": 0.006666666666666667,
+      "split_mean_velocity_rollout_rmse": 16.835876313632028,
+      "fit_cost": 4785.690851991856,
+      "fit_success": 1
+    },
+    {
+      "split_id": "single_step__p5838_step3",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 6.235138311195199,
+      "velocity_rollout_mae": 4.972765942279915,
+      "velocity_max_abs_error": 20.132713644478507,
+      "derivative_rmse": 8.96587240221853,
+      "onset_timing_error_s": 6.40099999999984,
+      "peak_timing_error_s": 2.0390000000006694,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 6.235138311195199,
+      "fit_cost": 7500.449674966128,
+      "fit_success": 0
+    },
+    {
+      "split_id": "single_step__p5838_step4",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 27.86025681540732,
+      "velocity_rollout_mae": 21.0295988789183,
+      "velocity_max_abs_error": 66.11881894611022,
+      "derivative_rmse": 68.27148116581216,
+      "onset_timing_error_s": 0.024999999999636202,
+      "peak_timing_error_s": 4.007000000001426,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 27.86025681540732,
+      "fit_cost": 6156.145246489678,
+      "fit_success": 1
+    },
+    {
+      "split_id": "single_step__p5838_step5",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 125.31154445777024,
+      "velocity_rollout_mae": 108.21362366304726,
+      "velocity_max_abs_error": 176.9909104964922,
+      "derivative_rmse": 271.5393571246678,
+      "onset_timing_error_s": 0.12399999999979627,
+      "peak_timing_error_s": 0.9639999999999418,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 125.31154445777024,
+      "fit_cost": 6397.62762967841,
+      "fit_success": 1
+    },
+    {
+      "split_id": "single_step__p5838_step7",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step7",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 3.185113480946698,
+      "velocity_rollout_mae": 2.409908381441813,
+      "velocity_max_abs_error": 8.645443207925393,
+      "derivative_rmse": 1.0242786107560724,
+      "onset_timing_error_s": 3.6669999999994616,
+      "peak_timing_error_s": 46.6869999999999,
+      "stable_fraction": 0.1922222222222222,
+      "split_mean_velocity_rollout_rmse": 3.185113480946698,
+      "fit_cost": 6690.021819790774,
+      "fit_success": 1
+    },
+    {
+      "split_id": "single_step__p5838_step8",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step8",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 7.205951926376139,
+      "velocity_rollout_mae": 5.427309564939304,
+      "velocity_max_abs_error": 26.965491443083792,
+      "derivative_rmse": 10.070896917379274,
+      "onset_timing_error_s": 0.9760000000005675,
+      "peak_timing_error_s": 15.798000000000684,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 7.205951926376139,
+      "fit_cost": 6976.022077860258,
+      "fit_success": 1
+    },
+    {
+      "split_id": "single_step__p5838_step9",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step9",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 31.721830493469923,
+      "velocity_rollout_mae": 21.189568499972225,
+      "velocity_max_abs_error": 88.15453256465713,
+      "derivative_rmse": 67.5209399049069,
+      "onset_timing_error_s": 1.0139999999992142,
+      "peak_timing_error_s": 4.563000000000102,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 31.721830493469923,
+      "fit_cost": 5015.25159562992,
+      "fit_success": 1
+    },
+    {
+      "split_id": "single_step__p5838_step10",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step10",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 125.34124670005143,
+      "velocity_rollout_mae": 106.3942287267105,
+      "velocity_max_abs_error": 173.4480017894805,
+      "derivative_rmse": 303.8865252746861,
+      "onset_timing_error_s": 0.0019999999985884642,
+      "peak_timing_error_s": 0.07899999999972351,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 125.34124670005143,
+      "fit_cost": 4609.0549432041635,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step2__p5838_step5",
+      "family": "selected_pair",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step5",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 18.191551914761806,
+      "velocity_rollout_mae": 4.738106432924884,
+      "velocity_max_abs_error": 265.34873602611805,
+      "derivative_rmse": 42.004892244914885,
+      "onset_timing_error_s": 0.4690000000009604,
+      "peak_timing_error_s": 22.084000000000742,
+      "stable_fraction": 0.006666666666666667,
+      "split_mean_velocity_rollout_rmse": 48.67696790314315,
+      "fit_cost": 4264.2942317389225,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step2__p5838_step5",
+      "family": "selected_pair",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step5",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 79.1623838915245,
+      "velocity_rollout_mae": 65.21843111235722,
+      "velocity_max_abs_error": 138.66792652650037,
+      "derivative_rmse": 258.42825308902155,
+      "onset_timing_error_s": 0.033999999999650754,
+      "peak_timing_error_s": 0.9639999999999418,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 48.67696790314315,
+      "fit_cost": 4264.2942317389225,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step3__p5838_step10",
+      "family": "selected_pair",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step3|p5838_step10",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 5.976850207279154,
+      "velocity_rollout_mae": 5.285082604906948,
+      "velocity_max_abs_error": 15.682242221572476,
+      "derivative_rmse": 8.957690282709583,
+      "onset_timing_error_s": 3.6129999999993743,
+      "peak_timing_error_s": 7.434000000001106,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 66.3797750625674,
+      "fit_cost": 4329.799294700321,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step3__p5838_step10",
+      "family": "selected_pair",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step3|p5838_step10",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 126.78269991785567,
+      "velocity_rollout_mae": 107.56006326092549,
+      "velocity_max_abs_error": 175.40816748761816,
+      "derivative_rmse": 304.9908277092584,
+      "onset_timing_error_s": 0.012000000000625732,
+      "peak_timing_error_s": 0.07899999999972351,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 66.3797750625674,
+      "fit_cost": 4329.799294700321,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step4__p5838_step5",
+      "family": "selected_pair",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step5",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 27.49527818889473,
+      "velocity_rollout_mae": 20.54439776929507,
+      "velocity_max_abs_error": 66.04786795090865,
+      "derivative_rmse": 68.27494752928003,
+      "onset_timing_error_s": 0.024999999999636202,
+      "peak_timing_error_s": 4.007000000001426,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 75.91082457004245,
+      "fit_cost": 5031.864028024138,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step4__p5838_step5",
+      "family": "selected_pair",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step5",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 124.32637095119019,
+      "velocity_rollout_mae": 107.46735473287535,
+      "velocity_max_abs_error": 175.17262553334635,
+      "derivative_rmse": 270.1266760090575,
+      "onset_timing_error_s": 0.08300000000053842,
+      "peak_timing_error_s": 0.9639999999999418,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 75.91082457004245,
+      "fit_cost": 5031.864028024138,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step2__p5838_step10",
+      "family": "selected_pair",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step2|p5838_step10",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 13.470036702118417,
+      "velocity_rollout_mae": 3.9831020262517525,
+      "velocity_max_abs_error": 195.0922772403521,
+      "derivative_rmse": 39.002469359385984,
+      "onset_timing_error_s": 0.6260000000002037,
+      "peak_timing_error_s": 21.9270000000015,
+      "stable_fraction": 0.008888888888888889,
+      "split_mean_velocity_rollout_rmse": 55.63074220772812,
+      "fit_cost": 2717.3750901247745,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step2__p5838_step10",
+      "family": "selected_pair",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step2|p5838_step10",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 97.79144771333782,
+      "velocity_rollout_mae": 83.60245244907985,
+      "velocity_max_abs_error": 145.46784801837322,
+      "derivative_rmse": 292.6253720344439,
+      "onset_timing_error_s": 0.06400000000030559,
+      "peak_timing_error_s": 0.07899999999972351,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 55.63074220772812,
+      "fit_cost": 2717.3750901247745,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step5__p5838_step7",
+      "family": "selected_pair",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step7",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 125.82615240312438,
+      "velocity_rollout_mae": 108.58660557409839,
+      "velocity_max_abs_error": 177.8463614261745,
+      "derivative_rmse": 272.4224026793133,
+      "onset_timing_error_s": 0.14500000000043656,
+      "peak_timing_error_s": 0.9639999999999418,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 64.42997814131922,
+      "fit_cost": 5620.559048220647,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step5__p5838_step7",
+      "family": "selected_pair",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step7",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 3.033803879514078,
+      "velocity_rollout_mae": 2.251034086395614,
+      "velocity_max_abs_error": 8.559417668381688,
+      "derivative_rmse": 1.022758517175795,
+      "onset_timing_error_s": 4.7149999999983265,
+      "peak_timing_error_s": 46.6869999999999,
+      "stable_fraction": 0.19444444444444445,
+      "split_mean_velocity_rollout_rmse": 64.42997814131922,
+      "fit_cost": 5620.559048220647,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step2__p5838_step7",
+      "family": "selected_pair",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step7",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 431.17267865618874,
+      "velocity_rollout_mae": 337.25618119604565,
+      "velocity_max_abs_error": 887.1420182014998,
+      "derivative_rmse": 526.7497734975556,
+      "onset_timing_error_s": 0.4690000000009604,
+      "peak_timing_error_s": 14.722000000001572,
+      "stable_fraction": 0.0044444444444444444,
+      "split_mean_velocity_rollout_rmse": 395.7119372308858,
+      "fit_cost": 2483.1165743802394,
+      "fit_success": 1
+    },
+    {
+      "split_id": "selected_pair__p5838_step2__p5838_step7",
+      "family": "selected_pair",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step7",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 360.2511958055828,
+      "velocity_rollout_mae": 272.96797225180075,
+      "velocity_max_abs_error": 742.6932818347783,
+      "derivative_rmse": 666.9483586996853,
+      "onset_timing_error_s": 8.774000000001251,
+      "peak_timing_error_s": 3.79700000000048,
+      "stable_fraction": 0.0044444444444444444,
+      "split_mean_velocity_rollout_rmse": 395.7119372308858,
+      "fit_cost": 2483.1165743802394,
+      "fit_success": 1
+    }
+  ],
+  "meta": {
+    "branch": "exact_rsf_selected"
+  }
+}

@@ -1,0 +1,5 @@
+Tiny-library theta equation
+dtheta/dt = 4.084008e-05 - 5.703972e-03*Vtheta
+
+Expanded-library theta equation
+dtheta/dt = 7.929644e-05 - 5.675455e-03*Vtheta - 3.943165e-07*V - 5.248856e-03*theta

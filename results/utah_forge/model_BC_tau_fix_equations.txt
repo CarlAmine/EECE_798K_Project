@@ -1,0 +1,17 @@
+Original Model B
+dtau/dt = 1.081e+01*1 + 1.082e-03*V + 8.479e-03*V_drive_minus_V + 7.072e+00*tau - 2.706e+00*logV + 1.941e-01*tau*logV - 4.686e+00*tau_avg - 3.169e+00*tau_ema + 6.116e-05*S
+dV/dt = - 1.245e+03*1 + 5.023e-01*V + 5.504e+00*V_drive_minus_V + 5.823e+02*tau + 3.072e+02*logV - 2.281e+01*tau*logV - 1.960e+02*tau_avg - 2.934e+02*tau_ema - 1.294e-01*S
+
+Model_B_tau_fixed
+dtau/dt = -2.590115e-02 + 3.469985e-04*V + 8.961217e-03*V_drive_minus_V
+dtau/dt ~= 8.623992e-03*(V_drive - V)
+dV/dt = - 1.245e+03*1 + 5.023e-01*V + 5.504e+00*V_drive_minus_V + 5.823e+02*tau + 3.072e+02*logV - 2.281e+01*tau*logV - 1.960e+02*tau_avg - 2.934e+02*tau_ema - 1.294e-01*S
+
+Original Model C
+dtau/dt = - 3.755e+00*1 + 2.852e-01*tau + 1.727e-04*V + 1.102e+00*logV + 8.855e-02*logTheta - 8.525e-02*tau*logV - 6.983e-03*tau*logTheta + 1.056e-02*V_drive_minus_V
+dV/dt = 2.166e+03*1 - 1.561e+02*tau + 1.142e+00*V - 8.632e+02*logV - 2.680e+00*logTheta + 6.253e+01*tau*logV + 4.868e-01*tau*logTheta + 5.940e+00*V_drive_minus_V
+
+Model_C_tau_fixed
+dtau/dt = -9.953424e-03 + 1.051457e-02*V_drive_minus_V
+dtau/dt ~= 1.051541e-02*(V_drive - V)
+dV/dt = 2.166e+03*1 - 1.561e+02*tau + 1.142e+00*V - 8.632e+02*logV - 2.680e+00*logTheta + 6.253e+01*tau*logV + 4.868e-01*tau*logTheta + 5.940e+00*V_drive_minus_V

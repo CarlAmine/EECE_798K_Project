@@ -1,0 +1,82 @@
+{
+  "best_equation_1": {
+    "label": "strongest recovered equation",
+    "equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+    "one_term_approximation": "dtau/dt ~= 8.476432e-03*(V_drive - V)",
+    "workflow_source": "proposal_equation_recovery",
+    "metrics": {
+      "holdout_derivative_mse": 0.006139149,
+      "semi_observed_tau_rollout_mse_step2": 0.9795507278396812,
+      "semi_observed_tau_rollout_mse_step7": 0.48986632548254055
+    },
+    "robustness_note": "Bounded robustness check kept the positive dominant (V_drive - V) structure across alternate splits.",
+    "judgment": "best final"
+  },
+  "best_equation_2_final_usable": {
+    "label": "best final usable velocity law",
+    "equation": "dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV",
+    "workflow_source": "proposal_equation_recovery",
+    "metrics": {
+      "holdout_derivative_mse": 738.6781,
+      "holdout_derivative_rmse": 27.11641,
+      "holdout_derivative_mae": 25.38210,
+      "holdout_derivative_r2": -98.203969,
+      "rollout_mse": 449.3035,
+      "mean_stable_fraction": 0.006,
+      "mean_peak_timing_error_s": 16.556,
+      "mean_onset_timing_error_s": 15.378
+    },
+    "theta_subset": {
+      "theta_valid_steps_event_screening": 5,
+      "theta_usable_steps_sample_masking": 5,
+      "theta_usable_samples_sample_masking": 15000
+    },
+    "judgment": "best fallback"
+  },
+  "closest_exact_rsf_looking_equation_2": {
+    "label": "closest exact fit but non-identifiable",
+    "equations": {
+      "tau": "dtau/dt = 2.852472e-03*(V_drive - V)",
+      "velocity": "dV/dt = (1/2.519965e-02) * [tau - sigmaN*(9.042632e-12 + 7.146679e-01*log(V/V0) + 1.671089e-01*log(theta*V0/1.518258e+01))]",
+      "theta": "dtheta/dt = 1 - V*theta/1.518258e+01"
+    },
+    "workflow_source": "exact_rsf_multistart_check",
+    "metrics": {
+      "best_run_success": true,
+      "best_run_nfev": 37,
+      "best_run_cost": 2483.116569174679,
+      "mean_holdout_rollout_error": 349.96100786151817,
+      "mean_holdout_peak_timing_error_s": 7.753500000000713,
+      "mean_holdout_onset_timing_error_s": 4.621500000001106,
+      "mean_holdout_stable_fraction": 0.0044444444444444444,
+      "jtj_condition_number": 890445581.9891844,
+      "jtj_rank": 12
+    },
+    "identifiability_note": "Theta term became meaningfully active, but parameter estimates did not stabilize across starts; sigmaN remained too constant and parameter confounding stayed true.",
+    "judgment": "closest exact fit but non-identifiable"
+  },
+  "best_equation_3_result": {
+    "label": "weak conditional consistency check",
+    "equation": "dtheta/dt = 4.084008e-05 - 5.703972e-03*Vtheta",
+    "workflow_source": "theta_equation_consistency",
+    "metrics": {
+      "train_rmse": 0.0034993821775864266,
+      "holdout_rmse": 0.027951266488802216,
+      "holdout_r2": 0.0003738272971269829,
+      "c0": 4.084007884227115e-05,
+      "c0_abs_error_from_1": 0.9999591599211577,
+      "c1_Vtheta": -0.005703971964262181,
+      "Dc_hat": 175.31642972045213
+    },
+    "interpretation": "This is a conditional check on externally reconstructed theta, not an independent recovery. The sign of c1 is correct, but c0 is far from 1 and the implied Dc is far from the usable-event reference scale.",
+    "judgment": "weak consistency check"
+  },
+  "supporting_results": {
+    "robustness_check": {
+      "tau_equation_robust": true,
+      "reduced_velocity_logv_retained": true,
+      "exact_theta_term_nonidentifiable": true,
+      "overall_conclusion": "Bounded robustness check supports the fixed final conclusion."
+    }
+  }
+}

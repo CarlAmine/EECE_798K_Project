@@ -1,0 +1,373 @@
+{
+  "ranking": [
+    "1. Best tau equation: strongest recovered equation and most defensible compact law.",
+    "2. Reduced RSF fallback velocity law: best final usable velocity model.",
+    "3. Closest exact RSF-looking fit: attractive structurally but non-identifiable and weak on holdout rollout.",
+    "4. Theta consistency check: weak conditional consistency only, not independent recovery."
+  ],
+  "strongest_success": "The compact spring-loading tau law is the strongest result: it is physically correct, stable under alternate splits, and remains the cleanest recovered governing equation.",
+  "biggest_weakness": "The theta-bearing exact RSF branch remains scientifically weak because near-constant sigmaN and parameter confounding prevent trustworthy identification even after multistart convergence improves.",
+  "holdout_representative": false,
+  "exact_rsf_failure_mode": "mostly identifiability, not mostly optimization",
+  "split_statistics": {
+    "tau": {
+      "holdout": {
+        "n_steps": 2,
+        "mean": 0.8448135313145989,
+        "median": 0.8448135313145989,
+        "std": 0.14490901962565395,
+        "best_step": "p5838_step7",
+        "best_value": 0.699904511688945,
+        "worst_step": "p5838_step2",
+        "worst_value": 0.9897225509402529
+      },
+      "train": {
+        "n_steps": 6,
+        "mean": 0.12925114812018348,
+        "median": 0.1164554544744698,
+        "std": 0.045485582348195774,
+        "best_step": "p5838_step5",
+        "best_value": 0.0790679607029353,
+        "worst_step": "p5838_step8",
+        "worst_value": 0.2034405160477594
+      }
+    },
+    "reduced_velocity": {
+      "holdout": {
+        "n_steps": 2,
+        "mean": 21.196655336456413,
+        "median": 21.196655336456413,
+        "std": 0.07252236288007197,
+        "best_step": "p5838_step2",
+        "best_value": 21.12413297357634,
+        "worst_step": "p5838_step7",
+        "worst_value": 21.269177699336485
+      },
+      "train": {
+        "n_steps": 6,
+        "mean": 70.30480948659115,
+        "median": 57.16592537079467,
+        "std": 37.057430959210656,
+        "best_step": "p5838_step4",
+        "best_value": 25.61269934735153,
+        "worst_step": "p5838_step10",
+        "worst_value": 121.30231536882653
+      }
+    },
+    "exact_rsf": {
+      "holdout": {
+        "n_steps": 2,
+        "mean": 392.44366248146076,
+        "median": 392.44366248146076,
+        "std": 38.72819585271816,
+        "best_step": "p5838_step7",
+        "best_value": 353.7154666287426,
+        "worst_step": "p5838_step2",
+        "worst_value": 431.1718583341789
+      },
+      "train": {
+        "n_steps": 6,
+        "mean": 21.604052717829536,
+        "median": 16.818276903743204,
+        "std": 15.990409001179271,
+        "best_step": "p5838_step3",
+        "best_value": 5.446479218151768,
+        "worst_step": "p5838_step5",
+        "worst_value": 47.5962437050127
+      }
+    }
+  },
+  "multistep_representativeness": {
+    "tau_equation": "p5838_step2 is worse than the upper-quartile threshold for this metric. p5838_step7 is worse than the upper-quartile threshold for this metric.",
+    "exact_rsf_velocity": "p5838_step2 is worse than the upper-quartile threshold for this metric. p5838_step7 is worse than the upper-quartile threshold for this metric."
+  },
+  "exact_identifiability": {
+    "sigma_too_constant": true,
+    "parameter_confounding_flag": true,
+    "best_jtj_condition_number": 890445581.9891844,
+    "best_jtj_rank": 12,
+    "parameter_stability_cv": {
+      "k": 0.11725866057349653,
+      "m": 0.43557210703587895,
+      "mu0": 1.7320508072486274,
+      "a": 0.5659415160275465,
+      "b": 0.45346450828285456,
+      "Dc": 1.6310976166460913,
+      "acoustic_gamma": 0.0
+    },
+    "theta_term_meaningfully_active": true,
+    "parameter_estimates_stabilize": false
+  },
+  "theta_consistency": {
+    "expanded_library_changes_conclusion": false,
+    "tiny_library_reasonably_consistent": false,
+    "consistency_strength": "weak"
+  },
+  "robustness": {
+    "tau_equation_confirmed": true,
+    "reduced_logv_confirmed": true,
+    "theta_nonidentifiable_confirmed": true,
+    "overall_conclusion": "Bounded robustness check supports the fixed final conclusion."
+  },
+  "velocity_isolation_support": {
+    "isolated_velocity_helped_like_tau_fix": false,
+    "theta_timevarying_useful": false,
+    "constant_theta_helped": true,
+    "bottleneck_still_sigma_confounding": true
+  },
+  "master_rows": [
+    {
+      "result_label": "Best tau equation",
+      "workflow_source": "scripts/utah_forge_proposal_equation_recovery.py",
+      "equation_text": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+      "training_split": "p5838_step3, p5838_step8, p5838_step9, p5838_step4, p5838_step5, p5838_step10",
+      "holdout_split": "p5838_step2, p5838_step7",
+      "derivative_mse": 0.006139149275763176,
+      "derivative_rmse": 0.07835272347380898,
+      "derivative_mae": null,
+      "derivative_r2": null,
+      "rollout_rmse": 0.8448135313145989,
+      "rollout_rmse_train": 0.12925114812018348,
+      "stable_fraction": 1.0,
+      "onset_timing_error_s": null,
+      "peak_timing_error_s": null,
+      "identifiability_status": "strongly identifiable compact spring-loading law",
+      "interpretability_status": "strongest recovered equation",
+      "scientific_judgment": "strongest recovered equation"
+    },
+    {
+      "result_label": "Reduced RSF fallback velocity",
+      "workflow_source": "scripts/utah_forge_proposal_equation_recovery.py",
+      "equation_text": "dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV",
+      "training_split": "p5838_step3, p5838_step8, p5838_step9, p5838_step4, p5838_step5, p5838_step10",
+      "holdout_split": "p5838_step2, p5838_step7",
+      "derivative_mse": 738.6781496544082,
+      "derivative_rmse": 27.116409341814872,
+      "derivative_mae": 25.382103896915982,
+      "derivative_r2": -98.2039693782747,
+      "rollout_rmse": 21.196655336456413,
+      "rollout_rmse_train": 70.30480948659115,
+      "stable_fraction": 0.006166666666666667,
+      "onset_timing_error_s": 15.378000000000611,
+      "peak_timing_error_s": 16.555999999999585,
+      "identifiability_status": "usable reduced law; theta removed",
+      "interpretability_status": "best final usable velocity law",
+      "scientific_judgment": "best final usable model"
+    },
+    {
+      "result_label": "Closest exact RSF-looking fit",
+      "workflow_source": "scripts/utah_forge_exact_rsf_multistart_check.py",
+      "equation_text": "dtau/dt = 2.852472e-03*(V_drive - V); dV/dt = (1/2.519965e-02)*[tau - sigmaN*(9.042632e-12 + 7.146679e-01*log(V/V0) + 1.671089e-01*log(theta*V0/1.518258e+01))]; dtheta/dt = 1 - V*theta/1.518258e+01",
+      "training_split": "p5838_step3, p5838_step8, p5838_step9, p5838_step4, p5838_step5, p5838_step10",
+      "holdout_split": "p5838_step2, p5838_step7",
+      "derivative_mse": null,
+      "derivative_rmse": null,
+      "derivative_mae": null,
+      "derivative_r2": null,
+      "rollout_rmse": 392.44366248146076,
+      "rollout_rmse_train": 21.604052717829536,
+      "stable_fraction": 0.0044444444444444444,
+      "onset_timing_error_s": 4.621500000001106,
+      "peak_timing_error_s": 7.753500000000713,
+      "identifiability_status": "non-identifiable exact-form fit",
+      "interpretability_status": "closest exact fit but non-identifiable",
+      "scientific_judgment": "closest exact fit but non-identifiable"
+    },
+    {
+      "result_label": "Theta consistency check",
+      "workflow_source": "scripts/utah_forge_theta_equation_consistency.py",
+      "equation_text": "dtheta/dt = 4.084008e-05 - 5.703972e-03*Vtheta",
+      "training_split": "p5838_step3, p5838_step8, p5838_step9, p5838_step4, p5838_step10",
+      "holdout_split": "p5838_step2, p5838_step7",
+      "derivative_mse": 0.0007812732983280378,
+      "derivative_rmse": 0.027951266488802216,
+      "derivative_mae": 0.007087755720919653,
+      "derivative_r2": 0.0003738272971269829,
+      "rollout_rmse": null,
+      "rollout_rmse_train": null,
+      "stable_fraction": null,
+      "onset_timing_error_s": null,
+      "peak_timing_error_s": null,
+      "identifiability_status": "weak conditional consistency only",
+      "interpretability_status": "weak consistency check on supplied theta",
+      "scientific_judgment": "weak consistency check"
+    },
+    {
+      "result_label": "Tau-fixed Model B",
+      "workflow_source": "scripts/utah_forge_model_bc_tau_fix_comparison.py",
+      "equation_text": "dtau/dt = -2.590115e-02 + 3.469985e-04*V + 8.961217e-03*V_drive_minus_V",
+      "training_split": "original B/C split",
+      "holdout_split": "original B/C holdout",
+      "derivative_mse": 0.006374785841616515,
+      "derivative_rmse": 0.07984225599027445,
+      "derivative_mae": 0.036100950872778655,
+      "derivative_r2": 0.019611732797954695,
+      "rollout_rmse": 0.10063634907787462,
+      "rollout_rmse_train": 0.035582018956405025,
+      "stable_fraction": 1.0,
+      "onset_timing_error_s": null,
+      "peak_timing_error_s": null,
+      "identifiability_status": "supporting ablation",
+      "interpretability_status": "cleaner tau after isolation",
+      "scientific_judgment": "supporting ablation result"
+    },
+    {
+      "result_label": "Tau-fixed Model C",
+      "workflow_source": "scripts/utah_forge_model_bc_tau_fix_comparison.py",
+      "equation_text": "dtau/dt = -9.953424e-03 + 1.051457e-02*V_drive_minus_V",
+      "training_split": "theta-screened Model C subset",
+      "holdout_split": "theta-screened Model C holdout",
+      "derivative_mse": 0.005868478570476721,
+      "derivative_rmse": 0.0766059956561934,
+      "derivative_mae": 0.02903000448030204,
+      "derivative_r2": 0.09747751849761477,
+      "rollout_rmse": 0.1060214251446808,
+      "rollout_rmse_train": 0.033603770095343835,
+      "stable_fraction": 1.0,
+      "onset_timing_error_s": null,
+      "peak_timing_error_s": null,
+      "identifiability_status": "supporting ablation",
+      "interpretability_status": "tau cleaned but velocity still theta-limited",
+      "scientific_judgment": "supporting ablation result"
+    }
+  ],
+  "step_difficulty_rows": [
+    {
+      "step_name": "p5838_step2",
+      "split": "holdout",
+      "n_samples": 3000,
+      "duration_s": 70.40200000000004,
+      "tau_rollout_rmse": 0.9897225509402529,
+      "velocity_rollout_rmse": 21.12413297357634,
+      "exact_velocity_rollout_rmse": 431.1718583341789,
+      "theta_quality": "high-quality",
+      "theta_reason": "ok",
+      "tau_difficulty": "hard",
+      "reduced_difficulty": "easy",
+      "exact_difficulty": "hard",
+      "difficulty_notes": "holdout step; exact RSF unstable early; tau harder than median"
+    },
+    {
+      "step_name": "p5838_step7",
+      "split": "holdout",
+      "n_samples": 3000,
+      "duration_s": 58.86499999999978,
+      "tau_rollout_rmse": 0.699904511688945,
+      "velocity_rollout_rmse": 21.269177699336485,
+      "exact_velocity_rollout_rmse": 353.7154666287426,
+      "theta_quality": "high-quality",
+      "theta_reason": "ok",
+      "tau_difficulty": "hard",
+      "reduced_difficulty": "easy",
+      "exact_difficulty": "hard",
+      "difficulty_notes": "holdout step; exact RSF unstable early; tau harder than median"
+    },
+    {
+      "step_name": "p5838_step10",
+      "split": "train",
+      "n_samples": 1763,
+      "duration_s": 1.7620000000006255,
+      "tau_rollout_rmse": 0.1097928743969884,
+      "velocity_rollout_rmse": 121.30231536882653,
+      "exact_velocity_rollout_rmse": 37.399954725217896,
+      "theta_quality": "low-quality",
+      "theta_reason": "theta_direct_low_variation,theta_alignment_undefined,too_few_high_quality_samples,short_high_quality_run",
+      "tau_difficulty": "medium",
+      "reduced_difficulty": "hard",
+      "exact_difficulty": "medium",
+      "difficulty_notes": "theta low-quality; reduced velocity harder than median"
+    },
+    {
+      "step_name": "p5838_step3",
+      "split": "train",
+      "n_samples": 3000,
+      "duration_s": 23.204999999999927,
+      "tau_rollout_rmse": 0.1746179517721068,
+      "velocity_rollout_rmse": 56.90267146275232,
+      "exact_velocity_rollout_rmse": 5.446479218151768,
+      "theta_quality": "high-quality",
+      "theta_reason": "ok",
+      "tau_difficulty": "medium",
+      "reduced_difficulty": "medium",
+      "exact_difficulty": "easy",
+      "difficulty_notes": "reduced velocity harder than median; tau harder than median"
+    },
+    {
+      "step_name": "p5838_step4",
+      "split": "train",
+      "n_samples": 3000,
+      "duration_s": 5.558000000000902,
+      "tau_rollout_rmse": 0.1231180345519512,
+      "velocity_rollout_rmse": 25.61269934735153,
+      "exact_velocity_rollout_rmse": 21.524105044543298,
+      "theta_quality": "low-quality",
+      "theta_reason": "theta_direct_low_variation,theta_alignment_undefined,too_few_high_quality_samples,short_high_quality_run",
+      "tau_difficulty": "medium",
+      "reduced_difficulty": "medium",
+      "exact_difficulty": "medium",
+      "difficulty_notes": "theta low-quality"
+    },
+    {
+      "step_name": "p5838_step5",
+      "split": "train",
+      "n_samples": 2151,
+      "duration_s": 2.149999999999636,
+      "tau_rollout_rmse": 0.0790679607029353,
+      "velocity_rollout_rmse": 119.63906958848114,
+      "exact_velocity_rollout_rmse": 47.5962437050127,
+      "theta_quality": "invalid",
+      "theta_reason": "theta_direct_invalid,theta_direct_low_variation,theta_alignment_undefined,theta_clipped,too_few_high_quality_samples,short_high_quality_run",
+      "tau_difficulty": "easy",
+      "reduced_difficulty": "hard",
+      "exact_difficulty": "hard",
+      "difficulty_notes": "theta invalid; reduced velocity harder than median"
+    },
+    {
+      "step_name": "p5838_step8",
+      "split": "train",
+      "n_samples": 3000,
+      "duration_s": 23.09300000000076,
+      "tau_rollout_rmse": 0.2034405160477594,
+      "velocity_rollout_rmse": 57.429179278837005,
+      "exact_velocity_rollout_rmse": 5.545084851108455,
+      "theta_quality": "high-quality",
+      "theta_reason": "ok",
+      "tau_difficulty": "hard",
+      "reduced_difficulty": "hard",
+      "exact_difficulty": "easy",
+      "difficulty_notes": "reduced velocity harder than median; tau harder than median"
+    },
+    {
+      "step_name": "p5838_step9",
+      "split": "train",
+      "n_samples": 3000,
+      "duration_s": 7.351000000000567,
+      "tau_rollout_rmse": 0.0854695512493597,
+      "velocity_rollout_rmse": 40.94292187329835,
+      "exact_velocity_rollout_rmse": 12.112448762943112,
+      "theta_quality": "high-quality",
+      "theta_reason": "ok",
+      "tau_difficulty": "easy",
+      "reduced_difficulty": "medium",
+      "exact_difficulty": "medium",
+      "difficulty_notes": "no major warning"
+    }
+  ],
+  "abstract_style_conclusion": "The Utah FORGE p5838 equation-discovery project now supports a compact, physically sensible recovery of the spring-loading stress law and a reduced RSF-style fallback for the velocity law, but not a scientifically trustworthy recovery of the full theta-bearing RSF system. Across saved derivative, rollout, multistep, and multistart diagnostics, the tau equation remains the strongest and most robust result, while the reduced velocity law is the most usable final model despite limited multistep generalization. The closest exact RSF-looking fit is valuable as a structural near-hit because it preserves the full form and achieves decent timing on the original holdout pair, but it fails the trustworthiness test because parameter estimates remain confounded under near-constant sigmaN and holdout rollout degrades sharply outside the training-like steps. Conditional theta checks likewise remain weak, indicating that externally reconstructed theta carries suggestive structure but does not validate a clean standalone RSF state recovery on the current subset.",
+  "professor_summary": [
+    "Equation (1) is the strongest success: compact, physically interpretable, and robust under bounded split changes.",
+    "The reduced RSF fallback is the best final usable velocity law, not the exact theta-bearing form.",
+    "The original holdout pair was not representative for tau or exact RSF; both holdout steps were unusually hard there.",
+    "The original holdout pair was unusually favorable for the reduced velocity rollout, so that branch should be presented as usable rather than universally strong.",
+    "Multistart improved convergence for exact RSF but did not fix identifiability or parameter trustworthiness.",
+    "The project\u2019s defensible claim is compact stress-law recovery plus reduced RSF structure, not credible exact latent-state RSF recovery."
+  ],
+  "oral_explanation": [
+    "The strongest result is the tau equation, because it became compact, physically correct, and stayed robust under bounded split checks.",
+    "The best final usable velocity model is the reduced RSF fallback, not the full exact theta-bearing form.",
+    "The exact RSF-looking fit is still worth showing because it is the closest structural match to the proposal, but it is not trustworthy enough to be the final model.",
+    "The main reason is identifiability, not just optimization: sigmaN is nearly constant and the exact RSF parameters stay confounded across starts.",
+    "When we expanded to all usable steps, the original holdout pair turned out to be unusually hard for tau and exact RSF, but unusually favorable for the reduced velocity rollout.",
+    "So the honest project claim is strong recovery of equation (1), support for a reduced RSF-like equation (2), and no credible full recovery of the theta-bearing exact RSF system."
+  ]
+}

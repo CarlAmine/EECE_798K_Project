@@ -1,0 +1,278 @@
+{
+  "regime_groups": {
+    "flatter_lower_motion": [
+      "p5838_step2",
+      "p5838_step7",
+      "p5838_step4",
+      "p5838_step9"
+    ],
+    "more_typical_higher_motion": [
+      "p5838_step3",
+      "p5838_step5",
+      "p5838_step8",
+      "p5838_step10"
+    ]
+  },
+  "original_split_baseline": {
+    "split_name": "original",
+    "split_label": "Original stress-test split",
+    "train_steps": [
+      "p5838_step3",
+      "p5838_step4",
+      "p5838_step5",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step10"
+    ],
+    "holdout_steps": [
+      "p5838_step2",
+      "p5838_step7"
+    ],
+    "equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+    "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)",
+    "coefficients_physical": {
+      "1": -0.02557013762458704,
+      "V": 0.00034550561347599794,
+      "V_drive_minus_V": 0.008812200358494159
+    },
+    "holdout_rows": [
+      {
+        "step_name": "p5838_step2",
+        "duration_s": 70.40200000000004,
+        "n_samples": 3000,
+        "derivative_mse": 0.011094427135867358,
+        "derivative_rmse": 0.10533008656536534,
+        "derivative_mae": 0.04289819312234731,
+        "derivative_r2": 0.03408721189769259,
+        "tau_rollout_mse": 0.9795718975360754,
+        "tau_rollout_rmse": 0.9897332456455504,
+        "mean_abs_tau_error": 0.8516970533385264,
+        "max_abs_tau_error": 1.7008406242498708,
+        "tau_rollout_r2": -229.68726465532063
+      },
+      {
+        "step_name": "p5838_step7",
+        "duration_s": 58.86499999999978,
+        "n_samples": 3000,
+        "derivative_mse": 0.0011838714156589946,
+        "derivative_rmse": 0.03440743256418582,
+        "derivative_mae": 0.02509848140397303,
+        "derivative_r2": -0.1266611943260081,
+        "tau_rollout_mse": 0.48988491182468336,
+        "tau_rollout_rmse": 0.6999177893329211,
+        "mean_abs_tau_error": 0.617009145634335,
+        "max_abs_tau_error": 1.1722692765539584,
+        "tau_rollout_r2": -109.10338331720794
+      }
+    ],
+    "mean_derivative_mse": 0.006139149275763176,
+    "mean_derivative_rmse": 0.06986875956477558,
+    "mean_derivative_mae": 0.03399833726316017,
+    "mean_derivative_r2": -0.04628699121415775,
+    "mean_tau_rollout_mse": 0.7347284046803794,
+    "mean_tau_rollout_rmse": 0.8448255174892358,
+    "mean_abs_tau_error": 0.7343530994864307,
+    "max_abs_tau_error": 1.7008406242498708,
+    "mean_tau_rollout_r2": -169.3953239862643,
+    "tau_model": {
+      "threshold": 0.0,
+      "coefficients_z": [
+        0.007472988856903154,
+        0.03263639333994721,
+        0.17415869058128425
+      ],
+      "coefficients_physical": {
+        "1": -0.02557013762458704,
+        "V": 0.00034550561347599794,
+        "V_drive_minus_V": 0.008812200358494159
+      },
+      "active_terms": [
+        "1",
+        "V",
+        "V_drive_minus_V"
+      ],
+      "train_mse": 0.1944741646935663,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "mse": 0.011094427135867358
+        },
+        {
+          "step_name": "p5838_step7",
+          "mse": 0.0011838714156589946
+        }
+      ],
+      "holdout_mse": 0.006139149275763176,
+      "sign_ok": 1,
+      "one_term_k_hat": 0.008476431872284128,
+      "one_term_holdout_mse": 0.005653995632667389,
+      "exact_equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)"
+    }
+  },
+  "primary_balanced_split": {
+    "split_name": "balanced_primary",
+    "split_label": "Primary regime-balanced split",
+    "train_steps": [
+      "p5838_step3",
+      "p5838_step4",
+      "p5838_step7",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step10"
+    ],
+    "holdout_steps": [
+      "p5838_step2",
+      "p5838_step5"
+    ],
+    "equation": "dtau/dt = 1.935726e-04 + 1.027164e-02*V_drive_minus_V",
+    "one_term_equation": "dtau/dt ~= 1.027239e-02*(V_drive - V)",
+    "coefficients_physical": {
+      "1": 0.00019357257050383394,
+      "V": 0.0,
+      "V_drive_minus_V": 0.010271635772218098
+    },
+    "holdout_rows": [
+      {
+        "step_name": "p5838_step2",
+        "duration_s": 70.40200000000004,
+        "n_samples": 3000,
+        "derivative_mse": 0.010377420098225473,
+        "derivative_rmse": 0.10186962303957678,
+        "derivative_mae": 0.028824225483807035,
+        "derivative_r2": 0.09651191020218108,
+        "tau_rollout_mse": 0.0044533904258174115,
+        "tau_rollout_rmse": 0.06673372779799891,
+        "mean_abs_tau_error": 0.044066245576626376,
+        "max_abs_tau_error": 0.292020757814905,
+        "tau_rollout_r2": -0.04876472912104712
+      },
+      {
+        "step_name": "p5838_step5",
+        "duration_s": 2.149999999999636,
+        "n_samples": 2151,
+        "derivative_mse": 0.22755590853717236,
+        "derivative_rmse": 0.47702820517991634,
+        "derivative_mae": 0.35773814380286906,
+        "derivative_r2": 0.04213288477667565,
+        "tau_rollout_mse": 0.013931801261873824,
+        "tau_rollout_rmse": 0.1180330515655417,
+        "mean_abs_tau_error": 0.092627599580394,
+        "max_abs_tau_error": 0.25595753490469697,
+        "tau_rollout_r2": -0.8679471518999926
+      }
+    ],
+    "mean_derivative_mse": 0.11896666431769892,
+    "mean_derivative_rmse": 0.28944891410974655,
+    "mean_derivative_mae": 0.19328118464333804,
+    "mean_derivative_r2": 0.06932239748942837,
+    "mean_tau_rollout_mse": 0.009192595843845618,
+    "mean_tau_rollout_rmse": 0.0923833896817703,
+    "mean_abs_tau_error": 0.06834692257851019,
+    "max_abs_tau_error": 0.292020757814905,
+    "mean_tau_rollout_r2": -0.45835594051051987,
+    "tau_model": {
+      "threshold": 0.01,
+      "coefficients_z": [
+        0.0,
+        0.0,
+        0.14966905299446445
+      ],
+      "coefficients_physical": {
+        "1": 0.00019357257050383394,
+        "V": 0.0,
+        "V_drive_minus_V": 0.010271635772218098
+      },
+      "active_terms": [
+        "1",
+        "V_drive_minus_V"
+      ],
+      "train_mse": 0.1577735849718912,
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "mse": 0.010377420098225473
+        },
+        {
+          "step_name": "p5838_step5",
+          "mse": 0.22755590853717236
+        }
+      ],
+      "holdout_mse": 0.11896666431769892,
+      "sign_ok": 1,
+      "one_term_k_hat": 0.010272389983879273,
+      "one_term_holdout_mse": 0.11899338122794632,
+      "exact_equation": "dtau/dt = 1.935726e-04 + 1.027164e-02*V_drive_minus_V",
+      "one_term_equation": "dtau/dt ~= 1.027239e-02*(V_drive - V)"
+    }
+  },
+  "balanced_train_examples": [
+    {
+      "step_name": "p5838_step7",
+      "tau_rollout_rmse": 0.08727770218435868,
+      "mean_abs_tau_error": 0.07064873055216844,
+      "tau_rollout_r2": -0.7120372446688938
+    },
+    {
+      "step_name": "p5838_step10",
+      "tau_rollout_rmse": 0.08767577522883127,
+      "mean_abs_tau_error": 0.07060196120571709,
+      "tau_rollout_r2": -2.2232130692345944
+    },
+    {
+      "step_name": "p5838_step3",
+      "tau_rollout_rmse": 0.09999847425100088,
+      "mean_abs_tau_error": 0.06951741830881712,
+      "tau_rollout_r2": -0.3967845666854375
+    },
+    {
+      "step_name": "p5838_step8",
+      "tau_rollout_rmse": 0.10036225957879281,
+      "mean_abs_tau_error": 0.07017612721915055,
+      "tau_rollout_r2": -0.20858715072873713
+    }
+  ],
+  "balanced_train_example_steps": [
+    "p5838_step7",
+    "p5838_step10",
+    "p5838_step3",
+    "p5838_step8"
+  ],
+  "representative_pair_context": {
+    "strategy_name": "C_leave_two_out",
+    "strategy_label": "Leave-two-out: p5838_step5 + p5838_step2",
+    "train_steps": "p5838_step10,p5838_step3,p5838_step8,p5838_step9,p5838_step4,p5838_step7",
+    "eval_steps": "p5838_step5,p5838_step2",
+    "honest_holdout": 1,
+    "equation": "dtau/dt = 1.935726e-04 + 1.027164e-02*V_drive_minus_V",
+    "mean_derivative_rmse": 0.2894489141097466,
+    "mean_derivative_mae": 0.19328118464333807,
+    "mean_derivative_r2": 0.0693223974894282,
+    "mean_tau_rollout_rmse": 0.09239430029612951,
+    "mean_tau_rollout_mae": 0.06835510581231127,
+    "mean_tau_rollout_r2": -0.45869893955811836,
+    "pair_shift_distance_from_global_center": 0.488021239918455,
+    "pair_internal_variability_gap": 0.9285934500955957,
+    "is_current_pair": 0
+  },
+  "leave_two_out_context": {
+    "n_pairs": 28,
+    "current_pair_rank_by_rollout_rmse": 28,
+    "current_pair_rank_by_shift_distance": 26,
+    "mean_leave_two_out_rollout_rmse": 0.2656762792522444,
+    "median_leave_two_out_rollout_rmse": 0.1445654585623847,
+    "best_representative_pair": [
+      "p5838_step5",
+      "p5838_step2"
+    ],
+    "best_representative_pair_rollout_rmse": 0.09239430029612951,
+    "current_pair_rollout_rmse": 0.844808375947343,
+    "current_pair_shift_distance": 1.80767731690081,
+    "representative_pair_shift_distance": 0.488021239918455
+  },
+  "presentation_guidance": {
+    "original_split_role": "Keep p5838_step2 + p5838_step7 as the low-motion stress-test baseline.",
+    "balanced_split_role": "Use p5838_step2 + p5838_step5 as a more representative mixed-regime holdout.",
+    "model_claim": "The compact tau equation remains the strongest recovered tau equation under both views."
+  }
+}

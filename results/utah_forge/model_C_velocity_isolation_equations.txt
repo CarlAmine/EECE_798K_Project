@@ -1,0 +1,8 @@
+Original Model C velocity
+dV/dt = 2.166e+03*1 - 1.561e+02*tau + 1.142e+00*V - 8.632e+02*logV - 2.680e+00*logTheta + 6.253e+01*tau*logV + 4.868e-01*tau*logTheta + 5.940e+00*V_drive_minus_V
+
+Model_C_velocity_isolated_theta_timevarying
+dV/dt = 4.833180e+00 - 7.520195e-01*sigmaN_logV - 1.434962e-01*sigmaN_logTheta
+
+Model_C_velocity_isolated_theta_constant_ablation
+dV/dt = -2.781219e+00 - 5.830604e-01*sigmaN_logV - 1.650363e-01*sigmaN_logTheta

@@ -42,3 +42,9 @@ results/**/_matlab_prefs/
 
 # Logs
 *.log
+
+# Large Archive and Result Directories
+*.zip
+results/**/Final/
+results/**/Finalv*/
+results/**/*_checkpoints/

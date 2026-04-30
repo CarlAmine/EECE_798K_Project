@@ -15,7 +15,21 @@ from . import describe_dataframe
 
 
 MATLAB_EXE = Path(r"C:\Program Files\MATLAB\R2024a\bin\matlab.exe")
-UTAH_FORGE_EXPORT_COLUMNS = ("time", "tau", "v_int", "d_int", "mu")
+UTAH_FORGE_EXPORT_COLUMNS = (
+    "time",
+    "tau",
+    "v_int",
+    "d_int",
+    "mu",
+    "sigmaN",
+    "v_ext",
+    "timeshift",
+    "avg_timeshift",
+    "Amp",
+    "RmsAmp",
+    "avg_Amp",
+    "avg_RmsAmp",
+)
 
 
 def locate_utah_forge_files() -> dict[str, list[Path]]:
@@ -108,11 +122,21 @@ def _run_matlab_table_export(file_path: Path) -> tuple[pd.DataFrame, dict]:
     ensure_directory(summary_path.parent)
     ensure_directory(UTAH_FORGE_CONFIG.results_dir / "_matlab_prefs")
 
+    requested_columns = set(UTAH_FORGE_EXPORT_COLUMNS)
+    existing_summary: dict | None = None
+    if summary_path.exists():
+        try:
+            existing_summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing_summary = None
+
+    extracted_columns = set(existing_summary.get("extracted_columns", [])) if existing_summary else set()
     needs_refresh = (
         not csv_path.exists()
         or not summary_path.exists()
         or csv_path.stat().st_mtime < file_path.stat().st_mtime
         or summary_path.stat().st_mtime < file_path.stat().st_mtime
+        or not requested_columns.issubset(extracted_columns)
     )
     if needs_refresh:
         columns_literal = ",".join(UTAH_FORGE_EXPORT_COLUMNS)

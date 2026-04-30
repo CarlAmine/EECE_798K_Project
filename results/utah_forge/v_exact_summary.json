@@ -1,0 +1,177 @@
+{
+  "completed_split_count": 14,
+  "expected_split_count": 14,
+  "selected_pairs": [
+    [
+      "p5838_step2",
+      "p5838_step5"
+    ],
+    [
+      "p5838_step3",
+      "p5838_step10"
+    ],
+    [
+      "p5838_step4",
+      "p5838_step5"
+    ],
+    [
+      "p5838_step2",
+      "p5838_step10"
+    ],
+    [
+      "p5838_step5",
+      "p5838_step7"
+    ],
+    [
+      "p5838_step2",
+      "p5838_step7"
+    ]
+  ],
+  "step_difficulty": [
+    {
+      "step_name": "p5838_step3",
+      "n_holdout_appearances": 2,
+      "mean_holdout_velocity_rmse": 6.1059942592371765,
+      "median_holdout_velocity_rmse": 6.1059942592371765,
+      "std_holdout_velocity_rmse": 0.12914405195802248,
+      "mean_timing_error_s": 4.871750000000247,
+      "mean_stable_fraction": 1.0,
+      "difficulty_label": "easy",
+      "difficulty_rank": 1
+    },
+    {
+      "step_name": "p5838_step8",
+      "n_holdout_appearances": 1,
+      "mean_holdout_velocity_rmse": 7.205951926376139,
+      "median_holdout_velocity_rmse": 7.205951926376139,
+      "std_holdout_velocity_rmse": 0.0,
+      "mean_timing_error_s": 8.387000000000626,
+      "mean_stable_fraction": 1.0,
+      "difficulty_label": "easy",
+      "difficulty_rank": 2
+    },
+    {
+      "step_name": "p5838_step4",
+      "n_holdout_appearances": 2,
+      "mean_holdout_velocity_rmse": 27.677767502151024,
+      "median_holdout_velocity_rmse": 27.677767502151024,
+      "std_holdout_velocity_rmse": 0.18248931325629414,
+      "mean_timing_error_s": 2.016000000000531,
+      "mean_stable_fraction": 1.0,
+      "difficulty_label": "easy",
+      "difficulty_rank": 3
+    },
+    {
+      "step_name": "p5838_step9",
+      "n_holdout_appearances": 1,
+      "mean_holdout_velocity_rmse": 31.721830493469923,
+      "median_holdout_velocity_rmse": 31.721830493469923,
+      "std_holdout_velocity_rmse": 0.0,
+      "mean_timing_error_s": 2.788499999999658,
+      "mean_stable_fraction": 1.0,
+      "difficulty_label": "medium",
+      "difficulty_rank": 4
+    },
+    {
+      "step_name": "p5838_step5",
+      "n_holdout_appearances": 4,
+      "mean_holdout_velocity_rmse": 113.65661292590232,
+      "median_holdout_velocity_rmse": 124.81895770448021,
+      "std_holdout_velocity_rmse": 19.92254183766785,
+      "mean_timing_error_s": 0.5302500000000236,
+      "mean_stable_fraction": 1.0,
+      "difficulty_label": "medium",
+      "difficulty_rank": 5
+    },
+    {
+      "step_name": "p5838_step10",
+      "n_holdout_appearances": 3,
+      "mean_holdout_velocity_rmse": 116.63846477708164,
+      "median_holdout_velocity_rmse": 125.34124670005143,
+      "std_holdout_velocity_rmse": 13.339839729061405,
+      "mean_timing_error_s": 0.05249999999978172,
+      "mean_stable_fraction": 1.0,
+      "difficulty_label": "hard",
+      "difficulty_rank": 6
+    },
+    {
+      "step_name": "p5838_step2",
+      "n_holdout_appearances": 4,
+      "mean_holdout_velocity_rmse": 119.91753589667525,
+      "median_holdout_velocity_rmse": 17.513714114196915,
+      "std_holdout_velocity_rmse": 179.71146202906982,
+      "mean_timing_error_s": 10.356250000000955,
+      "mean_stable_fraction": 0.006666666666666667,
+      "difficulty_label": "hard",
+      "difficulty_rank": 7
+    },
+    {
+      "step_name": "p5838_step7",
+      "n_holdout_appearances": 3,
+      "mean_holdout_velocity_rmse": 122.15670438868119,
+      "median_holdout_velocity_rmse": 3.185113480946698,
+      "std_holdout_velocity_rmse": 168.35824077633512,
+      "mean_timing_error_s": 19.054499999999887,
+      "mean_stable_fraction": 0.13037037037037036,
+      "difficulty_label": "hard",
+      "difficulty_rank": 8
+    }
+  ],
+  "pair_difficulty": [
+    {
+      "pair_name": "p5838_step2 + p5838_step5",
+      "step_a": "p5838_step2",
+      "step_b": "p5838_step5",
+      "mean_pair_velocity_rollout_rmse": 48.67696790314315,
+      "mean_pair_stable_fraction": 0.5033333333333333,
+      "is_current_pair": 0,
+      "pair_rank": 1
+    },
+    {
+      "pair_name": "p5838_step2 + p5838_step10",
+      "step_a": "p5838_step2",
+      "step_b": "p5838_step10",
+      "mean_pair_velocity_rollout_rmse": 55.63074220772812,
+      "mean_pair_stable_fraction": 0.5044444444444445,
+      "is_current_pair": 0,
+      "pair_rank": 2
+    },
+    {
+      "pair_name": "p5838_step5 + p5838_step7",
+      "step_a": "p5838_step5",
+      "step_b": "p5838_step7",
+      "mean_pair_velocity_rollout_rmse": 64.42997814131922,
+      "mean_pair_stable_fraction": 0.5972222222222222,
+      "is_current_pair": 0,
+      "pair_rank": 3
+    },
+    {
+      "pair_name": "p5838_step3 + p5838_step10",
+      "step_a": "p5838_step3",
+      "step_b": "p5838_step10",
+      "mean_pair_velocity_rollout_rmse": 66.3797750625674,
+      "mean_pair_stable_fraction": 1.0,
+      "is_current_pair": 0,
+      "pair_rank": 4
+    },
+    {
+      "pair_name": "p5838_step4 + p5838_step5",
+      "step_a": "p5838_step4",
+      "step_b": "p5838_step5",
+      "mean_pair_velocity_rollout_rmse": 75.91082457004245,
+      "mean_pair_stable_fraction": 1.0,
+      "is_current_pair": 0,
+      "pair_rank": 5
+    },
+    {
+      "pair_name": "p5838_step2 + p5838_step7",
+      "step_a": "p5838_step2",
+      "step_b": "p5838_step7",
+      "mean_pair_velocity_rollout_rmse": 395.7119372308858,
+      "mean_pair_stable_fraction": 0.0044444444444444444,
+      "is_current_pair": 1,
+      "pair_rank": 6
+    }
+  ],
+  "current_pair_rank": 6
+}

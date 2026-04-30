@@ -1,0 +1,178 @@
+{
+  "splits": [
+    {
+      "label": "alt_split_a",
+      "train_steps": [
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step7"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step3"
+      ],
+      "tau_model": {
+        "equation": "dtau/dt = -2.205208e-02 + 3.270174e-04*V + 8.689277e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.371454e-03*(V_drive - V)",
+        "coefficients": {
+          "1": -0.022052083123506396,
+          "V": 0.00032701744482965616,
+          "V_drive_minus_V": 0.00868927732796799
+        },
+        "dominant_nonintercept_term": "V_drive_minus_V",
+        "v_drive_minus_v_dominant": true,
+        "v_drive_minus_v_positive": true,
+        "holdout_mse": 0.019960117937671672
+      },
+      "reduced_velocity_model": {
+        "equation": "dV/dt = 4.500583e+01 - 1.152033e+00*sigmaN_logV",
+        "coefficients": {
+          "1": 45.00582850464694,
+          "tau": 1.8939566662393107e-18,
+          "sigmaN": -5.376695867976641e-15,
+          "sigmaN_logV": -1.1520332449279196
+        },
+        "sigmaN_logV_present": true,
+        "sigmaN_logV_negative": true,
+        "holdout_mse": 1064.598838811284,
+        "holdout_r2": -12.228421471060273
+      },
+      "exact_velocity_model": {
+        "equation": "dV/dt = -1.125884e+02 + 8.750769e+00*tau - 1.072827e-01*sigmaN_logV",
+        "coefficients": {
+          "1": -112.58838729024667,
+          "tau": 8.750769174298386,
+          "sigmaN_logV": -0.10728271148934834,
+          "sigmaN_logTheta": -7.157095572262976e-18
+        },
+        "theta_term_active": false,
+        "theta_coefficient": -7.157095572262976e-18,
+        "holdout_mse": 241.68167911719152,
+        "holdout_r2": -0.41002017931843626
+      },
+      "identifiability": {
+        "hard_diagnosis": {
+          "flags": {
+            "implementation_bug": true,
+            "alignment_or_units_bug": false,
+            "over_filtering": false,
+            "insufficient_theta_variation": false,
+            "multicollinearity_or_structural_non_identifiability": true
+          },
+          "summary": "combination: implementation_bug, multicollinearity_or_structural_non_identifiability",
+          "support": {
+            "mean_theta_log_correlation_train": NaN,
+            "max_theta_invalid_fraction_train": 1.0,
+            "event_valid_train_steps": 0,
+            "sample_valid_train_steps": 0,
+            "event_valid_train_rows": 0,
+            "sample_valid_train_rows": 0,
+            "event_minus_sample_gap_rows": 0,
+            "event_minus_sample_gap_fraction": 0.0,
+            "theta_residual_fraction_after_baseline": 0.8087922460792487,
+            "theta_partial_correlation_with_dVdt": 0.053439576140458134,
+            "condition_number": 51695.11220548262,
+            "max_vif": 1.528713292880578,
+            "sigma_cv": 0.0006940788465817627
+          }
+        },
+        "sigma_cv": 0.0006940788465817627,
+        "intercept_sigmaN_redundant": true,
+        "theta_variation_too_weak_after_filtering": false
+      }
+    },
+    {
+      "label": "alt_split_b",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step9",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step10",
+        "p5838_step2"
+      ],
+      "holdout_steps": [
+        "p5838_step7",
+        "p5838_step8"
+      ],
+      "tau_model": {
+        "equation": "dtau/dt = -1.922223e-02 + 3.134296e-04*V + 8.734409e-03*V_drive_minus_V",
+        "one_term_equation": "dtau/dt ~= 8.429970e-03*(V_drive - V)",
+        "coefficients": {
+          "1": -0.019222233607326014,
+          "V": 0.0003134295799274172,
+          "V_drive_minus_V": 0.0087344086969709
+        },
+        "dominant_nonintercept_term": "V_drive_minus_V",
+        "v_drive_minus_v_dominant": true,
+        "v_drive_minus_v_positive": true,
+        "holdout_mse": 0.014219957018250422
+      },
+      "reduced_velocity_model": {
+        "equation": "dV/dt = 8.840661e+02 - 4.428614e+01*sigmaN - 9.361022e-01*sigmaN_logV",
+        "coefficients": {
+          "1": 884.0661368015251,
+          "tau": 9.489378278679564e-18,
+          "sigmaN": -44.286140720619116,
+          "sigmaN_logV": -0.9361022293561327
+        },
+        "sigmaN_logV_present": true,
+        "sigmaN_logV_negative": true,
+        "holdout_mse": 895.7905926793986,
+        "holdout_r2": -88.56578459184244
+      },
+      "exact_velocity_model": {
+        "equation": "dV/dt = 4.433446e+00 - 6.641438e-02*sigmaN_logV",
+        "coefficients": {
+          "1": 4.4334455471905025,
+          "tau": 4.984376938525218e-23,
+          "sigmaN_logV": -0.0664143770785656,
+          "sigmaN_logTheta": -1.6453023041299932e-18
+        },
+        "theta_term_active": false,
+        "theta_coefficient": -1.6453023041299932e-18,
+        "holdout_mse": 209.85750228317752,
+        "holdout_r2": -1.36926513141606
+      },
+      "identifiability": {
+        "hard_diagnosis": {
+          "flags": {
+            "implementation_bug": true,
+            "alignment_or_units_bug": false,
+            "over_filtering": false,
+            "insufficient_theta_variation": false,
+            "multicollinearity_or_structural_non_identifiability": true
+          },
+          "summary": "combination: implementation_bug, multicollinearity_or_structural_non_identifiability",
+          "support": {
+            "mean_theta_log_correlation_train": NaN,
+            "max_theta_invalid_fraction_train": 1.0,
+            "event_valid_train_steps": 0,
+            "sample_valid_train_steps": 0,
+            "event_valid_train_rows": 0,
+            "sample_valid_train_rows": 0,
+            "event_minus_sample_gap_rows": 0,
+            "event_minus_sample_gap_fraction": 0.0,
+            "theta_residual_fraction_after_baseline": 0.8834980259477694,
+            "theta_partial_correlation_with_dVdt": 0.02649343972763747,
+            "condition_number": 58769.6131199041,
+            "max_vif": 1.281117114686035,
+            "sigma_cv": 0.0006787725785946883
+          }
+        },
+        "sigma_cv": 0.0006787725785946883,
+        "intercept_sigmaN_redundant": true,
+        "theta_variation_too_weak_after_filtering": false
+      }
+    }
+  ],
+  "aggregate": {
+    "tau_equation_confirmed": true,
+    "reduced_logv_confirmed": true,
+    "theta_nonidentifiable_confirmed": true,
+    "overall_conclusion": "Bounded robustness check supports the fixed final conclusion."
+  }
+}

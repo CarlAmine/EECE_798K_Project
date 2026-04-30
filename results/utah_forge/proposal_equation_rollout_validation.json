@@ -1,0 +1,179 @@
+{
+  "tau_model": {
+    "threshold": 0.0,
+    "coefficients_z": [
+      0.007472988856903153,
+      0.032636393339947195,
+      0.17415869058128436
+    ],
+    "coefficients_physical": {
+      "1": -0.02557013762458702,
+      "V": 0.0003455056134759978,
+      "V_drive_minus_V": 0.008812200358494162
+    },
+    "active_terms": [
+      "1",
+      "V",
+      "V_drive_minus_V"
+    ],
+    "train_mse": 0.19447416469356632,
+    "holdout_rows": [
+      {
+        "step_name": "p5838_step2",
+        "mse": 0.011094427135867358
+      },
+      {
+        "step_name": "p5838_step7",
+        "mse": 0.0011838714156589937
+      }
+    ],
+    "holdout_mse": 0.006139149275763176,
+    "sign_ok": true,
+    "one_term_k_hat": 0.00847643187228413,
+    "one_term_holdout_mse": 0.005653995632667389,
+    "exact_equation": "dtau/dt = -2.557014e-02 + 3.455056e-04*V + 8.812200e-03*V_drive_minus_V",
+    "one_term_equation": "dtau/dt ~= 8.476432e-03*(V_drive - V)"
+  },
+  "tau_rollout_rows": [
+    {
+      "step_name": "p5838_step2",
+      "tau_rollout_mse": 0.9795507278396812
+    },
+    {
+      "step_name": "p5838_step7",
+      "tau_rollout_mse": 0.48986632548254055
+    }
+  ],
+  "velocity_rollouts": {
+    "A_exact_rsf": [
+      {
+        "step_name": "p5838_step2",
+        "rollout_mse": 10855.979873900409,
+        "stable_fraction": 0.035333333333333335,
+        "peak_timing_error_s": 48.26499999999942,
+        "onset_timing_error_s": 15.118000000000393
+      },
+      {
+        "step_name": "p5838_step7",
+        "rollout_mse": 6392.847440663348,
+        "stable_fraction": 0.023666666666666666,
+        "peak_timing_error_s": 47.146999999999025,
+        "onset_timing_error_s": 5.083000000000538
+      }
+    ],
+    "B_reduced_rsf": [
+      {
+        "step_name": "p5838_step2",
+        "rollout_mse": 446.2289938853352,
+        "stable_fraction": 0.007666666666666666,
+        "peak_timing_error_s": 26.949000000000524,
+        "onset_timing_error_s": 21.433000000000902
+      },
+      {
+        "step_name": "p5838_step7",
+        "rollout_mse": 452.3779200059525,
+        "stable_fraction": 0.004666666666666667,
+        "peak_timing_error_s": 6.162999999998647,
+        "onset_timing_error_s": 9.32300000000032
+      }
+    ],
+    "C_local_memory": [
+      {
+        "step_name": "p5838_step2",
+        "rollout_mse": 2117429942.7857895,
+        "stable_fraction": 0.002,
+        "peak_timing_error_s": 18.873999999999796,
+        "onset_timing_error_s": 21.55000000000109
+      },
+      {
+        "step_name": "p5838_step7",
+        "rollout_mse": 1401086424.9062774,
+        "stable_fraction": 0.0016666666666666668,
+        "peak_timing_error_s": 8.480000000001382,
+        "onset_timing_error_s": 9.460000000000946
+      }
+    ],
+    "D_acoustic_augmented": [
+      {
+        "step_name": "p5838_step2",
+        "rollout_mse": 103.87950298803374,
+        "stable_fraction": 0.01633333333333333,
+        "peak_timing_error_s": 0.18699999999989814,
+        "onset_timing_error_s": 21.409999999999854
+      },
+      {
+        "step_name": "p5838_step7",
+        "rollout_mse": 1285.1919408881563,
+        "stable_fraction": 0.0033333333333333335,
+        "peak_timing_error_s": 0.6080000000001746,
+        "onset_timing_error_s": 9.204999999999927
+      }
+    ]
+  },
+  "velocity_derivative_rows": {
+    "A_exact_rsf": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 63.89562423465657,
+        "derivative_mae": 5.8584694683704415,
+        "derivative_rmse": 7.993473852753668,
+        "derivative_r2": -0.6407789282822125
+      },
+      {
+        "step_name": "p5838_step7",
+        "derivative_mse": 21.29093061098352,
+        "derivative_mae": 4.241882936907123,
+        "derivative_rmse": 4.614209640987665,
+        "derivative_r2": -4.893526731590845
+      }
+    ],
+    "B_reduced_rsf": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 838.3617595383894,
+        "derivative_mae": 26.850514902193797,
+        "derivative_rmse": 28.95447736600316,
+        "derivative_r2": -20.52833352525712
+      },
+      {
+        "step_name": "p5838_step7",
+        "derivative_mse": 638.9945397704271,
+        "derivative_mae": 23.913692891638167,
+        "derivative_rmse": 25.27834131762658,
+        "derivative_r2": -175.8796052312923
+      }
+    ],
+    "C_local_memory": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 1923.666272921264,
+        "derivative_mae": 38.0290265161799,
+        "derivative_rmse": 43.859620072696295,
+        "derivative_r2": -48.39792236890655
+      },
+      {
+        "step_name": "p5838_step7",
+        "derivative_mse": 2156.0804684932627,
+        "derivative_mae": 39.777007137692365,
+        "derivative_rmse": 46.43361356273344,
+        "derivative_r2": -595.8230374096819
+      }
+    ],
+    "D_acoustic_augmented": [
+      {
+        "step_name": "p5838_step2",
+        "derivative_mse": 499.17502365826505,
+        "derivative_mae": 19.22483754982075,
+        "derivative_rmse": 22.34222512773213,
+        "derivative_r2": -11.818340381734881
+      },
+      {
+        "step_name": "p5838_step7",
+        "derivative_mse": 1273.6451814161346,
+        "derivative_mae": 34.51690783272299,
+        "derivative_rmse": 35.68816584550311,
+        "derivative_r2": -351.5567792403375
+      }
+    ]
+  }
+}

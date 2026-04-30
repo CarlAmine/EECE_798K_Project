@@ -1,0 +1,4 @@
+dtau/dt = 2.124098e-03*(V_drive - V)
+dV/dt = (1/4.948323e-03) * [tau - sigmaN*(3.339335e-01 + 1.065980e-02*log(V/V0) + 2.843257e-02*log(theta*V0/9.964518e+02))]
+dtheta/dt = 1 - V*theta/9.964518e+02
+dV/dt = (1/6.806179e-03) * [tau - sigmaN*(3.119843e-01 + 1.230897e-02*log(V/V0) + 3.005599e-02*log(theta*V0/9.943717e+02))]

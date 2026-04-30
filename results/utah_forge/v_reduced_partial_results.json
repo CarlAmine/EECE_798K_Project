@@ -1,0 +1,2825 @@
+{
+  "completed_splits": {
+    "single_step__p5838_step2": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2"
+      ],
+      "equation": "dV/dt = 3.728090e+01 - 9.309257e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 37.28090273577753,
+        "tau": 2.028575219161458e-18,
+        "sigmaN": -6.995002881750929e-17,
+        "sigmaN_logV": -0.9309256536041487
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 16.41562903388972,
+          "velocity_rollout_mae": 16.049655668266503,
+          "velocity_max_abs_error": 22.506037782262595,
+          "derivative_rmse": 6.543793983670168,
+          "onset_timing_error_s": 21.433000000000902,
+          "peak_timing_error_s": 26.949000000000524,
+          "stable_fraction": 0.009666666666666667
+        }
+      ],
+      "mean_velocity_rollout_rmse": 16.41562903388972,
+      "mean_velocity_rollout_mae": 16.049655668266503,
+      "mean_velocity_max_abs_error": 22.506037782262595,
+      "mean_derivative_rmse": 6.543793983670168,
+      "mean_onset_timing_error_s": 21.433000000000902,
+      "mean_peak_timing_error_s": 26.949000000000524,
+      "mean_stable_fraction": 0.009666666666666667,
+      "split_id": "single_step__p5838_step2"
+    },
+    "single_step__p5838_step3": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3"
+      ],
+      "equation": "dV/dt = 3.696453e+01 - 3.389574e-14*sigmaN - 9.166664e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 36.96452544656316,
+        "tau": 4.466734613733662e-18,
+        "sigmaN": -3.389574071509986e-14,
+        "sigmaN_logV": -0.9166663974975652
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 45.501546705716336,
+          "velocity_rollout_mae": 44.52816273961796,
+          "velocity_max_abs_error": 59.05533348221388,
+          "derivative_rmse": 20.733127464016473,
+          "onset_timing_error_s": 6.539000000000669,
+          "peak_timing_error_s": 15.985999999998967,
+          "stable_fraction": 0.065
+        }
+      ],
+      "mean_velocity_rollout_rmse": 45.501546705716336,
+      "mean_velocity_rollout_mae": 44.52816273961796,
+      "mean_velocity_max_abs_error": 59.05533348221388,
+      "mean_derivative_rmse": 20.733127464016473,
+      "mean_onset_timing_error_s": 6.539000000000669,
+      "mean_peak_timing_error_s": 15.985999999998967,
+      "mean_stable_fraction": 0.065,
+      "split_id": "single_step__p5838_step3"
+    },
+    "single_step__p5838_step4": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4"
+      ],
+      "equation": "dV/dt = 3.290508e+01 - 1.807066e-12*sigmaN - 7.861251e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 32.9050788159967,
+        "tau": 1.3383405246233772e-17,
+        "sigmaN": -1.8070664979839291e-12,
+        "sigmaN_logV": -0.7861250775106462
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 19.085393132488136,
+          "velocity_rollout_mae": 16.389253281264,
+          "velocity_max_abs_error": 42.9582256777183,
+          "derivative_rmse": 80.70734192200415,
+          "onset_timing_error_s": 0.8389999999999418,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 19.085393132488136,
+      "mean_velocity_rollout_mae": 16.389253281264,
+      "mean_velocity_max_abs_error": 42.9582256777183,
+      "mean_derivative_rmse": 80.70734192200415,
+      "mean_onset_timing_error_s": 0.8389999999999418,
+      "mean_peak_timing_error_s": 4.0240000000012515,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step4"
+    },
+    "single_step__p5838_step5": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step5"
+      ],
+      "equation": "dV/dt = 1.970520e+01 - 1.956595e-14*sigmaN - 3.873708e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 19.70520405217713,
+        "tau": 7.195923013573603e-18,
+        "sigmaN": -1.9565953612674453e-14,
+        "sigmaN_logV": -0.38737080013296454
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 140.54811893588345,
+          "velocity_rollout_mae": 122.18794600570246,
+          "velocity_max_abs_error": 180.8234462509108,
+          "derivative_rmse": 279.14837588548835,
+          "onset_timing_error_s": 0.2029999999995198,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 140.54811893588345,
+      "mean_velocity_rollout_mae": 122.18794600570246,
+      "mean_velocity_max_abs_error": 180.8234462509108,
+      "mean_derivative_rmse": 279.14837588548835,
+      "mean_onset_timing_error_s": 0.2029999999995198,
+      "mean_peak_timing_error_s": 0.9659999999985303,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step5"
+    },
+    "single_step__p5838_step7": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step7"
+      ],
+      "equation": "dV/dt = 3.495069e+02 - 1.654692e+01*sigmaN - 7.805557e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 349.50688997321316,
+        "tau": 2.1246469403366824e-15,
+        "sigmaN": -16.54692411155082,
+        "sigmaN_logV": -0.7805557150589346
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 22.13218745246833,
+          "velocity_rollout_mae": 21.975166617479854,
+          "velocity_max_abs_error": 28.38432032455853,
+          "derivative_rmse": 3.067914242679129,
+          "onset_timing_error_s": 9.28400000000147,
+          "peak_timing_error_s": 6.162999999998647,
+          "stable_fraction": 0.005666666666666667
+        }
+      ],
+      "mean_velocity_rollout_rmse": 22.13218745246833,
+      "mean_velocity_rollout_mae": 21.975166617479854,
+      "mean_velocity_max_abs_error": 28.38432032455853,
+      "mean_derivative_rmse": 3.067914242679129,
+      "mean_onset_timing_error_s": 9.28400000000147,
+      "mean_peak_timing_error_s": 6.162999999998647,
+      "mean_stable_fraction": 0.005666666666666667,
+      "split_id": "single_step__p5838_step7"
+    },
+    "single_step__p5838_step8": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step8"
+      ],
+      "equation": "dV/dt = 3.698733e+01 - 9.160326e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 36.987333163211865,
+        "tau": 8.935124644123792e-26,
+        "sigmaN": -7.639701862641602e-16,
+        "sigmaN_logV": -0.9160326499958896
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 46.27121179142418,
+          "velocity_rollout_mae": 45.2517063195751,
+          "velocity_max_abs_error": 58.574624366033376,
+          "derivative_rmse": 20.8240675979366,
+          "onset_timing_error_s": 6.453000000001339,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.06433333333333334
+        }
+      ],
+      "mean_velocity_rollout_rmse": 46.27121179142418,
+      "mean_velocity_rollout_mae": 45.2517063195751,
+      "mean_velocity_max_abs_error": 58.574624366033376,
+      "mean_derivative_rmse": 20.8240675979366,
+      "mean_onset_timing_error_s": 6.453000000001339,
+      "mean_peak_timing_error_s": 15.94000000000051,
+      "mean_stable_fraction": 0.06433333333333334,
+      "split_id": "single_step__p5838_step8"
+    },
+    "single_step__p5838_step9": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 3.560512e+01 - 9.111013e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 35.605120341603836,
+        "tau": 5.274472805979361e-18,
+        "sigmaN": -1.1546402245153023e-18,
+        "sigmaN_logV": -0.9111013092487423
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 29.64310350291476,
+          "velocity_rollout_mae": 25.747402363741156,
+          "velocity_max_abs_error": 55.50161377727899,
+          "derivative_rmse": 82.70090419326385,
+          "onset_timing_error_s": 2.0119999999988067,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 29.64310350291476,
+      "mean_velocity_rollout_mae": 25.747402363741156,
+      "mean_velocity_max_abs_error": 55.50161377727899,
+      "mean_derivative_rmse": 82.70090419326385,
+      "mean_onset_timing_error_s": 2.0119999999988067,
+      "mean_peak_timing_error_s": 4.609000000000378,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step9"
+    },
+    "single_step__p5838_step10": {
+      "family": "single_step",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = -9.397945e+01 + 3.069156e+01*tau - 1.588393e+01*sigmaN - 5.915990e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": -93.979447264033,
+        "tau": 30.691563727128397,
+        "sigmaN": -15.883928559669858,
+        "sigmaN_logV": -0.5915989723693404
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 149.26710800376281,
+          "velocity_rollout_mae": 126.15265740051439,
+          "velocity_max_abs_error": 194.98653258489352,
+          "derivative_rmse": 317.81811159386575,
+          "onset_timing_error_s": 0.21899999999914144,
+          "peak_timing_error_s": 0.06699999999909778,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 149.26710800376281,
+      "mean_velocity_rollout_mae": 126.15265740051439,
+      "mean_velocity_max_abs_error": 194.98653258489352,
+      "mean_derivative_rmse": 317.81811159386575,
+      "mean_onset_timing_error_s": 0.21899999999914144,
+      "mean_peak_timing_error_s": 0.06699999999909778,
+      "mean_stable_fraction": 1.0,
+      "split_id": "single_step__p5838_step10"
+    },
+    "leave_two_out__p5838_step2__p5838_step3": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step3"
+      ],
+      "equation": "dV/dt = 4.500583e+01 - 1.152033e+00*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 45.00582850464695,
+        "tau": 1.8939296978443693e-18,
+        "sigmaN": -5.3766885483797425e-15,
+        "sigmaN_logV": -1.1520332449279196
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 15.320316592339664,
+          "velocity_rollout_mae": 14.943440653505643,
+          "velocity_max_abs_error": 21.29828531393024,
+          "derivative_rmse": 6.594040157539101,
+          "onset_timing_error_s": 21.457000000000335,
+          "peak_timing_error_s": 26.949000000000524,
+          "stable_fraction": 0.008333333333333333
+        },
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 43.36558618184926,
+          "velocity_rollout_mae": 42.50856678027535,
+          "velocity_max_abs_error": 58.665015754148314,
+          "derivative_rmse": 20.886531188705302,
+          "onset_timing_error_s": 6.623999999999796,
+          "peak_timing_error_s": 15.954999999999927,
+          "stable_fraction": 0.05
+        }
+      ],
+      "mean_velocity_rollout_rmse": 29.342951387094462,
+      "mean_velocity_rollout_mae": 28.726003716890496,
+      "mean_velocity_max_abs_error": 39.981650534039275,
+      "mean_derivative_rmse": 13.740285673122202,
+      "mean_onset_timing_error_s": 14.040500000000065,
+      "mean_peak_timing_error_s": 21.452000000000226,
+      "mean_stable_fraction": 0.029166666666666667,
+      "split_id": "leave_two_out__p5838_step2__p5838_step3"
+    },
+    "leave_two_out__p5838_step2__p5838_step4": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step4"
+      ],
+      "equation": "dV/dt = 3.967988e+01 - 2.570455e-11*sigmaN - 9.715086e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 39.679884034177924,
+        "tau": 4.2611591406050893e-17,
+        "sigmaN": -2.570455479728436e-11,
+        "sigmaN_logV": -0.9715085613778937
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 17.409480829582215,
+          "velocity_rollout_mae": 17.050348983346975,
+          "velocity_max_abs_error": 23.534014007482206,
+          "derivative_rmse": 6.576089588653794,
+          "onset_timing_error_s": 21.433000000000902,
+          "peak_timing_error_s": 26.949000000000524,
+          "stable_fraction": 0.009
+        },
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 22.270227815624253,
+          "velocity_rollout_mae": 19.25320289309973,
+          "velocity_max_abs_error": 42.78615666641652,
+          "derivative_rmse": 80.8301319055729,
+          "onset_timing_error_s": 0.8759999999983847,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 19.839854322603234,
+      "mean_velocity_rollout_mae": 18.151775938223352,
+      "mean_velocity_max_abs_error": 33.160085336949365,
+      "mean_derivative_rmse": 43.70311074711334,
+      "mean_onset_timing_error_s": 11.154499999999643,
+      "mean_peak_timing_error_s": 15.486500000000888,
+      "mean_stable_fraction": 0.5045,
+      "split_id": "leave_two_out__p5838_step2__p5838_step4"
+    },
+    "leave_two_out__p5838_step2__p5838_step5": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step5"
+      ],
+      "equation": "dV/dt = 2.362505e+01 - 1.080192e-14*sigmaN - 4.802468e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 23.62505010027018,
+        "tau": 7.111295486173643e-18,
+        "sigmaN": -1.0801924475121816e-14,
+        "sigmaN_logV": -0.4802468245945469
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 29.908599352816644,
+          "velocity_rollout_mae": 29.555426598071005,
+          "velocity_max_abs_error": 37.20278076168689,
+          "derivative_rmse": 6.526255286363447,
+          "onset_timing_error_s": 21.2450000000008,
+          "peak_timing_error_s": 32.95900000000074,
+          "stable_fraction": 0.012
+        },
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 136.5060621915352,
+          "velocity_rollout_mae": 118.69851806523285,
+          "velocity_max_abs_error": 177.39690484212952,
+          "derivative_rmse": 278.41144601187136,
+          "onset_timing_error_s": 0.2069999999985157,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 83.20733077217592,
+      "mean_velocity_rollout_mae": 74.12697233165193,
+      "mean_velocity_max_abs_error": 107.2998428019082,
+      "mean_derivative_rmse": 142.4688506491174,
+      "mean_onset_timing_error_s": 10.725999999999658,
+      "mean_peak_timing_error_s": 16.962499999999636,
+      "mean_stable_fraction": 0.506,
+      "split_id": "leave_two_out__p5838_step2__p5838_step5"
+    },
+    "leave_two_out__p5838_step2__p5838_step7": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step7"
+      ],
+      "equation": "dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 793.7417517685282,
+        "tau": 1.737163010459185e-18,
+        "sigmaN": -39.52639849922265,
+        "sigmaN_logV": -0.949724365487207
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 21.124135902829934,
+          "velocity_rollout_mae": 20.78420991512136,
+          "velocity_max_abs_error": 27.3332915782984,
+          "derivative_rmse": 6.639620527651755,
+          "onset_timing_error_s": 21.433000000000902,
+          "peak_timing_error_s": 26.949000000000524,
+          "stable_fraction": 0.007666666666666666
+        },
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 21.26917664590365,
+          "velocity_rollout_mae": 21.10836427542554,
+          "velocity_max_abs_error": 27.753468856272498,
+          "derivative_rmse": 3.234788660204988,
+          "onset_timing_error_s": 9.32300000000032,
+          "peak_timing_error_s": 6.162999999998647,
+          "stable_fraction": 0.004666666666666667
+        }
+      ],
+      "mean_velocity_rollout_rmse": 21.19665627436679,
+      "mean_velocity_rollout_mae": 20.946287095273448,
+      "mean_velocity_max_abs_error": 27.54338021728545,
+      "mean_derivative_rmse": 4.937204593928372,
+      "mean_onset_timing_error_s": 15.378000000000611,
+      "mean_peak_timing_error_s": 16.555999999999585,
+      "mean_stable_fraction": 0.006166666666666667,
+      "split_id": "leave_two_out__p5838_step2__p5838_step7"
+    },
+    "leave_two_out__p5838_step2__p5838_step8": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step8"
+      ],
+      "equation": "dV/dt = 4.503954e+01 - 5.688673e-13*sigmaN - 1.151386e+00*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 45.03954325594637,
+        "tau": 2.097281845280982e-23,
+        "sigmaN": -5.688672857582434e-13,
+        "sigmaN_logV": -1.1513862258108454
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 15.378919646872909,
+          "velocity_rollout_mae": 15.00270069861821,
+          "velocity_max_abs_error": 21.35986830708034,
+          "derivative_rmse": 6.595129765882231,
+          "onset_timing_error_s": 21.457000000000335,
+          "peak_timing_error_s": 26.949000000000524,
+          "stable_fraction": 0.008333333333333333
+        },
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 44.147857630790824,
+          "velocity_rollout_mae": 43.26386514971644,
+          "velocity_max_abs_error": 58.528655360324485,
+          "derivative_rmse": 20.98467844613673,
+          "onset_timing_error_s": 6.538000000000466,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.052
+        }
+      ],
+      "mean_velocity_rollout_rmse": 29.763388638831866,
+      "mean_velocity_rollout_mae": 29.133282924167325,
+      "mean_velocity_max_abs_error": 39.94426183370241,
+      "mean_derivative_rmse": 13.78990410600948,
+      "mean_onset_timing_error_s": 13.9975000000004,
+      "mean_peak_timing_error_s": 21.444500000000517,
+      "mean_stable_fraction": 0.030166666666666665,
+      "split_id": "leave_two_out__p5838_step2__p5838_step8"
+    },
+    "leave_two_out__p5838_step2__p5838_step9": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 4.356366e+01 - 1.156067e+00*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 43.563657802018454,
+        "tau": 4.7314021586610045e-18,
+        "sigmaN": -1.6632216813446072e-18,
+        "sigmaN_logV": -1.1560672536156604
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 13.797169630792709,
+          "velocity_rollout_mae": 13.399249162845148,
+          "velocity_max_abs_error": 19.69615903997155,
+          "derivative_rmse": 6.5615551763146325,
+          "onset_timing_error_s": 21.457000000000335,
+          "peak_timing_error_s": 26.949000000000524,
+          "stable_fraction": 0.009333333333333334
+        },
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 35.57741935250468,
+          "velocity_rollout_mae": 31.77565540476093,
+          "velocity_max_abs_error": 63.0382703928294,
+          "derivative_rmse": 82.93099857446775,
+          "onset_timing_error_s": 2.0759999999991123,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 24.687294491648693,
+      "mean_velocity_rollout_mae": 22.58745228380304,
+      "mean_velocity_max_abs_error": 41.367214716400476,
+      "mean_derivative_rmse": 44.74627687539119,
+      "mean_onset_timing_error_s": 11.766499999999724,
+      "mean_peak_timing_error_s": 15.779000000000451,
+      "mean_stable_fraction": 0.5046666666666667,
+      "split_id": "leave_two_out__p5838_step2__p5838_step9"
+    },
+    "leave_two_out__p5838_step2__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step2",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = -2.921557e+02 + 4.193338e+01*tau - 1.323573e+01*sigmaN - 7.266292e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": -292.1557277635019,
+        "tau": 41.93337729991311,
+        "sigmaN": -13.235727153621639,
+        "sigmaN_logV": -0.7266291836936857
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step2",
+          "velocity_rollout_rmse": 18.839799381025948,
+          "velocity_rollout_mae": 18.241986612809796,
+          "velocity_max_abs_error": 26.207216820899685,
+          "derivative_rmse": 6.07730578484397,
+          "onset_timing_error_s": 21.338999999999942,
+          "peak_timing_error_s": 45.3070000000007,
+          "stable_fraction": 0.011666666666666667
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 149.04916227530614,
+          "velocity_rollout_mae": 125.96966326646843,
+          "velocity_max_abs_error": 194.70696493339136,
+          "derivative_rmse": 317.42912139974794,
+          "onset_timing_error_s": 0.20899999999892316,
+          "peak_timing_error_s": 0.06699999999909778,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 83.94448082816605,
+      "mean_velocity_rollout_mae": 72.10582493963912,
+      "mean_velocity_max_abs_error": 110.45709087714552,
+      "mean_derivative_rmse": 161.75321359229596,
+      "mean_onset_timing_error_s": 10.773999999999432,
+      "mean_peak_timing_error_s": 22.686999999999898,
+      "mean_stable_fraction": 0.5058333333333334,
+      "split_id": "leave_two_out__p5838_step2__p5838_step10"
+    },
+    "leave_two_out__p5838_step3__p5838_step4": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step4"
+      ],
+      "equation": "dV/dt = 3.931596e+01 - 9.548151e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 39.3159556026496,
+        "tau": 7.31779178067625e-26,
+        "sigmaN": -1.0235668590495705e-15,
+        "sigmaN_logV": -0.9548151023441046
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 48.586416798725175,
+          "velocity_rollout_mae": 47.5665941734307,
+          "velocity_max_abs_error": 62.05688958924182,
+          "derivative_rmse": 20.823105245755706,
+          "onset_timing_error_s": 6.5460000000002765,
+          "peak_timing_error_s": 15.985999999998967,
+          "stable_fraction": 0.06
+        },
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 22.257730515245218,
+          "velocity_rollout_mae": 19.23856365362202,
+          "velocity_max_abs_error": 42.870252349209764,
+          "derivative_rmse": 80.83154419713087,
+          "onset_timing_error_s": 0.8729999999995925,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 35.4220736569852,
+      "mean_velocity_rollout_mae": 33.40257891352636,
+      "mean_velocity_max_abs_error": 52.46357096922579,
+      "mean_derivative_rmse": 50.82732472144329,
+      "mean_onset_timing_error_s": 3.7094999999999345,
+      "mean_peak_timing_error_s": 10.00500000000011,
+      "mean_stable_fraction": 0.53,
+      "split_id": "leave_two_out__p5838_step3__p5838_step4"
+    },
+    "leave_two_out__p5838_step3__p5838_step5": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step5"
+      ],
+      "equation": "dV/dt = 2.340095e+01 - 4.382091e-14*sigmaN - 4.746709e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 23.40095277976738,
+        "tau": 1.21979451618016e-17,
+        "sigmaN": -4.382091330155226e-14,
+        "sigmaN_logV": -0.4746708807970862
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 62.04148724172002,
+          "velocity_rollout_mae": 59.11336229624991,
+          "velocity_max_abs_error": 83.66427651441327,
+          "derivative_rmse": 20.58973036747449,
+          "onset_timing_error_s": 6.042999999999665,
+          "peak_timing_error_s": 15.985999999998967,
+          "stable_fraction": 0.08333333333333333
+        },
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 136.73372183927611,
+          "velocity_rollout_mae": 118.89502271073515,
+          "velocity_max_abs_error": 177.56699137280668,
+          "derivative_rmse": 278.452369624232,
+          "onset_timing_error_s": 0.2069999999985157,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 99.38760454049807,
+      "mean_velocity_rollout_mae": 89.00419250349253,
+      "mean_velocity_max_abs_error": 130.61563394360996,
+      "mean_derivative_rmse": 149.52104999585325,
+      "mean_onset_timing_error_s": 3.1249999999990905,
+      "mean_peak_timing_error_s": 8.475999999998749,
+      "mean_stable_fraction": 0.5416666666666666,
+      "split_id": "leave_two_out__p5838_step3__p5838_step5"
+    },
+    "leave_two_out__p5838_step3__p5838_step7": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step7"
+      ],
+      "equation": "dV/dt = 9.982050e+02 - 5.028478e+01*sigmaN - 9.350200e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 998.2049628115026,
+        "tau": 2.4347124602663357e-18,
+        "sigmaN": -50.284778598459276,
+        "sigmaN_logV": -0.9350200469160793
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 58.018297780242435,
+          "velocity_rollout_mae": 56.6661202922471,
+          "velocity_max_abs_error": 69.42091921983219,
+          "derivative_rmse": 20.96713957138416,
+          "onset_timing_error_s": 6.492000000000189,
+          "peak_timing_error_s": 15.954999999999927,
+          "stable_fraction": 0.04933333333333333
+        },
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 21.839260422538068,
+          "velocity_rollout_mae": 21.67847541690571,
+          "velocity_max_abs_error": 28.36582198957681,
+          "derivative_rmse": 3.254128368283286,
+          "onset_timing_error_s": 9.302999999999884,
+          "peak_timing_error_s": 6.162999999998647,
+          "stable_fraction": 0.004666666666666667
+        }
+      ],
+      "mean_velocity_rollout_rmse": 39.92877910139025,
+      "mean_velocity_rollout_mae": 39.17229785457641,
+      "mean_velocity_max_abs_error": 48.8933706047045,
+      "mean_derivative_rmse": 12.110633969833723,
+      "mean_onset_timing_error_s": 7.897500000000036,
+      "mean_peak_timing_error_s": 11.058999999999287,
+      "mean_stable_fraction": 0.027,
+      "split_id": "leave_two_out__p5838_step3__p5838_step7"
+    },
+    "leave_two_out__p5838_step3__p5838_step8": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step8"
+      ],
+      "equation": "dV/dt = 4.460385e+01 - 3.401369e-12*sigmaN - 1.129820e+00*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 44.60385068361197,
+        "tau": 3.566581472903777e-27,
+        "sigmaN": -3.4013690006251675e-12,
+        "sigmaN_logV": -1.129820284508675
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 44.52355729094674,
+          "velocity_rollout_mae": 43.652198565808646,
+          "velocity_max_abs_error": 59.63999304230319,
+          "derivative_rmse": 20.89316194272074,
+          "onset_timing_error_s": 6.6159999999999854,
+          "peak_timing_error_s": 15.954999999999927,
+          "stable_fraction": 0.049666666666666665
+        },
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 45.15774244249659,
+          "velocity_rollout_mae": 44.258344219475056,
+          "velocity_max_abs_error": 59.30606885578175,
+          "derivative_rmse": 20.98812415522509,
+          "onset_timing_error_s": 6.530000000000655,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.052
+        }
+      ],
+      "mean_velocity_rollout_rmse": 44.84064986672166,
+      "mean_velocity_rollout_mae": 43.95527139264185,
+      "mean_velocity_max_abs_error": 59.47303094904247,
+      "mean_derivative_rmse": 20.940643048972916,
+      "mean_onset_timing_error_s": 6.57300000000032,
+      "mean_peak_timing_error_s": 15.947500000000218,
+      "mean_stable_fraction": 0.05083333333333333,
+      "split_id": "leave_two_out__p5838_step3__p5838_step8"
+    },
+    "leave_two_out__p5838_step3__p5838_step9": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 4.308484e+01 - 1.131812e+00*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 43.084840087166526,
+        "tau": 7.929207903920811e-18,
+        "sigmaN": -1.579437525657718e-18,
+        "sigmaN_logV": -1.1318118519811775
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 40.22291116255941,
+          "velocity_rollout_mae": 39.37990964290454,
+          "velocity_max_abs_error": 55.60890069194534,
+          "derivative_rmse": 20.803913363113963,
+          "onset_timing_error_s": 6.630999999999403,
+          "peak_timing_error_s": 15.954999999999927,
+          "stable_fraction": 0.059333333333333335
+        },
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 35.68399620086543,
+          "velocity_rollout_mae": 31.86660565104743,
+          "velocity_max_abs_error": 62.878245659573864,
+          "derivative_rmse": 82.92503533326793,
+          "onset_timing_error_s": 2.065999999998894,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 37.95345368171242,
+      "mean_velocity_rollout_mae": 35.623257646975986,
+      "mean_velocity_max_abs_error": 59.2435731757596,
+      "mean_derivative_rmse": 51.864474348190946,
+      "mean_onset_timing_error_s": 4.348499999999149,
+      "mean_peak_timing_error_s": 10.282000000000153,
+      "mean_stable_fraction": 0.5296666666666666,
+      "split_id": "leave_two_out__p5838_step3__p5838_step9"
+    },
+    "leave_two_out__p5838_step3__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step3",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = -3.310258e+02 + 4.352953e+01*tau - 1.230390e+01*sigmaN - 7.657991e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": -331.02581928627274,
+        "tau": 43.52953493895559,
+        "sigmaN": -12.303904925399928,
+        "sigmaN_logV": -0.765799054507677
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step3",
+          "velocity_rollout_rmse": 48.36159360427937,
+          "velocity_rollout_mae": 46.834418323705194,
+          "velocity_max_abs_error": 67.40606496466609,
+          "derivative_rmse": 20.256882612754172,
+          "onset_timing_error_s": 6.484000000000378,
+          "peak_timing_error_s": 4.904999999998836,
+          "stable_fraction": 0.06366666666666666
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 149.1888106369074,
+          "velocity_rollout_mae": 126.07645703953143,
+          "velocity_max_abs_error": 194.83399393209248,
+          "derivative_rmse": 317.4328298547451,
+          "onset_timing_error_s": 0.2070000000003347,
+          "peak_timing_error_s": 0.06699999999909778,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 98.77520212059338,
+      "mean_velocity_rollout_mae": 86.45543768161832,
+      "mean_velocity_max_abs_error": 131.12002944837928,
+      "mean_derivative_rmse": 168.84485623374962,
+      "mean_onset_timing_error_s": 3.3455000000003565,
+      "mean_peak_timing_error_s": 2.485999999998967,
+      "mean_stable_fraction": 0.5318333333333334,
+      "split_id": "leave_two_out__p5838_step3__p5838_step10"
+    },
+    "leave_two_out__p5838_step4__p5838_step5": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4",
+        "p5838_step5"
+      ],
+      "equation": "dV/dt = 1.944483e+01 - 1.036021e-12*sigmaN - 3.561239e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 19.44482661037756,
+        "tau": 3.007150258531984e-17,
+        "sigmaN": -1.0360208874340014e-12,
+        "sigmaN_logV": -0.3561238808011284
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 21.570630123900685,
+          "velocity_rollout_mae": 16.933917687984138,
+          "velocity_max_abs_error": 55.62842641748381,
+          "derivative_rmse": 80.70534696242764,
+          "onset_timing_error_s": 0.7019999999993161,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 140.76389445180718,
+          "velocity_rollout_mae": 122.37310554369513,
+          "velocity_max_abs_error": 181.0631959245358,
+          "derivative_rmse": 279.2002597795953,
+          "onset_timing_error_s": 0.20199999999931606,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 81.16726228785393,
+      "mean_velocity_rollout_mae": 69.65351161583963,
+      "mean_velocity_max_abs_error": 118.3458111710098,
+      "mean_derivative_rmse": 179.95280337101147,
+      "mean_onset_timing_error_s": 0.45199999999931606,
+      "mean_peak_timing_error_s": 2.494999999999891,
+      "mean_stable_fraction": 1.0,
+      "split_id": "leave_two_out__p5838_step4__p5838_step5"
+    },
+    "leave_two_out__p5838_step4__p5838_step7": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4",
+        "p5838_step7"
+      ],
+      "equation": "dV/dt = 6.550794e+02 - 3.250636e+01*sigmaN - 7.832239e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 655.079379546188,
+        "tau": 4.700296623237061e-18,
+        "sigmaN": -32.50636447556043,
+        "sigmaN_logV": -0.7832239111624946
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 23.245827337994626,
+          "velocity_rollout_mae": 20.016811555383562,
+          "velocity_max_abs_error": 46.57940200748102,
+          "derivative_rmse": 80.90421858598023,
+          "onset_timing_error_s": 0.8239999999987049,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 25.76036584342666,
+          "velocity_rollout_mae": 25.596858900154455,
+          "velocity_max_abs_error": 32.08534892998524,
+          "derivative_rmse": 3.2259843892342057,
+          "onset_timing_error_s": 9.264000000001033,
+          "peak_timing_error_s": 6.162999999998647,
+          "stable_fraction": 0.005333333333333333
+        }
+      ],
+      "mean_velocity_rollout_rmse": 24.50309659071064,
+      "mean_velocity_rollout_mae": 22.806835227769007,
+      "mean_velocity_max_abs_error": 39.33237546873313,
+      "mean_derivative_rmse": 42.065101487607215,
+      "mean_onset_timing_error_s": 5.043999999999869,
+      "mean_peak_timing_error_s": 5.093499999999949,
+      "mean_stable_fraction": 0.5026666666666667,
+      "split_id": "leave_two_out__p5838_step4__p5838_step7"
+    },
+    "leave_two_out__p5838_step4__p5838_step8": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4",
+        "p5838_step8"
+      ],
+      "equation": "dV/dt = 3.934611e+01 - 2.381984e-09*sigmaN - 9.541903e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 39.346106904752894,
+        "tau": 1.3025444122423878e-20,
+        "sigmaN": -2.3819835590251865e-09,
+        "sigmaN_logV": -0.9541902501922144
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 22.317837160995108,
+          "velocity_rollout_mae": 19.289165397439966,
+          "velocity_max_abs_error": 43.030870245075604,
+          "derivative_rmse": 80.83418200142067,
+          "onset_timing_error_s": 0.8709999999991851,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 49.41654833403578,
+          "velocity_rollout_mae": 48.34746509843971,
+          "velocity_max_abs_error": 61.624460322837066,
+          "derivative_rmse": 20.916654531306484,
+          "onset_timing_error_s": 6.453000000001339,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.057666666666666665
+        }
+      ],
+      "mean_velocity_rollout_rmse": 35.867192747515446,
+      "mean_velocity_rollout_mae": 33.818315247939836,
+      "mean_velocity_max_abs_error": 52.327665283956335,
+      "mean_derivative_rmse": 50.87541826636358,
+      "mean_onset_timing_error_s": 3.662000000000262,
+      "mean_peak_timing_error_s": 9.98200000000088,
+      "mean_stable_fraction": 0.5288333333333334,
+      "split_id": "leave_two_out__p5838_step4__p5838_step8"
+    },
+    "leave_two_out__p5838_step4__p5838_step9": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step4",
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 3.780139e+01 - 9.544407e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 37.8013875246609,
+        "tau": 4.888006032518439e-18,
+        "sigmaN": -7.127252799392761e-19,
+        "sigmaN_logV": -0.95444070709352
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 20.358203713718027,
+          "velocity_rollout_mae": 17.64044859082181,
+          "velocity_max_abs_error": 39.164750900042776,
+          "derivative_rmse": 80.74875404232083,
+          "onset_timing_error_s": 0.8779999999987922,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 32.43179802778482,
+          "velocity_rollout_mae": 28.519768628273813,
+          "velocity_max_abs_error": 58.33835809195901,
+          "derivative_rmse": 82.78309738402831,
+          "onset_timing_error_s": 2.0169999999998254,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 26.395000870751424,
+      "mean_velocity_rollout_mae": 23.08010860954781,
+      "mean_velocity_max_abs_error": 48.75155449600089,
+      "mean_derivative_rmse": 81.76592571317457,
+      "mean_onset_timing_error_s": 1.4474999999993088,
+      "mean_peak_timing_error_s": 4.316500000000815,
+      "mean_stable_fraction": 1.0,
+      "split_id": "leave_two_out__p5838_step4__p5838_step9"
+    },
+    "leave_two_out__p5838_step4__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step4",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = 4.116870e+01 + 2.519717e+01*tau - 1.907223e+01*sigmaN - 5.683877e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 41.16870383865783,
+        "tau": 25.197171756468013,
+        "sigmaN": -19.07222707120591,
+        "sigmaN_logV": -0.5683877433179393
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step4",
+          "velocity_rollout_rmse": 20.976701312197875,
+          "velocity_rollout_mae": 16.31215080639849,
+          "velocity_max_abs_error": 55.312932947637826,
+          "derivative_rmse": 80.22118336405919,
+          "onset_timing_error_s": 0.7150000000001455,
+          "peak_timing_error_s": 4.0240000000012515,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 147.42256865741498,
+          "velocity_rollout_mae": 124.72888989269828,
+          "velocity_max_abs_error": 193.17006519994243,
+          "derivative_rmse": 317.34261570107634,
+          "onset_timing_error_s": 0.23300000000017462,
+          "peak_timing_error_s": 0.06699999999909778,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 84.19963498480644,
+      "mean_velocity_rollout_mae": 70.52052034954838,
+      "mean_velocity_max_abs_error": 124.24149907379012,
+      "mean_derivative_rmse": 198.78189953256776,
+      "mean_onset_timing_error_s": 0.47400000000016007,
+      "mean_peak_timing_error_s": 2.0455000000001746,
+      "mean_stable_fraction": 1.0,
+      "split_id": "leave_two_out__p5838_step4__p5838_step10"
+    },
+    "leave_two_out__p5838_step5__p5838_step7": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step8",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step5",
+        "p5838_step7"
+      ],
+      "equation": "dV/dt = 2.177967e+01 - 3.773467e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 21.77966791895592,
+        "tau": 1.3095556704445304e-26,
+        "sigmaN": -2.1119913029580533e-17,
+        "sigmaN_logV": -0.3773467171574521
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 138.24652528923144,
+          "velocity_rollout_mae": 120.19718124893033,
+          "velocity_max_abs_error": 178.75162670874363,
+          "derivative_rmse": 278.7566005225442,
+          "onset_timing_error_s": 0.20199999999931606,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 49.19406965235037,
+          "velocity_rollout_mae": 48.350073729678755,
+          "velocity_max_abs_error": 54.449516079120926,
+          "derivative_rmse": 3.1279949499076105,
+          "onset_timing_error_s": 8.832000000000335,
+          "peak_timing_error_s": 47.08799999999974,
+          "stable_fraction": 0.007666666666666666
+        }
+      ],
+      "mean_velocity_rollout_rmse": 93.72029747079091,
+      "mean_velocity_rollout_mae": 84.27362748930454,
+      "mean_velocity_max_abs_error": 116.60057139393228,
+      "mean_derivative_rmse": 140.9422977362259,
+      "mean_onset_timing_error_s": 4.516999999999825,
+      "mean_peak_timing_error_s": 24.026999999999134,
+      "mean_stable_fraction": 0.5038333333333334,
+      "split_id": "leave_two_out__p5838_step5__p5838_step7"
+    },
+    "leave_two_out__p5838_step5__p5838_step8": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step5",
+        "p5838_step8"
+      ],
+      "equation": "dV/dt = 2.342079e+01 - 4.741396e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 23.420793161449467,
+        "tau": 2.2049916540162868e-30,
+        "sigmaN": -9.31512842444035e-23,
+        "sigmaN_logV": -0.4741395909524558
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 136.7107489655714,
+          "velocity_rollout_mae": 118.87511441008706,
+          "velocity_max_abs_error": 177.5509557225646,
+          "derivative_rmse": 278.4487863243399,
+          "onset_timing_error_s": 0.2069999999985157,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 62.77432748951976,
+          "velocity_rollout_mae": 59.722152992863364,
+          "velocity_max_abs_error": 84.16283050271471,
+          "derivative_rmse": 20.679968677267794,
+          "onset_timing_error_s": 5.953000000001339,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.08366666666666667
+        }
+      ],
+      "mean_velocity_rollout_rmse": 99.7425382275456,
+      "mean_velocity_rollout_mae": 89.29863370147521,
+      "mean_velocity_max_abs_error": 130.85689311263965,
+      "mean_derivative_rmse": 149.56437750080386,
+      "mean_onset_timing_error_s": 3.0799999999999272,
+      "mean_peak_timing_error_s": 8.45299999999952,
+      "mean_stable_fraction": 0.5418333333333334,
+      "split_id": "leave_two_out__p5838_step5__p5838_step8"
+    },
+    "leave_two_out__p5838_step5__p5838_step9": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step5",
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 2.151379e+01 - 4.468573e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 21.513786452502277,
+        "tau": 6.494784861321114e-18,
+        "sigmaN": -1.8629789104027148e-18,
+        "sigmaN_logV": -0.44685727686619786
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 138.71181674148875,
+          "velocity_rollout_mae": 120.60362574833628,
+          "velocity_max_abs_error": 179.02051482323435,
+          "derivative_rmse": 278.80186449643304,
+          "onset_timing_error_s": 0.20600000000013097,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 20.040390043794392,
+          "velocity_rollout_mae": 16.48835581798316,
+          "velocity_max_abs_error": 52.20529121395768,
+          "derivative_rmse": 82.41199147083657,
+          "onset_timing_error_s": 1.8239999999987049,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 79.37610339264157,
+      "mean_velocity_rollout_mae": 68.54599078315972,
+      "mean_velocity_max_abs_error": 115.61290301859601,
+      "mean_derivative_rmse": 180.60692798363482,
+      "mean_onset_timing_error_s": 1.014999999999418,
+      "mean_peak_timing_error_s": 2.7874999999994543,
+      "mean_stable_fraction": 1.0,
+      "split_id": "leave_two_out__p5838_step5__p5838_step9"
+    },
+    "leave_two_out__p5838_step5__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step7",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step5",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = 1.383570e+02 + 1.242711e+01*tau - 1.582679e+01*sigmaN - 1.207236e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 138.3569698261675,
+        "tau": 12.427111884635321,
+        "sigmaN": -15.82679000650943,
+        "sigmaN_logV": -0.12072360829914468
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step5",
+          "velocity_rollout_rmse": 154.34802940364466,
+          "velocity_rollout_mae": 134.15037003941245,
+          "velocity_max_abs_error": 195.3457800147416,
+          "derivative_rmse": 281.9048815812769,
+          "onset_timing_error_s": 0.125,
+          "peak_timing_error_s": 0.9659999999985303,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 155.51363576833788,
+          "velocity_rollout_mae": 131.02984271032113,
+          "velocity_max_abs_error": 204.41465206378916,
+          "derivative_rmse": 320.51433860855883,
+          "onset_timing_error_s": 0.021000000000640284,
+          "peak_timing_error_s": 0.004999999999199645,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 154.93083258599125,
+      "mean_velocity_rollout_mae": 132.5901063748668,
+      "mean_velocity_max_abs_error": 199.88021603926538,
+      "mean_derivative_rmse": 301.2096100949179,
+      "mean_onset_timing_error_s": 0.07300000000032014,
+      "mean_peak_timing_error_s": 0.48549999999886495,
+      "mean_stable_fraction": 1.0,
+      "split_id": "leave_two_out__p5838_step5__p5838_step10"
+    },
+    "leave_two_out__p5838_step7__p5838_step8": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step7",
+        "p5838_step8"
+      ],
+      "equation": "dV/dt = 8.840661e+02 - 4.428614e+01*sigmaN - 9.361022e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 884.0661368015291,
+        "tau": 9.489400785144438e-18,
+        "sigmaN": -44.28614072061933,
+        "sigmaN_logV": -0.936102229356132
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 21.806592870336647,
+          "velocity_rollout_mae": 21.646404567531413,
+          "velocity_max_abs_error": 28.308971487216954,
+          "derivative_rmse": 3.2488388842803713,
+          "onset_timing_error_s": 9.302999999999884,
+          "peak_timing_error_s": 6.162999999998647,
+          "stable_fraction": 0.004666666666666667
+        },
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 58.47831070996462,
+          "velocity_rollout_mae": 57.094800660721724,
+          "velocity_max_abs_error": 68.93639303157586,
+          "derivative_rmse": 21.09246656872806,
+          "onset_timing_error_s": 6.407000000001062,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.051333333333333335
+        }
+      ],
+      "mean_velocity_rollout_rmse": 40.14245179015063,
+      "mean_velocity_rollout_mae": 39.37060261412657,
+      "mean_velocity_max_abs_error": 48.622682259396406,
+      "mean_derivative_rmse": 12.170652726504215,
+      "mean_onset_timing_error_s": 7.855000000000473,
+      "mean_peak_timing_error_s": 11.051499999999578,
+      "mean_stable_fraction": 0.028,
+      "split_id": "leave_two_out__p5838_step7__p5838_step8"
+    },
+    "leave_two_out__p5838_step7__p5838_step9": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step7",
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 3.957180e+01 - 2.331095e-13*sigmaN - 9.384440e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 39.571801146272165,
+        "tau": 1.0914540743763746e-17,
+        "sigmaN": -2.3310953552448493e-13,
+        "sigmaN_logV": -0.9384439840455095
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 19.05793752390457,
+          "velocity_rollout_mae": 18.893925378721047,
+          "velocity_max_abs_error": 25.362542843658225,
+          "derivative_rmse": 3.0939354842259226,
+          "onset_timing_error_s": 9.32300000000032,
+          "peak_timing_error_s": 6.162999999998647,
+          "stable_fraction": 0.005333333333333333
+        },
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 37.27777321725529,
+          "velocity_rollout_mae": 33.235156659830864,
+          "velocity_max_abs_error": 63.85171285547351,
+          "derivative_rmse": 82.91222334656547,
+          "onset_timing_error_s": 2.0,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 28.16785537057993,
+      "mean_velocity_rollout_mae": 26.064541019275957,
+      "mean_velocity_max_abs_error": 44.60712784956587,
+      "mean_derivative_rmse": 43.003079415395696,
+      "mean_onset_timing_error_s": 5.66150000000016,
+      "mean_peak_timing_error_s": 5.3859999999995125,
+      "mean_stable_fraction": 0.5026666666666667,
+      "split_id": "leave_two_out__p5838_step7__p5838_step9"
+    },
+    "leave_two_out__p5838_step7__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step7",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = 5.679423e+02 + 3.243643e+01*tau - 5.178361e+01*sigmaN - 6.258868e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 567.9423443215422,
+        "tau": 32.436432959813686,
+        "sigmaN": -51.783609144086334,
+        "sigmaN_logV": -0.6258867898369016
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step7",
+          "velocity_rollout_rmse": 13.976562623142488,
+          "velocity_rollout_mae": 13.199970958632914,
+          "velocity_max_abs_error": 21.515034965232072,
+          "derivative_rmse": 2.6254499889862712,
+          "onset_timing_error_s": 9.225000000000364,
+          "peak_timing_error_s": 0.3719999999993888,
+          "stable_fraction": 0.007666666666666666
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 147.99436234628084,
+          "velocity_rollout_mae": 125.16515816125961,
+          "velocity_max_abs_error": 193.67840974274728,
+          "derivative_rmse": 317.30627191839346,
+          "onset_timing_error_s": 0.227999999999156,
+          "peak_timing_error_s": 0.06699999999909778,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 80.98546248471166,
+      "mean_velocity_rollout_mae": 69.18256455994626,
+      "mean_velocity_max_abs_error": 107.59672235398968,
+      "mean_derivative_rmse": 159.96586095368986,
+      "mean_onset_timing_error_s": 4.72649999999976,
+      "mean_peak_timing_error_s": 0.2194999999992433,
+      "mean_stable_fraction": 0.5038333333333334,
+      "split_id": "leave_two_out__p5838_step7__p5838_step10"
+    },
+    "leave_two_out__p5838_step8__p5838_step9": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step10"
+      ],
+      "holdout_steps": [
+        "p5838_step8",
+        "p5838_step9"
+      ],
+      "equation": "dV/dt = 4.311403e+01 - 1.130917e+00*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 43.114027071443516,
+        "tau": 8.398905093659112e-18,
+        "sigmaN": -3.0629791224418514e-18,
+        "sigmaN_logV": -1.1309171143381247
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 40.97655632995736,
+          "velocity_rollout_mae": 40.11070368887193,
+          "velocity_max_abs_error": 55.53187753453462,
+          "derivative_rmse": 20.90031344447398,
+          "onset_timing_error_s": 6.538000000000466,
+          "peak_timing_error_s": 15.94000000000051,
+          "stable_fraction": 0.056666666666666664
+        },
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 35.789080157513375,
+          "velocity_rollout_mae": 31.97104382321704,
+          "velocity_max_abs_error": 62.95420044382902,
+          "derivative_rmse": 82.92762630949666,
+          "onset_timing_error_s": 2.065999999998894,
+          "peak_timing_error_s": 4.609000000000378,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 38.38281824373537,
+      "mean_velocity_rollout_mae": 36.04087375604448,
+      "mean_velocity_max_abs_error": 59.24303898918183,
+      "mean_derivative_rmse": 51.91396987698532,
+      "mean_onset_timing_error_s": 4.30199999999968,
+      "mean_peak_timing_error_s": 10.274500000000444,
+      "mean_stable_fraction": 0.5283333333333333,
+      "split_id": "leave_two_out__p5838_step8__p5838_step9"
+    },
+    "leave_two_out__p5838_step8__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step9"
+      ],
+      "holdout_steps": [
+        "p5838_step8",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = 2.027730e+02 + 2.586278e+01*tau - 2.785537e+01*sigmaN - 7.079456e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": 202.77303714694588,
+        "tau": 25.862780435289668,
+        "sigmaN": -27.855372732312404,
+        "sigmaN_logV": -0.7079455813669356
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step8",
+          "velocity_rollout_rmse": 20.71032225089724,
+          "velocity_rollout_mae": 19.298637462175158,
+          "velocity_max_abs_error": 34.83669982048302,
+          "derivative_rmse": 20.038733686965877,
+          "onset_timing_error_s": 6.46100000000115,
+          "peak_timing_error_s": 5.120999999999185,
+          "stable_fraction": 0.15133333333333332
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 144.8616266280391,
+          "velocity_rollout_mae": 122.74611116146059,
+          "velocity_max_abs_error": 190.56703220947196,
+          "derivative_rmse": 316.4593502941717,
+          "onset_timing_error_s": 0.24399999999877764,
+          "peak_timing_error_s": 0.06699999999909778,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 82.78597443946816,
+      "mean_velocity_rollout_mae": 71.02237431181787,
+      "mean_velocity_max_abs_error": 112.7018660149775,
+      "mean_derivative_rmse": 168.2490419905688,
+      "mean_onset_timing_error_s": 3.3524999999999636,
+      "mean_peak_timing_error_s": 2.5939999999991414,
+      "mean_stable_fraction": 0.5756666666666667,
+      "split_id": "leave_two_out__p5838_step8__p5838_step10"
+    },
+    "leave_two_out__p5838_step9__p5838_step10": {
+      "family": "leave_two_out",
+      "train_steps": [
+        "p5838_step2",
+        "p5838_step3",
+        "p5838_step4",
+        "p5838_step5",
+        "p5838_step7",
+        "p5838_step8"
+      ],
+      "holdout_steps": [
+        "p5838_step9",
+        "p5838_step10"
+      ],
+      "equation": "dV/dt = -5.540721e+02 + 4.228795e+01*tau - 7.329347e-10*sigmaN - 6.901355e-01*sigmaN_logV",
+      "coefficients_physical": {
+        "1": -554.0721492537014,
+        "tau": 42.287948248349636,
+        "sigmaN": -7.329346676344566e-10,
+        "sigmaN_logV": -0.6901355335334067
+      },
+      "holdout_rows": [
+        {
+          "step_name": "p5838_step9",
+          "velocity_rollout_rmse": 41.39421416924225,
+          "velocity_rollout_mae": 35.30150492314355,
+          "velocity_max_abs_error": 82.240266031858,
+          "derivative_rmse": 81.73521870950003,
+          "onset_timing_error_s": 2.175999999999476,
+          "peak_timing_error_s": 2.1159999999999854,
+          "stable_fraction": 1.0
+        },
+        {
+          "step_name": "p5838_step10",
+          "velocity_rollout_rmse": 153.70156531966688,
+          "velocity_rollout_mae": 129.5802742868783,
+          "velocity_max_abs_error": 201.58622537292268,
+          "derivative_rmse": 319.0520319657876,
+          "onset_timing_error_s": 0.010000000000218279,
+          "peak_timing_error_s": 0.015000000001236913,
+          "stable_fraction": 1.0
+        }
+      ],
+      "mean_velocity_rollout_rmse": 97.54788974445457,
+      "mean_velocity_rollout_mae": 82.44088960501092,
+      "mean_velocity_max_abs_error": 141.91324570239033,
+      "mean_derivative_rmse": 200.3936253376438,
+      "mean_onset_timing_error_s": 1.0929999999998472,
+      "mean_peak_timing_error_s": 1.0655000000006112,
+      "mean_stable_fraction": 1.0,
+      "split_id": "leave_two_out__p5838_step9__p5838_step10"
+    }
+  },
+  "split_rows": [
+    {
+      "split_id": "single_step__p5838_step2",
+      "family": "single_step",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2",
+      "equation": "dV/dt = 3.728090e+01 - 9.309257e-01*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 16.41562903388972,
+      "velocity_rollout_mae": 16.049655668266503,
+      "velocity_max_abs_error": 22.506037782262595,
+      "derivative_rmse": 6.543793983670168,
+      "onset_timing_error_s": 21.433000000000902,
+      "peak_timing_error_s": 26.949000000000524,
+      "stable_fraction": 0.009666666666666667,
+      "split_mean_velocity_rollout_rmse": 16.41562903388972
+    },
+    {
+      "split_id": "single_step__p5838_step3",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3",
+      "equation": "dV/dt = 3.696453e+01 - 3.389574e-14*sigmaN - 9.166664e-01*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 45.501546705716336,
+      "velocity_rollout_mae": 44.52816273961796,
+      "velocity_max_abs_error": 59.05533348221388,
+      "derivative_rmse": 20.733127464016473,
+      "onset_timing_error_s": 6.539000000000669,
+      "peak_timing_error_s": 15.985999999998967,
+      "stable_fraction": 0.065,
+      "split_mean_velocity_rollout_rmse": 45.501546705716336
+    },
+    {
+      "split_id": "single_step__p5838_step4",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4",
+      "equation": "dV/dt = 3.290508e+01 - 1.807066e-12*sigmaN - 7.861251e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 19.085393132488136,
+      "velocity_rollout_mae": 16.389253281264,
+      "velocity_max_abs_error": 42.9582256777183,
+      "derivative_rmse": 80.70734192200415,
+      "onset_timing_error_s": 0.8389999999999418,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 19.085393132488136
+    },
+    {
+      "split_id": "single_step__p5838_step5",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5",
+      "equation": "dV/dt = 1.970520e+01 - 1.956595e-14*sigmaN - 3.873708e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 140.54811893588345,
+      "velocity_rollout_mae": 122.18794600570246,
+      "velocity_max_abs_error": 180.8234462509108,
+      "derivative_rmse": 279.14837588548835,
+      "onset_timing_error_s": 0.2029999999995198,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 140.54811893588345
+    },
+    {
+      "split_id": "single_step__p5838_step7",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step7",
+      "equation": "dV/dt = 3.495069e+02 - 1.654692e+01*sigmaN - 7.805557e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 22.13218745246833,
+      "velocity_rollout_mae": 21.975166617479854,
+      "velocity_max_abs_error": 28.38432032455853,
+      "derivative_rmse": 3.067914242679129,
+      "onset_timing_error_s": 9.28400000000147,
+      "peak_timing_error_s": 6.162999999998647,
+      "stable_fraction": 0.005666666666666667,
+      "split_mean_velocity_rollout_rmse": 22.13218745246833
+    },
+    {
+      "split_id": "single_step__p5838_step8",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step8",
+      "equation": "dV/dt = 3.698733e+01 - 9.160326e-01*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 46.27121179142418,
+      "velocity_rollout_mae": 45.2517063195751,
+      "velocity_max_abs_error": 58.574624366033376,
+      "derivative_rmse": 20.8240675979366,
+      "onset_timing_error_s": 6.453000000001339,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.06433333333333334,
+      "split_mean_velocity_rollout_rmse": 46.27121179142418
+    },
+    {
+      "split_id": "single_step__p5838_step9",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step9",
+      "equation": "dV/dt = 3.560512e+01 - 9.111013e-01*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 29.64310350291476,
+      "velocity_rollout_mae": 25.747402363741156,
+      "velocity_max_abs_error": 55.50161377727899,
+      "derivative_rmse": 82.70090419326385,
+      "onset_timing_error_s": 2.0119999999988067,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 29.64310350291476
+    },
+    {
+      "split_id": "single_step__p5838_step10",
+      "family": "single_step",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step10",
+      "equation": "dV/dt = -9.397945e+01 + 3.069156e+01*tau - 1.588393e+01*sigmaN - 5.915990e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 149.26710800376281,
+      "velocity_rollout_mae": 126.15265740051439,
+      "velocity_max_abs_error": 194.98653258489352,
+      "derivative_rmse": 317.81811159386575,
+      "onset_timing_error_s": 0.21899999999914144,
+      "peak_timing_error_s": 0.06699999999909778,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 149.26710800376281
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step3",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step3",
+      "equation": "dV/dt = 4.500583e+01 - 1.152033e+00*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 15.320316592339664,
+      "velocity_rollout_mae": 14.943440653505643,
+      "velocity_max_abs_error": 21.29828531393024,
+      "derivative_rmse": 6.594040157539101,
+      "onset_timing_error_s": 21.457000000000335,
+      "peak_timing_error_s": 26.949000000000524,
+      "stable_fraction": 0.008333333333333333,
+      "split_mean_velocity_rollout_rmse": 29.342951387094462
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step3",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step3",
+      "equation": "dV/dt = 4.500583e+01 - 1.152033e+00*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 43.36558618184926,
+      "velocity_rollout_mae": 42.50856678027535,
+      "velocity_max_abs_error": 58.665015754148314,
+      "derivative_rmse": 20.886531188705302,
+      "onset_timing_error_s": 6.623999999999796,
+      "peak_timing_error_s": 15.954999999999927,
+      "stable_fraction": 0.05,
+      "split_mean_velocity_rollout_rmse": 29.342951387094462
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step4",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step4",
+      "equation": "dV/dt = 3.967988e+01 - 2.570455e-11*sigmaN - 9.715086e-01*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 17.409480829582215,
+      "velocity_rollout_mae": 17.050348983346975,
+      "velocity_max_abs_error": 23.534014007482206,
+      "derivative_rmse": 6.576089588653794,
+      "onset_timing_error_s": 21.433000000000902,
+      "peak_timing_error_s": 26.949000000000524,
+      "stable_fraction": 0.009,
+      "split_mean_velocity_rollout_rmse": 19.839854322603234
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step4",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step4",
+      "equation": "dV/dt = 3.967988e+01 - 2.570455e-11*sigmaN - 9.715086e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 22.270227815624253,
+      "velocity_rollout_mae": 19.25320289309973,
+      "velocity_max_abs_error": 42.78615666641652,
+      "derivative_rmse": 80.8301319055729,
+      "onset_timing_error_s": 0.8759999999983847,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 19.839854322603234
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step5",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step5",
+      "equation": "dV/dt = 2.362505e+01 - 1.080192e-14*sigmaN - 4.802468e-01*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 29.908599352816644,
+      "velocity_rollout_mae": 29.555426598071005,
+      "velocity_max_abs_error": 37.20278076168689,
+      "derivative_rmse": 6.526255286363447,
+      "onset_timing_error_s": 21.2450000000008,
+      "peak_timing_error_s": 32.95900000000074,
+      "stable_fraction": 0.012,
+      "split_mean_velocity_rollout_rmse": 83.20733077217592
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step5",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step5",
+      "equation": "dV/dt = 2.362505e+01 - 1.080192e-14*sigmaN - 4.802468e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 136.5060621915352,
+      "velocity_rollout_mae": 118.69851806523285,
+      "velocity_max_abs_error": 177.39690484212952,
+      "derivative_rmse": 278.41144601187136,
+      "onset_timing_error_s": 0.2069999999985157,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 83.20733077217592
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step7",
+      "equation": "dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 21.124135902829934,
+      "velocity_rollout_mae": 20.78420991512136,
+      "velocity_max_abs_error": 27.3332915782984,
+      "derivative_rmse": 6.639620527651755,
+      "onset_timing_error_s": 21.433000000000902,
+      "peak_timing_error_s": 26.949000000000524,
+      "stable_fraction": 0.007666666666666666,
+      "split_mean_velocity_rollout_rmse": 21.19665627436679
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step7",
+      "equation": "dV/dt = 7.937418e+02 - 3.952640e+01*sigmaN - 9.497244e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 21.26917664590365,
+      "velocity_rollout_mae": 21.10836427542554,
+      "velocity_max_abs_error": 27.753468856272498,
+      "derivative_rmse": 3.234788660204988,
+      "onset_timing_error_s": 9.32300000000032,
+      "peak_timing_error_s": 6.162999999998647,
+      "stable_fraction": 0.004666666666666667,
+      "split_mean_velocity_rollout_rmse": 21.19665627436679
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step8",
+      "equation": "dV/dt = 4.503954e+01 - 5.688673e-13*sigmaN - 1.151386e+00*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 15.378919646872909,
+      "velocity_rollout_mae": 15.00270069861821,
+      "velocity_max_abs_error": 21.35986830708034,
+      "derivative_rmse": 6.595129765882231,
+      "onset_timing_error_s": 21.457000000000335,
+      "peak_timing_error_s": 26.949000000000524,
+      "stable_fraction": 0.008333333333333333,
+      "split_mean_velocity_rollout_rmse": 29.763388638831866
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step8",
+      "equation": "dV/dt = 4.503954e+01 - 5.688673e-13*sigmaN - 1.151386e+00*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 44.147857630790824,
+      "velocity_rollout_mae": 43.26386514971644,
+      "velocity_max_abs_error": 58.528655360324485,
+      "derivative_rmse": 20.98467844613673,
+      "onset_timing_error_s": 6.538000000000466,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.052,
+      "split_mean_velocity_rollout_rmse": 29.763388638831866
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step9",
+      "equation": "dV/dt = 4.356366e+01 - 1.156067e+00*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 13.797169630792709,
+      "velocity_rollout_mae": 13.399249162845148,
+      "velocity_max_abs_error": 19.69615903997155,
+      "derivative_rmse": 6.5615551763146325,
+      "onset_timing_error_s": 21.457000000000335,
+      "peak_timing_error_s": 26.949000000000524,
+      "stable_fraction": 0.009333333333333334,
+      "split_mean_velocity_rollout_rmse": 24.687294491648693
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step2|p5838_step9",
+      "equation": "dV/dt = 4.356366e+01 - 1.156067e+00*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 35.57741935250468,
+      "velocity_rollout_mae": 31.77565540476093,
+      "velocity_max_abs_error": 63.0382703928294,
+      "derivative_rmse": 82.93099857446775,
+      "onset_timing_error_s": 2.0759999999991123,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 24.687294491648693
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step2|p5838_step10",
+      "equation": "dV/dt = -2.921557e+02 + 4.193338e+01*tau - 1.323573e+01*sigmaN - 7.266292e-01*sigmaN_logV",
+      "step_name": "p5838_step2",
+      "velocity_rollout_rmse": 18.839799381025948,
+      "velocity_rollout_mae": 18.241986612809796,
+      "velocity_max_abs_error": 26.207216820899685,
+      "derivative_rmse": 6.07730578484397,
+      "onset_timing_error_s": 21.338999999999942,
+      "peak_timing_error_s": 45.3070000000007,
+      "stable_fraction": 0.011666666666666667,
+      "split_mean_velocity_rollout_rmse": 83.94448082816605
+    },
+    {
+      "split_id": "leave_two_out__p5838_step2__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step2|p5838_step10",
+      "equation": "dV/dt = -2.921557e+02 + 4.193338e+01*tau - 1.323573e+01*sigmaN - 7.266292e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 149.04916227530614,
+      "velocity_rollout_mae": 125.96966326646843,
+      "velocity_max_abs_error": 194.70696493339136,
+      "derivative_rmse": 317.42912139974794,
+      "onset_timing_error_s": 0.20899999999892316,
+      "peak_timing_error_s": 0.06699999999909778,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 83.94448082816605
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step4",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step4",
+      "equation": "dV/dt = 3.931596e+01 - 9.548151e-01*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 48.586416798725175,
+      "velocity_rollout_mae": 47.5665941734307,
+      "velocity_max_abs_error": 62.05688958924182,
+      "derivative_rmse": 20.823105245755706,
+      "onset_timing_error_s": 6.5460000000002765,
+      "peak_timing_error_s": 15.985999999998967,
+      "stable_fraction": 0.06,
+      "split_mean_velocity_rollout_rmse": 35.4220736569852
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step4",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step5|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step4",
+      "equation": "dV/dt = 3.931596e+01 - 9.548151e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 22.257730515245218,
+      "velocity_rollout_mae": 19.23856365362202,
+      "velocity_max_abs_error": 42.870252349209764,
+      "derivative_rmse": 80.83154419713087,
+      "onset_timing_error_s": 0.8729999999995925,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 35.4220736569852
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step5",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step5",
+      "equation": "dV/dt = 2.340095e+01 - 4.382091e-14*sigmaN - 4.746709e-01*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 62.04148724172002,
+      "velocity_rollout_mae": 59.11336229624991,
+      "velocity_max_abs_error": 83.66427651441327,
+      "derivative_rmse": 20.58973036747449,
+      "onset_timing_error_s": 6.042999999999665,
+      "peak_timing_error_s": 15.985999999998967,
+      "stable_fraction": 0.08333333333333333,
+      "split_mean_velocity_rollout_rmse": 99.38760454049807
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step5",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step5",
+      "equation": "dV/dt = 2.340095e+01 - 4.382091e-14*sigmaN - 4.746709e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 136.73372183927611,
+      "velocity_rollout_mae": 118.89502271073515,
+      "velocity_max_abs_error": 177.56699137280668,
+      "derivative_rmse": 278.452369624232,
+      "onset_timing_error_s": 0.2069999999985157,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 99.38760454049807
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step7",
+      "equation": "dV/dt = 9.982050e+02 - 5.028478e+01*sigmaN - 9.350200e-01*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 58.018297780242435,
+      "velocity_rollout_mae": 56.6661202922471,
+      "velocity_max_abs_error": 69.42091921983219,
+      "derivative_rmse": 20.96713957138416,
+      "onset_timing_error_s": 6.492000000000189,
+      "peak_timing_error_s": 15.954999999999927,
+      "stable_fraction": 0.04933333333333333,
+      "split_mean_velocity_rollout_rmse": 39.92877910139025
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step7",
+      "equation": "dV/dt = 9.982050e+02 - 5.028478e+01*sigmaN - 9.350200e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 21.839260422538068,
+      "velocity_rollout_mae": 21.67847541690571,
+      "velocity_max_abs_error": 28.36582198957681,
+      "derivative_rmse": 3.254128368283286,
+      "onset_timing_error_s": 9.302999999999884,
+      "peak_timing_error_s": 6.162999999998647,
+      "stable_fraction": 0.004666666666666667,
+      "split_mean_velocity_rollout_rmse": 39.92877910139025
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step8",
+      "equation": "dV/dt = 4.460385e+01 - 3.401369e-12*sigmaN - 1.129820e+00*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 44.52355729094674,
+      "velocity_rollout_mae": 43.652198565808646,
+      "velocity_max_abs_error": 59.63999304230319,
+      "derivative_rmse": 20.89316194272074,
+      "onset_timing_error_s": 6.6159999999999854,
+      "peak_timing_error_s": 15.954999999999927,
+      "stable_fraction": 0.049666666666666665,
+      "split_mean_velocity_rollout_rmse": 44.84064986672166
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step8",
+      "equation": "dV/dt = 4.460385e+01 - 3.401369e-12*sigmaN - 1.129820e+00*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 45.15774244249659,
+      "velocity_rollout_mae": 44.258344219475056,
+      "velocity_max_abs_error": 59.30606885578175,
+      "derivative_rmse": 20.98812415522509,
+      "onset_timing_error_s": 6.530000000000655,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.052,
+      "split_mean_velocity_rollout_rmse": 44.84064986672166
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step9",
+      "equation": "dV/dt = 4.308484e+01 - 1.131812e+00*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 40.22291116255941,
+      "velocity_rollout_mae": 39.37990964290454,
+      "velocity_max_abs_error": 55.60890069194534,
+      "derivative_rmse": 20.803913363113963,
+      "onset_timing_error_s": 6.630999999999403,
+      "peak_timing_error_s": 15.954999999999927,
+      "stable_fraction": 0.059333333333333335,
+      "split_mean_velocity_rollout_rmse": 37.95345368171242
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step3|p5838_step9",
+      "equation": "dV/dt = 4.308484e+01 - 1.131812e+00*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 35.68399620086543,
+      "velocity_rollout_mae": 31.86660565104743,
+      "velocity_max_abs_error": 62.878245659573864,
+      "derivative_rmse": 82.92503533326793,
+      "onset_timing_error_s": 2.065999999998894,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 37.95345368171242
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step3|p5838_step10",
+      "equation": "dV/dt = -3.310258e+02 + 4.352953e+01*tau - 1.230390e+01*sigmaN - 7.657991e-01*sigmaN_logV",
+      "step_name": "p5838_step3",
+      "velocity_rollout_rmse": 48.36159360427937,
+      "velocity_rollout_mae": 46.834418323705194,
+      "velocity_max_abs_error": 67.40606496466609,
+      "derivative_rmse": 20.256882612754172,
+      "onset_timing_error_s": 6.484000000000378,
+      "peak_timing_error_s": 4.904999999998836,
+      "stable_fraction": 0.06366666666666666,
+      "split_mean_velocity_rollout_rmse": 98.77520212059338
+    },
+    {
+      "split_id": "leave_two_out__p5838_step3__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step4|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step3|p5838_step10",
+      "equation": "dV/dt = -3.310258e+02 + 4.352953e+01*tau - 1.230390e+01*sigmaN - 7.657991e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 149.1888106369074,
+      "velocity_rollout_mae": 126.07645703953143,
+      "velocity_max_abs_error": 194.83399393209248,
+      "derivative_rmse": 317.4328298547451,
+      "onset_timing_error_s": 0.2070000000003347,
+      "peak_timing_error_s": 0.06699999999909778,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 98.77520212059338
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step5",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step5",
+      "equation": "dV/dt = 1.944483e+01 - 1.036021e-12*sigmaN - 3.561239e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 21.570630123900685,
+      "velocity_rollout_mae": 16.933917687984138,
+      "velocity_max_abs_error": 55.62842641748381,
+      "derivative_rmse": 80.70534696242764,
+      "onset_timing_error_s": 0.7019999999993161,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 81.16726228785393
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step5",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step7|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step5",
+      "equation": "dV/dt = 1.944483e+01 - 1.036021e-12*sigmaN - 3.561239e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 140.76389445180718,
+      "velocity_rollout_mae": 122.37310554369513,
+      "velocity_max_abs_error": 181.0631959245358,
+      "derivative_rmse": 279.2002597795953,
+      "onset_timing_error_s": 0.20199999999931606,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 81.16726228785393
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step7",
+      "equation": "dV/dt = 6.550794e+02 - 3.250636e+01*sigmaN - 7.832239e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 23.245827337994626,
+      "velocity_rollout_mae": 20.016811555383562,
+      "velocity_max_abs_error": 46.57940200748102,
+      "derivative_rmse": 80.90421858598023,
+      "onset_timing_error_s": 0.8239999999987049,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 24.50309659071064
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step7",
+      "equation": "dV/dt = 6.550794e+02 - 3.250636e+01*sigmaN - 7.832239e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 25.76036584342666,
+      "velocity_rollout_mae": 25.596858900154455,
+      "velocity_max_abs_error": 32.08534892998524,
+      "derivative_rmse": 3.2259843892342057,
+      "onset_timing_error_s": 9.264000000001033,
+      "peak_timing_error_s": 6.162999999998647,
+      "stable_fraction": 0.005333333333333333,
+      "split_mean_velocity_rollout_rmse": 24.50309659071064
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step8",
+      "equation": "dV/dt = 3.934611e+01 - 2.381984e-09*sigmaN - 9.541903e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 22.317837160995108,
+      "velocity_rollout_mae": 19.289165397439966,
+      "velocity_max_abs_error": 43.030870245075604,
+      "derivative_rmse": 80.83418200142067,
+      "onset_timing_error_s": 0.8709999999991851,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 35.867192747515446
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step8",
+      "equation": "dV/dt = 3.934611e+01 - 2.381984e-09*sigmaN - 9.541903e-01*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 49.41654833403578,
+      "velocity_rollout_mae": 48.34746509843971,
+      "velocity_max_abs_error": 61.624460322837066,
+      "derivative_rmse": 20.916654531306484,
+      "onset_timing_error_s": 6.453000000001339,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.057666666666666665,
+      "split_mean_velocity_rollout_rmse": 35.867192747515446
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step9",
+      "equation": "dV/dt = 3.780139e+01 - 9.544407e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 20.358203713718027,
+      "velocity_rollout_mae": 17.64044859082181,
+      "velocity_max_abs_error": 39.164750900042776,
+      "derivative_rmse": 80.74875404232083,
+      "onset_timing_error_s": 0.8779999999987922,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 26.395000870751424
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step4|p5838_step9",
+      "equation": "dV/dt = 3.780139e+01 - 9.544407e-01*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 32.43179802778482,
+      "velocity_rollout_mae": 28.519768628273813,
+      "velocity_max_abs_error": 58.33835809195901,
+      "derivative_rmse": 82.78309738402831,
+      "onset_timing_error_s": 2.0169999999998254,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 26.395000870751424
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step4|p5838_step10",
+      "equation": "dV/dt = 4.116870e+01 + 2.519717e+01*tau - 1.907223e+01*sigmaN - 5.683877e-01*sigmaN_logV",
+      "step_name": "p5838_step4",
+      "velocity_rollout_rmse": 20.976701312197875,
+      "velocity_rollout_mae": 16.31215080639849,
+      "velocity_max_abs_error": 55.312932947637826,
+      "derivative_rmse": 80.22118336405919,
+      "onset_timing_error_s": 0.7150000000001455,
+      "peak_timing_error_s": 4.0240000000012515,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 84.19963498480644
+    },
+    {
+      "split_id": "leave_two_out__p5838_step4__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step5|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step4|p5838_step10",
+      "equation": "dV/dt = 4.116870e+01 + 2.519717e+01*tau - 1.907223e+01*sigmaN - 5.683877e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 147.42256865741498,
+      "velocity_rollout_mae": 124.72888989269828,
+      "velocity_max_abs_error": 193.17006519994243,
+      "derivative_rmse": 317.34261570107634,
+      "onset_timing_error_s": 0.23300000000017462,
+      "peak_timing_error_s": 0.06699999999909778,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 84.19963498480644
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step7",
+      "equation": "dV/dt = 2.177967e+01 - 3.773467e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 138.24652528923144,
+      "velocity_rollout_mae": 120.19718124893033,
+      "velocity_max_abs_error": 178.75162670874363,
+      "derivative_rmse": 278.7566005225442,
+      "onset_timing_error_s": 0.20199999999931606,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 93.72029747079091
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step7",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step8|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step7",
+      "equation": "dV/dt = 2.177967e+01 - 3.773467e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 49.19406965235037,
+      "velocity_rollout_mae": 48.350073729678755,
+      "velocity_max_abs_error": 54.449516079120926,
+      "derivative_rmse": 3.1279949499076105,
+      "onset_timing_error_s": 8.832000000000335,
+      "peak_timing_error_s": 47.08799999999974,
+      "stable_fraction": 0.007666666666666666,
+      "split_mean_velocity_rollout_rmse": 93.72029747079091
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step8",
+      "equation": "dV/dt = 2.342079e+01 - 4.741396e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 136.7107489655714,
+      "velocity_rollout_mae": 118.87511441008706,
+      "velocity_max_abs_error": 177.5509557225646,
+      "derivative_rmse": 278.4487863243399,
+      "onset_timing_error_s": 0.2069999999985157,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 99.7425382275456
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step8",
+      "equation": "dV/dt = 2.342079e+01 - 4.741396e-01*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 62.77432748951976,
+      "velocity_rollout_mae": 59.722152992863364,
+      "velocity_max_abs_error": 84.16283050271471,
+      "derivative_rmse": 20.679968677267794,
+      "onset_timing_error_s": 5.953000000001339,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.08366666666666667,
+      "split_mean_velocity_rollout_rmse": 99.7425382275456
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step9",
+      "equation": "dV/dt = 2.151379e+01 - 4.468573e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 138.71181674148875,
+      "velocity_rollout_mae": 120.60362574833628,
+      "velocity_max_abs_error": 179.02051482323435,
+      "derivative_rmse": 278.80186449643304,
+      "onset_timing_error_s": 0.20600000000013097,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 79.37610339264157
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step5|p5838_step9",
+      "equation": "dV/dt = 2.151379e+01 - 4.468573e-01*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 20.040390043794392,
+      "velocity_rollout_mae": 16.48835581798316,
+      "velocity_max_abs_error": 52.20529121395768,
+      "derivative_rmse": 82.41199147083657,
+      "onset_timing_error_s": 1.8239999999987049,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 79.37610339264157
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step5|p5838_step10",
+      "equation": "dV/dt = 1.383570e+02 + 1.242711e+01*tau - 1.582679e+01*sigmaN - 1.207236e-01*sigmaN_logV",
+      "step_name": "p5838_step5",
+      "velocity_rollout_rmse": 154.34802940364466,
+      "velocity_rollout_mae": 134.15037003941245,
+      "velocity_max_abs_error": 195.3457800147416,
+      "derivative_rmse": 281.9048815812769,
+      "onset_timing_error_s": 0.125,
+      "peak_timing_error_s": 0.9659999999985303,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 154.93083258599125
+    },
+    {
+      "split_id": "leave_two_out__p5838_step5__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step7|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step5|p5838_step10",
+      "equation": "dV/dt = 1.383570e+02 + 1.242711e+01*tau - 1.582679e+01*sigmaN - 1.207236e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 155.51363576833788,
+      "velocity_rollout_mae": 131.02984271032113,
+      "velocity_max_abs_error": 204.41465206378916,
+      "derivative_rmse": 320.51433860855883,
+      "onset_timing_error_s": 0.021000000000640284,
+      "peak_timing_error_s": 0.004999999999199645,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 154.93083258599125
+    },
+    {
+      "split_id": "leave_two_out__p5838_step7__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step7|p5838_step8",
+      "equation": "dV/dt = 8.840661e+02 - 4.428614e+01*sigmaN - 9.361022e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 21.806592870336647,
+      "velocity_rollout_mae": 21.646404567531413,
+      "velocity_max_abs_error": 28.308971487216954,
+      "derivative_rmse": 3.2488388842803713,
+      "onset_timing_error_s": 9.302999999999884,
+      "peak_timing_error_s": 6.162999999998647,
+      "stable_fraction": 0.004666666666666667,
+      "split_mean_velocity_rollout_rmse": 40.14245179015063
+    },
+    {
+      "split_id": "leave_two_out__p5838_step7__p5838_step8",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step9|p5838_step10",
+      "holdout_steps": "p5838_step7|p5838_step8",
+      "equation": "dV/dt = 8.840661e+02 - 4.428614e+01*sigmaN - 9.361022e-01*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 58.47831070996462,
+      "velocity_rollout_mae": 57.094800660721724,
+      "velocity_max_abs_error": 68.93639303157586,
+      "derivative_rmse": 21.09246656872806,
+      "onset_timing_error_s": 6.407000000001062,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.051333333333333335,
+      "split_mean_velocity_rollout_rmse": 40.14245179015063
+    },
+    {
+      "split_id": "leave_two_out__p5838_step7__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step7|p5838_step9",
+      "equation": "dV/dt = 3.957180e+01 - 2.331095e-13*sigmaN - 9.384440e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 19.05793752390457,
+      "velocity_rollout_mae": 18.893925378721047,
+      "velocity_max_abs_error": 25.362542843658225,
+      "derivative_rmse": 3.0939354842259226,
+      "onset_timing_error_s": 9.32300000000032,
+      "peak_timing_error_s": 6.162999999998647,
+      "stable_fraction": 0.005333333333333333,
+      "split_mean_velocity_rollout_rmse": 28.16785537057993
+    },
+    {
+      "split_id": "leave_two_out__p5838_step7__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step10",
+      "holdout_steps": "p5838_step7|p5838_step9",
+      "equation": "dV/dt = 3.957180e+01 - 2.331095e-13*sigmaN - 9.384440e-01*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 37.27777321725529,
+      "velocity_rollout_mae": 33.235156659830864,
+      "velocity_max_abs_error": 63.85171285547351,
+      "derivative_rmse": 82.91222334656547,
+      "onset_timing_error_s": 2.0,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 28.16785537057993
+    },
+    {
+      "split_id": "leave_two_out__p5838_step7__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step7|p5838_step10",
+      "equation": "dV/dt = 5.679423e+02 + 3.243643e+01*tau - 5.178361e+01*sigmaN - 6.258868e-01*sigmaN_logV",
+      "step_name": "p5838_step7",
+      "velocity_rollout_rmse": 13.976562623142488,
+      "velocity_rollout_mae": 13.199970958632914,
+      "velocity_max_abs_error": 21.515034965232072,
+      "derivative_rmse": 2.6254499889862712,
+      "onset_timing_error_s": 9.225000000000364,
+      "peak_timing_error_s": 0.3719999999993888,
+      "stable_fraction": 0.007666666666666666,
+      "split_mean_velocity_rollout_rmse": 80.98546248471166
+    },
+    {
+      "split_id": "leave_two_out__p5838_step7__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step8|p5838_step9",
+      "holdout_steps": "p5838_step7|p5838_step10",
+      "equation": "dV/dt = 5.679423e+02 + 3.243643e+01*tau - 5.178361e+01*sigmaN - 6.258868e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 147.99436234628084,
+      "velocity_rollout_mae": 125.16515816125961,
+      "velocity_max_abs_error": 193.67840974274728,
+      "derivative_rmse": 317.30627191839346,
+      "onset_timing_error_s": 0.227999999999156,
+      "peak_timing_error_s": 0.06699999999909778,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 80.98546248471166
+    },
+    {
+      "split_id": "leave_two_out__p5838_step8__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step10",
+      "holdout_steps": "p5838_step8|p5838_step9",
+      "equation": "dV/dt = 4.311403e+01 - 1.130917e+00*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 40.97655632995736,
+      "velocity_rollout_mae": 40.11070368887193,
+      "velocity_max_abs_error": 55.53187753453462,
+      "derivative_rmse": 20.90031344447398,
+      "onset_timing_error_s": 6.538000000000466,
+      "peak_timing_error_s": 15.94000000000051,
+      "stable_fraction": 0.056666666666666664,
+      "split_mean_velocity_rollout_rmse": 38.38281824373537
+    },
+    {
+      "split_id": "leave_two_out__p5838_step8__p5838_step9",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step10",
+      "holdout_steps": "p5838_step8|p5838_step9",
+      "equation": "dV/dt = 4.311403e+01 - 1.130917e+00*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 35.789080157513375,
+      "velocity_rollout_mae": 31.97104382321704,
+      "velocity_max_abs_error": 62.95420044382902,
+      "derivative_rmse": 82.92762630949666,
+      "onset_timing_error_s": 2.065999999998894,
+      "peak_timing_error_s": 4.609000000000378,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 38.38281824373537
+    },
+    {
+      "split_id": "leave_two_out__p5838_step8__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step9",
+      "holdout_steps": "p5838_step8|p5838_step10",
+      "equation": "dV/dt = 2.027730e+02 + 2.586278e+01*tau - 2.785537e+01*sigmaN - 7.079456e-01*sigmaN_logV",
+      "step_name": "p5838_step8",
+      "velocity_rollout_rmse": 20.71032225089724,
+      "velocity_rollout_mae": 19.298637462175158,
+      "velocity_max_abs_error": 34.83669982048302,
+      "derivative_rmse": 20.038733686965877,
+      "onset_timing_error_s": 6.46100000000115,
+      "peak_timing_error_s": 5.120999999999185,
+      "stable_fraction": 0.15133333333333332,
+      "split_mean_velocity_rollout_rmse": 82.78597443946816
+    },
+    {
+      "split_id": "leave_two_out__p5838_step8__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step9",
+      "holdout_steps": "p5838_step8|p5838_step10",
+      "equation": "dV/dt = 2.027730e+02 + 2.586278e+01*tau - 2.785537e+01*sigmaN - 7.079456e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 144.8616266280391,
+      "velocity_rollout_mae": 122.74611116146059,
+      "velocity_max_abs_error": 190.56703220947196,
+      "derivative_rmse": 316.4593502941717,
+      "onset_timing_error_s": 0.24399999999877764,
+      "peak_timing_error_s": 0.06699999999909778,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 82.78597443946816
+    },
+    {
+      "split_id": "leave_two_out__p5838_step9__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8",
+      "holdout_steps": "p5838_step9|p5838_step10",
+      "equation": "dV/dt = -5.540721e+02 + 4.228795e+01*tau - 7.329347e-10*sigmaN - 6.901355e-01*sigmaN_logV",
+      "step_name": "p5838_step9",
+      "velocity_rollout_rmse": 41.39421416924225,
+      "velocity_rollout_mae": 35.30150492314355,
+      "velocity_max_abs_error": 82.240266031858,
+      "derivative_rmse": 81.73521870950003,
+      "onset_timing_error_s": 2.175999999999476,
+      "peak_timing_error_s": 2.1159999999999854,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 97.54788974445457
+    },
+    {
+      "split_id": "leave_two_out__p5838_step9__p5838_step10",
+      "family": "leave_two_out",
+      "train_steps": "p5838_step2|p5838_step3|p5838_step4|p5838_step5|p5838_step7|p5838_step8",
+      "holdout_steps": "p5838_step9|p5838_step10",
+      "equation": "dV/dt = -5.540721e+02 + 4.228795e+01*tau - 7.329347e-10*sigmaN - 6.901355e-01*sigmaN_logV",
+      "step_name": "p5838_step10",
+      "velocity_rollout_rmse": 153.70156531966688,
+      "velocity_rollout_mae": 129.5802742868783,
+      "velocity_max_abs_error": 201.58622537292268,
+      "derivative_rmse": 319.0520319657876,
+      "onset_timing_error_s": 0.010000000000218279,
+      "peak_timing_error_s": 0.015000000001236913,
+      "stable_fraction": 1.0,
+      "split_mean_velocity_rollout_rmse": 97.54788974445457
+    }
+  ],
+  "meta": {
+    "branch": "reduced_rsf"
+  }
+}

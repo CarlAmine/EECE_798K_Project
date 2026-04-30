@@ -1,0 +1,175 @@
+{
+  "tiny_library": {
+    "label": "tiny_library",
+    "feature_names": [
+      "1",
+      "Vtheta"
+    ],
+    "coefficients": {
+      "1": 4.084007884227115e-05,
+      "Vtheta": -0.005703971964262181
+    },
+    "active_terms": [
+      "1",
+      "Vtheta"
+    ],
+    "train_metrics": {
+      "mse": 1.224567562480952e-05,
+      "rmse": 0.0034993821775864266,
+      "mae": 0.0011898398562423245,
+      "r2": 0.005899587112858762
+    },
+    "holdout_metrics": {
+      "mse": 0.0007812732983280378,
+      "rmse": 0.027951266488802216,
+      "mae": 0.007087755720919653,
+      "r2": 0.0003738272971269829
+    },
+    "c0_close_to_1_abs_error": 0.9999591599211577,
+    "c1_negative": true,
+    "Dc_hat": 175.31642972045213,
+    "equation": "dtheta/dt = 4.084008e-05 - 5.703972e-03*Vtheta"
+  },
+  "expanded_library": {
+    "label": "expanded_library",
+    "feature_names": [
+      "1",
+      "Vtheta",
+      "V",
+      "theta"
+    ],
+    "coefficients": {
+      "1": 7.929643963629825e-05,
+      "Vtheta": -0.005675455111827374,
+      "V": -3.9431653298748765e-07,
+      "theta": -0.005248856112496589
+    },
+    "active_terms": [
+      "1",
+      "Vtheta",
+      "V",
+      "theta"
+    ],
+    "train_metrics": {
+      "mse": 1.2244889011986596e-05,
+      "rmse": 0.003499269782681323,
+      "mae": 0.0011911687790013045,
+      "r2": 0.005963444114792549
+    },
+    "holdout_metrics": {
+      "mse": 0.0007812469843761396,
+      "rmse": 0.027950795773575742,
+      "mae": 0.007107196825552917,
+      "r2": 0.00040749556030839074
+    },
+    "c0_close_to_1_abs_error": 0.9999207035603637,
+    "c1_negative": true,
+    "Dc_hat": 176.197323438617,
+    "equation": "dtheta/dt = 7.929644e-05 - 5.675455e-03*Vtheta - 3.943165e-07*V - 5.248856e-03*theta"
+  },
+  "subset_summary": {
+    "rows": [
+      {
+        "split": "holdout",
+        "step_name": "p5838_step2",
+        "n_rows": 3000,
+        "theta_cv": 0.5730377544476157,
+        "logtheta_std": 0.5125334270448716,
+        "Dc_ref": 3.0476863003671215
+      },
+      {
+        "split": "holdout",
+        "step_name": "p5838_step7",
+        "n_rows": 3000,
+        "theta_cv": 0.8068649139986533,
+        "logtheta_std": 0.6022463023752744,
+        "Dc_ref": 7.566035493410332
+      },
+      {
+        "split": "train",
+        "step_name": "p5838_step10",
+        "n_rows": 1763,
+        "theta_cv": 0.7465811829421115,
+        "logtheta_std": 0.7552039030840136,
+        "Dc_ref": 20.342122643134854
+      },
+      {
+        "split": "train",
+        "step_name": "p5838_step3",
+        "n_rows": 3000,
+        "theta_cv": 0.7136735825000021,
+        "logtheta_std": 0.6377110030318791,
+        "Dc_ref": 5.232607233898873
+      },
+      {
+        "split": "train",
+        "step_name": "p5838_step4",
+        "n_rows": 3000,
+        "theta_cv": 0.733500979914843,
+        "logtheta_std": 0.6130102578598376,
+        "Dc_ref": 7.171331013280902
+      },
+      {
+        "split": "train",
+        "step_name": "p5838_step8",
+        "n_rows": 3000,
+        "theta_cv": 0.7133649867642722,
+        "logtheta_std": 0.6315656275806578,
+        "Dc_ref": 2.0606970496827492
+      },
+      {
+        "split": "train",
+        "step_name": "p5838_step9",
+        "n_rows": 3000,
+        "theta_cv": 0.8924066542893562,
+        "logtheta_std": 0.9287308153330166,
+        "Dc_ref": 5.941424615584197
+      }
+    ],
+    "mean_theta_cv": 0.7399185792652648,
+    "mean_logtheta_std": 0.6687144766156502,
+    "median_Dc_ref": 5.941424615584197
+  },
+  "usable_subset": {
+    "train_steps": [
+      "p5838_step3",
+      "p5838_step8",
+      "p5838_step9",
+      "p5838_step4",
+      "p5838_step10"
+    ],
+    "holdout_steps": [
+      "p5838_step2",
+      "p5838_step7"
+    ]
+  },
+  "table_rows": [
+    {
+      "variant": "tiny_library",
+      "equation": "dtheta/dt = 4.084008e-05 - 5.703972e-03*Vtheta",
+      "active_terms": "1|Vtheta",
+      "train_rmse": 0.0034993821775864266,
+      "holdout_rmse": 0.027951266488802216,
+      "holdout_r2": 0.0003738272971269829,
+      "c0": 4.084007884227115e-05,
+      "c1_Vtheta": -0.005703971964262181,
+      "Dc_hat": 175.31642972045213
+    },
+    {
+      "variant": "expanded_library",
+      "equation": "dtheta/dt = 7.929644e-05 - 5.675455e-03*Vtheta - 3.943165e-07*V - 5.248856e-03*theta",
+      "active_terms": "1|Vtheta|V|theta",
+      "train_rmse": 0.003499269782681323,
+      "holdout_rmse": 0.027950795773575742,
+      "holdout_r2": 0.00040749556030839074,
+      "c0": 7.929643963629825e-05,
+      "c1_Vtheta": -0.005675455111827374,
+      "Dc_hat": 176.197323438617
+    }
+  ],
+  "conclusions": {
+    "expanded_library_changes_conclusion": false,
+    "tiny_library_reasonably_consistent": false,
+    "consistency_strength": "weak"
+  }
+}
