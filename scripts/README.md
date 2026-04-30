@@ -28,7 +28,3 @@ Run this to verify active entrypoints parse and expose `--help` where expected:
 python scripts/tools/check_script_entrypoints.py
 ```
 
-## Dataset-specific cleanup
-
-- Utah FORGE migration planning is tracked in `scripts/utah_forge_script_catalog.md`.
-- Migrate Utah FORGE scripts category-by-category with compatibility wrappers at old paths.

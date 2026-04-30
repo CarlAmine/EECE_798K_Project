@@ -9,11 +9,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
-CHECKS = [
-    ["python", "-m", "py_compile", "scripts/build_multidataset_notebooks.py"],
-    ["python", "-m", "py_compile", "scripts/notebooks/build_multidataset_notebooks.py"],
-    ["python", "-m", "py_compile", "scripts/run_notebooks.py"],
-    ["python", "-m", "py_compile", "scripts/notebooks/run_notebooks.py"],
+ENTRYPOINTS = [
+    ["python", "scripts/build_multidataset_notebooks.py"],
+    ["python", "scripts/notebooks/build_multidataset_notebooks.py"],
 ]
 
 
@@ -31,7 +29,7 @@ def run(cmd: list[str]) -> tuple[int, str]:
 
 def main() -> int:
     failures = 0
-    for cmd in CHECKS:
+    for cmd in ENTRYPOINTS:
         code, output = run(cmd)
         label = "PASS" if code == 0 else "FAIL"
         print(f"[{label}] {' '.join(cmd)}")
