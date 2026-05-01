@@ -201,7 +201,7 @@ See [`docs/results_index.md`](docs/results_index.md) for a complete indexed list
 |--------|--------|
 | `main` | Clean final submission branch |
 | `dev` | Active development / integration branch |
-| `malek-utah-forge` | **Protected collaborator branch — DO NOT MODIFY** |
+| `malek-utah-forge` | Contributor branch |
 | `Multidataset-validation` | Historical multi-dataset exploration |
 | `codex/*` | Temporary agent branches (see `docs/branch_strategy.md`) |
 
