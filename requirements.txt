@@ -1,0 +1,28 @@
+# Core scientific computing
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+
+# Machine learning
+scikit-learn>=1.3
+
+# Jupyter environment
+jupyter>=1.0
+notebook>=7.0
+ipykernel>=6.0
+ipywidgets>=8.0
+
+# Data formats
+mat73>=0.60
+h5py>=3.9
+
+# Signal processing and differentiation
+pysindy>=1.7
+
+# Optional: notebook execution
+nbconvert>=7.0
+nbformat>=5.9
+
+# Optional: progress bars
+tqdm>=4.65
