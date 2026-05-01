@@ -2,7 +2,7 @@
 
 This document records all changes made during the `repo-cleanup/readability-pass` branch. It is intended to satisfy the course requirement for documented iteration history.
 
-**Cleanup performed:** May 2025  
+**Cleanup performed:** May 2026  
 **Branch:** `repo-cleanup/readability-pass`  
 **Base commit (dev):** `2bd48c59d3f9356f340f470f7b280f6345acabb0`
 
@@ -83,6 +83,17 @@ For reference, the commit SHAs before cleanup:
 - `main` base: `49baa1fdadbf4efaf48ed888b9977fcda892b614`
 - `malek-utah-forge`: `2074d62c39b917011565332f15740cbac26b427c`
 - `Multidataset-validation`: `76467f23b574d55bd7d80839b515ca0b2e52ea23`
+
+---
+
+
+## Second pass fixes
+
+- reports folder structure created
+- reports/README.md added
+- reports/final_paper/.gitkeep added
+- reports/proposal/.gitkeep added
+- reports/progress/.gitkeep added
 
 ---
 
