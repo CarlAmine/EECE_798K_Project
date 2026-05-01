@@ -2,7 +2,7 @@
 
 This document records all changes made during the `repo-cleanup/readability-pass` branch. It is intended to satisfy the course requirement for documented iteration history.
 
-**Cleanup performed:** May 2025  
+**Cleanup performed:** May 2026  
 **Branch:** `repo-cleanup/readability-pass`  
 **Base commit (dev):** `2bd48c59d3f9356f340f470f7b280f6345acabb0`
 
