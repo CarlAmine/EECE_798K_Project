@@ -86,6 +86,17 @@ For reference, the commit SHAs before cleanup:
 
 ---
 
+
+## Second pass fixes
+
+- reports folder structure created
+- reports/README.md added
+- reports/final_paper/.gitkeep added
+- reports/proposal/.gitkeep added
+- reports/progress/.gitkeep added
+
+---
+
 ## Known Remaining Issues (Deferred)
 
 These were identified but deliberately deferred to avoid risky changes:
